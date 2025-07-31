@@ -1,0 +1,22 @@
+[
+    {
+        "date": "2010-05-22",
+        "title": "Bitcoin Pizza Day",
+        "description": "Laszlo Hanyecz paga 10,000 BTC por dos pizzas, en la primera transacción de Bitcoin por un bien físico."
+    },
+    {
+        "date": "2013-10-02",
+        "title": "Cierre de Silk Road",
+        "description": "El FBI cierra el mercado negro online Silk Road, causando una caída temporal en el precio."
+    },
+    {
+        "date": "2017-12-17",
+        "title": "Pico del Bull Run de 2017",
+        "description": "Bitcoin alcanza un máximo histórico de casi $20,000."
+    },
+    {
+        "date": "2021-11-10",
+        "title": "Máximo Histórico (ATH)",
+        "description": "Bitcoin alcanza su máximo histórico actual, superando los $68,000."
+    }
+]
