@@ -1,0 +1,197 @@
+[
+  {
+    "date": "2008-10-31",
+    "title": "📜 Whitepaper de Bitcoin",
+    "description": "Satoshi Nakamoto publica el whitepaper: 'Bitcoin: A Peer-to-Peer Electronic Cash System'. ¡El documento que lo empezó todo!"
+  },
+  {
+    "date": "2009-01-03",
+    "title": "🚀 Bloque Génesis",
+    "description": "Se mina el primer bloque de Bitcoin con el mensaje oculto: 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks'. Una clara señal de por qué se creó Bitcoin."
+  },
+  {
+    "date": "2009-01-12",
+    "title": "👨‍💻 Primera transacción",
+    "description": "Satoshi envía 10 BTC a Hal Finney, pionero del software y entusiasta de la criptografía. ¡La primera transferencia de BTC de la historia!"
+  },
+  {
+    "date": "2009-10-05",
+    "title": "💱 Primer valor en USD",
+    "description": "Se establece el primer tipo de cambio: 1 USD = 1309.03 BTC. ¡Por menos de un dólar podías comprar un montón de Bitcoin!"
+  },
+  {
+    "date": "2010-02-06",
+    "title": "🛒 Primer exchange",
+    "description": "Se lanza BitcoinMarket.com, el primer exchange de Bitcoin. ¡Aquí es donde la gente empezó a comprar y vender BTC de verdad!"
+  },
+  {
+    "date": "2010-05-22",
+    "title": "🍕 Bitcoin Pizza Day",
+    "description": "Laszlo Hanyecz paga 10,000 BTC por dos pizzas. Hoy valdrían millones 💸. ¡La pizza más cara de la historia!"
+  },
+  {
+    "date": "2010-07-11",
+    "title": "🧠 Bitcoin en Slashdot",
+    "description": "Bitcoin aparece en Slashdot, atrayendo a muchos geeks y mineros curiosos. ¡El efecto Slashdot llevó a Bitcoin al siguiente nivel!"
+  },
+  {
+    "date": "2010-08-15",
+    "title": "⚠️ Primer bug crítico",
+    "description": "Se explotan 184 mil millones de BTC por un bug. Se corrige con un hard fork urgente. ¡Un susto que demostró la resiliencia de la red!"
+  },
+  {
+    "date": "2011-02-09",
+    "title": "💵 Paridad con el dólar",
+    "description": "1 BTC alcanza el mismo valor que 1 USD por primera vez. ¡Un hito que hizo que muchos levantaran las cejas!"
+  },
+  {
+    "date": "2011-06-13",
+    "title": "🔓 Hackeo a Mt. Gox",
+    "description": "Se hackea el exchange más popular, cayendo el precio de $17 a casi cero 😱. ¡Un trago amargo para la comunidad, pero una lección aprendida!"
+  },
+  {
+    "date": "2012-11-28",
+    "title": "🪙 Primer halving",
+    "description": "La recompensa por bloque pasa de 50 a 25 BTC, reduciendo la inflación del sistema. ¡La oferta se reduce, la escasez aumenta!"
+  },
+  {
+    "date": "2013-03-28",
+    "title": "🏦 Banco de Chipre y Bitcoin",
+    "description": "La crisis bancaria en Chipre dispara el interés por Bitcoin como alternativa al sistema financiero tradicional. ¡La gente busca refugio!"
+  },
+  {
+    "date": "2013-10-02",
+    "title": "👮‍♂️ Cierre de Silk Road",
+    "description": "El FBI cierra el mercado negro Silk Road. Ross Ulbricht es arrestado. ¡Un golpe a la Dark Web, pero no a Bitcoin en sí!"
+  },
+  {
+    "date": "2013-11-29",
+    "title": "🚀 BTC supera los $1,000",
+    "description": "Bitcoin supera los $1,000 impulsado por la demanda en China. ¡El dragón entra en escena!"
+  },
+  {
+    "date": "2014-02-24",
+    "title": "🧨 Quiebra de Mt. Gox",
+    "description": "El exchange más grande del mundo se declara en bancarrota tras 'perder' 850,000 BTC. ¡El 'Monte Gox' implosionó, dejando a muchos con el corazón roto!"
+  },
+  {
+    "date": "2015-07-30",
+    "title": "🌐 Nace Ethereum",
+    "description": "Lanzamiento de Ethereum: se abre una nueva era de contratos inteligentes. ¡El hermano menor (o rival) de Bitcoin llega al barrio!"
+  },
+  {
+    "date": "2016-01-01",
+    "title": "📈 El meme 'HODL' se consolida",
+    "description": "El error tipográfico 'I AM HODLING' se convierte en el grito de guerra de los inversores de Bitcoin para no vender. ¡Hodl on, brothers!"
+  },
+  {
+    "date": "2016-07-09",
+    "title": "⚒️ Segundo halving",
+    "description": "La recompensa baja a 12.5 BTC por bloque. ¡Otro paso hacia la escasez programada!"
+  },
+  {
+    "date": "2017-08-01",
+    "title": "🔀 Bitcoin Cash se bifurca",
+    "description": "Bitcoin se divide por desacuerdos sobre la escalabilidad. Nace Bitcoin Cash (BCH). ¡Una saga familiar con drama incluido!"
+  },
+  {
+    "date": "2017-12-17",
+    "title": "📈 ATH de 2017",
+    "description": "Bitcoin alcanza casi $20,000 por primera vez tras una subida meteórica. ¡Todos querían un trozo del pastel!"
+  },
+  {
+    "date": "2018-01-16",
+    "title": "🧊 Criptoinvierno",
+    "description": "Empieza una caída prolongada en los precios. Bitcoin pierde más del 80% de su valor. ¡El invierno es crudo para los 'nuevos ricos'!"
+  },
+  {
+    "date": "2018-12-15",
+    "title": "📉 Mínimo del mercado bajista",
+    "description": "Bitcoin toca fondo en $3,200 tras un año de caídas. ¡Los verdaderos creyentes compraron la caída!"
+  },
+  {
+    "date": "2019-04-02",
+    "title": "🐶 Dogecoin se dispara por Elon Musk",
+    "description": "Elon Musk tuitea sobre Dogecoin, haciendo que su precio se dispare. ¡El 'Dogefather' entra en acción!"
+  },
+  {
+    "date": "2020-03-12",
+    "title": "😷 COVID y caída brutal",
+    "description": "El precio de BTC cae 50% en un solo día por el pánico financiero global. ¡El 'Jueves Negro' también llegó a las cripto!"
+  },
+  {
+    "date": "2020-05-11",
+    "title": "⛏️ Tercer halving",
+    "description": "La recompensa se reduce a 6.25 BTC. Comienza un nuevo ciclo alcista. ¡La escasez programada sigue su curso!"
+  },
+  {
+    "date": "2020-12-16",
+    "title": "🚨 Rompe los $20K",
+    "description": "BTC supera el máximo de 2017, marcando el inicio del rally de 2021. ¡La fiebre vuelve a subir!"
+  },
+  {
+    "date": "2021-02-08",
+    "title": "🚗 Tesla compra BTC",
+    "description": "Tesla invierte $1.5B en Bitcoin y anuncia que lo aceptará como pago. ¡Elon Musk haciendo de las suyas otra vez!"
+  },
+  {
+    "date": "2021-04-14",
+    "title": "📊 Coinbase en NASDAQ",
+    "description": "Coinbase se convierte en la primera gran empresa cripto en cotizar en bolsa. ¡Un puente entre Wall Street y el criptoespacio!"
+  },
+  {
+    "date": "2021-06-09",
+    "title": "🇸🇻 Bitcoin legal en El Salvador",
+    "description": "El Salvador se convierte en el primer país en aceptar Bitcoin como moneda oficial. ¡Un experimento audaz a nivel nacional!"
+  },
+  {
+    "date": "2021-11-10",
+    "title": "🎉 Máximo histórico (ATH)",
+    "description": "BTC alcanza los $68,789.63, su máximo histórico hasta hoy. ¡La cumbre de la montaña, por ahora!"
+  },
+  {
+    "date": "2022-05-12",
+    "title": "🌪️ Colapso de Terra/Luna",
+    "description": "Una de las mayores stablecoins colapsa. Arrastra a BTC y a todo el mercado a la baja. ¡Un terremoto en el ecosistema cripto!"
+  },
+  {
+    "date": "2022-11-11",
+    "title": "💥 Quiebra de FTX",
+    "description": "FTX, uno de los exchanges más grandes, colapsa por fraude. Millones pierden fondos. ¡Otro escándalo que sacudió la confianza!"
+  },
+  {
+    "date": "2023-03-10",
+    "title": "🏦 Crisis bancaria USA",
+    "description": "Bitcoin sube tras la quiebra de bancos tradicionales como SVB y Signature Bank. ¡Bitcoin como refugio seguro, una vez más!"
+  },
+  {
+    "date": "2023-10-01",
+    "title": "🟢 BlackRock pide ETF",
+    "description": "BlackRock y otras gestoras presentan solicitudes para ETF de Bitcoin. Comienza nuevo optimismo. ¡Los grandes jugadores se suman!"
+  },
+  {
+    "date": "2024-04-20",
+    "title": "🔻 Cuarto halving",
+    "description": "La recompensa por bloque se reduce a 3.125 BTC. Se reduce la oferta diaria de nuevos bitcoins. ¡El evento más esperado por los 'Bitcoin maximalistas'!"
+  },
+  {
+    "date": "2024-10-15",
+    "title": "✅ ETF de Bitcoin aprobado",
+    "description": "La SEC aprueba el primer ETF de Bitcoin spot en EE.UU. La industria lo celebra como hito histórico. ¡Bitcoin entra en las carteras tradicionales!"
+  },
+  {
+    "date": "2025-01-01",
+    "title": "🌍 1 millón de nodos ligeros",
+    "description": "Se estima que existen más de un millón de nodos móviles o ligeros operando en todo el mundo. ¡Bitcoin se vuelve más descentralizado y accesible!"
+  },
+  {
+    "date": "2025-05-01",
+    "title": "🖼️ Auge de los Ordinals y NFTs en Bitcoin",
+    "description": "Se popularizan aún más los Ordinals y los NFTs en la blockchain de Bitcoin, demostrando nuevas funcionalidades para la red. ¡Bitcoin no es solo dinero, es arte digital!"
+  },
+  {
+    "date": "2025-07-20",
+    "title": "⚡️ Lightning Network alcanza 10,000 BTC de capacidad",
+    "description": "La capacidad de la Lightning Network, la capa de pagos rápidos de Bitcoin, supera los 10,000 BTC. ¡Pagos instantáneos y baratos son cada vez más una realidad!"
+  }
+]

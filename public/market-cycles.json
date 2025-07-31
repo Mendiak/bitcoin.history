@@ -1,0 +1,26 @@
+[
+  {
+    "type": "bull",
+    "startDate": "2017-01-01",
+    "endDate": "2017-12-17",
+    "label": "Bull Run de 2017"
+  },
+  {
+    "type": "bear",
+    "startDate": "2017-12-18",
+    "endDate": "2018-12-15",
+    "label": "Invierno Cripto de 2018"
+  },
+  {
+    "type": "bull",
+    "startDate": "2020-10-01",
+    "endDate": "2021-11-10",
+    "label": "Bull Run de 2021"
+  },
+  {
+    "type": "bear",
+    "startDate": "2021-11-11",
+    "endDate": "2022-11-21",
+    "label": "Mercado Bajista de 2022"
+  }
+]

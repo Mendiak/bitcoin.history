@@ -1,0 +1,25 @@
+{
+  "name": "bitcoin.history",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Build script not needed for this static project, but Vercel requires it.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mendiak/bitcoin.history.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mendiak/bitcoin.history/issues"
+  },
+  "homepage": "https://github.com/Mendiak/bitcoin.history#readme",
+  "dependencies": {
+    "csv-parser": "^3.2.0"
+  }
+}

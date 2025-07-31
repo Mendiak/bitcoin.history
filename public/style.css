@@ -1,0 +1,152 @@
+/* Light Theme */
+html[data-bs-theme="light"] {
+    --bg-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --primary-text-color: #212529;
+    --secondary-text-color: #6c757d;
+    --bitcoin-orange: #f2a900;
+    --accent-blue: #0d6efd;
+    --border-color: #dee2e6;
+}
+
+/* Dark Theme */
+html[data-bs-theme="dark"] {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --bitcoin-orange: #f2a900;
+    --accent-blue: #0d6efd;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--primary-text-color);
+}
+
+/* Hacemos que el contenedor del gráfico sea responsive */
+#chart-container {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    width: 100%;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* El SVG llenará el contenedor, y el navegador lo escalará */
+#chart-container svg {
+    width: 100%;
+    height: auto;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilos para los ejes */
+.axis path,
+.axis line {
+    stroke: var(--border-color);
+}
+
+.axis text {
+    fill: var(--secondary-text-color);
+    font-size: 0.75rem;
+}
+
+.axis--y .tick line {
+    stroke: var(--border-color);
+    stroke-dasharray: 2, 2;
+}
+
+.line {
+    fill: none;
+    stroke: var(--bitcoin-orange);
+    stroke-width: 2px;
+}
+
+.event-marker {
+    fill: var(--accent-blue);
+    stroke: var(--surface-color);
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: r 0.2s ease-in-out, fill 0.2s ease-in-out;
+}
+
+.event-marker:hover {
+    fill: #4ea8ff;
+    r: 8;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font: 12px 'Inter', sans-serif;
+    background: rgba(40, 40, 40, 0.9);
+    color: #fff;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+/* Estilo específico para el tooltip de eventos */
+.tooltip.tooltip-event {
+    background: var(--accent-blue);
+    color: #fff;
+    text-align: left;
+}
+
+.tooltip hr {
+    margin: 4px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para el brush */
+.context .line {
+    stroke-width: 1.5px;
+    stroke: var(--secondary-text-color);
+}
+
+.brush .selection {
+    fill: var(--bitcoin-orange);
+    fill-opacity: 0.3;
+    stroke: var(--bitcoin-orange);
+}
+
+/* Estilos para el tooltip interactivo */
+.hover-line {
+    stroke: var(--primary-text-color);
+    stroke-width: 1px;
+    stroke-dasharray: 3,3;
+}
+
+.hover-dot {
+    fill: var(--bitcoin-orange);
+    stroke: var(--surface-color);
+    stroke-width: 2px;
+}
+
+/* Estilos para las áreas de mercado */
+.market-area {
+    opacity: 0.1;
+}
+.market-area.bull {
+    fill: #28a745; /* Verde */
+}
+.market-area.bear {
+    fill: #dc3545; /* Rojo */
+}

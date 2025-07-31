@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Precio de Bitcoin</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Historia del Precio de Bitcoin</h1>
+        <p class="text-center text-muted">Una visualización del viaje de Bitcoin con eventos clave.</p>
+        <div class="d-flex justify-content-center align-items-center my-4 gap-2">
+            <button id="scale-toggle" class="btn btn-outline-secondary btn-sm" title="Cambiar Escala">
+                <i class="bi bi-graph-up"></i> Escala Logarítmica
+            </button>
+            <button id="reset-zoom" class="btn btn-outline-secondary btn-sm" style="display: none;" title="Restablecer Zoom">
+                <i class="bi bi-arrow-clockwise"></i> Restablecer Zoom
+            </button>
+            <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" title="Cambiar Tema">
+                <i class="bi bi-sun-fill"></i>
+            </button>
+        </div>
+        <div id="chart-container">
+            <!-- El gráfico se renderizará aquí -->
+        </div>
+        <div class="text-center mt-3">
+            <small class="text-muted">Desarrollado con D3.js y mucho ❤️</small>
+        </div>
+    </div>
+
+    <!-- D3.js y nuestro script -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
