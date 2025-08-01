@@ -1,6 +1,7 @@
 /* Light Theme */
 html[data-bs-theme="light"] {
     --bg-color: #f8f9fa;
+    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --surface-color: #ffffff;
     --primary-text-color: #212529;
     --secondary-text-color: #6c757d;
@@ -12,6 +13,7 @@ html[data-bs-theme="light"] {
 /* Dark Theme */
 html[data-bs-theme="dark"] {
     --bg-color: #121212;
+    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --surface-color: #1e1e1e;
     --primary-text-color: #e0e0e0;
     --secondary-text-color: #a0a0a0;
@@ -31,6 +33,16 @@ h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     color: var(--primary-text-color);
+}
+
+/* Controles de la esquina superior derecha */
+#top-right-controls {
+    position: absolute;
+    top: 0;
+    right: 1rem; /* Ajustado para que no pegue al borde */
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 /* Hacemos que el contenedor del gráfico sea responsive */
@@ -59,7 +71,8 @@ h1 {
 
 .axis text {
     fill: var(--secondary-text-color);
-    font-size: 0.75rem;
+    font-size: 0.8rem; /* Aumentamos ligeramente el tamaño para mejor legibilidad */
+    font-family: var(--font-monospace); /* Usamos una fuente monoespaciada para los datos */
 }
 
 .axis--y .tick line {
@@ -74,17 +87,60 @@ h1 {
 }
 
 .event-marker {
-    fill: var(--accent-blue);
     stroke: var(--surface-color);
     stroke-width: 2px;
     cursor: pointer;
-    transition: r 0.2s ease-in-out, fill 0.2s ease-in-out;
+    transform-origin: center; /* Asegura que la escala se haga desde el centro */
+    transform-box: fill-box;  /* Clave para la compatibilidad en Firefox */
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out, stroke 0.2s ease-in-out, stroke-width 0.2s ease-in-out;
 }
 
 .event-marker:hover {
-    fill: #4ea8ff;
-    r: 8;
+    stroke: var(--bitcoin-orange);
+    stroke-width: 3px;
 }
+
+/* Estilo para resaltar un marcador desde la cronología */
+.event-marker.highlighted {
+    stroke: var(--bitcoin-orange);
+    stroke-width: 4px;
+    transform: scale(1.7);
+}
+
+/* Animación de pulso para los marcadores de eventos */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.event-marker.pulsing {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Colores de las categorías de eventos */
+.event-marker.category-technology { fill: #0dcaf0; } /* Bootstrap info */
+.event-marker.category-market { fill: #fd7e14; } /* Bootstrap orange */
+.event-marker.category-adoption { fill: #198754; } /* Bootstrap success */
+.event-marker.category-regulation { fill: #dc3545; } /* Bootstrap danger */
+.event-marker.category-security { fill: #6f42c1; } /* Bootstrap indigo */
+.event-marker.category-halving { fill: #d63384; } /* Bootstrap pink, para mejor contraste */
+
+/* Estilos para los puntos de color en los botones de filtro */
+.filter-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.filter-dot.category-technology { background-color: #0dcaf0; }
+.filter-dot.category-market { background-color: #fd7e14; }
+.filter-dot.category-adoption { background-color: #198754; }
+.filter-dot.category-regulation { background-color: #dc3545; }
+.filter-dot.category-security { background-color: #6f42c1; }
+.filter-dot.category-halving { background-color: #d63384; }
 
 .tooltip {
     position: absolute;
@@ -101,6 +157,17 @@ h1 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     max-width: 250px;
     line-height: 1.4;
+}
+
+/* Estilo para la cronología de eventos */
+.list-group-item {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Estilo para el precio dentro del tooltip */
+.tooltip .tooltip-price {
+    font-family: var(--font-monospace);
+    font-size: 1.1em;
 }
 
 /* Estilo específico para el tooltip de eventos */

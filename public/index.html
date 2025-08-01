@@ -18,30 +18,85 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container my-5">
-        <h1 class="text-center">Historia del Precio de Bitcoin</h1>
-        <p class="text-center text-muted">Una visualización del viaje de Bitcoin con eventos clave.</p>
-        <div class="d-flex justify-content-center align-items-center my-4 gap-2">
-            <button id="scale-toggle" class="btn btn-outline-secondary btn-sm" title="Cambiar Escala">
+    <div class="container my-5 position-relative">
+        <div id="top-right-controls">
+            <button id="help-toggle" class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="popover" data-bs-trigger="focus">
+                <i class="bi bi-question-circle"></i>
+            </button>
+            <div class="btn-group">
+                <button class="btn btn-outline-secondary btn-sm" id="lang-es">ES</button>
+                <button class="btn btn-outline-secondary btn-sm" id="lang-en">EN</button>
+            </div>
+            <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" data-i18n-title="theme">
+                <i class="bi bi-sun-fill"></i>
+            </button>
+        </div>
+
+        <h1 class="text-center" data-i18n-key="pageTitle">Historia del Precio de Bitcoin</h1>
+        <p class="text-center text-muted fs-5" data-i18n-key="pageSubtitle">Una visualización del viaje de Bitcoin con eventos clave.</p>
+
+        <div id="event-filters" class="d-flex flex-wrap justify-content-center mb-3 gap-2" role="group" aria-label="Filtros de eventos">
+            <!-- Los botones de filtro se generarán aquí con JavaScript -->
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center mt-4 mb-4 gap-2">
+            <button id="scale-toggle" class="btn btn-outline-secondary btn-sm" data-i18n-title="scale">
                 <i class="bi bi-graph-up"></i> Escala Logarítmica
             </button>
-            <button id="reset-zoom" class="btn btn-outline-secondary btn-sm" style="display: none;" title="Restablecer Zoom">
+            <button id="reset-zoom" class="btn btn-outline-secondary btn-sm" style="display: none;" data-i18n-key="resetZoom" data-i18n-title="resetZoom">
                 <i class="bi bi-arrow-clockwise"></i> Restablecer Zoom
-            </button>
-            <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" title="Cambiar Tema">
-                <i class="bi bi-sun-fill"></i>
             </button>
         </div>
         <div id="chart-container">
             <!-- El gráfico se renderizará aquí -->
         </div>
+
+        <!-- Cronología de Eventos -->
+        <div class="mt-5">
+            <h3 class="text-center mb-4" data-i18n-key="timelineTitle"></h3>
+            <div id="events-timeline" class="list-group">
+                <!-- Los eventos se inyectarán aquí con JavaScript -->
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <small class="text-muted" data-i18n-key="dataSource"></small>
+        </div>
         <div class="text-center mt-3">
-            <small class="text-muted">Desarrollado con D3.js y mucho ❤️</small>
+            <small class="text-muted">
+                <span data-i18n-key="footerDev">Desarrollado por</span> 
+                <a href="https://mendiak.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Mikel Aramendia</a> 
+                <span data-i18n-key="footerWith">con</span> 
+                <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a> 
+                y mucho ❤️
+            </small>
+        </div>
+    </div>
+
+    <!-- Modal de Bootstrap para los eventos -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="eventModalLabel">Título del Evento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="eventModalBody">
+                    <!-- La descripción completa se inyectará aquí -->
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div id="eventModalLinks">
+                        <!-- Los enlaces se inyectarán aquí -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n-key="modalClose">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- D3.js y nuestro script -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
