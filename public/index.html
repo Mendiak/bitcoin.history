@@ -32,8 +32,10 @@
             </button>
         </div>
 
-        <h1 class="text-center" data-i18n-key="pageTitle">Historia del Precio de Bitcoin</h1>
-        <p class="text-center text-muted fs-5" data-i18n-key="pageSubtitle">Una visualización del viaje de Bitcoin con eventos clave.</p>
+        <h1 class="text-center">
+            <i class="bi bi-currency-bitcoin"></i> <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
+        </h1>
+        <p class="text-center text-muted fs-5" data-i18n-key="pageSubtitle">Una historia de precio, poder y resiliencia.</p>
 
         <div id="event-filters" class="d-flex flex-wrap justify-content-center mb-3 gap-2" role="group" aria-label="Filtros de eventos">
             <!-- Los botones de filtro se generarán aquí con JavaScript -->
@@ -48,12 +50,18 @@
             </button>
         </div>
         <div id="chart-container">
-            <!-- El gráfico se renderizará aquí -->
+            <div id="loading-spinner" class="text-center">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2" data-i18n-key="loading">Cargando datos...</p>
+            </div>
         </div>
 
         <!-- Cronología de Eventos -->
         <div class="mt-5">
-            <h3 class="text-center mb-4" data-i18n-key="timelineTitle"></h3>
+            <p class="text-center text-muted fst-italic mb-3" data-i18n-key="timelineIntro"></p>
+            <h3 class="text-center mb-3" data-i18n-key="timelineTitle"></h3>
             <div id="events-timeline" class="list-group">
                 <!-- Los eventos se inyectarán aquí con JavaScript -->
             </div>
@@ -67,7 +75,8 @@
                 <span data-i18n-key="footerDev">Desarrollado por</span> 
                 <a href="https://mendiak.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Mikel Aramendia</a> 
                 <span data-i18n-key="footerWith">con</span> 
-                <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a> 
+                <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a>,
+                <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" title="Bootstrap"><i class="bi bi-bootstrap-fill"></i></a>
                 y mucho ❤️
             </small>
         </div>

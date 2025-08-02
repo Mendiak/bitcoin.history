@@ -34,12 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const eventModalBody = document.getElementById('eventModalBody');
     const eventModalLinks = document.getElementById('eventModalLinks');
     const helpToggleEl = document.getElementById('help-toggle');
-
-    // Inicializar el Popover de Bootstrap para el botón de ayuda
-    const helpPopover = new bootstrap.Popover(helpToggleEl, {
-        html: true,
-        placement: 'bottom'
-    });
+    const chartContainer = document.getElementById('chart-container');
+    const loadingSpinner = document.getElementById('loading-spinner');
 
     let state = {
         scale: 'log', // 'log' o 'linear'
@@ -80,13 +76,56 @@ document.addEventListener('DOMContentLoaded', function() {
         d3.json(translationsURL)
     ]).then(([priceData, eventsData, marketCyclesData, i18nData]) => {
         
+        translations = i18nData;
+
+        // Inicializar Popover con funciones para que el contenido sea dinámico y dependa del idioma
+        new bootstrap.Popover(helpToggleEl, {
+            html: true,
+            placement: 'bottom',
+            title: () => translations[state.lang].chartExplanationTitle,
+            content: () => translations[state.lang].chartExplanation
+        });
+        
+        // --- OCULTAR SPINNER Y PREPARAR CONTENEDOR ---
+        loadingSpinner.style.display = 'none';
+        chartContainer.style.display = 'block'; // Revertir a 'block' para que D3 renderice correctamente
+        chartContainer.style.minHeight = 'auto'; // Resetear la altura mínima
+
+        
+        // --- FUNCIÓN REUTILIZABLE PARA MOSTRAR MODAL ---
+        function showEventModal(d) {
+            // Rellenar el modal con los datos del evento
+            eventModalTitle.textContent = d['title_' + state.lang];
+
+            // Procesar la descripción para respetar los saltos de línea del JSON
+            const descriptionHTML = d['description_full_' + state.lang]
+                .split('\n\n') // Separar por párrafos (doble salto de línea)
+                .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`) // Reemplazar saltos simples por <br>
+                .join('');
+            eventModalBody.innerHTML = descriptionHTML;
+
+            // Limpiar enlaces anteriores y añadir los nuevos
+            eventModalLinks.innerHTML = '';
+            if (d.links && d.links.length > 0) {
+                d.links.forEach(link => {
+                    const linkEl = document.createElement('a');
+                    linkEl.href = link.url;
+                    linkEl.innerHTML = `<i class="bi bi-link-45deg"></i> ${link['text_' + state.lang]}`;
+                    linkEl.className = 'btn btn-primary me-2';
+                    linkEl.target = '_blank';
+                    linkEl.rel = 'noopener noreferrer';
+                    eventModalLinks.appendChild(linkEl);
+                });
+            }
+            eventModal.show();
+        }
+
         // --- 4. PROCESAMIENTO DE DATOS ---
         const data = priceData.prices.map(d => ({
             date: new Date(d[0]),
             price: d[1]
         }));
 
-        translations = i18nData;
         eventsData.forEach(e => e.date = d3.timeParse("%Y-%m-%d")(e.date));
 
         marketCyclesData.forEach(d => {
@@ -246,7 +285,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr("class", d => `event-marker category-${d.category.toLowerCase()}`)
             .attr("r", 6)
             .attr("clip-path", "url(#clip)")
-            .style("cursor", "pointer") // Añadimos cursor de puntero para indicar que es clickeable
+            .style("cursor", "pointer")
+            // --- MEJORAS DE ACCESIBILIDAD ---
+            .attr("tabindex", 0) // Hace que el círculo sea enfocable con el teclado
+            .attr("role", "button") // Informa a los lectores de pantalla que es un botón
+            .attr("aria-label", d => d['title_' + state.lang]) // Etiqueta accesible
             .on("mouseover", function(event, d) {
                 // Añadir la clase para la animación de pulso
                 d3.select(this).classed('pulsing', true);
@@ -268,31 +311,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 tooltip.style("opacity", 0).classed("tooltip-event", false);
             })
-            .on("click", (event, d) => {
-                // Rellenar el modal con los datos del evento
-                eventModalTitle.textContent = d['title_' + state.lang];
-
-                // Procesar la descripción para respetar los saltos de línea del JSON
-                const descriptionHTML = d['description_full_' + state.lang]
-                    .split('\n\n') // Separar por párrafos (doble salto de línea)
-                    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`) // Reemplazar saltos simples por <br>
-                    .join('');
-                eventModalBody.innerHTML = descriptionHTML;
-
-                // Limpiar enlaces anteriores y añadir los nuevos
-                eventModalLinks.innerHTML = '';
-                if (d.links && d.links.length > 0) {
-                    d.links.forEach(link => {
-                        const linkEl = document.createElement('a');
-                        linkEl.href = link.url;
-                        linkEl.innerHTML = `<i class="bi bi-link-45deg"></i> ${link['text_' + state.lang]}`; // Usamos el texto según el idioma
-                        linkEl.className = 'btn btn-primary me-2';
-                        linkEl.target = '_blank';
-                        linkEl.rel = 'noopener noreferrer';
-                        eventModalLinks.appendChild(linkEl);
-                    });
+            .on("click", (event, d) => showEventModal(d))
+            .on("keydown", (event, d) => {
+                // Activar con Enter o Espacio para accesibilidad
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault(); // Prevenir scroll de la página con la barra espaciadora
+                    showEventModal(d);
                 }
-                eventModal.show();
             });
 
         // --- 8. FUNCIONES DE ACTUALIZACIÓN Y EVENTOS ---
@@ -408,25 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     event.preventDefault(); // Prevenir el salto de página
                     
                     // Se ha eliminado el zoom automático al hacer clic en la cronología para una UX más directa.
-
-                    // Reutilizar la lógica del modal de los marcadores del gráfico
-                    eventModalTitle.textContent = d['title_' + lang];
-                    const descriptionHTML = d['description_full_' + lang]
-                        .split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
-                    eventModalBody.innerHTML = descriptionHTML;
-                    eventModalLinks.innerHTML = '';
-                    if (d.links && d.links.length > 0) {
-                        d.links.forEach(link => {
-                            const linkEl = document.createElement('a');
-                            linkEl.href = link.url;
-                            linkEl.innerHTML = `<i class="bi bi-link-45deg"></i> ${link['text_' + lang]}`;
-                            linkEl.className = 'btn btn-primary me-2';
-                            linkEl.target = '_blank';
-                            linkEl.rel = 'noopener noreferrer';
-                            eventModalLinks.appendChild(linkEl);
-                        });
-                    }
-                    eventModal.show();
+                    showEventModal(d);
                 });
 
             timelineItems.append("div")
@@ -459,16 +466,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Actualizar el contenido del popover de ayuda
-            const popoverTitle = translations[lang].chartExplanationTitle;
-            const popoverContent = translations[lang].chartExplanation;
-            const popoverInstance = bootstrap.Popover.getInstance(helpToggleEl);
-            if (popoverInstance) {
-                popoverInstance.setContent({
-                    '.popover-header': popoverTitle,
-                    '.popover-body': popoverContent
-                });
-            }
+            // Actualizar ARIA labels de los marcadores de eventos para que coincidan con el idioma
+            focus.selectAll(".event-marker")
+                .attr("aria-label", d => d['title_' + lang]);
 
             // Actualizar texto del botón de escala
             if (state.scale === 'log') {
@@ -523,8 +523,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }).catch(error => {
         console.error("Error al cargar los datos:", error);
-        d3.select("#chart-container").append("p")
-            .attr("class", "alert alert-danger")
-            .text("No se pudieron cargar los datos del gráfico. Por favor, inténtalo de nuevo más tarde.");
+        // Ocultar el spinner y mostrar un mensaje de error en su lugar
+        if (loadingSpinner) loadingSpinner.style.display = 'none';
+        if (chartContainer) {
+            chartContainer.style.minHeight = 'auto';
+            // Reemplazar el contenido del contenedor con el mensaje de error
+            chartContainer.innerHTML = `<p class="alert alert-danger" role="alert">No se pudieron cargar los datos del gráfico. Por favor, inténtalo de nuevo más tarde.</p>`;
+        }
     });
 });
