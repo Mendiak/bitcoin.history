@@ -20,7 +20,7 @@
 <body>
     <div class="container my-5 position-relative">
         <div id="top-right-controls">
-            <button id="help-toggle" class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="popover" data-bs-trigger="focus">
+            <button id="help-toggle" class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="popover" data-bs-trigger="click">
                 <i class="bi bi-question-circle"></i>
             </button>
             <div class="btn-group">
@@ -33,7 +33,7 @@
         </div>
 
         <h1 class="text-center">
-            <i class="bi bi-currency-bitcoin"></i> <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
+            <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
         </h1>
         <p class="text-center text-muted fs-5" data-i18n-key="pageSubtitle">Una historia de precio, poder y resiliencia.</p>
 
@@ -58,6 +58,14 @@
             </div>
         </div>
 
+        <!-- Leyenda para la línea de datos ficticios -->
+        <div id="chart-legend" class="d-flex justify-content-center align-items-center gap-2 mt-3" style="display: none;">
+            <svg width="25" height="10" style="flex-shrink: 0;">
+                <line x1="0" y1="5" x2="25" y2="5" class="line fictitious-line"></line>
+            </svg>
+            <small class="text-muted" data-i18n-key="fictitiousDataLegend">La línea de puntos indica un período sin datos de precios registrados.</small>
+        </div>
+
         <!-- Cronología de Eventos -->
         <div class="mt-5">
             <p class="text-center text-muted fst-italic mb-3" data-i18n-key="timelineIntro"></p>
@@ -72,12 +80,12 @@
         </div>
         <div class="text-center mt-3">
             <small class="text-muted">
-                <span data-i18n-key="footerDev">Desarrollado por</span> 
+                <span data-i18n-key="footerDev"></span> 
                 <a href="https://mendiak.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Mikel Aramendia</a> 
-                <span data-i18n-key="footerWith">con</span> 
+                <span data-i18n-key="footerWith"></span> 
                 <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a>,
                 <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" title="Bootstrap"><i class="bi bi-bootstrap-fill"></i></a>
-                y mucho ❤️
+                <span data-i18n-key="footerEnding"></span>
             </small>
         </div>
     </div>

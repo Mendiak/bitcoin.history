@@ -27,9 +27,9 @@
     "description_full_en": "On January 3, 2009, the Bitcoin network came to life with the creation of the **genesis block**, the first block of the chain. This block is a crucial milestone because it not only marked the official start of the network, but also contained an encrypted message from Satoshi Nakamoto. The embedded text, 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks,' was the headline of that day's 'The Times' newspaper.\n\nThis reference directly alluded to the 2008 financial crisis and the bank bailout policies implemented by governments. The message was a declaration of intent, a reminder that Bitcoin was created as a response to the instability and lack of trust in the traditional financial system. It showed that Bitcoin was not just a technological tool, but an ideological movement.\n\nFrom that moment on, every block added to the chain has tracked the complete history of transactions, creating a public, immutable, and decentralized record. The genesis block is the starting point of this record, a symbol of resistance and a testament to the original vision of its creator.",
     "links": [
       {
-        "text_es": "Artículo de The Times",
-        "text_en": "The Times Article",
-        "url": "http://news.bbc.co.uk/2/hi/uk_news/politics/7802170.stm"
+        "text_es": "Bloque Génesis",
+        "text_en": "Genesis block",
+        "url": "https://en.bitcoin.it/wiki/Genesis_block"
       }
     ]
   },
@@ -44,9 +44,9 @@
     "description_full_en": "On January 12, 2009, the first Bitcoin transaction outside the testing phase took place. The anonymous creator, Satoshi Nakamoto, sent 10 BTC to developer Hal Finney. Finney, a cryptographer and activist of the 'cypherpunk' movement, was one of the first to download the Bitcoin software and collaborate with Satoshi in its early days. This exchange proved that the Bitcoin network worked in practice, allowing for direct value transfers between two people without intermediaries.\n\nHal Finney is a legendary figure in Bitcoin history. He died in 2014, but his contributions were fundamental. In a blog post, Finney recalled how he 'mined the first blocks and was rewarded with 50 bitcoins' and how he received that first transaction from Satoshi. His early involvement earned him a place of honor in the history of cryptography and blockchain technology.\n\nThis transaction marked the starting point for Bitcoin's functionality as an electronic cash system. It proved that the concept of peer-to-peer digital money was viable, laying the groundwork for the network to grow and develop. It was a small step for Satoshi and Finney, but a giant leap for information technology and finance.",
     "links": [
       {
-        "text_es": "Blog de Hal Finney sobre el evento",
-        "text_en": "Hal Finney's Blog Post on the Event",
-        "url": "https://web.archive.org/web/20140220202931/http://www.halhacks.com/a-brief-history-of-bitcoin"
+        "text_es": "La primera transacción de Bitcoin",
+        "text_en": "First Bitcoin Transaction",
+        "url": "https://www.guinnessworldrecords.es/world-records/696243-first-bitcoin-transaction"
       }
     ]
   },
@@ -114,7 +114,7 @@
       {
         "text_es": "Artículo de Slashdot",
         "text_en": "Slashdot Article",
-        "url": "https://slashdot.org/story/10/07/11/1709214/bitcoin-open-source-p2p-money"
+        "url": "https://slashdot.org/story/11/02/10/189246/online-only-currency-bitcoin-reaches-dollar-parity"
       }
     ]
   },
@@ -148,7 +148,7 @@
       {
         "text_es": "Noticia del hito",
         "text_en": "News on the Milestone",
-        "url": "https://www.forbes.com/sites/erikknepper/2011/02/10/bitcoin-reaches-parity-with-dollar/?sh=22709e99a4c0"
+        "url": "https://bitbo.io/calendar/dollar-parity/"
       }
     ]
   },
@@ -163,9 +163,9 @@
     "description_full_en": "On June 13, 2011, the **Mt. Gox** exchange was the victim of a large-scale hack. The security breach allowed attackers to steal thousands of bitcoins and manipulate the platform's price. The price of Bitcoin, which was around 17 dollars at the time, plummeted to almost zero in an instant. The attack did not compromise the security of the Bitcoin network itself, but that of a centralized entity that managed users' funds.\n\nThis event was a hard blow for the community, which suffered significant financial losses. However, it also served as an invaluable lesson. It highlighted the inherent risk of trusting centralized platforms to hold funds and reinforced the need for users to take control of their own private keys. The famous saying **'Not your keys, not your coins'** became popular after these types of incidents, fostering a culture of self-custody and security.\n\nThe Mt. Gox hack was the first of many security incidents that would plague the crypto industry in its early years. It served as a reminder that while the Bitcoin network is secure, third-party platforms that interact with it can be vulnerable. Although it was a bitter pill for many, it prompted the community to develop better security practices and build a more resilient industry.",
     "links": [
       {
-        "text_es": "Noticia sobre el hackeo",
-        "text_en": "News on the Hack",
-        "url": "https://www.theguardian.com/technology/2011/jun/20/bitcoin-exchange-hacked"
+        "text_es": "Mt. Gox en Wikipedia",
+        "text_en": "Mt. Gox on Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mt._Gox"
       }
     ]
   },

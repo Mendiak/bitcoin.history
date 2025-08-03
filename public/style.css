@@ -48,16 +48,23 @@ body {
 h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    /* Efecto de texto con degradado */
-    background: linear-gradient(45deg, var(--bitcoin-orange), #ffdd99);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Alineación para el icono */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
+}
+
+/* Estilo del H1 para el tema oscuro: Mantenemos el efecto de degradado */
+html[data-bs-theme="dark"] h1 {
+    background: linear-gradient(45deg, var(--bitcoin-orange), #ffdd99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Estilo del H1 para el tema claro: Usamos un color sólido para máxima legibilidad */
+html[data-bs-theme="light"] h1 {
+    color: #212529; /* Color oscuro por defecto de Bootstrap para texto */
 }
 
 /* Controles de la esquina superior derecha */
@@ -117,6 +124,15 @@ h1 {
     fill: none;
     stroke: var(--bitcoin-orange);
     stroke-width: 2px;
+}
+
+.real-line {
+    /* Estilo por defecto de la línea, no necesita cambios */
+}
+
+.fictitious-line {
+    stroke-dasharray: 4, 4; /* Crea el efecto de línea de puntos */
+    stroke-opacity: 0.7; /* La hace ligeramente más transparente */
 }
 
 .event-marker {

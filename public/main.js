@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         d3.json(translationsURL)
     ]).then(([priceData, eventsData, marketCyclesData, i18nData]) => {
         
+        const legendEl = document.getElementById('chart-legend');
         translations = i18nData;
 
         // Inicializar Popover con funciones para que el contenido sea dinámico y dependa del idioma
@@ -121,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // --- 4. PROCESAMIENTO DE DATOS ---
-        const data = priceData.prices.map(d => ({
+        let data = priceData.prices.map(d => ({
             date: new Date(d[0]),
             price: d[1]
         }));
@@ -133,11 +134,55 @@ document.addEventListener('DOMContentLoaded', function() {
             d.endDate = d3.timeParse("%Y-%m-%d")(d.endDate);
         });
 
+        // --- LÓGICA PARA DATOS FICTICIOS ---
+        // Comprobar si el primer evento es anterior al primer dato de precio
+        const earliestEventDate = d3.min(eventsData, e => e.date);
+        const firstPriceDate = data[0].date;
+
+        if (earliestEventDate < firstPriceDate) {
+            // --- Lógica del "Escalón" para el período sin precios ---
+            // 1. Punto de inicio de la línea horizontal en la parte inferior
+            const fictitiousStart = {
+                date: earliestEventDate,
+                price: 0.01, // Un valor muy bajo pero > 0 para la escala logarítmica
+                isFictitious: true
+            };
+            // 2. Punto "esquina" que finaliza la línea horizontal y comienza la vertical
+            const fictitiousCorner = {
+                date: firstPriceDate,
+                price: 0.01, // Mantenemos el precio bajo para crear la línea horizontal
+                isFictitious: true
+            };
+            // 3. Punto final que conecta con el primer precio real (línea vertical)
+            const fictitiousEnd = {
+                date: firstPriceDate,
+                price: data[0].price,
+                isFictitious: true
+            };
+            // Añadir los tres puntos ficticios al principio del array principal
+            data.unshift(fictitiousStart, fictitiousCorner, fictitiousEnd);
+
+            // Mostrar la leyenda, ya que estamos usando datos ficticios
+            legendEl.style.display = 'flex';
+        }
+
         // Variable para almacenar los datos visibles y optimizar el renderizado
         let visibleData = [];
 
         // --- 5. ESCALAS Y EJES ---
-        const x = d3.scaleTime().range([0, width]).domain(d3.extent(data, d => d.date));
+        const [minDate, maxDate] = d3.extent(data, d => d.date);
+
+        // Añadir un "colchón" o padding al eje X para que los puntos extremos no queden pegados a los bordes.
+        // Calculamos un 2% del rango total de tiempo para el padding a cada lado.
+        const timeRange = maxDate.getTime() - minDate.getTime();
+        const paddingTime = timeRange * 0.02; 
+
+        const paddedDomain = [
+            new Date(minDate.getTime() - paddingTime),
+            new Date(maxDate.getTime() + paddingTime)
+        ];
+
+        const x = d3.scaleTime().range([0, width]).domain(paddedDomain);
         const x2 = d3.scaleTime().range([0, width]).domain(x.domain());
         let y, y2, yAxis;
 
@@ -160,7 +205,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr("class", "market-areas")
             .attr("clip-path", "url(#clip)");
 
-        const focusLine = focus.append("path").datum(data).attr("class", "line").attr("clip-path", "url(#clip)");
+        // Se crean dos paths: uno para la línea real y otro para la ficticia
+        const focusLineReal = focus.append("path").attr("class", "line real-line").attr("clip-path", "url(#clip)");
+        const focusLineFictitious = focus.append("path").attr("class", "line fictitious-line").attr("clip-path", "url(#clip)");
+
 
         const contextLine = context.append("path").datum(data).attr("class", "line");
         context.append("g").attr("class", "axis axis--x")
@@ -327,11 +375,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Actualizar escala Y según el estado
             if (state.scale === 'log') {
-                y = d3.scaleLog().range([height, 0]).domain([1, maxPrice]);
+                // Se baja el dominio mínimo para dar un margen inferior y que se vean los primeros puntos.
+                y = d3.scaleLog().range([height, 0]).domain([0.008, maxPrice]);
                 y2 = d3.scaleLog().range([height2, 0]).domain(y.domain());
                 yAxis = d3.axisLeft(y).ticks(10, d3.format("$,.0f"));
             } else {
-                y = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data, d => y.invert(d.price)) || maxPrice]).nice();
+                // Se añade un pequeño dominio negativo para que el eje X no quede pegado abajo.
+                // Esto levanta la línea de base y hace visibles los puntos cercanos a cero.
+                y = d3.scaleLinear().range([height, 0]).domain([-maxPrice * 0.03, maxPrice]).nice();
                 y2 = d3.scaleLinear().range([height2, 0]).domain(y.domain());
                 yAxis = d3.axisLeft(y).tickFormat(d3.format("$,.2s"));
             }
@@ -342,7 +393,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Actualizar elementos del gráfico con transiciones
             yAxisGroup.transition(t).call(yAxis);
-            focusLine.transition(t).attr("d", line);
+            // Se actualizan ambas líneas. Si no hay datos ficticios, una de ellas no se dibujará.
+            focusLineReal.transition(t).attr("d", line);
+            focusLineFictitious.transition(t).attr("d", line);
             contextLine.transition(t).attr("d", line2);
             
             eventMarkers
@@ -380,13 +433,16 @@ document.addEventListener('DOMContentLoaded', function() {
             let startIndex = bisectDate(data, startDate) - 1;
             let endIndex = bisectDate(data, endDate) + 1;
             if (startIndex < 0) startIndex = 0;
-            if (endIndex >= data.length) endIndex = data.length -1;
 
             // 3. Cortar el array para obtener solo los datos visibles
             visibleData = data.slice(startIndex, endIndex);
 
-            // 4. Dibujar la línea y los marcadores solo con los datos visibles
-            focus.select(".line").datum(visibleData).attr("d", line); // Actualizamos el datum con los datos filtrados
+            // 4. Separar los datos visibles en reales y ficticios y dibujar cada línea
+            const realVisibleData = visibleData.filter(d => !d.isFictitious);
+            const fictitiousVisibleData = visibleData.filter(d => d.isFictitious);
+
+            focus.select(".real-line").datum(realVisibleData).attr("d", line);
+            focus.select(".fictitious-line").datum(fictitiousVisibleData).attr("d", line);
             
             focus.selectAll(".event-marker").attr("cx", d => x(d.date));
 
