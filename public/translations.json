@@ -1,6 +1,7 @@
 {
   "es": {
     "pageTitle": "El Épico Viaje de Bitcoin",
+    "metaDescription": "Explora la historia del precio de Bitcoin con un gráfico interactivo. Descubre los eventos clave, desde el whitepaper de Satoshi hasta los halvings y la adopción institucional.",
     "pageSubtitle": "Una historia de precio, poder y resiliencia.",
     "timelineTitle": "Cronología de Eventos Clave",
     "timelineIntro": "Explora los eventos que definieron la historia de Bitcoin. Haz clic para ver los detalles.",
@@ -28,6 +29,7 @@
   },
   "en": {
     "pageTitle": "Bitcoin's Epic Journey",
+    "metaDescription": "Explore the price history of Bitcoin with an interactive chart. Discover key events, from Satoshi's whitepaper to halvings and institutional adoption.",
     "pageSubtitle": "A story of price, power, and resilience.",
     "timelineTitle": "Key Events Timeline",
     "timelineIntro": "Explore the events that defined Bitcoin's history. Click to see the details.",

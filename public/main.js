@@ -506,6 +506,41 @@ document.addEventListener('DOMContentLoaded', function() {
             d3.select('#lang-es').classed('active', lang === 'es');
             d3.select('#lang-en').classed('active', lang === 'en');
 
+            // --- MEJORAS SEO ---
+            const pageTitle = translations[lang].pageTitle;
+            const metaDescription = translations[lang].metaDescription;
+
+            // 1. Actualizar el título del documento
+            document.title = pageTitle;
+
+            // 2. Actualizar meta tags para SEO y redes sociales
+            document.getElementById('meta-description')?.setAttribute('content', metaDescription);
+            document.getElementById('og-title')?.setAttribute('content', pageTitle);
+            document.getElementById('og-description')?.setAttribute('content', metaDescription);
+            document.getElementById('twitter-title')?.setAttribute('content', pageTitle);
+            document.getElementById('twitter-description')?.setAttribute('content', metaDescription);
+
+            // 3. Actualizar datos estructurados (JSON-LD) para Google
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": pageTitle,
+                "description": metaDescription,
+                "inLanguage": lang,
+                "url": document.querySelector('link[rel="canonical"]')?.href,
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mikel Aramendia",
+                    "url": "https://mendiak.github.io/portfolio/"
+                },
+                "mainEntity": {
+                    "@type": "Dataset",
+                    "name": "Bitcoin Price History (2009-Present)",
+                    "description": "Historical daily price of Bitcoin (BTC) in USD, combined with key historical events that influenced its value.",
+                }
+            };
+            document.getElementById('structured-data').textContent = JSON.stringify(structuredData, null, 2);
+
             // Traducir todos los elementos de la UI
             document.querySelectorAll('[data-i18n-key]').forEach(el => {
                 const key = el.getAttribute('data-i18n-key');
