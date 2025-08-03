@@ -182,7 +182,7 @@
       {
         "text_es": "Qué es el halving de Bitcoin",
         "text_en": "What is Bitcoin Halving",
-        "url": "https://www.binance.com/es/square/post/4100222168962"
+        "url": "https://academy.binance.com/es/glossary/halving"
       }
     ]
   },
@@ -199,7 +199,7 @@
       {
         "text_es": "Noticia sobre la crisis de Chipre",
         "text_en": "News on the Cyprus Crisis",
-        "url": "https://www.bbc.com/news/business-21808605"
+        "url": "https://www.theguardian.com/world/2013/mar/25/cyprus-bailout-deal-eu-closes-bank"
       }
     ]
   },
@@ -299,9 +299,9 @@
     "description_full_en": "On July 9, 2016, the second Bitcoin **halving** occurred. The reward for mining a block was reduced from 25 BTC to 12.5 BTC. This event, programmed into Bitcoin's code, was the second of the four main halvings and another step on the path towards the total supply of 21 million bitcoins.\n\nThe reduction in the supply of new bitcoins was a key factor in the bull market that began in 2016 and culminated in the 2017 peak. The halving creates an artificial scarcity that, if demand is maintained or increased, tends to push prices upward. The success of this second halving demonstrated the effectiveness of Bitcoin's economic model and reinforced the community's trust in the system's mechanics.\n\nThe second halving was a crucial milestone that consolidated Bitcoin as one of the most important cryptocurrencies in the world. It showed that Satoshi Nakamoto's design was robust and that the system could handle important events like a programmed reduction in supply. From this point on, halvings became highly anticipated events and were credited with the ability to predict market cycles.",
     "links": [
       {
-        "text_es": "Artículo de CoinDesk sobre el evento",
-        "text_en": "CoinDesk Article on the Event",
-        "url": "https://www.coindesk.com/policy/2016/07/09/bitcoin-halving-completed-block-reward-falls-to-125-btc/"
+        "text_es": "Artículo de Bitbo sobre el evento",
+        "text_en": "Bitbo Article on the Event",
+        "url": "https://bitbo.io/calendar/2016-halving/"
       }
     ]
   },
@@ -333,9 +333,9 @@
     "description_full_en": "On December 17, 2017, Bitcoin reached a new **all-time high (ATH)**, approaching $20,000. This rally was driven by a mix of retail speculation, massive media coverage, and the growing adoption of cryptocurrencies. Everyday people, who had no idea what Bitcoin was until then, started buying it in droves, pushing the price to stratospheric levels.\n\nThe 2017 frenzy was a cultural phenomenon. People talked about Bitcoin at dinner parties, taxi drivers gave investment advice, and the media couldn't ignore the story. This 'rally' not only benefited Bitcoin but also boosted the entire 'altcoin' market, creating an unprecedented market capitalization boom.\n\nHowever, the 2017 peak was also the beginning of a brutal crash. What went up parabolically, fell with the same force. Despite this, the event served to put Bitcoin on the global map and to demonstrate its growth potential. Although many investors lost money in the crash, the 2017 boom left an indelible mark on the history of finance and blockchain technology development.",
     "links": [
       {
-        "text_es": "Noticia sobre el pico",
-        "text_en": "News on the Peak",
-        "url": "https://www.reuters.com/article/us-bitcoin-price/bitcoin-hits-all-time-high-near-20000-on-bitstamp-exchange-idUSKBN1E908G"
+        "text_es": "Historico de precios de Bitcoin",
+        "text_en": "Bitcoin Price History",
+        "url": "https://es.wikipedia.org/wiki/Anexo:Historial_de_precios_de_bitcoin"
       }
     ]
   },
@@ -352,7 +352,7 @@
       {
         "text_es": "Qué es un criptoinvierno",
         "text_en": "What is a Crypto Winter",
-        "url": "https://www.coindesk.com/learn/2022/07/08/what-is-a-crypto-winter-and-what-does-it-mean-for-investors"
+        "url": "https://academy.binance.com/en/glossary/crypto-winter"
       }
     ]
   },
@@ -403,7 +403,7 @@
       {
         "text_es": "Noticia del 'Jueves Negro'",
         "text_en": "News on 'Black Thursday'",
-        "url": "https://www.cnbc.com/2020/03/12/bitcoin-falls-below-4000-as-coronavirus-fears-rock-markets.html"
+        "url": "https://news.bit2me.com/en/Bitcoin-crash-on-Black-Thursday-and-historic-resurgence"
       }
     ]
   },
@@ -418,9 +418,9 @@
     "description_full_en": "On May 11, 2020, the third Bitcoin **halving** occurred, reducing the block reward from 12.5 BTC to 6.25 BTC. This event was one of the most anticipated in Bitcoin's history, as its arrival coincided with the market's recovery after the 'Black Thursday' of COVID-19 and the narrative of Bitcoin as a hedge against inflation.\n\nThe reduction in the supply of new bitcoins was a catalyst for the bull market that would culminate in 2021. Bitcoin's programmed scarcity, along with increased demand from institutional investors who saw Bitcoin as a store-of-value asset, pushed the price to unprecedented levels. The third halving proved that Bitcoin's economic model was still working perfectly, just as Satoshi Nakamoto had designed it.\n\nThis event marked the beginning of a new era for Bitcoin. The narrative of **'digital gold'** became stronger than ever, attracting large companies and investment fund managers. The third halving was not just a technical event but an economic milestone that solidified Bitcoin's role as a serious investment asset on the global financial stage.",
     "links": [
       {
-        "text_es": "Recuento de la cuenta atrás del halving",
-        "text_en": "Halving Countdown Recap",
-        "url": "https://www.coindesk.com/policy/2020/05/11/bitcoin-halving-completed-block-reward-falls-to-625-btc/"
+        "text_es": "El halving de Bitcoin y el ciclo del mercado de Bitcoin",
+        "text_en": "The Bitcoin Halving and the Bitcoin Market Cycle",
+        "url": "https://www.bitcoinsuisse.com/learn/bitcoin-halving-market-cycle"
       }
     ]
   },
@@ -437,7 +437,7 @@
       {
         "text_es": "Noticia sobre la superación",
         "text_en": "News on Breaking the High",
-        "url": "https://www.coindesk.com/markets/2020/12/16/bitcoin-breaks-20k-for-first-time/"
+        "url": "https://www.cnbc.com/2020/12/16/bitcoin-breaks-above-20000-for-the-first-time-ever.html"
       }
     ]
   },
@@ -452,9 +452,9 @@
     "description_full_en": "On February 8, 2021, Tesla, the electric vehicle company led by **Elon Musk**, made an announcement that shook the financial world: it had invested $1.5 billion in Bitcoin. Additionally, the company announced that it would accept Bitcoin as a payment method for its products. This move was an unprecedented vote of confidence from one of the world's most influential companies and was a catalyst for a massive increase in Bitcoin's price.\n\nTesla's investment and the support of its CEO, Elon Musk, legitimized Bitcoin to millions of people and companies. The announcement that a company as important as Tesla considered Bitcoin a store-of-value asset and a valid means of payment was a sign that the cryptocurrency was moving towards mass adoption. The news pushed Bitcoin's price to new all-time highs and encouraged other companies to consider investing in cryptocurrencies.\n\nAlthough Tesla later reversed its decision to accept Bitcoin as payment (citing environmental concerns), the initial investment was a historic milestone. It marked the beginning of the 'institutional fever' for Bitcoin, with more and more companies and hedge funds exploring the possibility of adding the cryptocurrency to their balance sheets. The Tesla event was a harbinger of the paradigm shift that was taking place in the world of finance.",
     "links": [
       {
-        "text_es": "Documento de la SEC de Tesla",
-        "text_en": "Tesla's SEC Filing",
-        "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm"
+        "text_es": "Noticia sobre la compra de Tesla",
+        "text_en": "News on Tesla's Purchase",
+        "url": "https://www.cnbc.com/2021/02/08/tesla-buys-1point5-billion-in-bitcoin.html"
       }
     ]
   },
@@ -471,7 +471,7 @@
       {
         "text_es": "Noticia sobre la cotización de Coinbase",
         "text_en": "News on Coinbase's Listing",
-        "url": "https://www.cnbc.com/2021/04/14/coinbase-ipo-what-to-know-as-coin-starts-trading-on-nasdaq.html"
+        "url": "https://www.nytimes.com/live/2021/04/14/business/stock-market-today"
       }
     ]
   },
@@ -488,7 +488,7 @@
       {
         "text_es": "Noticia de la ley en El Salvador",
         "text_en": "News on the Law in El Salvador",
-        "url": "https://www.bbc.com/news/business-57398188"
+        "url": "https://www.nytimes.com/es/2021/09/07/espanol/bitcoin-el-salvador.html"
       }
     ]
   },
@@ -522,7 +522,7 @@
       {
         "text_es": "Análisis del colapso de Terra",
         "text_en": "Analysis of the Terra Collapse",
-        "url": "https://www.coindesk.com/learn/2022/05/11/what-is-the-terra-blockchain-and-why-did-it-crash/"
+        "url": "https://corpgov.law.harvard.edu/2023/05/22/anatomy-of-a-run-the-terra-luna-crash/"
       }
     ]
   },
@@ -539,7 +539,7 @@
       {
         "text_es": "Noticia sobre la quiebra de FTX",
         "text_en": "News on FTX's Bankruptcy",
-        "url": "https://www.reuters.com/technology/ftx-files-for-bankruptcy-ceo-bankman-fried-resigns-2022-11-11/"
+        "url": "https://www.reuters.com/breakingviews/ftx-crash-is-old-lesson-financial-newcomers-2022-11-10/"
       }
     ]
   },
@@ -554,9 +554,9 @@
     "description_full_en": "In March 2023, the U.S. banking system was shaken by the failure of several banks, including **Silicon Valley Bank (SVB)** and **Signature Bank**. The crisis was triggered when customers, in a mass panic, withdrew their deposits, causing a bank run. The failure of these banks, despite being regulated and insured, was a reminder of the fragility of the traditional financial system. In this context of uncertainty, Bitcoin experienced a significant rebound.\n\nBitcoin's price soared, reinforcing the narrative that the cryptocurrency could function as a 'safe haven' asset in times of financial instability. People, who had lost faith in traditional banks, looked for an alternative. Bitcoin, with its decentralized, immutable, and censorship-resistant nature, presented itself as a viable solution. This event was a validation of the concept of Bitcoin as a hedge against a lack of trust in financial institutions.\n\nThe 2023 banking crisis was a turning point. It showed that Bitcoin's value is not only in its growth potential but also in its role as an alternative asset to the traditional financial system. The event helped solidify the narrative of Bitcoin as a tool for financial freedom and a store-of-value asset in the 21st century. The banking crisis was a reminder of why Satoshi Nakamoto created Bitcoin in the first place.",
     "links": [
       {
-        "text_es": "Análisis de la crisis bancaria",
-        "text_en": "Analysis of the Banking Crisis",
-        "url": "https://www.coindesk.com/policy/2023/03/13/bitcoin-surges-as-us-banking-crisis-worsens/"
+        "text_es": "Colapso del Silicon Valley Bank",
+        "text_en": "Collapse of Silicon Valley Bank",
+        "url": "https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank"
       }
     ]
   },
@@ -573,7 +573,7 @@
       {
         "text_es": "Artículo de Reuters sobre la solicitud de BlackRock",
         "text_en": "Reuters Article on BlackRock's Filing",
-        "url": "https://www.reuters.com/technology/blackrock-files-spot-bitcoin-etf-with-sec-2023-06-15/"
+        "url": "https://www.reuters.com/business/finance/blackrock-close-filing-bitcoin-etf-coindesk-2023-06-15/"
       }
     ]
   },
@@ -588,9 +588,9 @@
     "description_full_en": "On April 20, 2024, the Bitcoin network experienced its fourth **halving**. The reward that miners receive for validating a block was reduced from 6.25 BTC to 3.125 BTC. This event, which occurs approximately every four years, is one of the most important in the Bitcoin ecosystem, as it has a direct impact on the supply and scarcity of the cryptocurrency. The reduction in the supply of new bitcoins is a key deflationary mechanism, designed to preserve Bitcoin's value in the long term.\n\nThe fourth halving was highly anticipated, as it coincided with the beginning of the era of spot Bitcoin ETFs. The combination of a reduced supply and growing demand from institutional investors laid the groundwork for the next bull market. Bitcoin advocates, often called **'maximalists'**, celebrated the event as a milestone that demonstrates the soundness of Satoshi Nakamoto's original design and the inevitability of Bitcoin as a store-of-value asset.\n\nThe fourth halving was a reminder that Bitcoin's code is immutable and its monetary policy is predictable. While central banks around the world continue with money-printing policies, Bitcoin's programmed scarcity makes it a unique and valuable asset. The 2024 halving was a milestone that marked the beginning of a new phase in Bitcoin's history, one where its value will be driven by the combination of scarcity and mass adoption.",
     "links": [
       {
-        "text_es": "Explicación detallada del halving",
-        "text_en": "Detailed Explanation of the Halving",
-        "url": "https://www.binance.com/es/square/post/4100222168962"
+        "text_es": "El cuarto halving explicado",
+        "text_en": "Explaining the Fourth Halving",
+        "url": "https://insights.glassnode.com/the-week-onchain-week-17-2024/"
       }
     ]
   },
@@ -605,9 +605,9 @@
     "description_full_en": "In a significant milestone for network decentralization, the number of Bitcoin **light nodes**, also known as 'SPV clients,' is estimated to have surpassed one million worldwide. Unlike full nodes that download the entire 'blockchain,' light nodes allow users to verify the validity of transactions without needing to store the entire history. This functionality is crucial for mobile devices and wallet applications, making Bitcoin more accessible to the global population.\n\nThe growth of light nodes is a key metric of Bitcoin's mass adoption. As more people run these nodes on their phones and computers, the network becomes more decentralized and censorship-resistant. Each node is an independent validation point that helps maintain the network's integrity, making it more secure and robust. This increase in the number of nodes is an indication that Bitcoin is becoming a truly global and distributed network.\n\nThe one million light nodes milestone is a reminder of Satoshi Nakamoto's original vision of a 'peer-to-peer electronic cash system.' It shows that the Bitcoin network is evolving to be more user-friendly and accessible, without compromising its principles of security and decentralization. This growth is a harbinger of a future where Bitcoin will be used by billions of people worldwide, each contributing to the network's security from their own device.",
     "links": [
       {
-        "text_es": "Qué es un nodo de Bitcoin",
-        "text_en": "What is a Bitcoin Node",
-        "url": "https://www.binance.com/es/square/post/1474811794503"
+        "text_es": "Qué es un nodo ligero de Bitcoin",
+        "text_en": "What is a Bitcoin Lightweight Node",
+        "url": "https://en.bitcoin.it/wiki/Lightweight_node"
       }
     ]
   },
@@ -624,7 +624,7 @@
       {
         "text_es": "Explicación de Ordinals",
         "text_en": "Explanation of Ordinals",
-        "url": "https://www.coindesk.com/learn/what-are-bitcoin-ordinals/"
+        "url": "https://www.coinbase.com/es-es/learn/crypto-glossary/what-are-bitcoin-ordinals"
       }
     ]
   },
@@ -639,9 +639,9 @@
     "description_full_en": "In a major milestone for Bitcoin scalability, the total capacity of the **Lightning Network** surpasses 10,000 BTC. The Lightning Network is a 'layer 2' built on Bitcoin that enables instant and low-cost payments. This increase in capacity means that more bitcoins are being locked in the Lightning Network, allowing more users to make fast and secure transactions without having to wait for confirmation on the main chain.\n\nThe growth of the Lightning Network is a crucial development for the mass adoption of Bitcoin as a means of payment. As the main Bitcoin network becomes congested and transaction costs increase, the Lightning Network offers a scalable solution that allows users to make microtransactions efficiently. This growth is an indication that the network is becoming more mature and robust, and that more and more businesses and users are using it for their daily payments.\n\nThe 10,000 BTC milestone is a reminder of Satoshi Nakamoto's vision of an 'electronic cash system.' It shows that the Bitcoin community is actively working on solving scalability problems and that the future of instant payments with Bitcoin is becoming more and more a reality. The growth of the Lightning Network is a key milestone that shows that Bitcoin is evolving to be not only a store-of-value asset but also a currency for daily use.",
     "links": [
       {
-        "text_es": "Información sobre Lightning Network",
-        "text_en": "Information on the Lightning Network",
-        "url": "https://www.investopedia.com/lightning-network-5207901"
+        "text_es": "Sitio web de Lightning Network",
+        "text_en": "Ligthing Network website",
+        "url": "https://lightning.network/"
       }
     ]
   }

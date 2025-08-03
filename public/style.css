@@ -126,10 +126,6 @@ html[data-bs-theme="light"] h1 {
     stroke-width: 2px;
 }
 
-.real-line {
-    /* Estilo por defecto de la línea, no necesita cambios */
-}
-
 .fictitious-line {
     stroke-dasharray: 4, 4; /* Crea el efecto de línea de puntos */
     stroke-opacity: 0.7; /* La hace ligeramente más transparente */
