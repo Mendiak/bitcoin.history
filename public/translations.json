@@ -24,8 +24,8 @@
     "footerWith": "con",
     "loading": "Cargando datos...",
     "fictitiousDataLegend": "La línea de puntos indica un período sin datos de precios registrados.",
-    "footerEnding": "y mucho <span class='text-warning'>🧡</span>"
-
+    "footerEnding": "y mucho <span class='text-warning'>🧡</span>",
+    "footerRepo": "Código fuente disponible en"
   },
   "en": {
     "pageTitle": "Bitcoin's Epic Journey",
@@ -52,7 +52,7 @@
     "footerWith": "with",
     "loading": "Loading data...",
     "fictitiousDataLegend": "The dotted line indicates a period with no recorded price data.",
-    "footerEnding": "and lots of <span class='text-warning'>🧡</span>"
-
+    "footerEnding": "and lots of <span class='text-warning'>🧡</span>",
+    "footerRepo": "Source code available on"
   }
 }
