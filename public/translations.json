@@ -25,7 +25,11 @@
     "loading": "Cargando datos...",
     "fictitiousDataLegend": "La línea de puntos indica un período sin datos de precios registrados.",
     "footerEnding": "y mucho <span class='text-warning'>🧡</span>",
-    "footerRepo": "Código fuente disponible en"
+    "footerRepo": "Código fuente disponible en",
+    "firstHistoricalBullRun": "Primer Bull Run Histórico",
+    "firstBearMarket": "Primer Mercado Bajista",
+    "legendBullMarket": "Mercado Alcista",
+    "legendBearMarket": "Mercado Bajista"
   },
   "en": {
     "pageTitle": "Bitcoin's Epic Journey",
@@ -53,6 +57,10 @@
     "loading": "Loading data...",
     "fictitiousDataLegend": "The dotted line indicates a period with no recorded price data.",
     "footerEnding": "and lots of <span class='text-warning'>🧡</span>",
-    "footerRepo": "Source code available on"
+    "footerRepo": "Source code available on",
+    "firstHistoricalBullRun": "First Historical Bull Run",
+    "firstBearMarket": "First Bear Market",
+    "legendBullMarket": "Bull Market",
+    "legendBearMarket": "Bear Market"
   }
 }

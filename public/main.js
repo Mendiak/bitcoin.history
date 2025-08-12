@@ -58,10 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("class", "tooltip");
         
     const focus = svg.append("g").attr("class", "focus")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+        .attr("transform", `translate(${margin.left},${margin.top})
+    `);
 
     const context = svg.append("g").attr("class", "context")
-        .attr("transform", `translate(${margin2.left},${margin2.top})`);
+        .attr("transform", `translate(${margin2.left},${margin2.top})
+    `);
 
     // --- 3. CARGA DE DATOS ---
     const priceDataURL = "bitcoin-price-history.json";
@@ -175,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Añadir un "colchón" o padding al eje X para que los puntos extremos no queden pegados a los bordes.
         // Calculamos un 2% del rango total de tiempo para el padding a cada lado.
         const timeRange = maxDate.getTime() - minDate.getTime();
-        const paddingTime = timeRange * 0.02; 
+        const paddingTime = timeRange * 0.02;
 
         const paddedDomain = [
             new Date(minDate.getTime() - paddingTime),
@@ -197,7 +199,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .on("brush end", brushed);
 
         const xAxisGroup = focus.append("g").attr("class", "axis axis--x")
-            .attr("transform", `translate(0,${height})`)
+            .attr("transform", `translate(0,${height})
+        `)
             .call(xAxis);
         const yAxisGroup = focus.append("g").attr("class", "axis axis--y");
 
@@ -212,7 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const contextLine = context.append("path").datum(data).attr("class", "line");
         context.append("g").attr("class", "axis axis--x")
-            .attr("transform", `translate(0,${height2})`)
+            .attr("transform", `translate(0,${height2})
+        `)
             .call(xAxis2);
         const brushGroup = context.append("g").attr("class", "brush").call(brush);
 
@@ -496,6 +500,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 .html(d => `<span class="filter-dot category-${d.category.toLowerCase()}"></span> <strong>${d['title_' + lang]}</strong>`);
 
             timelineItems.append("small").attr("class", "text-muted").text(d => d3.timeFormat("%d %b %Y")(d.date));
+        }
+
+        // --- FUNCIÓN PARA RENDERIZAR LA LEYENDA DE CICLOS DE MERCADO ---
+        function renderMarketCycleLegend(lang) {
+            const legendEl = document.getElementById('chart-legend');
+            // Find the fictitious data legend item if it exists
+            const fictitiousLegendItem = legendEl.querySelector('div.fictitious-data-legend-item');
+            
+            // Clear all existing legend items except the fictitious one
+            Array.from(legendEl.children).forEach(child => {
+                if (child !== fictitiousLegendItem) {
+                    legendEl.removeChild(child);
+                }
+            });
+
+            // Bull Market Legend
+            const bullLegendItem = document.createElement('div');
+            bullLegendItem.className = 'd-flex align-items-center gap-2';
+            bullLegendItem.innerHTML = `
+                <svg width="25" height="10" style="flex-shrink: 0;">
+                    <rect x="0" y="0" width="25" height="10" fill="#28a745"></rect>
+                </svg>
+                <small class="text-muted" data-i18n-key="legendBullMarket">${translations[lang].legendBullMarket}</small>
+            `;
+            legendEl.appendChild(bullLegendItem);
+
+            // Bear Market Legend
+            const bearLegendItem = document.createElement('div');
+            bearLegendItem.className = 'd-flex align-items-center gap-2';
+            bearLegendItem.innerHTML = `
+                <svg width="25" height="10" style="flex-shrink: 0;">
+                    <rect x="0" y="0" width="25" height="10" fill="#dc3545"></rect>
+                </svg>
+                <small class="text-muted" data-i18n-key="legendBearMarket">${translations[lang].legendBearMarket}</small>
+            `;
+            legendEl.appendChild(bearLegendItem);
+
+            // Ensure the legend container is visible if any item is present
+            if (legendEl.children.length > 0) {
+                legendEl.style.display = 'flex';
+            } else {
+                legendEl.style.display = 'none';
+            }
         }
 
         function setLanguage(lang) {
