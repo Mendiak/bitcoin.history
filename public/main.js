@@ -508,11 +508,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Find the fictitious data legend item if it exists
             const fictitiousLegendItem = legendEl.querySelector('div.fictitious-data-legend-item');
             
-            // Clear all existing legend items except the fictitious one
-            Array.from(legendEl.children).forEach(child => {
-                if (child !== fictitiousLegendItem) {
-                    legendEl.removeChild(child);
-                }
+            // Clear all existing legend items except the first one (fictitious data legend)
+            // The fictitious data legend is the first child in index.html
+            const childrenToRemove = Array.from(legendEl.children).slice(1); // Get all children except the first
+            childrenToRemove.forEach(child => {
+                legendEl.removeChild(child);
             });
 
             // Bull Market Legend
@@ -658,6 +658,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Renderizado inicial de la cronología
         renderTimeline(preferredLang);
+
+        // Renderizado inicial de la leyenda de ciclos de mercado
+        renderMarketCycleLegend(preferredLang);
 
     }).catch(error => {
         console.error("Error al cargar los datos:", error);

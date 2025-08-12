@@ -96,10 +96,12 @@
 
         <!-- Leyenda para la línea de datos ficticios -->
         <div id="chart-legend" class="d-flex justify-content-center align-items-center gap-2 mt-3" style="display: none;">
-            <svg width="25" height="10" style="flex-shrink: 0;">
-                <line x1="0" y1="5" x2="25" y2="5" class="line fictitious-line"></line>
-            </svg>
-            <small class="text-muted" data-i18n-key="fictitiousDataLegend">La línea de puntos indica un período sin datos de precios registrados.</small>
+            <div class="fictitious-data-legend-item d-flex align-items-center gap-2">
+                <svg width="25" height="10" style="flex-shrink: 0;">
+                    <line x1="0" y1="5" x2="25" y2="5" class="line fictitious-line"></line>
+                </svg>
+                <small class="text-muted" data-i18n-key="fictitiousDataLegend">La línea de puntos indica un período sin datos de precios registrados.</small>
+            </div>
         </div>
 
         <!-- Cronología de Eventos -->
