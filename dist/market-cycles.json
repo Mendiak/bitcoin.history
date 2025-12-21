@@ -1,0 +1,74 @@
+[
+  {
+    "type": "bull",
+    "startDate": "2010-08-05",
+    "endDate": "2011-06-09",
+    "label": "Primer Bull Run Hist\u00f3rico"
+  },
+  {
+    "type": "bear",
+    "startDate": "2011-06-10",
+    "endDate": "2011-11-20",
+    "label": "Primer Mercado Bajista"
+  },
+  {
+    "type": "bull",
+    "startDate": "2012-11-28",
+    "endDate": "2013-12-05",
+    "label": "Bull Run de 2013"
+  },
+  {
+    "type": "bear",
+    "startDate": "2013-12-06",
+    "endDate": "2015-01-15",
+    "label": "Mercado Bajista de 2014-2015"
+  },
+  {
+    "type": "bull",
+    "startDate": "2015-01-16",
+    "endDate": "2017-12-17",
+    "label": "Bull Run de 2017"
+  },
+  {
+    "type": "bear",
+    "startDate": "2017-12-18",
+    "endDate": "2018-12-16",
+    "label": "Invierno Cripto de 2018"
+  },
+  {
+    "type": "bull",
+    "startDate": "2018-12-17",
+    "endDate": "2019-06-27",
+    "label": "Mini Bull Run de 2019"
+  },
+  {
+    "type": "bear",
+    "startDate": "2019-06-28",
+    "endDate": "2020-03-17",
+    "label": "Correcci\u00c3\u00b3n y Ca\u00c3\u00adda COVID-19"
+  },
+  {
+    "type": "bull",
+    "startDate": "2020-03-18",
+    "endDate": "2021-11-11",
+    "label": "Bull Run de 2021"
+  },
+  {
+    "type": "bear",
+    "startDate": "2021-11-12",
+    "endDate": "2022-11-22",
+    "label": "Mercado Bajista de 2022"
+  },
+  {
+    "type": "bull",
+    "startDate": "2022-11-23",
+    "endDate": "2024-03-14",
+    "label": "Rally Post-FTX y Pre-Halving 2024"
+  },
+  {
+    "type": "bear",
+    "startDate": "2024-03-15",
+    "endDate": "2024-08-06",
+    "label": "Correcci\u00c3\u00b3n Previa al Halving y Consolidaci\u00c3\u00b3n"
+  }
+]
