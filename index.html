@@ -79,21 +79,37 @@
         <!-- Stats Dashboard -->
         <div id="stats-dashboard" class="mb-4"></div>
 
-        <div id="event-filters" class="d-flex flex-wrap justify-content-center mb-3 gap-2" role="group"
-            aria-label="Filtros de eventos">
-            <!-- Los botones de filtro se generarán aquí con JavaScript -->
+        <!-- Educational: Did You Know -->
+        <div id="did-you-know" class="glass-panel p-3 d-flex align-items-center mb-4 gap-3" style="display: none;">
+            <i class="bi bi-lightbulb-fill text-warning fs-4"></i>
+            <div>
+                <strong id="did-you-know-title"></strong>
+                <span id="did-you-know-text"></span>
+            </div>
         </div>
 
-        <div class="d-flex justify-content-center align-items-center mt-4 mb-4 gap-2">
-            <button id="scale-toggle" class="btn btn-outline-secondary btn-sm" data-i18n-title="scale">
-                <i class="bi bi-graph-up"></i> Escala Logarítmica
-            </button>
-            <button id="reset-zoom" class="btn btn-outline-secondary btn-sm" style="display: none;"
-                data-i18n-key="resetZoom" data-i18n-title="resetZoom">
-                <i class="bi bi-arrow-clockwise"></i> Restablecer Zoom
-            </button>
+        <div class="d-flex flex-wrap justify-content-center align-items-center mb-4 gap-3">
+            <!-- Filtros -->
+            <div id="event-filters" class="d-flex flex-wrap justify-content-center gap-2" role="group"
+                aria-label="Filtros de eventos">
+                <!-- Los botones de filtro se generarán aquí con JavaScript -->
+            </div>
+
+            <!-- Separador (visible en desktop) -->
+            <div class="vr d-none d-md-block text-muted opacity-25"></div>
+
+            <!-- Controles del Gráfico -->
+            <div class="d-flex gap-2">
+                <button id="scale-toggle" class="btn btn-outline-secondary btn-sm" data-i18n-title="scale">
+                    <i class="bi bi-graph-up"></i> Escala Logarítmica
+                </button>
+                <button id="reset-zoom" class="btn btn-outline-secondary btn-sm" style="display: none;"
+                    data-i18n-key="resetZoom" data-i18n-title="resetZoom">
+                    <i class="bi bi-arrow-clockwise"></i> Restablecer Zoom
+                </button>
+            </div>
         </div>
-        <div id="chart-container">
+        <div id="chart-container" class="glass-panel">
             <div id="loading-spinner" class="text-center">
                 <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -143,6 +159,9 @@
                 <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" rel="noopener noreferrer"
                     title="Repositorio en GitHub">GitHub <i class="bi bi-github"></i></a>.
             </small>
+        </div>
+
+        <div id="footer-quote" class="text-center mt-4 mb-2 opacity-75" style="font-family: serif; font-size: 0.9rem;">
         </div>
     </div>
 

@@ -83,19 +83,23 @@ html[data-bs-theme="light"] h1 {
     align-items: center;
 }
 
-/* Hacemos que el contenedor del gráfico sea responsive */
-#chart-container {
-    /* Efecto Glassmorphism */
+/* Shared Glassmorphism Style */
+.glass-panel {
     background: rgba(var(--surface-color-rgb), 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     /* Para Safari */
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(var(--border-color-rgb), 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hacemos que el contenedor del gráfico sea responsive */
+#chart-container {
     width: 100%;
-    border: 1px solid rgba(var(--surface-color-rgb), 0.18);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    padding: 1rem;
+    /* transition: background-color 0.3s ease, border-color 0.3s ease; - MOVED TO .glass-panel */
     /* Estilos para el estado de carga */
     display: flex;
     align-items: center;
@@ -352,6 +356,12 @@ html[data-bs-theme="light"] h1 {
         font-size: 1.75rem;
         /* Reduce title size for better fit on mobile */
     }
+
+    #chart-container {
+        padding: 0.5rem;
+        min-height: auto;
+        /* Allow container to shrink to fit content (fixes empty space) */
+    }
 }
 
 /* Estilos modernos para botones */
@@ -382,16 +392,11 @@ html[data-bs-theme="light"] h1 {
 
 /* --- Stats Dashboard --- */
 .stat-card {
-    background: rgba(var(--surface-color-rgb), 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--border-color-rgb), 0.2);
-    border-radius: 12px;
+    /* Glass styles moved to .glass-panel */
     padding: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .stat-card:hover {

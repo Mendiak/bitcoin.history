@@ -10,7 +10,7 @@ import { loadData, fetchLivePrice } from './modules/data.js';
 import { setTranslations, setLanguage, getTranslation } from './modules/i18n.js';
 import { initTheme, setTheme } from './modules/utils.js';
 import { initChart, updateChart,resetZoom } from './modules/chart.js';
-import { initUI, showEventModal, renderTimeline, setupFilters, renderMarketCycleLegend, updateTimelineLanguage } from './modules/ui.js';
+import { initUI, showEventModal, renderTimeline, setupFilters, renderMarketCycleLegend, updateTimelineLanguage, renderEducationalContent } from './modules/ui.js';
 import { calculateStats, renderStats } from './modules/stats.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -80,14 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
         setupFilters(categories, translations);
 
-        // Legends
+        // Legends & Educational Content
         renderMarketCycleLegend(translations);
+        renderEducationalContent(translations);
 
         // Language Logic
         const onLanguageChange = (lang) => {
             updateChart(); // Redraw chart (axis formats etc)
             updateTimelineLanguage();
-            renderMarketCycleLegend(translations); // Update Legend text
+            renderMarketCycleLegend(translations); 
+            renderEducationalContent(translations); // Update educational content
         };
 
         const preferredLang = localStorage.getItem('bitcoinHistoryLang') || (navigator.language.startsWith('es') ? 'es' : 'en');

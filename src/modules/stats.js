@@ -34,7 +34,7 @@ export function renderStats(stats, containerId) {
     container.innerHTML = `
         <div class="row g-3 justify-content-center">
             <div class="col-md-4 col-sm-6">
-                <div class="stat-card">
+                <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-graph-up-arrow"></i></div>
                     <div class="stat-content">
                         <h6 class="stat-title text-muted" data-i18n-key="statATH">${getTranslation('statATH')}</h6>
@@ -43,7 +43,7 @@ export function renderStats(stats, containerId) {
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <div class="stat-card">
+                <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
                     <div class="stat-content">
                         <h6 class="stat-title text-muted" data-i18n-key="statDaysGenesis">${getTranslation('statDaysGenesis')}</h6>
@@ -52,7 +52,7 @@ export function renderStats(stats, containerId) {
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <div class="stat-card">
+                <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-currency-bitcoin"></i></div>
                     <div class="stat-content">
                         <h6 class="stat-title text-muted" data-i18n-key="statCurrentPrice">${getTranslation('statCurrentPrice')}</h6>

@@ -29,7 +29,33 @@
     "firstHistoricalBullRun": "Primer Bull Run Histórico",
     "firstBearMarket": "Primer Mercado Bajista",
     "legendBullMarket": "Mercado Alcista",
-    "legendBearMarket": "Mercado Bajista"
+    "legendBearMarket": "Mercado Bajista",
+    "didYouKnowTitle": "💡 ¿Sabías que...?",
+    "didYouKnow": [
+      "Se estima que entre 3 y 4 millones de Bitcoins están perdidos para siempre.",
+      "Satoshi Nakamoto desapareció completamente de la vida pública en abril de 2011.",
+      "Solo existirán 21 millones de Bitcoins. El último se minará alrededor del año 2140.",
+      "La red Bitcoin consume más energía que algunos países, pero gran parte proviene de renovables.",
+      "El código original de Bitcoin fue escrito en C++."
+    ],
+    "quotes": [
+      {
+        "text": "Si no me crees o no lo entiendes, no tengo tiempo para tratar de convencerte, lo siento.",
+        "author": "Satoshi Nakamoto"
+      },
+      {
+        "text": "Podría tener sentido conseguir un poco en caso de que se ponga de moda.",
+        "author": "Satoshi Nakamoto"
+      },
+      {
+        "text": "Running bitcoin",
+        "author": "Hal Finney"
+      },
+      {
+        "text": "Vires in Numeris (La fuerza en los números)",
+        "author": "Lema Cypherpunk"
+      }
+    ]
   },
   "en": {
     "pageTitle": "Bitcoin's Epic Journey",
@@ -61,6 +87,32 @@
     "firstHistoricalBullRun": "First Historical Bull Run",
     "firstBearMarket": "First Bear Market",
     "legendBullMarket": "Bull Market",
-    "legendBearMarket": "Bear Market"
+    "legendBearMarket": "Bear Market",
+    "didYouKnowTitle": "💡 Did you know...?",
+    "didYouKnow": [
+      "It is estimated that between 3 and 4 million Bitcoins are lost forever.",
+      "Satoshi Nakamoto completely disappeared from public life in April 2011.",
+      "Only 21 million Bitcoins will ever exist. The last one will be mined around the year 2140.",
+      "The Bitcoin network consumes more energy than some countries, but much comes from renewables.",
+      "The original Bitcoin code was written in C++."
+    ],
+    "quotes": [
+      {
+        "text": "If you don't believe me or don't get it, I don't have time to try to convince you, sorry.",
+        "author": "Satoshi Nakamoto"
+      },
+      {
+        "text": "It might make sense just to get some in case it catches on.",
+        "author": "Satoshi Nakamoto"
+      },
+      {
+        "text": "Running bitcoin",
+        "author": "Hal Finney"
+      },
+      {
+        "text": "Vires in Numeris (Strength in Numbers)",
+        "author": "Cypherpunk Motto"
+      }
+    ]
   }
 }

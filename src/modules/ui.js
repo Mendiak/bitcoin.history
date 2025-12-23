@@ -120,6 +120,37 @@ export function setupFilters(categories, translations, onFilterChange) {
      d3.select(`#filter-${state.activeFilter}`).classed('active', true);
 }
 
+// ... existing imports ...
+
+export function renderEducationalContent(translations) {
+    const t = translations[state.lang];
+    if (!t) return;
+
+    // 1. Did You Know
+    if (t.didYouKnow && t.didYouKnow.length > 0) {
+        const randomFact = t.didYouKnow[Math.floor(Math.random() * t.didYouKnow.length)];
+        const container = document.getElementById('did-you-know');
+        const titleEl = document.getElementById('did-you-know-title');
+        const textEl = document.getElementById('did-you-know-text');
+
+        if (container && titleEl && textEl) {
+            titleEl.textContent = t.didYouKnowTitle + " ";
+            textEl.textContent = randomFact;
+            container.style.display = 'flex';
+        }
+    }
+
+    // 2. Quote
+    if (t.quotes && t.quotes.length > 0) {
+        const randomQuote = t.quotes[Math.floor(Math.random() * t.quotes.length)];
+        const quoteEl = document.getElementById('footer-quote');
+        
+        if (quoteEl) {
+            quoteEl.innerHTML = `&ldquo;${randomQuote.text}&rdquo; <br> <small>&mdash; ${randomQuote.author}</small>`;
+        }
+    }
+}
+
 export function renderMarketCycleLegend(translations) {
     const legendEl = document.getElementById('chart-legend');
     // ... same logic as before ...

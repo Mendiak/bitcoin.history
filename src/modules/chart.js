@@ -2,11 +2,13 @@ import * as d3 from 'd3';
 import { state } from './state.js';
 
 // --- CONFIGURACIÓN ---
-const margin = { top: 20, right: 50, bottom: 120, left: 70 };
-const margin2 = { top: 430, right: 50, bottom: 50, left: 70 };
-const width = 960 - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
-const height2 = 500 - margin2.top - margin2.bottom;
+let margin = { top: 20, right: 50, bottom: 120, left: 70 };
+let margin2 = { top: 430, right: 50, bottom: 50, left: 70 };
+let width = 960 - margin.left - margin.right;
+let height = 500 - margin.top - margin.bottom;
+let height2 = 500 - margin2.top - margin2.bottom;
+let fullWidth = 960;
+let fullHeight = 500;
 
 // Variables globales del módulo
 let svg, focus, context;
@@ -27,6 +29,34 @@ let onEventClickCallback = null;
 // --- INICIALIZACIÓN ---
 export function initChart(containerId, _priceData, _eventsData, _marketCyclesData, _onEventClick) {
     onEventClickCallback = _onEventClick;
+
+    // Responsive Setup
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+        fullWidth = 400;
+        fullHeight = 500;
+        margin = { top: 10, right: 10, bottom: 90, left: 45 }; 
+    } else {
+        fullWidth = 960;
+        fullHeight = 500;
+        margin = { top: 20, right: 50, bottom: 120, left: 70 };
+    }
+
+    width = fullWidth - margin.left - margin.right;
+    height = fullHeight - margin.top - margin.bottom;
+
+    // Ajustar posición del gráfico de contexto (brush)
+    const contextHeight = 30;
+    const contextBottomMargin = isMobile ? 30 : 50; 
+    
+    margin2 = { 
+        top: fullHeight - contextBottomMargin - contextHeight, 
+        right: margin.right, 
+        bottom: contextBottomMargin, 
+        left: margin.left 
+    };
+    height2 = fullHeight - margin2.top - margin2.bottom;
     
     // Procesar datos
     data = _priceData.prices.map(d => ({
@@ -60,7 +90,7 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
     d3.select(containerId).html(''); // Limpiar contenedor
     svg = d3.select(containerId).append("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
-        .attr("viewBox", `0 0 960 500`);
+        .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`);
 
     svg.append("defs").append("clipPath")
         .attr("id", "clip")
@@ -170,9 +200,24 @@ function setupMarkerInteractions() {
             d3.select(this).classed('pulsing', true);
             hoverLine.style("opacity", 0);
             hoverDot.style("opacity", 0);
+
+            let extraContent = "";
+            if (d.category === 'Halving') {
+                let reward = "";
+                const year = d.date.getFullYear();
+                if (year === 2012) reward = "50 BTC ➔ 25 BTC";
+                else if (year === 2016) reward = "25 BTC ➔ 12.5 BTC";
+                else if (year === 2020) reward = "12.5 BTC ➔ 6.25 BTC";
+                else if (year >= 2024) reward = "6.25 BTC ➔ 3.125 BTC";
+                
+                if (reward) {
+                    extraContent = `<div class="mt-2 pt-2 border-top text-warning fw-bold"><i class="bi bi-bank"></i> ${reward}</div>`;
+                }
+            }
+
             tooltip.classed("tooltip-event", true)
                 .style("opacity", 1)
-                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}`)
+                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}${extraContent}`)
                 .style("left", (event.pageX + 15) + "px")
                 .style("top", (event.pageY - 28) + "px");
         })
