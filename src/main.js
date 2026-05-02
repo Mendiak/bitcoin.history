@@ -98,6 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setLanguage(preferredLang, { onLanguageChange });
 
         // Event Listeners
+        // Initialize button text for linear default
+        const initialKey = state.scale === 'log' ? 'scaleLog' : 'scaleLinear';
+        const initialIcon = state.scale === 'log' ? 'bi-graph-up' : 'bi-graph-up-arrow';
+        d3.select("#scale-toggle").html(`<i class="bi ${initialIcon}"></i> ${getTranslation(initialKey)}`);
+
         d3.select("#scale-toggle").on("click", () => {
              state.scale = state.scale === 'log' ? 'linear' : 'log';
              const key = state.scale === 'log' ? 'scaleLog' : 'scaleLinear';
