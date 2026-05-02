@@ -31,12 +31,15 @@
     "legendBullMarket": "Mercado Alcista",
     "legendBearMarket": "Mercado Bajista",
     "didYouKnowTitle": "💡 ¿Sabías que...?",
+    "didYouKnowNext": "Siguiente curiosidad",
     "didYouKnow": [
-      "Se estima que entre 3 y 4 millones de Bitcoins están perdidos para siempre.",
-      "Satoshi Nakamoto desapareció completamente de la vida pública en abril de 2011.",
-      "Solo existirán 21 millones de Bitcoins. El último se minará alrededor del año 2140.",
-      "La red Bitcoin consume más energía que algunos países, pero gran parte proviene de renovables.",
-      "El código original de Bitcoin fue escrito en C++."
+      { "text": "Se estima que entre 3 y 4 millones de Bitcoins están perdidos para siempre." },
+      { "text": "Satoshi Nakamoto desapareció completamente de la vida pública en abril de 2011.", "date": "2011-04-23" },
+      { "text": "Solo existirán 21 millones de Bitcoins. El último se minará alrededor del año 2140." },
+      { "text": "La red Bitcoin consume más energía que algunos países, pero gran parte proviene de renovables." },
+      { "text": "El código original de Bitcoin fue escrito en C++." },
+      { "text": "Hal Finney fue el receptor de la primera transacción de Bitcoin realizada por Satoshi.", "date": "2009-01-12" },
+      { "text": "El 22 de mayo de 2010 se compraron dos pizzas por 10,000 BTC, la primera transacción comercial.", "date": "2010-05-22" }
     ],
     "quotes": [
       {
@@ -89,12 +92,15 @@
     "legendBullMarket": "Bull Market",
     "legendBearMarket": "Bear Market",
     "didYouKnowTitle": "💡 Did you know...?",
+    "didYouKnowNext": "Next curiosity",
     "didYouKnow": [
-      "It is estimated that between 3 and 4 million Bitcoins are lost forever.",
-      "Satoshi Nakamoto completely disappeared from public life in April 2011.",
-      "Only 21 million Bitcoins will ever exist. The last one will be mined around the year 2140.",
-      "The Bitcoin network consumes more energy than some countries, but much comes from renewables.",
-      "The original Bitcoin code was written in C++."
+      { "text": "It is estimated that between 3 and 4 million Bitcoins are lost forever." },
+      { "text": "Satoshi Nakamoto completely disappeared from public life in April 2011.", "date": "2011-04-23" },
+      { "text": "Only 21 million Bitcoins will ever exist. The last one will be mined around the year 2140." },
+      { "text": "The Bitcoin network consumes more energy than some countries, but much comes from renewables." },
+      { "text": "The original Bitcoin code was written in C++." },
+      { "text": "Hal Finney was the recipient of the first Bitcoin transaction from Satoshi.", "date": "2009-01-12" },
+      { "text": "On May 22, 2010, two pizzas were bought for 10,000 BTC, the first commercial transaction.", "date": "2010-05-22" }
     ],
     "quotes": [
       {

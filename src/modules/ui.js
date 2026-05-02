@@ -1,7 +1,7 @@
 import * as bootstrap from 'bootstrap';
 import * as d3 from 'd3';
 import { state } from './state.js';
-import { filterMarkers, highlightMarker } from './chart.js';
+import { filterMarkers, highlightMarker, focusOnDate } from './chart.js';
 
 let eventModal;
 let eventModalTitle, eventModalBody, eventModalLinks;
@@ -128,15 +128,31 @@ export function renderEducationalContent(translations) {
 
     // 1. Did You Know
     if (t.didYouKnow && t.didYouKnow.length > 0) {
-        const randomFact = t.didYouKnow[Math.floor(Math.random() * t.didYouKnow.length)];
+        const fact = t.didYouKnow[state.currentFactIndex % t.didYouKnow.length];
         const container = document.getElementById('did-you-know');
         const titleEl = document.getElementById('did-you-know-title');
         const textEl = document.getElementById('did-you-know-text');
+        const contentEl = document.getElementById('did-you-know-content');
 
         if (container && titleEl && textEl) {
             titleEl.textContent = t.didYouKnowTitle + " ";
-            textEl.textContent = randomFact;
+            textEl.textContent = fact.text;
             container.style.display = 'flex';
+
+            // Click interaction
+            contentEl.onclick = () => {
+                if (fact.date) {
+                    focusOnDate(fact.date);
+                }
+            };
+
+            // Tooltip or cursor style if date exists
+            contentEl.style.cursor = fact.date ? 'pointer' : 'default';
+            if (fact.date) {
+                contentEl.title = state.lang === 'es' ? 'Haz clic para ver en el gráfico' : 'Click to see on chart';
+            } else {
+                contentEl.title = '';
+            }
         }
     }
 
@@ -149,6 +165,11 @@ export function renderEducationalContent(translations) {
             quoteEl.innerHTML = `&ldquo;${randomQuote.text}&rdquo; <br> <small>&mdash; ${randomQuote.author}</small>`;
         }
     }
+}
+
+export function nextDidYouKnow(translations) {
+    state.currentFactIndex++;
+    renderEducationalContent(translations);
 }
 
 export function renderMarketCycleLegend(translations) {

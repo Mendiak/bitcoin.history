@@ -26,6 +26,8 @@ let visibleData = [];
 // Callbacks
 let onEventClickCallback = null;
 
+let factHighlightTimeout = null;
+
 // --- INICIALIZACIÓN ---
 export function initChart(containerId, _priceData, _eventsData, _marketCyclesData, _onEventClick) {
     onEventClickCallback = _onEventClick;
@@ -263,6 +265,82 @@ export function resetZoom() {
     d3.select(".brush").call(brush.move, null);
 }
 
+export function showFactOnChart(dateStr) {
+    if (!dateStr) return;
+    const date = d3.timeParse("%Y-%m-%d")(dateStr);
+    if (!date) return;
+
+    if (factHighlightTimeout) {
+        clearTimeout(factHighlightTimeout);
+    }
+
+    // 1. Asegurar visibilidad sin cambiar el nivel de zoom (solo desplazar si es necesario)
+    const [currentStart, currentEnd] = x.domain();
+    const duration = currentEnd.getTime() - currentStart.getTime();
+    
+    if (date < currentStart || date > currentEnd) {
+        const halfDuration = duration / 2;
+        let newStart = new Date(date.getTime() - halfDuration);
+        let newEnd = new Date(date.getTime() + halfDuration);
+
+        const [minD, maxD] = x2.domain();
+        if (newStart < minD) {
+            newStart = minD;
+            newEnd = new Date(minD.getTime() + duration);
+        }
+        if (newEnd > maxD) {
+            newEnd = maxD;
+            newStart = new Date(maxD.getTime() - duration);
+        }
+
+        d3.select(".brush").transition().duration(800).call(brush.move, [x2(newStart), x2(newEnd)]);
+    }
+
+    // 2. Resaltar el marcador (animación de pulso y escala)
+    const marker = eventMarkers.filter(d => d.date.getTime() === date.getTime());
+    
+    if (!marker.empty()) {
+        eventMarkers.classed('highlighted pulsing', false);
+        marker.classed('highlighted pulsing', true);
+
+        // 3. Mostrar el Tooltip y la línea de forma programada
+        const d = marker.datum();
+        const bisectDate = d3.bisector(d => d.date).left;
+        const i = bisectDate(data, d.date, 1);
+        const priceData = data[i-1]; 
+
+        if (priceData) {
+            hoverDot.attr("cx", x(d.date)).attr("cy", y(priceData.price || 0)).style("opacity", 1);
+            hoverLine.attr("x1", x(d.date)).attr("x2", x(d.date)).style("opacity", 1);
+            
+            const svgNode = svg.node();
+            const rect = svgNode.getBoundingClientRect();
+            const screenX = rect.left + window.scrollX + margin.left + x(d.date);
+            const screenY = rect.top + window.scrollY + margin.top + y(priceData.price || 0);
+
+            tooltip.style("opacity", 1)
+                .classed("tooltip-event", true)
+                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}`)
+                .style("left", (screenX + 15) + "px")
+                .style("top", (screenY - 28) + "px");
+
+            factHighlightTimeout = setTimeout(() => {
+                marker.classed('highlighted pulsing', false);
+                if (tooltip.classed("tooltip-event")) {
+                   tooltip.style("opacity", 0).classed("tooltip-event", false);
+                   hoverDot.style("opacity", 0);
+                   hoverLine.style("opacity", 0);
+                }
+                factHighlightTimeout = null;
+            }, 5000);
+        }
+    }
+}
+
+export function focusOnDate(dateStr) {
+    showFactOnChart(dateStr);
+}
+
 function redrawFocus(withTransition = true) {
     const t = withTransition ? focus.transition().duration(750) : focus;
     t.select(".axis--x").call(xAxis);
@@ -304,7 +382,6 @@ export function updateChart(transitionDuration = 750) {
     focus.select(".fictitious-line").transition(t).attr("d", line);
     contextLine.transition(t).attr("d", line2);
     
-    // update event markers Y position
     const bisectDate = d3.bisector(d => d.date).left;
     eventMarkers.transition(t).attr("cy", d => {
             const i = bisectDate(data, d.date, 1);
@@ -312,11 +389,10 @@ export function updateChart(transitionDuration = 750) {
             const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
             return closest ? y(closest.price) : height;
         })
-        .attr("aria-label", d => d['title_' + state.lang]); // Update accessibility label on update too
+        .attr("aria-label", d => d['title_' + state.lang]); 
 }
 
 export function filterMarkers(category) {
-   // Actualizar animación de marcadores
    eventMarkers.transition().duration(400)
        .attr("r", d => (category === 'all' || d.category === category) ? 6 : 0)
        .style("opacity", d => (category === 'all' || d.category === category) ? 1 : 0)

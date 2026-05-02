@@ -153,6 +153,23 @@
     ]
   },
   {
+    "date": "2011-04-23",
+    "category": "Technology",
+    "title_es": "👤 Desaparición de Satoshi",
+    "description_tooltip_es": "Satoshi Nakamoto envía su último correo conocido diciendo que ha 'pasado a otras cosas'. ¡El misterio comienza!",
+    "description_full_es": "El 23 de abril de 2011, Satoshi Nakamoto envió su último correo electrónico conocido a los desarrolladores de Bitcoin, en particular a Mike Hearn. En el mensaje, Satoshi escribió: 'He pasado a otras cosas. [Bitcoin] está en buenas manos con Gavin y los demás'. Desde ese momento, el creador de Bitcoin desapareció completamente de la vida pública, dejando atrás una red descentralizada y una fortuna de aproximadamente un millón de bitcoins que nunca se han movido.\n\nEsta desaparición es uno de los mayores misterios de la era digital. Al retirarse, Satoshi evitó convertirse en un punto único de fallo o en una figura de autoridad que pudiera ser presionada por gobiernos o instituciones. Esto consolidó la naturaleza verdaderamente descentralizada de Bitcoin: el proyecto ya no dependía de su creador, sino de su código y de la comunidad global.\n\nEl hecho de que Satoshi nunca haya revelado su identidad ni gastado sus monedas refuerza la integridad del sistema. Bitcoin nació como un regalo al mundo, y su creador se aseguró de que permaneciera así, permitiendo que la tecnología hablara por sí misma.",
+    "title_en": "👤 Satoshi's Disappearance",
+    "description_tooltip_en": "Satoshi Nakamoto sends his last known email stating he has 'moved on to other things.' The mystery begins!",
+    "description_full_en": "On April 23, 2011, Satoshi Nakamoto sent his last known email to Bitcoin developers, specifically Mike Hearn. In the message, Satoshi wrote: 'I've moved on to other things. [Bitcoin] is in good hands with Gavin and the rest.' Since that moment, the creator of Bitcoin completely disappeared from public life, leaving behind a decentralized network and a fortune of approximately one million bitcoins that have never moved.\n\nThis disappearance is one of the greatest mysteries of the digital age. By withdrawing, Satoshi avoided becoming a single point of failure or an authority figure who could be pressured by governments or institutions. This consolidated the truly decentralized nature of Bitcoin: the project no longer depended on its creator, but on its code and the global community.\n\nThe fact that Satoshi has never revealed his identity nor spent his coins reinforces the system's integrity. Bitcoin was born as a gift to the world, and its creator ensured it remained so, allowing the technology to speak for itself.",
+    "links": [
+      {
+        "text_es": "El último mensaje de Satoshi",
+        "text_en": "Satoshi's Last Message",
+        "url": "https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source"
+      }
+    ]
+  },
+  {
     "date": "2011-06-13",
     "category": "Security",
     "title_es": "🔓 Hackeo a Mt. Gox",

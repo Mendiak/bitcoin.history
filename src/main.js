@@ -10,7 +10,7 @@ import { loadData, fetchLivePrice } from './modules/data.js';
 import { setTranslations, setLanguage, getTranslation } from './modules/i18n.js';
 import { initTheme, setTheme } from './modules/utils.js';
 import { initChart, updateChart,resetZoom } from './modules/chart.js';
-import { initUI, showEventModal, renderTimeline, setupFilters, renderMarketCycleLegend, updateTimelineLanguage, renderEducationalContent } from './modules/ui.js';
+import { initUI, showEventModal, renderTimeline, setupFilters, renderMarketCycleLegend, updateTimelineLanguage, renderEducationalContent, nextDidYouKnow } from './modules/ui.js';
 import { calculateStats, renderStats } from './modules/stats.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Legends & Educational Content
         renderMarketCycleLegend(translations);
         renderEducationalContent(translations);
+
+        d3.select("#next-did-you-know").on("click", () => nextDidYouKnow(translations));
 
         // Language Logic
         const onLanguageChange = (lang) => {
