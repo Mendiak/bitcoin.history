@@ -3,3 +3,6 @@
 
 # Ignorar archivos CSV, especialmente los grandes
 *.csv
+.agents
+.skills
+.qwen

@@ -199,7 +199,7 @@ function updateYScales() {
 function setupMarkerInteractions() {
     eventMarkers
         .on("mouseover", function(event, d) {
-            d3.select(this).classed('pulsing', true);
+            d3.select(this).classed('highlighted', true);
             hoverLine.style("opacity", 0);
             hoverDot.style("opacity", 0);
 
@@ -213,7 +213,7 @@ function setupMarkerInteractions() {
                 else if (year >= 2024) reward = "6.25 BTC ➔ 3.125 BTC";
                 
                 if (reward) {
-                    extraContent = `<div class="mt-2 pt-2 border-top text-warning fw-bold"><i class="bi bi-bank"></i> ${reward}</div>`;
+                    extraContent = `<div class="mt-2 pt-2 border-top small text-muted">${reward}</div>`;
                 }
             }
 
@@ -224,7 +224,7 @@ function setupMarkerInteractions() {
                 .style("top", (event.pageY - 28) + "px");
         })
         .on("mouseout", function() {
-            d3.select(this).classed('pulsing', false);
+            d3.select(this).classed('highlighted', false);
             tooltip.style("opacity", 0).classed("tooltip-event", false);
         })
         .on("keydown", (event, d) => {

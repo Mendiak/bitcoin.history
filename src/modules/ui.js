@@ -30,8 +30,8 @@ export function showEventModal(d) {
         d.links.forEach(link => {
             const linkEl = document.createElement('a');
             linkEl.href = link.url;
-            linkEl.innerHTML = `<i class="bi bi-link-45deg"></i> ${link['text_' + state.lang]}`;
-            linkEl.className = 'btn btn-primary me-2';
+            linkEl.textContent = link['text_' + state.lang];
+            linkEl.className = 'btn me-2';
             linkEl.target = '_blank';
             linkEl.rel = 'noopener noreferrer';
             eventModalLinks.appendChild(linkEl);

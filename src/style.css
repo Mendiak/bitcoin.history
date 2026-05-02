@@ -1,108 +1,116 @@
-/* Global Variables - Cyber/Tech Aesthetic */
-html[data-bs-theme="light"] {
-    --bg-color-start: #fcfcfc;
-    --bg-color-end: #f0f2f5;
-    --font-main: 'Inter', sans-serif;
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --bg-grid: rgba(0, 0, 0, 0.03);
-    --surface-color: #ffffff;
-    --surface-color-rgb: 255, 255, 255;
-    --primary-text-color: #1a1a1a;
-    --secondary-text-color: #666666;
+/* Less Is More UI - Essential Design System */
+:root {
+    /* 1. Neutral Palette (Warm Grays) */
+    --gray-0:   #0f0e0e; /* Near Black Warm */
+    --gray-10:  #1c1a1a; /* Essential Text */
+    --gray-40:  #4a4545; /* Paragraphs */
+    --gray-60:  #6b6565; /* Muted Text */
+    --gray-80:  #9e9797; /* Dimmed Text */
+    --gray-90:  #d6cfcf; /* Strong Borders */
+    --gray-94:  #ede8e8; /* Silent Borders */
+    --gray-97:  #fcfafa; /* Surface Alt */
+    --gray-99:  #fffdfd; /* Main Background */
+    --gray-100: #ffffff; /* Surface */
+
+    /* 2. Modular Typographic Scale (Major Third - 1.250) */
+    --step--2: 0.64rem;
+    --step--1: 0.8rem;
+    --step-0:  1rem;    /* Base (16px) */
+    --step-1:  1.25rem;
+    --step-2:  1.563rem;
+    --step-3:  1.953rem;
+    --step-4:  2.441rem;
+    --step-5:  3.052rem;
+    --step-6:  3.815rem;
+
+    /* 3. Spacing Scale (Base 8px / 0.5rem) */
+    --space-base: 0.5rem;
+    --space-1: calc(var(--space-base) * 1);
+    --space-2: calc(var(--space-base) * 2);
+    --space-3: calc(var(--space-base) * 3);
+    --space-4: calc(var(--space-base) * 4);
+    --space-6: calc(var(--space-base) * 6);
+    --space-8: calc(var(--space-base) * 8);
+
+    /* 4. Category Palette (Essential Chromatic) */
+    --cat-tech: #5db0c6;
+    --cat-market: #f7931a;
+    --cat-adoption: #7fb069;
+    --cat-reg: #d66874;
+    --cat-sec: #5e81ac;
+    --cat-halving: #a481aa;
+
+    /* 5. Semantic Tokens */
+    --ui-font-main: 'Inter', -apple-system, sans-serif;
+    --ui-font-heading: 'Space Grotesk', sans-serif;
+    --ui-font-mono: 'JetBrains Mono', monospace;
     --bitcoin-orange: #f7931a;
     --bitcoin-orange-rgb: 247, 147, 26;
-    --accent-cyan: #0088cc;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --btn-close-filter: none;
+}
+
+html[data-bs-theme="light"] {
+    --ui-bg: var(--gray-99);
+    --ui-text: var(--gray-10);
+    --ui-text-muted: var(--gray-60);
+    --ui-text-dim: var(--gray-80);
+    --ui-border-silent: var(--gray-94);
+    --ui-border-strong: var(--gray-90);
+    --ui-surface: var(--gray-100);
+    --ui-surface-alt: var(--gray-97);
 }
 
 html[data-bs-theme="dark"] {
-    --bg-color-start: #080808;
-    --bg-color-end: #050505;
-    --font-main: 'Inter', sans-serif;
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --bg-grid: rgba(247, 147, 26, 0.03);
-    --surface-color: #0d0d0d;
-    --surface-color-rgb: 13, 13, 13;
-    --primary-text-color: #e0e0e0;
-    --secondary-text-color: #888888;
-    --bitcoin-orange: #f7931a;
-    --bitcoin-orange-rgb: 247, 147, 26;
-    --accent-cyan: #00f2ff;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --btn-close-filter: invert(1);
+    --ui-bg: var(--gray-0);
+    --ui-text: var(--gray-99);
+    --ui-text-muted: var(--gray-80);
+    --ui-text-dim: var(--gray-80);
+    --ui-border-silent: #1a1a1a;
+    --ui-border-strong: var(--gray-40);
+    --ui-surface: #121111;
+    --ui-surface-alt: #161515;
 }
 
 body {
-    font-family: var(--font-main);
-    background-color: var(--bg-color-end);
-    background-image: 
-        linear-gradient(var(--bg-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-attachment: fixed;
-    color: var(--primary-text-color);
+    font-family: var(--ui-font-main);
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
     line-height: 1.6;
     letter-spacing: -0.01em;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
 }
 
 /* Scrollbar Customization */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-color-end);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--bitcoin-orange);
-    border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #e17e0e;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ui-bg); }
+::-webkit-scrollbar-thumb { background: var(--ui-text-dim); }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: var(--ui-font-heading);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    margin-top: 0;
 }
 
 h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
+    font-size: var(--step-4);
+    text-transform: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
 }
 
-html[data-bs-theme="dark"] h1 {
-    background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
-}
-
-html[data-bs-theme="light"] h1 {
-    color: #000;
-}
-
-.text-muted {
-    color: var(--secondary-text-color) !important;
-}
+.text-muted { color: var(--ui-text-muted) !important; }
 
 /* Top Controls */
 #top-right-controls {
     position: absolute;
-    top: -1rem;
-    right: 0;
+    top: var(--space-4);
+    right: var(--space-4);
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-1);
     z-index: 100;
 }
 
@@ -110,317 +118,237 @@ html[data-bs-theme="light"] h1 {
     #top-right-controls {
         position: relative;
         top: 0;
+        right: 0;
         justify-content: center;
-        margin-bottom: 2rem;
+        margin-bottom: var(--space-4);
     }
-    h1 { font-size: 2rem; }
+    h1 { font-size: var(--step-3); }
 }
 
-/* Components Refinement */
+/* Components - The Essential Panel */
 .glass-panel {
-    background: rgba(var(--surface-color-rgb), 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 4px; /* Sharper corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--ui-surface);
+    border: 1px solid var(--ui-border-silent);
+    border-radius: 2px;
+    padding: var(--space-4);
+    transition: border-color var(--ui-transition);
 }
 
 .stat-card {
-    border-left: 3px solid var(--bitcoin-orange);
-    padding: 1.25rem;
+    padding: var(--space-3);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: var(--space-1);
+    border-left: 2px solid var(--ui-border-strong);
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    background: rgba(var(--surface-color-rgb), 0.8);
-    box-shadow: 0 0 20px rgba(var(--bitcoin-orange-rgb), 0.15);
-    border-color: var(--bitcoin-orange);
-}
-
-.stat-icon {
-    font-size: 1.25rem;
-    color: var(--bitcoin-orange);
-    margin-bottom: 0.25rem;
+    border-left-color: var(--bitcoin-orange);
 }
 
 .stat-title {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-family: var(--ui-font-heading);
+    font-size: var(--step--2);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-weight: 500;
+    color: var(--ui-text-muted);
 }
 
 .stat-value {
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
+    font-family: var(--ui-font-mono);
+    font-size: var(--step-2);
     font-weight: 500;
 }
 
 /* Chart Styles */
 #chart-container {
     width: 100%;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: var(--space-4);
     min-height: 500px;
-    margin-bottom: 2rem;
-}
-
-#chart-container svg {
-    width: 100%;
-    height: auto;
+    margin-bottom: var(--space-8);
 }
 
 .axis text {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    fill: var(--secondary-text-color);
+    font-family: var(--ui-font-mono);
+    font-size: var(--step--2);
+    fill: var(--ui-text-muted);
 }
 
 .axis path, .axis line {
-    stroke: var(--border-color);
+    stroke: var(--ui-border-silent);
 }
 
 .line {
     fill: none;
     stroke: var(--bitcoin-orange);
-    stroke-width: 2.5px;
-    filter: drop-shadow(0 0 8px rgba(var(--bitcoin-orange-rgb), 0.4));
+    stroke-width: 2px;
 }
 
 .fictitious-line {
     stroke-dasharray: 4, 4;
-    stroke-opacity: 0.7;
+    stroke-opacity: 0.5;
 }
 
-.event-marker {
-    stroke: var(--surface-color);
-    stroke-width: 2px;
-    cursor: pointer;
-    /* transition: all 0.2s ease; */
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-/* Category Colors - Cyber-Elegant Palette (Muted & Distinct) */
-.category-technology { fill: #88c0d0; } /* Soft Cyan */
-.category-market { fill: #f7931a; }     /* Bitcoin Orange (kept for brand) */
-.category-adoption { fill: #a3be8c; }   /* Soft Sage Green */
-.category-regulation { fill: #bf616a; } /* Muted Red */
-.category-security { fill: #5e81ac; }   /* Deep Professional Blue */
-.category-halving { fill: #b48ead; }    /* Muted Purple/Rose */
-
-.event-marker:hover, .event-marker.highlighted {
-    stroke: var(--bitcoin-orange);
-    stroke-width: 3px;
-    /* transform: scale(1.5); */
-}
-
-/* Filter & Timeline Dots */
-.filter-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.filter-dot.category-technology { background-color: #88c0d0; }
-.filter-dot.category-market { background-color: #f7931a; }
-.filter-dot.category-adoption { background-color: #a3be8c; }
-.filter-dot.category-regulation { background-color: #bf616a; }
-.filter-dot.category-security { background-color: #5e81ac; }
-.filter-dot.category-halving { background-color: #b48ead; }
-
-/* Timeline: Ledger Style */
+/* Timeline - Silent Grid */
 #events-timeline {
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--ui-border-silent);
+    margin-top: var(--space-4);
 }
 
 .list-group-item {
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--border-color);
-    padding: 1.25rem 0.5rem;
-    color: var(--primary-text-color);
+    border-bottom: 1px solid var(--ui-border-silent);
+    padding: var(--space-3) 0;
+    color: var(--ui-text);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .list-group-item:hover {
-    background: rgba(var(--surface-color-rgb), 0.4);
-    padding-left: 1rem;
+    border-bottom-color: var(--ui-text);
 }
 
 .timeline-title {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-family: var(--ui-font-heading);
+    font-size: var(--step-0);
     font-weight: 500;
 }
 
-.list-group-item small {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--secondary-text-color);
-}
-
-/* Buttons & Filters */
+/* Buttons - Functional & Minimalist */
 .btn {
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
+    font-family: var(--ui-font-heading);
+    text-transform: none;
+    font-size: var(--step--1);
+    letter-spacing: normal;
     font-weight: 500;
     border-radius: 2px;
-    padding: 0.5rem 1rem;
-}
-
-.btn-outline-secondary {
-    border-color: var(--border-color);
-    color: var(--secondary-text-color);
-    background: rgba(var(--surface-color-rgb), 0.5);
-    backdrop-filter: blur(5px);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--ui-border-strong);
+    background: transparent;
+    color: var(--ui-text);
+    transition: all 0.2s ease;
 }
 
 .btn-outline-secondary:hover, .btn-outline-secondary.active {
-    background: var(--bitcoin-orange);
-    border-color: var(--bitcoin-orange);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(var(--bitcoin-orange-rgb), 0.3);
+    background: var(--ui-text);
+    color: var(--ui-bg);
+    border-color: var(--ui-text);
 }
-
-/* Tooltips as Data Windows */
-.tooltip {
-    position: absolute;
-    background: var(--surface-color) !important;
-    border: 1px solid var(--bitcoin-orange) !important;
-    border-radius: 0 !important;
-    padding: 1rem !important;
-    font-family: var(--font-mono) !important;
-    color: var(--primary-text-color) !important;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5) !important;
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-/* Market Areas */
-.market-area { opacity: 0.05; }
-.market-area.bull { fill: #28a745; }
-.market-area.bear { fill: #dc3545; }
 
 /* Modal */
 .modal-content {
-    background: rgba(var(--surface-color-rgb), 0.95);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--bitcoin-orange);
+    background: var(--ui-surface);
+    border: 1px solid var(--ui-border-strong);
     border-radius: 0;
 }
 
-.modal-header, .modal-footer {
-    border-color: var(--border-color);
-}
-
-.modal-header .btn-close {
-    filter: var(--btn-close-filter);
-}
-
-/* Footer Styling */
+/* Footer */
 footer {
-    border-color: var(--border-color) !important;
+    border-top: 1px solid var(--ui-border-silent) !important;
+    padding-top: var(--space-8);
 }
 
 .footer-label {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-family: var(--ui-font-heading);
+    font-size: var(--step--2);
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--bitcoin-orange);
+    letter-spacing: 0.1em;
+    color: var(--ui-text-muted);
     font-weight: 700;
 }
 
 .cyber-link {
-    color: var(--primary-text-color);
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid transparent;
+    color: var(--ui-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--ui-border-strong);
 }
 
 .cyber-link:hover {
-    color: var(--bitcoin-orange);
-    border-bottom: 1px solid var(--bitcoin-orange);
+    text-decoration-color: var(--bitcoin-orange);
 }
 
-.footer-quote-container {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.tech-stack-list {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
-    opacity: 0.6;
-}
-
-/* Animation & Micro-interactions */
-@keyframes scanLine {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 40px; }
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-    background-size: 100% 4px, 3px 100%;
+/* Remove Noisy Animations & Layers */
+body::before { display: none; }
+/* Tooltips */
+.tooltip {
+    position: absolute;
+    background: var(--ui-surface) !important;
+    border: 1px solid var(--ui-border-strong) !important;
+    padding: var(--space-2) !important;
+    font-family: var(--ui-font-mono) !important;
+    color: var(--ui-text) !important;
     pointer-events: none;
     z-index: 1000;
-    opacity: 0.3;
+    opacity: 0;
+    font-size: var(--step--1);
 }
 
-.event-marker.pulsing {
-    filter: drop-shadow(0 0 8px var(--bitcoin-orange));
-    animation: markerPulse 2s infinite;
+/* Market Areas */
+.market-area { opacity: 0.03; }
+.market-area.bull { fill: #28a745; }
+.market-area.bear { fill: #dc3545; }
+
+/* Event Markers & Category Dots */
+.event-marker {
+    stroke: var(--ui-surface);
+    stroke-width: 1px;
+    cursor: pointer;
+    transition: transform 0.2s ease, stroke 0.2s ease;
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
-@keyframes markerPulse {
-    0% { stroke-width: 2px; opacity: 1; }
-    50% { stroke-width: 4px; opacity: 0.8; }
-    100% { stroke-width: 2px; opacity: 1; }
+.event-marker:hover, .event-marker.highlighted {
+    transform: scale(1.2);
+    stroke: var(--ui-text);
+}
+
+.filter-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: var(--space-1);
+    border: 1px solid var(--ui-border-silent);
+}
+
+.category-technology { fill: var(--cat-tech); }
+.category-market { fill: var(--cat-market); }
+.category-adoption { fill: var(--cat-adoption); }
+.category-regulation { fill: var(--cat-reg); }
+.category-security { fill: var(--cat-sec); }
+.category-halving { fill: var(--cat-halving); }
+
+.filter-dot.category-technology { background-color: var(--cat-tech); }
+.filter-dot.category-market { background-color: var(--cat-market); }
+.filter-dot.category-adoption { background-color: var(--cat-adoption); }
+.filter-dot.category-regulation { background-color: var(--cat-reg); }
+.filter-dot.category-security { background-color: var(--cat-sec); }
+.filter-dot.category-halving { background-color: var(--cat-halving); }
+
+/* Dark Mode Overrides for Categories (More distinct presence) */
+html[data-bs-theme="dark"] {
+    --cat-tech: #4a90a2;
+    --cat-market: #f7931a;
+    --cat-adoption: #6a9658;
+    --cat-reg: #b35661;
+    --cat-sec: #4e6a8e;
+    --cat-halving: #8a6c8f;
 }
 
 /* Live Dot */
 .live-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background-color: #2ecc71;
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
-    animation: pulse-green 2s infinite;
+    margin-left: var(--space-1);
+    vertical-align: middle;
 }
 
-@keyframes pulse-green {
-    0% { transform: scale(0.95); opacity: 1; }
-    70% { transform: scale(1.5); opacity: 0; }
-    100% { transform: scale(0.95); opacity: 0; }
-}

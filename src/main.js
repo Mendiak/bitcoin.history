@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // UI Elements
     const chartContainer = document.getElementById('chart-container');
     const loadingSpinner = document.getElementById('loading-spinner');
-    const helpToggleEl = document.getElementById('help-toggle');
     const themeToggleButton = document.getElementById('theme-toggle');
 
     // Init Theme
@@ -37,14 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTranslations(translations);
         initUI(); // Setup modal etc
-
-        // Helper for popover
-        new bootstrap.Popover(helpToggleEl, {
-            html: true,
-            placement: 'bottom',
-            title: () => getTranslation('chartExplanationTitle'),
-            content: () => getTranslation('chartExplanation')
-        });
 
         // Hide Spinner
         loadingSpinner.style.display = 'none';
