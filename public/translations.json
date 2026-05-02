@@ -30,7 +30,7 @@
     "firstBearMarket": "Primer Mercado Bajista",
     "legendBullMarket": "Mercado Alcista",
     "legendBearMarket": "Mercado Bajista",
-    "didYouKnowTitle": "💡 ¿Sabías que...?",
+    "didYouKnowTitle": "¿Sabías que...?",
     "didYouKnowNext": "Siguiente curiosidad",
     "didYouKnow": [
       { "text": "Se estima que entre 3 y 4 millones de Bitcoins están perdidos para siempre." },
@@ -91,7 +91,7 @@
     "firstBearMarket": "First Bear Market",
     "legendBullMarket": "Bull Market",
     "legendBearMarket": "Bear Market",
-    "didYouKnowTitle": "💡 Did you know...?",
+    "didYouKnowTitle": "Did you know...?",
     "didYouKnowNext": "Next curiosity",
     "didYouKnow": [
       { "text": "It is estimated that between 3 and 4 million Bitcoins are lost forever." },

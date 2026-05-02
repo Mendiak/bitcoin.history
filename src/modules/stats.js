@@ -30,37 +30,31 @@ export function renderStats(stats, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Use a clean and modern layout
+    // Use a clean and modern layout with technical feel
     container.innerHTML = `
         <div class="row g-3 justify-content-center">
             <div class="col-md-4 col-sm-6">
                 <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                    <div class="stat-content">
-                        <h6 class="stat-title text-muted" data-i18n-key="statATH">${getTranslation('statATH')}</h6>
-                        <p class="stat-value">${d3.format("$,.2f")(stats.ath)}</p>
-                    </div>
+                    <h6 class="stat-title text-muted" data-i18n-key="statATH">${getTranslation('statATH')}</h6>
+                    <p class="stat-value">${d3.format("$,.2f")(stats.ath)}</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
-                    <div class="stat-content">
-                        <h6 class="stat-title text-muted" data-i18n-key="statDaysGenesis">${getTranslation('statDaysGenesis')}</h6>
-                        <p class="stat-value">${d3.format(",")(stats.daysSinceGenesis)}</p>
-                    </div>
+                    <h6 class="stat-title text-muted" data-i18n-key="statDaysGenesis">${getTranslation('statDaysGenesis')}</h6>
+                    <p class="stat-value">${d3.format(",")(stats.daysSinceGenesis)}</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="glass-panel stat-card">
                     <div class="stat-icon"><i class="bi bi-currency-bitcoin"></i></div>
-                    <div class="stat-content">
-                        <h6 class="stat-title text-muted" data-i18n-key="statCurrentPrice">${getTranslation('statCurrentPrice')}</h6>
-                        <p class="stat-value">
-                            ${d3.format("$,.2f")(stats.currentPrice)}
-                            ${stats.isLive ? '<span class="live-dot" title="Live Data"></span>' : ''}
-                        </p>
-                    </div>
+                    <h6 class="stat-title text-muted" data-i18n-key="statCurrentPrice">${getTranslation('statCurrentPrice')}</h6>
+                    <p class="stat-value">
+                        ${d3.format("$,.2f")(stats.currentPrice)}
+                        ${stats.isLive ? '<span class="live-dot" title="Live Data"></span>' : ''}
+                    </p>
                 </div>
             </div>
         </div>

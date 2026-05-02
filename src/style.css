@@ -1,513 +1,424 @@
-/* Light Theme */
+/* Global Variables - Cyber/Tech Aesthetic */
 html[data-bs-theme="light"] {
-    --bg-color-start: hsl(210, 30%, 98%);
-    --bg-color-end: hsl(210, 30%, 90%);
-    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --bg-glow-1: hsla(210, 80%, 80%, 0.3);
-    /* Soft blue */
-    --bg-glow-2: hsla(50, 80%, 80%, 0.2);
-    /* Soft yellow/orange */
+    --bg-color-start: #fcfcfc;
+    --bg-color-end: #f0f2f5;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg-grid: rgba(0, 0, 0, 0.03);
     --surface-color: #ffffff;
     --surface-color-rgb: 255, 255, 255;
-    --primary-text-color: #212529;
-    --secondary-text-color: #6c757d;
-    --bitcoin-orange: #f2a900;
-    --accent-blue: #0d6efd;
-    --accent-blue-rgb: 13, 110, 253;
-    --border-color: #dee2e6;
-    --border-color-rgb: 222, 226, 230;
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #666666;
+    --bitcoin-orange: #f7931a;
+    --bitcoin-orange-rgb: 247, 147, 26;
+    --accent-cyan: #0088cc;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --btn-close-filter: none;
 }
 
-/* Dark Theme */
 html[data-bs-theme="dark"] {
-    --bg-color-start: hsl(240, 10%, 10%);
-    --bg-color-end: hsl(240, 10%, 5%);
-    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --bg-glow-1: hsla(210, 50%, 20%, 0.4);
-    /* Soft dark blue */
-    --bg-glow-2: hsla(260, 50%, 20%, 0.3);
-    /* Soft dark purple */
-    --surface-color: #1e1e1e;
-    --surface-color-rgb: 30, 30, 30;
+    --bg-color-start: #080808;
+    --bg-color-end: #050505;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg-grid: rgba(247, 147, 26, 0.03);
+    --surface-color: #0d0d0d;
+    --surface-color-rgb: 13, 13, 13;
     --primary-text-color: #e0e0e0;
-    --secondary-text-color: #a0a0a0;
-    --bitcoin-orange: #f2a900;
-    --accent-blue: #0d6efd;
-    --accent-blue-rgb: 13, 110, 253;
-    --border-color: #444;
-    --border-color-rgb: 68, 68, 68;
+    --secondary-text-color: #888888;
+    --bitcoin-orange: #f7931a;
+    --bitcoin-orange-rgb: 247, 147, 26;
+    --accent-cyan: #00f2ff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --btn-close-filter: invert(1);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-main);
     background-color: var(--bg-color-end);
-    background-image:
-        radial-gradient(at 0% 0%, var(--bg-glow-1) 0px, transparent 50%),
-        radial-gradient(at 95% 95%, var(--bg-glow-2) 0px, transparent 50%);
+    background-image: 
+        linear-gradient(var(--bg-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
     background-attachment: fixed;
     color: var(--primary-text-color);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color-end);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bitcoin-orange);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #e17e0e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Estilo del H1 para el tema oscuro: Mantenemos el efecto de degradado */
 html[data-bs-theme="dark"] h1 {
-    background: linear-gradient(45deg, var(--bitcoin-orange), #ffdd99);
+    background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
 }
 
-/* Estilo del H1 para el tema claro: Usamos un color sólido para máxima legibilidad */
 html[data-bs-theme="light"] h1 {
-    color: #212529;
-    /* Color oscuro por defecto de Bootstrap para texto */
+    color: #000;
 }
 
-/* Controles de la esquina superior derecha */
+.text-muted {
+    color: var(--secondary-text-color) !important;
+}
+
+/* Top Controls */
 #top-right-controls {
     position: absolute;
-    top: 0;
-    right: 1rem;
-    /* Ajustado para que no pegue al borde */
+    top: -1rem;
+    right: 0;
     display: flex;
     gap: 0.5rem;
-    align-items: center;
+    z-index: 100;
 }
 
-/* Shared Glassmorphism Style */
+@media (max-width: 768px) {
+    #top-right-controls {
+        position: relative;
+        top: 0;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    h1 { font-size: 2rem; }
+}
+
+/* Components Refinement */
 .glass-panel {
-    background: rgba(var(--surface-color-rgb), 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    /* Para Safari */
-    border: 1px solid rgba(var(--border-color-rgb), 0.2);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+    background: rgba(var(--surface-color-rgb), 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 4px; /* Sharper corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hacemos que el contenedor del gráfico sea responsive */
+.stat-card {
+    border-left: 3px solid var(--bitcoin-orange);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    background: rgba(var(--surface-color-rgb), 0.8);
+    box-shadow: 0 0 20px rgba(var(--bitcoin-orange-rgb), 0.15);
+    border-color: var(--bitcoin-orange);
+}
+
+.stat-icon {
+    font-size: 1.25rem;
+    color: var(--bitcoin-orange);
+    margin-bottom: 0.25rem;
+}
+
+.stat-title {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Chart Styles */
 #chart-container {
     width: 100%;
-    padding: 1rem;
-    /* transition: background-color 0.3s ease, border-color 0.3s ease; - MOVED TO .glass-panel */
-    /* Estilos para el estado de carga */
+    padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 450px;
+    min-height: 500px;
+    margin-bottom: 2rem;
 }
 
-/* El SVG llenará el contenedor, y el navegador lo escalará */
 #chart-container svg {
     width: 100%;
     height: auto;
-    font-family: 'Inter', sans-serif;
-}
-
-/* Estilos para los ejes */
-.axis path,
-.axis line {
-    stroke: var(--border-color);
 }
 
 .axis text {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     fill: var(--secondary-text-color);
-    font-size: 0.8rem;
-    /* Aumentamos ligeramente el tamaño para mejor legibilidad */
-    font-family: var(--font-monospace);
-    /* Usamos una fuente monoespaciada para los datos */
 }
 
-.axis--y .tick line {
+.axis path, .axis line {
     stroke: var(--border-color);
-    stroke-dasharray: 2, 2;
 }
 
 .line {
     fill: none;
     stroke: var(--bitcoin-orange);
-    stroke-width: 2px;
+    stroke-width: 2.5px;
+    filter: drop-shadow(0 0 8px rgba(var(--bitcoin-orange-rgb), 0.4));
 }
 
 .fictitious-line {
     stroke-dasharray: 4, 4;
-    /* Crea el efecto de línea de puntos */
     stroke-opacity: 0.7;
-    /* La hace ligeramente más transparente */
 }
 
 .event-marker {
     stroke: var(--surface-color);
     stroke-width: 2px;
     cursor: pointer;
-    transform-origin: center;
-    /* Asegura que la escala se haga desde el centro */
-    transform-box: fill-box;
-    /* Clave para la compatibilidad en Firefox */
-    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out, stroke 0.2s ease-in-out, stroke-width 0.2s ease-in-out;
+    transition: all 0.2s ease;
 }
 
-.event-marker:hover {
+/* Category Colors - Cyber-Elegant Palette (Muted & Distinct) */
+.category-technology { fill: #88c0d0; } /* Soft Cyan */
+.category-market { fill: #f7931a; }     /* Bitcoin Orange (kept for brand) */
+.category-adoption { fill: #a3be8c; }   /* Soft Sage Green */
+.category-regulation { fill: #bf616a; } /* Muted Red */
+.category-security { fill: #5e81ac; }   /* Deep Professional Blue */
+.category-halving { fill: #b48ead; }    /* Muted Purple/Rose */
+
+.event-marker:hover, .event-marker.highlighted {
     stroke: var(--bitcoin-orange);
     stroke-width: 3px;
+    transform: scale(1.5);
 }
 
-/* Estilo para resaltar un marcador desde la cronología */
-.event-marker.highlighted {
-    stroke: var(--bitcoin-orange);
-    stroke-width: 4px;
-    transform: scale(1.7);
-}
-
-/* Estilo para el foco del teclado para accesibilidad */
-.event-marker:focus {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
-}
-
-/* Animación de pulso para los marcadores de eventos */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.5);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.event-marker.pulsing {
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* Colores de las categorías de eventos */
-.event-marker.category-technology {
-    fill: #0dcaf0;
-}
-
-/* Bootstrap info */
-.event-marker.category-market {
-    fill: #fd7e14;
-}
-
-/* Bootstrap orange */
-.event-marker.category-adoption {
-    fill: #198754;
-}
-
-/* Bootstrap success */
-.event-marker.category-regulation {
-    fill: #dc3545;
-}
-
-/* Bootstrap danger */
-.event-marker.category-security {
-    fill: #6f42c1;
-}
-
-/* Bootstrap indigo */
-.event-marker.category-halving {
-    fill: #d63384;
-}
-
-/* Bootstrap pink, para mejor contraste */
-
-/* Estilos para los puntos de color en los botones de filtro */
+/* Filter & Timeline Dots */
 .filter-dot {
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     margin-right: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.filter-dot.category-technology {
-    background-color: #0dcaf0;
+.filter-dot.category-technology { background-color: #88c0d0; }
+.filter-dot.category-market { background-color: #f7931a; }
+.filter-dot.category-adoption { background-color: #a3be8c; }
+.filter-dot.category-regulation { background-color: #bf616a; }
+.filter-dot.category-security { background-color: #5e81ac; }
+.filter-dot.category-halving { background-color: #b48ead; }
+
+/* Timeline: Ledger Style */
+#events-timeline {
+    border-top: 1px solid var(--border-color);
 }
 
-.filter-dot.category-market {
-    background-color: #fd7e14;
-}
-
-.filter-dot.category-adoption {
-    background-color: #198754;
-}
-
-.filter-dot.category-regulation {
-    background-color: #dc3545;
-}
-
-.filter-dot.category-security {
-    background-color: #6f42c1;
-}
-
-.filter-dot.category-halving {
-    background-color: #d63384;
-}
-
-.tooltip {
-    position: absolute;
-    text-align: left;
-    padding: 12px;
-    font-size: 0.9rem;
-    background: rgba(var(--surface-color-rgb), 0.85);
-    border: 1px solid rgba(var(--border-color-rgb), 0.3);
-    border-radius: 12px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), top 0.1s, left 0.1s;
-    color: var(--primary-text-color);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 1000;
-    max-width: 300px;
-}
-
-/* Estilo para la cronología de eventos */
 .list-group-item {
-    transition: opacity 0.3s ease-in-out;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0.5rem;
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
 }
 
-/* Estilo para el precio dentro del tooltip */
-.tooltip .tooltip-price {
-    font-family: var(--font-monospace);
-    font-size: 1.1em;
+.list-group-item:hover {
+    background: rgba(var(--surface-color-rgb), 0.4);
+    padding-left: 1rem;
 }
 
-/* Estilo específico para el tooltip de eventos */
-.tooltip.tooltip-event {
-    background: var(--accent-blue);
-    color: #fff;
-    text-align: left;
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-.tooltip hr {
-    margin: 4px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+.list-group-item small {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
 }
 
-/* Estilos para el brush */
-.context .line {
-    stroke-width: 1.5px;
-    stroke: var(--secondary-text-color);
+/* Buttons & Filters */
+.btn {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
 }
 
-.brush .selection {
-    fill: var(--bitcoin-orange);
-    fill-opacity: 0.3;
-    stroke: var(--bitcoin-orange);
-}
-
-/* Estilos para el tooltip interactivo */
-.hover-line {
-    stroke: var(--primary-text-color);
-    stroke-width: 1px;
-    stroke-dasharray: 3, 3;
-}
-
-.hover-dot {
-    fill: var(--bitcoin-orange);
-    stroke: var(--surface-color);
-    stroke-width: 2px;
-}
-
-/* Estilos para las áreas de mercado */
-.market-area {
-    opacity: 0.1;
-}
-
-.market-area.bull {
-    fill: #28a745;
-    /* Verde */
-}
-
-.market-area.bear {
-    fill: #dc3545;
-    /* Rojo */
-}
-
-/* Responsive adjustments for mobile devices */
-@media (max-width: 768px) {
-    #top-right-controls {
-        position: relative;
-        top: auto;
-        right: auto;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-        /* Reduce title size for better fit on mobile */
-    }
-
-    #chart-container {
-        padding: 0.5rem;
-        min-height: auto;
-        /* Allow container to shrink to fit content (fixes empty space) */
-    }
-}
-
-/* Estilos modernos para botones */
-#event-filters .btn,
-#scale-toggle,
-#reset-zoom,
-#top-right-controls .btn {
+.btn-outline-secondary {
+    border-color: var(--border-color);
+    color: var(--secondary-text-color);
     background: rgba(var(--surface-color-rgb), 0.5);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(var(--border-color-rgb), 0.2);
-    transition: all 0.3s ease;
 }
 
-#event-filters .btn:hover,
-#event-filters .btn.active,
-/* Estilos para filtros */
-#scale-toggle:hover,
-#reset-zoom:hover,
-#top-right-controls .btn:hover,
-#top-right-controls .btn.active {
-    /* Estilos para controles superiores */
-    background: rgba(var(--surface-color-rgb), 0.75);
-    border-color: rgba(var(--accent-blue-rgb), 0.5);
-    box-shadow: 0 0 15px rgba(var(--accent-blue-rgb), 0.3);
-    color: var(--primary-text-color);
-    /* Asegura la legibilidad del texto en estado activo/hover */
+.btn-outline-secondary:hover, .btn-outline-secondary.active {
+    background: var(--bitcoin-orange);
+    border-color: var(--bitcoin-orange);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(var(--bitcoin-orange-rgb), 0.3);
 }
 
-/* --- Stats Dashboard --- */
-.stat-card {
-    /* Glass styles moved to .glass-panel */
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+/* Tooltips as Data Windows */
+.tooltip {
+    position: absolute;
+    background: var(--surface-color) !important;
+    border: 1px solid var(--bitcoin-orange) !important;
+    border-radius: 0 !important;
+    padding: 1rem !important;
+    font-family: var(--font-mono) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5) !important;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
-.stat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-color: rgba(var(--bitcoin-orange), 0.3);
-}
+/* Market Areas */
+.market-area { opacity: 0.05; }
+.market-area.bull { fill: #28a745; }
+.market-area.bear { fill: #dc3545; }
 
-.stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(var(--bitcoin-orange), 0.1);
-    color: var(--bitcoin-orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-}
-
-.stat-content {
-    flex: 1;
-}
-
-.stat-title {
-    margin: 0;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-value {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    font-family: var(--font-monospace);
-    color: var(--primary-text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.live-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #2ecc71;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
-    animation: pulse-green 2s infinite;
-}
-
-@keyframes pulse-green {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
-    }
-}
-
-/* --- Modal (Glassmorphism) --- */
+/* Modal */
 .modal-content {
-    background: rgba(var(--surface-color-rgb), 0.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(var(--border-color-rgb), 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    color: var(--primary-text-color);
+    background: rgba(var(--surface-color-rgb), 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--bitcoin-orange);
+    border-radius: 0;
 }
 
-.modal-header {
-    border-bottom: 1px solid rgba(var(--border-color-rgb), 0.1);
-}
-
-.modal-footer {
-    border-top: 1px solid rgba(var(--border-color-rgb), 0.1);
+.modal-header, .modal-footer {
+    border-color: var(--border-color);
 }
 
 .modal-header .btn-close {
     filter: var(--btn-close-filter);
 }
 
-/* --- Animaciones de Entrada --- */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 20px, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+/* Footer Styling */
+footer {
+    border-color: var(--border-color) !important;
 }
 
-.container {
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+.footer-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--bitcoin-orange);
+    font-weight: 700;
 }
 
-#stats-dashboard {
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s backwards;
+.cyber-link {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.cyber-link:hover {
+    color: var(--bitcoin-orange);
+    border-bottom: 1px solid var(--bitcoin-orange);
+}
+
+.footer-quote-container {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.tech-stack-list {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}
+
+/* Animation & Micro-interactions */
+@keyframes scanLine {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 40px; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+}
+
+.event-marker.pulsing {
+    filter: drop-shadow(0 0 5px var(--bitcoin-orange));
+    animation: markerPulse 2s infinite;
+}
+
+@keyframes markerPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Live Dot */
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); opacity: 1; }
+    70% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
 }

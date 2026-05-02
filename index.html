@@ -36,7 +36,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- SEO: Datos Estructurados (contenido dinámico) -->
@@ -73,7 +73,8 @@
         <h1 class="text-center">
             <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
         </h1>
-        <p class="text-center text-muted fs-5" data-i18n-key="pageSubtitle">Una historia de precio, poder y resiliencia.
+        <p class="text-center text-muted fs-6 mb-5" data-i18n-key="pageSubtitle" style="letter-spacing: 0.2em; text-transform: uppercase; font-family: var(--font-heading); font-weight: 300;">
+            Una historia de precio, poder y resiliencia.
         </p>
 
         <!-- Stats Dashboard -->
@@ -144,30 +145,35 @@
             </div>
         </div>
 
-        <div class="text-center mt-4">
-            <small class="text-muted" data-i18n-key="dataSource"></small>
-        </div>
-        <div class="text-center mt-3">
-            <small class="text-muted">
-                <span data-i18n-key="footerDev"></span>
-                <a href="https://mendiak.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Mikel
-                    Aramendia</a>
-                <span data-i18n-key="footerWith"></span>
-                <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a> &
-                <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" title="Bootstrap"><i
-                        class="bi bi-bootstrap-fill"></i></a>.
-            </small>
-        </div>
-        <div class="text-center mt-1">
-            <small class="text-muted">
-                <span data-i18n-key="footerRepo">Código fuente disponible en</span>
-                <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" rel="noopener noreferrer"
-                    title="Repositorio en GitHub">GitHub <i class="bi bi-github"></i></a>.
-            </small>
-        </div>
-
-        <div id="footer-quote" class="text-center mt-4 mb-2 opacity-75" style="font-family: serif; font-size: 0.9rem;">
-        </div>
+        <!-- Footer: System Dashboard Style -->
+        <footer class="mt-5 pt-5 pb-4 border-top border-secondary border-opacity-10">
+            <div class="row g-4 text-center text-md-start">
+                <!-- Col 1: Protocol Info -->
+                <div class="col-md-4">
+                    <h6 class="footer-label mb-3">Protocol</h6>
+                    <p class="small text-muted mb-2" data-i18n-key="dataSource"></p>
+                    <p class="small text-muted mb-0">
+                        <span data-i18n-key="footerRepo"></span>
+                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="cyber-link">GitHub <i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+                <!-- Col 2: Quote (Center) -->
+                <div class="col-md-4 text-center d-flex flex-column justify-content-center">
+                    <div id="footer-quote" class="footer-quote-container opacity-75"></div>
+                </div>
+                <!-- Col 3: Credits & Tech -->
+                <div class="col-md-4 text-md-end">
+                    <h6 class="footer-label mb-3">System Node</h6>
+                    <p class="small text-muted mb-1">
+                        <span data-i18n-key="footerDev"></span>
+                        <a href="https://mendiak.github.io/portfolio/" target="_blank" class="cyber-link fw-bold">Mikel Aramendia</a>
+                    </p>
+                    <p class="small text-muted mb-0 tech-stack-list">
+                        STACK: D3.JS // BOOTSTRAP // VITE
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Modal de Bootstrap para los eventos -->

@@ -49,8 +49,8 @@ export function renderTimeline(eventsData, onEventClick) {
         .enter()
         .append("a")
         .attr("href", "#chart-container")
-        .attr("class", "list-group-item list-group-item-action d-flex justify-content-between align-items-center")
-        .attr("data-category", d => d.category) // Helper for filtering
+        .attr("class", "list-group-item") // Removed list-group-item-action to use custom styles
+        .attr("data-category", d => d.category)
         .on("mouseover", function(event, d) {
             highlightMarker(d.date, true);
         })
@@ -63,9 +63,9 @@ export function renderTimeline(eventsData, onEventClick) {
         });
 
     timelineItems.append("div")
-        .html(d => `<span class="filter-dot category-${d.category.toLowerCase()}"></span> <span class="timeline-title"><strong>${d['title_' + state.lang]}</strong></span>`);
+        .html(d => `<span class="filter-dot category-${d.category.toLowerCase()}"></span> <span class="timeline-title">${d['title_' + state.lang]}</span>`);
 
-    timelineItems.append("small").attr("class", "text-muted").text(d => d3.timeFormat("%d %b %Y")(d.date));
+    timelineItems.append("small").text(d => d3.timeFormat("%d %b %Y")(d.date));
 }
 
 export function updateTimelineLanguage() {
