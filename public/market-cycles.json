@@ -69,6 +69,24 @@
     "type": "bear",
     "startDate": "2024-03-15",
     "endDate": "2024-08-06",
-    "label": "Correcci\u00c3\u00b3n Previa al Halving y Consolidaci\u00c3\u00b3n"
+    "label": "Corrección Previa al Halving y Consolidación"
+  },
+  {
+    "type": "bull",
+    "startDate": "2024-08-07",
+    "endDate": "2025-10-06",
+    "label": "Bull Run del Ciclo Post-Halving 2024"
+  },
+  {
+    "type": "bear",
+    "startDate": "2025-10-07",
+    "endDate": "2026-02-28",
+    "label": "Mercado Bajista y Corrección de 2026"
+  },
+  {
+    "type": "bull",
+    "startDate": "2026-03-01",
+    "endDate": "2026-05-02",
+    "label": "Recuperación y Consolidación Actual"
   }
-]
+  ]

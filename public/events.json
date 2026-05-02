@@ -612,6 +612,17 @@
     ]
   },
   {
+    "date": "2024-11-15",
+    "category": "Market",
+    "title_es": "🚀 Bitcoin supera los $80,000",
+    "description_tooltip_es": "Tras un periodo de consolidación post-halving, Bitcoin rompe la barrera de los $80,000.",
+    "description_full_es": "En noviembre de 2024, Bitcoin experimentó un fuerte rally que lo llevó a superar los $80,000 por primera vez. Este movimiento fue impulsado por una combinación de factores, incluyendo una mayor claridad regulatoria tras eventos políticos clave en EE.UU. y una entrada masiva de capital institucional a través de los ETFs al contado. El mercado comenzó a valorar seriamente el efecto del 'supply shock' post-halving, marcando el inicio de la fase más parabólica del ciclo.",
+    "title_en": "🚀 Bitcoin Breaks $80,000",
+    "description_tooltip_en": "After a post-halving consolidation period, Bitcoin breaks the $80,000 barrier.",
+    "description_full_en": "In November 2024, Bitcoin experienced a strong rally that pushed it past $80,000 for the first time. This move was driven by a combination of factors, including greater regulatory clarity following key political events in the US and a massive influx of institutional capital through spot ETFs. The market began to seriously value the post-halving 'supply shock' effect, marking the beginning of the most parabolic phase of the cycle.",
+    "links": []
+  },
+  {
     "date": "2025-01-01",
     "category": "Technology",
     "title_es": "🌍 1 millón de nodos ligeros",
@@ -627,6 +638,17 @@
         "url": "https://en.bitcoin.it/wiki/Lightweight_node"
       }
     ]
+  },
+  {
+    "date": "2025-02-15",
+    "category": "Market",
+    "title_es": "💯 Bitcoin alcanza las seis cifras ($100,000)",
+    "description_tooltip_es": "Bitcoin alcanza el hito psicológico de los $100,000 por moneda.",
+    "description_full_es": "Un momento histórico para las finanzas globales: Bitcoin alcanzó el precio de $100,000. Lo que alguna vez fue considerado un sueño imposible por los primeros adoptantes se convirtió en realidad, consolidando a Bitcoin como un activo de reserva de valor de clase mundial. Este hito atrajo una atención mediática sin precedentes y una nueva ola de adopción minorista global.",
+    "title_en": "💯 Bitcoin Reaches Six Figures ($100,000)",
+    "description_tooltip_en": "Bitcoin reaches the psychological milestone of $100,000 per coin.",
+    "description_full_en": "A historic moment for global finance: Bitcoin reached the price of $100,000. What was once considered an impossible dream by early adopters became a reality, solidifying Bitcoin as a world-class store-of-value asset. This milestone attracted unprecedented media attention and a new wave of global retail adoption.",
+    "links": []
   },
   {
     "date": "2025-05-01",
@@ -661,5 +683,27 @@
         "url": "https://www.bitcoinmagazinepro.com/charts/lightning-network-capacity/"
       }
     ]
+  },
+  {
+    "date": "2025-10-06",
+    "category": "Market",
+    "title_es": "🏔️ Nuevo Máximo Histórico de Ciclo: $124,728",
+    "description_tooltip_es": "Bitcoin alcanza su punto más alto en este ciclo antes de una gran corrección.",
+    "description_full_es": "Bitcoin alcanzó su máximo histórico de $124,728 en octubre de 2025. En este punto, la euforia del mercado era máxima, con proyecciones que apuntaban incluso más alto. Sin embargo, este nivel marcó el techo local del ciclo post-halving de 2024, seguido por una fase de distribución y una posterior corrección saludable del mercado.",
+    "title_en": "🏔️ New Cycle All-Time High: $124,728",
+    "description_tooltip_en": "Bitcoin reaches its highest point in this cycle before a major correction.",
+    "description_full_en": "Bitcoin reached its all-time high of $124,728 in October 2025. At this point, market euphoria was at its peak, with projections pointing even higher. However, this level marked the local ceiling of the 2024 post-halving cycle, followed by a distribution phase and a subsequent healthy market correction.",
+    "links": []
+  },
+  {
+    "date": "2026-03-01",
+    "category": "Market",
+    "title_es": "🔄 Estabilización y Nueva Fase de Acumulación",
+    "description_tooltip_es": "Tras caer hasta los $66,000, Bitcoin encuentra soporte y comienza a lateralizar.",
+    "description_full_es": "Después de la corrección desde los máximos de $124k, Bitcoin encontró un suelo sólido alrededor de los $66,000 en febrero de 2026. A partir de marzo, el mercado entró en una fase de consolidación y acumulación institucional, con una volatilidad reducida y un enfoque renovado en el desarrollo de la infraestructura de capa 2 y la utilidad real de la red.",
+    "title_en": "🔄 Stabilization and New Accumulation Phase",
+    "description_tooltip_en": "After dropping to $66,000, Bitcoin finds support and begins to move sideways.",
+    "description_full_en": "Following the correction from the $124k highs, Bitcoin found a solid floor around $66,000 in February 2026. Starting in March, the market entered a phase of consolidation and institutional accumulation, with reduced volatility and a renewed focus on the development of layer 2 infrastructure and the real utility of the network.",
+    "links": []
   }
 ]
