@@ -150,8 +150,9 @@
                 <div class="col-md-6">
                     <h6 class="footer-label mb-2">Protocol</h6>
                     <p class="small text-muted mb-1" data-i18n-key="dataSource"></p>
-                    <p class="small mb-0">
+                    <p class="small mb-0 d-flex gap-3">
                         <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="cyber-link">Source Code</a>
+                        <a href="#" id="view-glossary-link" class="cyber-link" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
@@ -182,6 +183,24 @@
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                         data-i18n-key="modalClose">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para el Glosario Completo -->
+    <div class="modal fade" id="glossaryModal" tabindex="-1" aria-labelledby="glossaryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="glossaryModalLabel" data-i18n-key="glossaryTitle">Glosario de Conceptos</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="glossaryModalBody">
+                    <!-- Los términos del glosario se inyectarán aquí -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n-key="modalClose">Cerrar</button>
                 </div>
             </div>
         </div>

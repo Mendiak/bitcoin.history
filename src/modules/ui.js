@@ -2,9 +2,11 @@ import * as bootstrap from 'bootstrap';
 import * as d3 from 'd3';
 import { state } from './state.js';
 import { filterMarkers, highlightMarker, focusOnDate } from './chart.js';
+import { injectGlossary } from './utils.js';
+import { getTranslation } from './i18n.js';
 
-let eventModal;
-let eventModalTitle, eventModalBody, eventModalLinks;
+let eventModal, glossaryModal;
+let eventModalTitle, eventModalBody, eventModalLinks, glossaryModalBody;
 
 export function initUI() {
     const eventModalEl = document.getElementById('eventModal');
@@ -12,6 +14,48 @@ export function initUI() {
     eventModalTitle = document.getElementById('eventModalLabel');
     eventModalBody = document.getElementById('eventModalBody');
     eventModalLinks = document.getElementById('eventModalLinks');
+
+    const glossaryModalEl = document.getElementById('glossaryModal');
+    glossaryModal = new bootstrap.Modal(glossaryModalEl);
+    glossaryModalBody = document.getElementById('glossaryModalBody');
+
+    document.getElementById('view-glossary-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        showGlossaryModal();
+    });
+
+    // Glossary Tooltip Handling
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip glossary-tooltip")
+        .style("opacity", 0);
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('glossary-term')) {
+            const termKey = e.target.getAttribute('data-term');
+            const glossary = getTranslation('glossary');
+            const definition = glossary[termKey];
+            
+            if (definition) {
+                tooltip.transition().duration(200).style("opacity", 1);
+                tooltip.html(`<strong>${termKey}</strong><br>${definition}`)
+                    .style("left", (e.pageX + 10) + "px")
+                    .style("top", (e.pageY - 28) + "px");
+            }
+        }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (e.target.classList.contains('glossary-term')) {
+            tooltip.style("left", (e.pageX + 10) + "px")
+                .style("top", (e.pageY - 28) + "px");
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.classList.contains('glossary-term')) {
+            tooltip.transition().duration(200).style("opacity", 0);
+        }
+    });
 }
 
 export function showEventModal(d) {
@@ -19,7 +63,11 @@ export function showEventModal(d) {
     
     eventModalTitle.textContent = d['title_' + state.lang];
 
-    const descriptionHTML = d['description_full_' + state.lang]
+    const glossary = getTranslation('glossary');
+    const fullDescription = d['description_full_' + state.lang];
+    const processedDescription = injectGlossary(fullDescription, glossary);
+
+    const descriptionHTML = processedDescription
         .split('\n\n')
         .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
         .join('');
@@ -38,6 +86,27 @@ export function showEventModal(d) {
         });
     }
     eventModal.show();
+}
+
+export function showGlossaryModal() {
+    if (!glossaryModal) initUI();
+    
+    const glossary = getTranslation('glossary');
+    const terms = Object.keys(glossary).sort();
+    
+    let html = '<div class="glossary-list">';
+    terms.forEach(term => {
+        html += `
+            <div class="glossary-item mb-4">
+                <h3 class="h6 text-warning text-uppercase mb-2" style="letter-spacing: 0.05em;">${term}</h3>
+                <p class="small text-muted mb-0" style="line-height: 1.5;">${glossary[term]}</p>
+            </div>
+        `;
+    });
+    html += '</div>';
+    
+    glossaryModalBody.innerHTML = html;
+    glossaryModal.show();
 }
 
 export function renderTimeline(eventsData, onEventClick) {
