@@ -30,8 +30,9 @@ export const setLanguage = (lang, callbacks = {}) => {
         const pageTitle = translations[lang].pageTitle;
         const metaDescription = translations[lang].metaDescription;
 
-        // 1. Actualizar el título del documento
+        // 1. Actualizar el título del documento y el idioma
         document.title = pageTitle;
+        document.documentElement.lang = lang;
 
         // 2. Actualizar meta tags para SEO y redes sociales
         document.getElementById('meta-description')?.setAttribute('content', metaDescription);
@@ -70,19 +71,29 @@ export const setLanguage = (lang, callbacks = {}) => {
             }
         });
 
-        // Traducir títulos de botones
+        // Traducir títulos de botones y ARIA labels
         document.querySelectorAll('[data-i18n-title]').forEach(el => {
             const key = el.getAttribute('data-i18n-title');
             if (translations[lang][key]) {
                 el.setAttribute('title', translations[lang][key]);
+                el.setAttribute('aria-label', translations[lang][key]);
             }
         });
+
+        // Actualizar ARIA labels específicos si existen traducciones
+        const langEsBtn = document.getElementById('lang-es');
+        const langEnBtn = document.getElementById('lang-en');
+        if (langEsBtn) langEsBtn.setAttribute('aria-label', lang === 'es' ? 'Idioma actual: Español' : 'Cambiar idioma a Español');
+        if (langEnBtn) langEnBtn.setAttribute('aria-label', lang === 'en' ? 'Current language: English' : 'Change language to English');
         
-        // Actualizar texto del botón de escala
+        // Actualizar texto del botón de escala y su ARIA label
+        const scaleBtn = d3.select("#scale-toggle");
         if (state.scale === 'log') {
-            d3.select("#scale-toggle").html(`<i class="bi bi-graph-up"></i> ${translations[lang].scaleLog}`);
+            scaleBtn.html(`<i class="bi bi-graph-up"></i> ${translations[lang].scaleLog}`);
+            scaleBtn.attr('aria-label', translations[lang].scaleLog);
         } else {
-            d3.select("#scale-toggle").html(`<i class="bi bi-graph-up-arrow"></i> ${translations[lang].scaleLinear}`);
+            scaleBtn.html(`<i class="bi bi-graph-up-arrow"></i> ${translations[lang].scaleLinear}`);
+            scaleBtn.attr('aria-label', translations[lang].scaleLinear);
         }
 
         // Ejecutar callbacks adicionales (para actualizar gráfico, etc)
