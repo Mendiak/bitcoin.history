@@ -23,73 +23,72 @@ An interactive and detailed visualization that chronicles the epic journey of Bi
 
 ## 🛠️ Tech Stack
 
-This project is a static web application built with modern frontend technologies:
+This project is a modern web application built with:
 
-*   **HTML5**
-*   **CSS3**
-*   **JavaScript (ES6+)**
+*   **[Vite](https://vitejs.dev/):** Next generation frontend tooling.
 *   **[D3.js (v7)](https://d3js.org/):** The core library for data manipulation and visualization.
-*   **[Bootstrap (v5.3)](https://getbootstrap.com/):** For the responsive layout and UI components (modals, buttons, etc.).
+*   **[Bootstrap (v5.3)](https://getbootstrap.com/):** For the responsive layout and UI components.
 *   **[Bootstrap Icons](https://icons.getbootstrap.com/):** For the user interface iconography.
+*   **ES6+ Modules:** Organized code architecture for better maintainability.
+*   **ESLint & Prettier:** For code quality and consistent formatting.
 
 ## 📊 Data Sources
 
 The quality and detail of the data are fundamental to this project.
 
-*   **Price Data:** Sourced from Kaggle (Bitcoin Historical Data) and Bitcoinity, covering the period from mid-2010. The data has been processed and cleaned for this visualization.
-*   **Historical Events:** A meticulously curated dataset (`events.json`) with over 30 key events that have influenced Bitcoin's trajectory. Each event includes:
-    *   A specific date and category.
-    *   Titles and descriptions (for tooltips and modals) in both Spanish and English.
-    *   Links to external sources (news articles, original documents, etc.) for verification and further reading.
+*   **Price Data:** Sourced from Kaggle (Bitcoin Historical Data) and Bitcoinity, covering the period from mid-2010.
+*   **Historical Events:** A meticulously curated dataset (`events.json`) with over 30 key events. Each event includes dates, categories, descriptions in both Spanish and English, and verification links.
 *   **Market Cycles:** Data defining bull and bear market periods (`market-cycles.json`), visually represented as colored areas in the chart's background.
 
 ## 🚀 Running the Project Locally
 
-Since this is a static project, you don't need a complex build process. Follow these steps:
+Follow these steps to set up the development environment:
 
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/Mendiak/bitcoin.history.git
-    ```
-
-2.  **Navigate to the project directory:**
-    ```bash
     cd bitcoin.history
     ```
 
-3.  **Start a local server:**
-    The easiest way is to use a simple web server to serve the `public` folder. If you have Node.js installed, you can use `live-server`.
-
+2.  **Install dependencies:**
     ```bash
-    # Install live-server globally if you don't have it
-    npm install -g live-server
-
-    # Start the server in the public folder
-    live-server public
+    npm install
     ```
 
-    This will automatically open the project in your browser. If not, you can open `http://127.0.0.1:8080` manually.
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
-    > **Note:** Using a local server is recommended over opening `index.html` directly to avoid potential CORS issues when loading the JSON files.
+    The application will be available at `http://localhost:5173/`.
+
+4.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+    The production-ready files will be generated in the `dist/` folder.
 
 ## 📂 File Structure
 
 ```
 .
-└── public/
-    ├── index.html # Main application file
-    ├── style.css # Custom styles
-    ├── main.js # Main logic with D3.js and UI handling
-    ├── bitcoin-price-history.json # Historical price data
-    ├── events.json # Key event data
-    ├── market-cycles.json # Market cycle data (bull/bear)
-    └── translations.json # Texts for internationalization (ES/EN)
+├── public/                 # Static assets and data
+│   ├── bitcoin-price-history.json
+│   ├── events.json
+│   ├── market-cycles.json
+│   ├── translations.json
+│   └── assets/             # Images and favicon
+├── src/                    # Source code
+│   ├── main.js             # Entry point
+│   ├── style.css           # Global styles
+│   └── modules/            # JS Modules (logic, UI, chart, etc.)
+├── index.html              # Main HTML file
+└── vite.config.js          # Vite configuration
 ```
 
 ## 📄 License
 
 This project is licensed under the ISC License. See the `LICENSE` file for details.
-
 
 ---
 
