@@ -1,12 +1,19 @@
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: '.', // La raíz del proyecto está en el directorio actual (index.html se moverá aquí)
-  publicDir: 'public', // Los archivos estáticos (json, assets) siguen en public
+  root: '.',
+  publicDir: 'public',
   build: {
     outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        halving: resolve(__dirname, 'halving.html'),
+      },
+    },
   },
   server: {
-    open: true, // Abrir el navegador automáticamente
+    open: true,
   }
 });
