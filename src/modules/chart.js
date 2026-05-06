@@ -21,6 +21,7 @@ let eventMarkers;
 
 let data = [];
 let eventsData = [];
+let marketCyclesData = [];
 let visibleData = [];
 
 // Callbacks
@@ -31,6 +32,7 @@ let factHighlightTimeout = null;
 // --- INICIALIZACIÓN ---
 export function initChart(containerId, _priceData, _eventsData, _marketCyclesData, _onEventClick) {
     onEventClickCallback = _onEventClick;
+    marketCyclesData = _marketCyclesData;
 
     // Responsive Setup
     const isMobile = window.innerWidth < 768;
@@ -67,11 +69,17 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
     }));
 
     eventsData = _eventsData;
-    eventsData.forEach(e => e.date = d3.timeParse("%Y-%m-%d")(e.date));
+    eventsData.forEach(e => {
+        if (typeof e.date === 'string') {
+            e.date = d3.timeParse("%Y-%m-%d")(e.date);
+        }
+    });
 
-    _marketCyclesData.forEach(d => {
-        d.startDate = d3.timeParse("%Y-%m-%d")(d.startDate);
-        d.endDate = d3.timeParse("%Y-%m-%d")(d.endDate);
+    marketCyclesData.forEach(d => {
+        if (typeof d.startDate === 'string') {
+            d.startDate = d3.timeParse("%Y-%m-%d")(d.startDate);
+            d.endDate = d3.timeParse("%Y-%m-%d")(d.endDate);
+        }
     });
 
     // Lógica Datos Ficticios
@@ -135,7 +143,7 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
     const brushGroup = context.append("g").attr("class", "brush").call(brush);
 
     marketAreas = marketAreasGroup.selectAll(".market-area")
-        .data(_marketCyclesData)
+        .data(marketCyclesData)
         .enter().append("rect")
         .attr("class", d => `market-area ${d.type}`)
         .attr("y", 0)
@@ -245,12 +253,24 @@ function mousemove(event) {
     const d = (d1 && (x0 - d0.date > d1.date - x0)) ? d1 : d0;
     if (!d) return;
 
-    hoverDot.attr("cx", x(d.date)).attr("cy", y(d.price || 0)); // handle 0 price if any
+    hoverDot.attr("cx", x(d.date)).attr("cy", y(d.price || 0)); 
     hoverLine.attr("x1", x(d.date)).attr("x2", x(d.date));
+
+    // Find current market cycle
+    const cycle = marketCyclesData.find(c => d.date >= c.startDate && d.date <= c.endDate);
+    let cycleInfo = "";
+    if (cycle) {
+        const cycleName = cycle.label;
+        const cycleColor = cycle.type === 'bull' ? '#28a745' : '#dc3545';
+        cycleInfo = `<div class="mt-2 pt-2 border-top small" style="color: ${cycleColor}">
+            <i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> ${cycleName}
+        </div>`;
+    }
 
     tooltip.html(
         `${d3.timeFormat("%d %b %Y")(d.date)}<br/>` +
-        `<strong class="tooltip-price">${d3.format("$,.2f")(d.price)}</strong>`
+        `<strong class="tooltip-price">${d3.format("$,.2f")(d.price)}</strong>` +
+        cycleInfo
     ).style("left", (event.pageX + 15) + "px")
      .style("top", (event.pageY - 28) + "px");
 }
