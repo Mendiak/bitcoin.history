@@ -17,7 +17,8 @@ let line, line2, brush;
 let focusLineReal, focusLineFictitious, contextLine;
 let marketAreasGroup, marketAreas;
 let hoverLine, hoverDot, tooltip;
-let eventMarkers;
+let eventMarkers, milestoneMarkers;
+let liveDotGroup;
 
 let data = [];
 let eventsData = [];
@@ -172,9 +173,11 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .on("mousemove", mousemove);
 
     // --- MARCADORES DE EVENTOS ---
-    eventMarkers = focus.selectAll(".event-marker").data(eventsData).enter().append("circle")
-        .attr("class", d => `event-marker category-${d.category.toLowerCase()}`)
-        .attr("r", 6)
+    eventMarkers = focus.selectAll(".event-marker")
+        .data(eventsData)
+        .enter().append("circle")
+        .attr("class", d => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`)
+        .attr("r", d => d.category === 'Halving' ? 8 : 6)
         .attr("clip-path", "url(#clip)")
         .style("cursor", "pointer")
         .attr("tabindex", 0)
@@ -182,6 +185,26 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .on("click", (event, d) => {
             if (onEventClickCallback) onEventClickCallback(d);
         });
+
+    // Marcadores descriptivos (Emojis para hitos)
+    milestoneMarkers = focus.selectAll(".milestone-icon")
+        .data(eventsData.filter(d => d.category === 'Halving' || d.title_es.includes('Génesis') || d.title_es.includes('Whitepaper')))
+        .enter().append("text")
+        .attr("class", "milestone-icon")
+        .attr("text-anchor", "middle")
+        .attr("dy", "-1.2em")
+        .attr("font-size", "14px")
+        .attr("clip-path", "url(#clip)")
+        .style("pointer-events", "none")
+        .text(d => {
+            const emojiMatch = d.title_es.match(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/u);
+            return emojiMatch ? emojiMatch[0] : '';
+        });
+
+    // --- LIVE DOT ---
+    liveDotGroup = focus.append("g").attr("class", "live-dot-container").attr("clip-path", "url(#clip)");
+    liveDotGroup.append("circle").attr("class", "live-dot-pulse").attr("r", 6);
+    liveDotGroup.append("circle").attr("class", "live-dot-core").attr("r", 4);
 
     setupMarkerInteractions();
 
@@ -267,10 +290,51 @@ function mousemove(event) {
         </div>`;
     }
 
+    // Purchasing Power Calculation
+    const price = d.price || 0.01;
+    const translations = window.translationsData[state.lang];
+    let purchasingInfo = "";
+
+    if (price > 0) {
+        // Items configuration
+        const itemsList = [
+            { id: "bread", price: 2 },
+            { id: "netflix", price: 15 },
+            { id: "pizza", price: 20 },
+            { id: "playstation", price: 500 },
+            { id: "macbook", price: 2000 },
+            { id: "rolex", price: 10000 },
+            { id: "car", price: 40000 },
+            { id: "gold", price: 75000 },
+            { id: "house", price: 400000 }
+        ];
+
+        // Find the most appropriate item tier
+        let selectedItem = itemsList[0];
+        for (let i = 0; i < itemsList.length; i++) {
+            if (price >= itemsList[i].price) {
+                selectedItem = itemsList[i];
+            } else {
+                break;
+            }
+        }
+
+        const quantity = Math.floor(price / selectedItem.price);
+        const itemText = `${quantity} ${translations.items[selectedItem.id]}`;
+
+        purchasingInfo = `<div class="mt-2 pt-2 border-top small">
+            <span class="text-muted" style="text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.05em;">${translations.purchasingPower}</span><br/>
+            <span class="text-bitcoin" style="color: var(--bitcoin-orange); font-weight: 600;">
+                <i class="bi bi-cart-fill"></i> ${translations.canBuy} ${itemText}
+            </span>
+        </div>`;
+    }
+
     tooltip.html(
         `${d3.timeFormat("%d %b %Y")(d.date)}<br/>` +
         `<strong class="tooltip-price">${d3.format("$,.2f")(d.price)}</strong>` +
-        cycleInfo
+        cycleInfo +
+        purchasingInfo
     ).style("left", (event.pageX + 15) + "px")
      .style("top", (event.pageY - 28) + "px");
 }
@@ -378,7 +442,32 @@ function redrawFocus(withTransition = true) {
     focus.select(".real-line").datum(realVisibleData).attr("d", line);
     focus.select(".fictitious-line").datum(fictitiousVisibleData).attr("d", line);
     
-    focus.selectAll(".event-marker").attr("cx", d => x(d.date));
+    focus.selectAll(".event-marker")
+        .attr("cx", d => x(d.date))
+        .attr("cy", d => {
+            const i = bisectDate(data, d.date, 1);
+            const d0 = data[i - 1], d1 = data[i];
+            const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+            return closest ? y(closest.price) : height;
+        });
+
+    focus.selectAll(".milestone-icon")
+        .attr("x", d => x(d.date))
+        .attr("y", d => {
+            const i = bisectDate(data, d.date, 1);
+            const d0 = data[i - 1], d1 = data[i];
+            const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+            return closest ? y(closest.price) : height;
+        });
+
+    // Position Live Dot
+    const lastPoint = realVisibleData[realVisibleData.length - 1];
+    if (lastPoint && lastPoint.date >= startDate && lastPoint.date <= endDate) {
+        liveDotGroup.style("display", "block")
+            .attr("transform", `translate(${x(lastPoint.date)},${y(lastPoint.price)})`);
+    } else {
+        liveDotGroup.style("display", "none");
+    }
 
     marketAreas
         .attr("x", d => x(d.startDate))
@@ -410,13 +499,30 @@ export function updateChart(transitionDuration = 750) {
             return closest ? y(closest.price) : height;
         })
         .attr("aria-label", d => d['title_' + state.lang]); 
+
+    milestoneMarkers.transition(t).attr("y", d => {
+        const i = bisectDate(data, d.date, 1);
+        const d0 = data[i - 1], d1 = data[i];
+        const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+        return closest ? y(closest.price) : height;
+    });
+
+    // Update Live Dot Position
+    const lastPoint = data[data.length - 1];
+    if (lastPoint && !lastPoint.isFictitious) {
+        liveDotGroup.transition(t).attr("transform", `translate(${x(lastPoint.date)},${y(lastPoint.price)})`);
+    }
 }
 
 export function filterMarkers(category) {
-   eventMarkers.transition().duration(400)
-       .attr("r", d => (category === 'all' || d.category === category) ? 6 : 0)
+   const duration = 400;
+   eventMarkers.transition().duration(duration)
+       .attr("r", d => (category === 'all' || d.category === category) ? (d.category === 'Halving' ? 8 : 6) : 0)
        .style("opacity", d => (category === 'all' || d.category === category) ? 1 : 0)
        .style("pointer-events", d => (category === 'all' || d.category === category) ? "all" : "none");
+
+   milestoneMarkers.transition().duration(duration)
+       .style("opacity", d => (category === 'all' || d.category === category) ? 1 : 0);
 }
 
 export function highlightMarker(date, highlight) {

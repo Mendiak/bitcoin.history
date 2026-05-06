@@ -18,7 +18,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // UI Elements
     const chartContainer = document.getElementById('chart-container');
     const loadingSpinner = document.getElementById('loading-spinner');
+    const loadingPhrase = document.getElementById('loading-phrase');
     const themeToggleButton = document.getElementById('theme-toggle');
+
+    // Loading Phrases from Translations
+    fetch('public/translations.json')
+        .then(response => response.json())
+        .then(translations => {
+            window.translationsData = translations; // Expose globally
+            const phrases = translations[state.lang].loadingPhrases;
+            if (loadingPhrase && phrases) {
+                loadingPhrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            }
+        })
+        .catch(() => {
+            // Fallback sencillo si falla la carga
+            if (loadingPhrase) loadingPhrase.textContent = "Satoshi is mining...";
+        });
 
     // Init Theme
     initTheme();

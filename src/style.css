@@ -289,57 +289,35 @@ body::before { display: none; }
 }
 
 /* Market Areas */
-.market-area { opacity: 0.03; }
-.market-area.bull { fill: #28a745; }
-.market-area.bear { fill: #dc3545; }
-
-/* Event Markers & Category Dots */
-.event-marker {
-    stroke: var(--ui-surface);
-    stroke-width: 1px;
-    cursor: pointer;
-    transition: transform 0.2s ease, stroke 0.2s ease;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-.event-marker:hover, .event-marker.highlighted {
-    transform: scale(1.2);
-    stroke: var(--ui-text);
-}
+.market-areas { pointer-events: none; }
+.market-area.bull { fill: rgba(46, 204, 113, 0.25); }
+.market-area.bear { fill: rgba(231, 76, 60, 0.25); }
 
 .filter-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    margin-right: var(--space-1);
-    border: 1px solid var(--ui-border-silent);
+    margin-right: var(--space-2);
+    border: 1px solid rgba(0,0,0,0.2);
 }
 
-.category-technology { fill: var(--cat-tech); }
-.category-market { fill: var(--cat-market); }
-.category-adoption { fill: var(--cat-adoption); }
-.category-regulation { fill: var(--cat-reg); }
-.category-security { fill: var(--cat-sec); }
-.category-halving { fill: var(--cat-halving); }
+/* Category Specifics */
+.category-technology { fill: var(--cat-tech); stroke: #333; stroke-width: 1.5px; }
+.category-market { fill: var(--cat-market); stroke: #333; stroke-width: 1.5px; }
+.category-adoption { fill: var(--cat-adoption); stroke: #333; stroke-width: 1.5px; }
+.category-regulation { fill: var(--cat-reg); stroke: #333; stroke-width: 1.5px; }
+.category-security { fill: var(--cat-sec); stroke: #333; stroke-width: 1.5px; }
+.category-halving { fill: #f1c40f; stroke: #d4ac0d; stroke-width: 2px; }
 
-.filter-dot.category-technology { background-color: var(--cat-tech); }
-.filter-dot.category-market { background-color: var(--cat-market); }
-.filter-dot.category-adoption { background-color: var(--cat-adoption); }
-.filter-dot.category-regulation { background-color: var(--cat-reg); }
-.filter-dot.category-security { background-color: var(--cat-sec); }
-.filter-dot.category-halving { background-color: var(--cat-halving); }
+.filter-dot.category-technology { background-color: var(--cat-tech); border: 1px solid #333; }
+.filter-dot.category-market { background-color: var(--cat-market); border: 1px solid #333; }
+.filter-dot.category-adoption { background-color: var(--cat-adoption); border: 1px solid #333; }
+.filter-dot.category-regulation { background-color: var(--cat-reg); border: 1px solid #333; }
+.filter-dot.category-security { background-color: var(--cat-sec); border: 1px solid #333; }
+.filter-dot.category-halving { background-color: #f1c40f; border: 1px solid #d4ac0d; }
 
-/* Dark Mode Overrides for Categories (More distinct presence) */
-html[data-bs-theme="dark"] {
-    --cat-tech: #4a90a2;
-    --cat-market: #f7931a;
-    --cat-adoption: #6a9658;
-    --cat-reg: #b35661;
-    --cat-sec: #4e6a8e;
-    --cat-halving: #8a6c8f;
-}
+.italic { font-style: italic; }
 
 /* Glossary Terms */
 .glossary-term {
@@ -379,6 +357,12 @@ html[data-bs-theme="dark"] {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.75rem;
+}
+
+.milestone-icon {
+    pointer-events: none;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+    fill: none;
 }
 
 /* Live Dot */

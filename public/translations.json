@@ -24,6 +24,19 @@
     "footerDev": "Desarrollado por",
     "footerWith": "con",
     "loading": "Cargando datos...",
+    "purchasingPower": "Poder adquisitivo de 1 BTC:",
+    "canBuy": "Podrías comprar:",
+    "items": {
+      "bread": "barras de pan",
+      "netflix": "meses de Netflix",
+      "pizza": "pizzas familiares",
+      "playstation": "PlayStation 5",
+      "macbook": "MacBook Pro",
+      "rolex": "Reloj Rolex",
+      "car": "Tesla Model 3",
+      "gold": "lingote de oro 1kg",
+      "house": "Casa promedio en EE.UU."
+    },
     "fictitiousDataLegend": "La línea de puntos indica un período sin datos de precios registrados.",
     "footerEnding": "y mucho <span class='text-warning'>🧡</span>",
     "footerRepo": "Código fuente disponible en",
@@ -82,6 +95,16 @@
     "firstBearMarket": "Primer Mercado Bajista",
     "legendBullMarket": "Mercado Alcista",
     "legendBearMarket": "Mercado Bajista",
+    "loadingPhrases": [
+      "Satoshi está minando el bloque génesis...",
+      "Calculando la escasez digital...",
+      "Validando transacciones en la red...",
+      "Descifrando el enigma de la descentralización...",
+      "Esperando confirmación de la cadena de bloques...",
+      "Sincronizando con el futuro del dinero...",
+      "Protegiendo la red contra ataques de doble gasto...",
+      "Inyectando libertad financiera en el código..."
+    ],
     "didYouKnowTitle": "¿Sabías que...?",
     "didYouKnowNext": "Siguiente curiosidad",
     "didYouKnow": [
@@ -137,6 +160,15 @@
     "footerDev": "Developed by",
     "footerWith": "with",
     "loading": "Loading data...",
+    "purchasingPower": "1 BTC Purchasing Power:",
+    "canBuy": "You could buy:",
+    "items": {
+      "coffee": "cups of coffee",
+      "pizza": "family pizzas",
+      "iphone": "iPhone 15 Pro",
+      "car": "Tesla Model 3",
+      "house": "Average US Home"
+    },
     "fictitiousDataLegend": "The dotted line indicates a period with no recorded price data.",
     "footerEnding": "and lots of <span class='text-warning'>🧡</span>",
     "footerRepo": "Source code available on",
@@ -195,6 +227,16 @@
     "firstBearMarket": "First Bear Market",
     "legendBullMarket": "Bull Market",
     "legendBearMarket": "Bear Market",
+    "loadingPhrases": [
+      "Satoshi is mining the genesis block...",
+      "Calculating digital scarcity...",
+      "Validating transactions on the network...",
+      "Deciphering the decentralization enigma...",
+      "Waiting for blockchain confirmation...",
+      "Syncing with the future of money...",
+      "Protecting the network against double-spending attacks...",
+      "Injecting financial freedom into the code..."
+    ],
     "didYouKnowTitle": "Did you know...?",
     "didYouKnowNext": "Next curiosity",
     "didYouKnow": [
