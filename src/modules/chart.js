@@ -298,7 +298,7 @@ function mousemove(event) {
     if (price > 0) {
         // Items configuration
         const itemsList = [
-            { id: "bread", price: 2 },
+            { id: "bread", price: 1 },
             { id: "netflix", price: 15 },
             { id: "pizza", price: 20 },
             { id: "playstation", price: 500 },
