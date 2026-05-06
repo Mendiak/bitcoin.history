@@ -6,3 +6,21 @@
 .agents
 .skills
 .qwen
+dist
+
+# Entorno / Secretos
+.env
+.env.local
+.env.*.local
+
+# Vercel
+.vercel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
