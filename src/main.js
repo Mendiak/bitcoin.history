@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle');
 
     // Loading Phrases from Translations
-    fetch('public/translations.json')
+    fetch('translations.json')
         .then(response => response.json())
         .then(translations => {
-            window.translationsData = translations; // Expose globally
+            window.translationsData = translations; // Expose globally for modules that might still need it
             const phrases = translations[state.lang].loadingPhrases;
             if (loadingPhrase && phrases) {
                 loadingPhrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Loading
     loadData().then(([priceData, eventsData, marketCyclesData, translations]) => {
         
+        window.translationsData = translations;
         setTranslations(translations);
         initUI(); // Setup modal etc
 

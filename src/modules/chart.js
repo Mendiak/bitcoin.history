@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { state } from './state.js';
+import { translations } from './i18n.js';
 
 // --- CONFIGURACIÓN ---
 let margin = { top: 20, right: 50, bottom: 120, left: 70 };
@@ -292,10 +293,10 @@ function mousemove(event) {
 
     // Purchasing Power Calculation
     const price = d.price || 0.01;
-    const translations = window.translationsData[state.lang];
+    const currentTranslations = translations[state.lang];
     let purchasingInfo = "";
 
-    if (price > 0) {
+    if (price > 0 && currentTranslations) {
         // Items configuration
         const itemsList = [
             { id: "bread", price: 1 },
@@ -320,12 +321,12 @@ function mousemove(event) {
         }
 
         const quantity = Math.floor(price / selectedItem.price);
-        const itemText = `${quantity} ${translations.items[selectedItem.id]}`;
+        const itemText = `${quantity} ${currentTranslations.items[selectedItem.id]}`;
 
         purchasingInfo = `<div class="mt-2 pt-2 border-top small">
-            <span class="text-muted" style="text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.05em;">${translations.purchasingPower}</span><br/>
+            <span class="text-muted" style="text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.05em;">${currentTranslations.purchasingPower}</span><br/>
             <span class="text-bitcoin" style="color: var(--bitcoin-orange); font-weight: 600;">
-                <i class="bi bi-cart-fill"></i> ${translations.canBuy} ${itemText}
+                <i class="bi bi-cart-fill"></i> ${currentTranslations.canBuy} ${itemText}
             </span>
         </div>`;
     }

@@ -1,7 +1,7 @@
 import { state } from './state.js';
 import * as d3 from 'd3';
 
-let translations = {};
+export let translations = {};
 
 export const setTranslations = (data) => {
     translations = data;
