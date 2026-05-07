@@ -178,11 +178,12 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .data(eventsData)
         .enter().append("circle")
         .attr("class", d => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`)
-        .attr("r", d => d.category === 'Halving' ? 8 : 6)
-        .attr("stroke", "white") // Añadir borde para mejorar visibilidad
-        .attr("stroke-width", 1.5)
+        .attr("r", d => d.category === 'Halving' ? 7 : 5)
+        .attr("stroke", "#fdfdfc") // Paper stroke
+        .attr("stroke-width", 1)
         .attr("clip-path", "url(#clip)")
         .style("cursor", "pointer")
+        .style("transition", "transform 0.1s ease")
         .attr("tabindex", 0)
         .attr("role", "button")
         .on("click", (event, d) => {

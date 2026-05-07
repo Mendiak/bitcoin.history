@@ -116,7 +116,7 @@ export function showEventModal(d) {
 
     const descriptionHTML = processedDescription
         .split('\n\n')
-        .map(p => `<p class="mb-4">${p.replace(/\n/g, '<br>')}</p>`)
+        .map(p => `<p class="mb-6 font-serif text-lg sm:text-xl leading-relaxed text-foreground/90">${p.replace(/\n/g, '<br>')}</p>`)
         .join('');
     eventModalBody.innerHTML = descriptionHTML;
 
@@ -146,9 +146,9 @@ export function showGlossaryModal() {
     let html = '<div class="space-y-8">';
     terms.forEach(term => {
         html += `
-            <div class="glossary-item">
-                <h3 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-bitcoin-orange mb-2">${term}</h3>
-                <p class="text-sm text-muted-foreground leading-relaxed">${glossary[term]}</p>
+            <div class="glossary-item pb-6 border-b border-border last:border-0">
+                <h3 class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-bitcoin-orange mb-3">${term}</h3>
+                <p class="font-serif text-lg leading-relaxed text-muted-foreground">${glossary[term]}</p>
             </div>
         `;
     });

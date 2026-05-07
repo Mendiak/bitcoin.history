@@ -8,93 +8,123 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
 </head>
 
-<body>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-        <div id="top-right-controls" class="absolute top-8 right-8 flex gap-2 z-50">
-            <div class="inline-flex rounded-md shadow-sm" role="group">
-                <button class="px-3 py-1 text-sm font-medium border border-border rounded-l-md hover:bg-muted transition-colors" id="lang-es" aria-label="Cambiar idioma a Español">ES</button>
-                <button class="px-3 py-1 text-sm font-medium border-t border-b border-r border-border rounded-r-md hover:bg-muted transition-colors" id="lang-en" aria-label="Change language to English">EN</button>
+<body class="selection:bg-bitcoin-orange/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative border-x border-border/40 min-h-screen">
+        <header class="mb-20 flex flex-col items-center">
+            <div id="top-right-controls" class="w-full flex flex-wrap items-center justify-center sm:justify-end gap-4 z-50 mb-12">
+                <div class="editorial-label mr-4 border-r border-border pr-4 hidden sm:flex">
+                    Edition 2026 / v2.0
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="inline-flex rounded-sm" role="group">
+                        <button class="px-2 py-1 text-[10px] font-mono border border-border rounded-l-sm hover:bg-muted transition-colors" id="lang-es" aria-label="Cambiar idioma a Español">ES</button>
+                        <button class="px-2 py-1 text-[10px] font-mono border-t border-b border-r border-border rounded-r-sm hover:bg-muted transition-colors" id="lang-en" aria-label="Change language to English">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="p-1.5 border border-border rounded-sm hover:bg-muted transition-colors" data-i18n-title="theme" aria-label="Cambiar tema visual">
+                        <i data-lucide="sun" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
             </div>
-            <button id="theme-toggle" class="p-2 border border-border rounded-md hover:bg-muted transition-colors" data-i18n-title="theme" aria-label="Cambiar tema visual">
-                <i data-lucide="sun" class="w-4 h-4"></i>
-            </button>
-        </div>
 
-        <nav class="mb-12">
-            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group">
-                <i data-lucide="chevron-right" class="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform"></i>
-                <span data-i18n-key="backToMain">Volver al Gráfico Principal</span>
-            </a>
-        </nav>
+            <nav class="w-full mb-12">
+                <a href="index.html" class="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-muted-foreground hover:text-bitcoin-orange transition-colors group">
+                    <i data-lucide="arrow-left" class="w-3 h-3 group-hover:-translate-x-1 transition-transform"></i>
+                    <span data-i18n-key="backToMain">Volver al Gráfico Principal</span>
+                </a>
+            </nav>
 
-        <header class="text-center mb-16">
-            <h1 class="text-4xl sm:text-5xl font-heading font-bold tracking-tight mb-4" data-i18n-key="halvingTitle">El Ciclo del Halving</h1>
-            <p class="text-muted-foreground text-lg max-w-2xl mx-auto" data-i18n-key="halvingSubtitle">
-                Entiende la ingeniería de la escasez: por qué Bitcoin es el primer activo digital limitado del mundo.
-            </p>
+            <div class="flex flex-col items-center w-full">
+                <div class="w-full flex items-center gap-4 mb-8">
+                    <div class="h-px bg-border grow"></div>
+                    <span class="editorial-label whitespace-nowrap">Vires in Numeris</span>
+                    <div class="h-px bg-border grow"></div>
+                </div>
+
+                <h1 class="text-center text-5xl sm:text-7xl font-heading font-bold tracking-tighter mb-6 leading-[0.9]" data-i18n-key="halvingTitle">
+                    El Ciclo del Halving
+                </h1>
+                
+                <p class="text-foreground font-serif italic text-xl sm:text-2xl leading-relaxed max-w-2xl mx-auto text-center" data-i18n-key="halvingSubtitle">
+                    Entiende la ingeniería de la escasez: por qué Bitcoin es el primer activo digital limitado del mundo.
+                </p>
+            </div>
         </header>
 
-        <!-- Nueva sección explicativa -->
-        <div class="mb-16 max-w-4xl mx-auto bg-card border border-border rounded-xl p-8 shadow-sm">
-            <h2 class="text-xl font-heading font-bold mb-4" data-i18n-key="whatIsHalving">¿Qué es el Halving?</h2>
-            <p class="text-muted-foreground leading-relaxed mb-6" data-i18n-key="halvingExplanation">
-                El halving es un evento programado en el código de Bitcoin que ocurre aproximadamente cada cuatro años. Su función es reducir a la mitad la recompensa que reciben los mineros por validar nuevos bloques en la red. Este mecanismo reduce el ritmo al que se crean nuevos bitcoins, garantizando que la emisión sea finita y decreciente hasta alcanzar un máximo de 21 millones de unidades. Es el motor detrás de la política de escasez programada de Bitcoin, diseñado para emular la extracción de metales preciosos como el oro, donde la dificultad y el costo de obtener nuevas unidades aumentan con el tiempo.
+        <div class="mb-20 max-w-4xl mx-auto bg-card border border-border p-10">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="info" class="w-4 h-4 text-bitcoin-orange"></i>
+                <h2 class="editorial-label text-bitcoin-orange" data-i18n-key="whatIsHalving">¿Qué es el Halving?</h2>
+            </div>
+            <p class="text-xl leading-relaxed text-foreground/90" data-i18n-key="halvingExplanation">
+                El halving es un evento programado en el código de Bitcoin que ocurre aproximadamente cada cuatro años. Su función es reducir a la mitad la recompensa que reciben los mineros por validar nuevos bloques en la red. Este mecanismo reduce el ritmo al que se crean nuevos bitcoins, garantizando que la emisión sea finita y decreciente hasta alcanzar un máximo de 21 millones de unidades.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <!-- Columna de la Animación (El Grifo) -->
             <div>
-                <div class="glass-panel h-full p-6 text-center flex flex-col justify-between">
+                <div class="glass-panel h-full p-8 text-center flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-8" data-i18n-key="tapTitle">El Grifo de la Oferta</h3>
-                        <div id="halving-visual-container" class="relative py-12 min-h-[300px] bg-muted/20 rounded-xl overflow-hidden flex flex-col items-center justify-center gap-4">
-                            <i data-lucide="droplet" class="w-16 h-16 text-bitcoin-orange"></i>
+                        <h3 class="editorial-label text-muted-foreground mb-10" data-i18n-key="tapTitle">El Grifo de la Oferta</h3>
+                        <div id="halving-visual-container" class="relative py-16 bg-muted/20 border border-border/40 overflow-hidden flex flex-col items-center justify-center gap-6">
+                            <i data-lucide="droplet" class="w-12 h-12 text-bitcoin-orange"></i>
                             <div class="text-center">
-                                <span class="block text-4xl font-mono font-bold" id="current-emission-rate">--</span>
-                                <span class="text-xs uppercase tracking-widest text-muted-foreground" data-i18n-key="btcPerBlock">BTC por Bloque</span>
+                                <span class="block text-5xl font-mono font-bold tracking-tighter" id="current-emission-rate">--</span>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mt-2 inline-block" data-i18n-key="btcPerBlock">BTC por Bloque</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-8">
-                        <div id="halving-selector" class="flex flex-wrap gap-2 mb-6" role="group">
+                    <div class="mt-12">
+                        <div id="halving-selector" class="flex flex-wrap justify-center gap-2 mb-8" role="group">
                             <!-- Los botones se generarán dinámicamente -->
                         </div>
-                        <div id="era-story-container" class="mt-4 p-4 bg-muted/30 rounded-lg border-l-4 border-bitcoin-orange text-left">
-                            <h4 class="text-xs font-heading font-bold uppercase tracking-wider text-bitcoin-orange mb-2" data-i18n-key="storyTitle">Crónica de la Era</h4>
-                            <p class="text-sm leading-relaxed italic" id="era-story-text"></p>
+                        <div id="era-story-container" class="mt-4 p-6 bg-muted/30 border-l-2 border-bitcoin-orange text-left">
+                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-bitcoin-orange mb-3" data-i18n-key="storyTitle">Crónica de la Era</h4>
+                            <p class="text-lg leading-relaxed italic text-foreground/90" id="era-story-text"></p>
                         </div>
-                        <p class="mt-4 text-xs text-muted-foreground" id="halving-description"></p>
+                        <p class="mt-6 text-[10px] font-mono uppercase tracking-tight text-muted-foreground" id="halving-description"></p>
                     </div>
                 </div>
             </div>
 
             <!-- Columna de Datos y Gráfico de Emisión -->
             <div>
-                <div class="glass-panel h-full p-6 flex flex-col">
-                    <h3 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-8" data-i18n-key="mathTitle">La Matemática de la Escasez</h3>
+                <div class="glass-panel h-full p-8 flex flex-col">
+                    <div class="flex items-center gap-3 mb-10">
+                        <i data-lucide="calculator" class="w-4 h-4 text-muted-foreground"></i>
+                        <h3 class="editorial-label text-muted-foreground" data-i18n-key="mathTitle">La Matemática de la Escasez</h3>
+                    </div>
                     
-                    <div id="emission-stats" class="space-y-4 mb-8">
-                        <div class="flex justify-between items-center pb-2 border-b border-border">
-                            <span class="text-sm text-muted-foreground" data-i18n-key="blockReward">Recompensa por Bloque:</span>
+                    <div id="emission-stats" class="space-y-6 mb-12">
+                        <div class="flex justify-between items-center pb-3 border-b border-border/60">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="gift" class="w-3.5 h-3.5 text-muted-foreground/60"></i>
+                                <span class="editorial-label !tracking-widest" data-i18n-key="blockReward">Recompensa por Bloque:</span>
+                            </div>
                             <span id="current-reward" class="text-sm font-mono font-bold text-bitcoin-orange">-- BTC</span>
                         </div>
-                        <div class="flex justify-between items-center pb-2 border-b border-border">
-                            <span class="text-sm text-muted-foreground" data-i18n-key="annualInflation">Inflación Anual:</span>
+                        <div class="flex justify-between items-center pb-3 border-b border-border/60">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="activity" class="w-3.5 h-3.5 text-muted-foreground/60"></i>
+                                <span class="editorial-label !tracking-widest" data-i18n-key="annualInflation">Inflación Anual:</span>
+                            </div>
                             <span id="current-inflation" class="text-sm font-mono font-bold text-sky-500">-- %</span>
                         </div>
-                        <div class="flex justify-between items-center pb-2 border-b border-border">
-                            <span class="text-sm text-muted-foreground" data-i18n-key="totalSupply">Suministro Circulante:</span>
+                        <div class="flex justify-between items-center pb-3 border-b border-border/60">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="database" class="w-3.5 h-3.5 text-muted-foreground/60"></i>
+                                <span class="editorial-label !tracking-widest" data-i18n-key="totalSupply">Suministro Circulante:</span>
+                            </div>
                             <span id="total-supply" class="text-sm font-mono font-bold">-- BTC</span>
                         </div>
                     </div>
 
-                    <div id="emission-chart" class="mt-auto h-[250px]">
+                    <div id="emission-chart" class="mt-auto h-[280px]">
                         <!-- Gráfico D3 de la curva de emisión -->
                     </div>
                 </div>
@@ -102,116 +132,199 @@
         </div>
 
         <!-- Explicación Didáctica -->
-        <div class="mt-20">
-            <div class="glass-panel p-6">
-                <h2 class="text-2xl font-heading font-bold mb-8" data-i18n-key="howItWorksTitle">¿Cómo funciona exactamente?</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="flex gap-4">
-                        <div class="text-3xl font-bold text-bitcoin-orange/50">1</div>
-                        <div>
-                            <h5 class="font-bold mb-2" data-i18n-key="step1Title">Emisión Programada</h5>
-                            <p class="text-sm text-muted-foreground leading-relaxed" data-i18n-key="step1Text">Nadie puede imprimir más Bitcoin. Las reglas están escritas en código desde 2009.</p>
+        <div class="mt-32 border-t border-border pt-24">
+            <div class="max-w-4xl mx-auto text-center mb-24">
+                <div class="flex flex-col items-center gap-4">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-bitcoin-orange/40 mb-2"></i>
+                    <h2 class="text-4xl sm:text-5xl font-heading font-bold tracking-tighter leading-none mb-6" data-i18n-key="howItWorksTitle">¿Cómo funciona exactamente?</h2>
+                    <p class="text-xl sm:text-2xl font-serif italic text-muted-foreground leading-relaxed max-w-2xl" data-i18n-key="howItWorksSubtitle">
+                        Bitcoin no depende de la confianza en instituciones, sino en la certeza de las matemáticas. Así es como el protocolo asegura su escasez absoluta.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 border border-border divide-y md:divide-y-0 md:divide-x divide-border">
+                <div class="p-12 flex flex-col gap-10 hover:bg-muted/5 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-6xl font-mono font-bold text-bitcoin-orange/25">01</span>
+                        <div class="w-10 h-10 bg-bitcoin-orange/5 flex items-center justify-center">
+                            <i data-lucide="code" class="w-5 h-5 text-bitcoin-orange/60"></i>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-3xl font-bold text-bitcoin-orange/50">2</div>
-                        <div>
-                            <h5 class="font-bold mb-2" data-i18n-key="step2Title">Cada 4 Años</h5>
-                            <p class="text-sm text-muted-foreground leading-relaxed" data-i18n-key="step2Text">Aproximadamente cada 210,000 bloques, la recompensa para los mineros se corta a la mitad.</p>
+                    <div>
+                        <h3 class="editorial-label text-bitcoin-orange mb-4" data-i18n-key="step1Title">Emisión Programada</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed italic" data-i18n-key="step1Text">Nadie puede imprimir más Bitcoin. Las reglas están escritas en código desde 2009.</p>
+                    </div>
+                </div>
+                
+                <div class="p-12 flex flex-col gap-10 hover:bg-muted/5 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-6xl font-mono font-bold text-bitcoin-orange/25">02</span>
+                        <div class="w-10 h-10 bg-bitcoin-orange/5 flex items-center justify-center">
+                            <i data-lucide="calendar" class="w-5 h-5 text-bitcoin-orange/60"></i>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-3xl font-bold text-bitcoin-orange/50">3</div>
-                        <div>
-                            <h5 class="font-bold mb-2" data-i18n-key="step3Title">Límite: 21 Millones</h5>
-                            <p class="text-sm text-muted-foreground leading-relaxed" data-i18n-key="step3Text">Esto asegura que Bitcoin sea deflacionario. El último BTC se minará en 2140.</p>
+                    <div>
+                        <h3 class="editorial-label text-bitcoin-orange mb-4" data-i18n-key="step2Title">Cada 4 Años</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed italic" data-i18n-key="step2Text">Aproximadamente cada 210,000 bloques, la recompensa para los mineros se corta a la mitad.</p>
+                    </div>
+                </div>
+                
+                <div class="p-12 flex flex-col gap-10 hover:bg-muted/5 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-6xl font-mono font-bold text-bitcoin-orange/25">03</span>
+                        <div class="w-10 h-10 bg-bitcoin-orange/5 flex items-center justify-center">
+                            <i data-lucide="lock" class="w-5 h-5 text-bitcoin-orange/60"></i>
                         </div>
+                    </div>
+                    <div>
+                        <h3 class="editorial-label text-bitcoin-orange mb-4" data-i18n-key="step3Title">Límite: 21 Millones</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed italic" data-i18n-key="step3Text">Esto asegura que Bitcoin sea deflacionario. El último BTC se minará en 2140.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Insight Educativo: Oferta Semirrígida -->
-        <div class="mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 glass-panel p-8">
-                <div class="md:col-span-4 lg:col-span-3 flex flex-col items-center justify-center text-center p-6 bg-bitcoin-orange/5 rounded-xl border border-bitcoin-orange/20">
-                    <i data-lucide="lightbulb" class="w-12 h-12 text-bitcoin-orange mb-4"></i>
-                    <h2 class="text-lg font-heading font-bold" data-i18n-key="educationalInsightTitle">Oferta Semirrígida</h2>
-                </div>
-                <div class="md:col-span-8 lg:col-span-9 flex flex-col gap-6">
-                    <p class="text-lg leading-relaxed text-muted-foreground" data-i18n-key="educationalInsightText">
-                        A diferencia del dinero fiat, cuya oferta puede ser ampliada ilimitadamente por decisión política, Bitcoin tiene una política monetaria inmutable. Su ritmo de emisión programado disminuye cada 4 años, convirtiéndolo en el primer activo con escasez digital absoluta, comportándose más como una propiedad física que como una moneda de papel.
+        <div class="mt-32 border-t border-border pt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Columna Principal: El Concepto -->
+                <div class="lg:col-span-8">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-8 h-px bg-bitcoin-orange/40"></div>
+                        <h2 class="editorial-label text-bitcoin-orange" data-i18n-key="educationalInsightTitle">Oferta Semirrígida</h2>
+                    </div>
+                    
+                    <p class="text-3xl sm:text-4xl font-serif italic text-foreground leading-[1.1] mb-12" data-i18n-key="educationalInsightText">
+                        A diferencia del dinero fiat, cuya oferta puede ser ampliada ilimitadamente por decisión política, Bitcoin tiene una política monetaria inmutable. Su ritmo de emisión programado disminuye cada 4 años, convirtiéndolo en el primer activo con escasez digital absoluta.
                     </p>
-
-                    <div class="p-6 bg-muted/20 rounded-lg border-l-4 border-l-sky-500">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i data-lucide="trending-up" class="w-5 h-5 text-sky-500"></i>
-                            <h3 class="text-sm font-heading font-bold uppercase tracking-widest text-sky-500" data-i18n-key="economicImplicationsTitle">Implicaciones Económicas</h3>
-                        </div>
-                        <p class="text-sm text-muted-foreground leading-relaxed" data-i18n-key="economicImplicationsText">
-                            La oferta limitada genera un "choque de oferta" periódico. Al ser predecible, Bitcoin elimina el riesgo de devaluación por impresión excesiva, consolidándose como un refugio contra la inflación y un activo de valor a largo plazo.
+                    
+                    <div class="flex items-start gap-6 p-8 bg-muted/20 border border-border">
+                        <i data-lucide="lightbulb" class="w-6 h-6 text-bitcoin-orange mt-1 shrink-0"></i>
+                        <p class="text-lg text-muted-foreground leading-relaxed italic">
+                            Este diseño algorítmico replica la extracción de metales preciosos: al principio es fácil y abundante, pero con el tiempo requiere más esfuerzo y produce menos cantidad, hasta que el flujo cesa por completo.
                         </p>
+                    </div>
+                </div>
+
+                <!-- Barra Lateral: Implicaciones -->
+                <div class="lg:col-span-4 lg:border-l lg:border-border lg:pl-16">
+                    <div class="flex items-center gap-3 mb-8">
+                        <i data-lucide="trending-up" class="w-4 h-4 text-sky-500"></i>
+                        <h3 class="editorial-label text-sky-500" data-i18n-key="economicImplicationsTitle">Implicaciones Económicas</h3>
+                    </div>
+                    
+                    <div class="space-y-10">
+                        <div class="group">
+                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors">Choque de Oferta</h4>
+                            <p class="text-sm text-muted-foreground leading-relaxed italic" data-i18n-key="economicImplicationsText">
+                                La oferta limitada genera un "choque de oferta" periódico. Al ser predecible, Bitcoin elimina el riesgo de devaluación por impresión excesiva.
+                            </p>
+                        </div>
+                        
+                        <div class="group">
+                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors">Activo de Reserva</h4>
+                            <p class="text-sm text-muted-foreground leading-relaxed italic">
+                                Se consolida como un refugio contra la inflación y un activo de valor a largo plazo, atrayendo capital institucional que busca escapar de la expansión monetaria.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Comparativa Bitcoin vs Fiat -->
-        <div class="mt-8">
-            <div class="glass-panel p-6 overflow-hidden">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl font-heading font-bold mb-4" data-i18n-key="comparisonTitle">Bitcoin vs. El Sistema Tradicional</h2>
-                    <p class="text-muted-foreground max-w-2xl mx-auto" data-i18n-key="comparisonSubtitle">
-                        Descubre por qué la oferta semirrígida de Bitcoin lo hace único frente a las divisas tradicionales emitidas por bancos centrales.
-                    </p>
+        <div class="mt-40 border-t border-border pt-24">
+            <div class="max-w-4xl mb-24">
+                <h2 class="text-4xl sm:text-5xl font-heading font-bold tracking-tighter mb-8" data-i18n-key="comparisonTitle">Bitcoin vs. El Sistema Tradicional</h2>
+                <p class="text-2xl font-serif italic text-muted-foreground leading-snug max-w-3xl" data-i18n-key="comparisonSubtitle">
+                    Mientras que el sistema tradicional se basa en la flexibilidad y la expansión discrecional, Bitcoin introduce un paradigma de reglas inmutables y escasez programada.
+                </p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Header de Columnas -->
+                <div class="grid grid-cols-2 border-y border-border divide-x divide-border">
+                    <div class="py-8 px-10 flex items-center justify-center gap-4 bg-bitcoin-orange/[0.02]">
+                        <i data-lucide="bitcoin" class="w-5 h-5 text-bitcoin-orange"></i>
+                        <span class="editorial-label text-bitcoin-orange" data-i18n-key="bitcoinModel">Bitcoin</span>
+                    </div>
+                    <div class="py-8 px-10 flex items-center justify-center gap-4 bg-sky-500/[0.02]">
+                        <i data-lucide="landmark" class="w-5 h-5 text-sky-500"></i>
+                        <span class="editorial-label text-sky-500" data-i18n-key="fiatModel">Dinero Fiat</span>
+                    </div>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="border-b-2 border-border">
-                                <th class="py-4 px-4"></th>
-                                <th class="py-4 px-4 text-center">
-                                    <div class="flex flex-col items-center gap-2">
-                                        <div class="w-12 h-12 rounded-full bg-bitcoin-orange/10 flex items-center justify-center">
-                                            <i data-lucide="bitcoin" class="w-6 h-6 text-bitcoin-orange"></i>
-                                        </div>
-                                        <span class="text-sm font-heading font-bold" data-i18n-key="bitcoinModel">Bitcoin (Oferta Semirrígida)</span>
-                                    </div>
-                                </th>
-                                <th class="py-4 px-4 text-center">
-                                    <div class="flex flex-col items-center gap-2">
-                                        <div class="w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center">
-                                            <i data-lucide="landmark" class="w-6 h-6 text-sky-500"></i>
-                                        </div>
-                                        <span class="text-sm font-heading font-bold" data-i18n-key="fiatModel">Dinero Fiat (Oferta Expansiva)</span>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-border">
-                            <tr>
-                                <th class="py-6 px-4 text-sm font-medium text-muted-foreground" data-i18n-key="featureSupply">Suministro Máximo</th>
-                                <td class="py-6 px-4 text-center font-bold text-bitcoin-orange" data-i18n-key="supplyBitcoin">21 Millones (Inalterable)</td>
-                                <td class="py-6 px-4 text-center text-muted-foreground" data-i18n-key="supplyFiat">Ilimitado (Según necesidad)</td>
-                            </tr>
-                            <tr>
-                                <th class="py-6 px-4 text-sm font-medium text-muted-foreground" data-i18n-key="featureIssuance">Política de Emisión</th>
-                                <td class="py-6 px-4 text-center font-bold text-bitcoin-orange" data-i18n-key="issuanceBitcoin">Algorítmica (Halving)</td>
-                                <td class="py-6 px-4 text-center text-muted-foreground" data-i18n-key="issuanceFiat">Decisión de Bancos Centrales</td>
-                            </tr>
-                            <tr>
-                                <th class="py-6 px-4 text-sm font-medium text-muted-foreground" data-i18n-key="featureControl">Quién tiene el control</th>
-                                <td class="py-6 px-4 text-center font-bold text-bitcoin-orange" data-i18n-key="controlBitcoin">Red Global Descentralizada</td>
-                                <td class="py-6 px-4 text-center text-muted-foreground" data-i18n-key="controlFiat">Gobiernos e Instituciones</td>
-                            </tr>
-                            <tr>
-                                <th class="py-6 px-4 text-sm font-medium text-muted-foreground" data-i18n-key="featureVerifiability">Verificabilidad</th>
-                                <td class="py-6 px-4 text-center font-bold text-bitcoin-orange" data-i18n-key="verifiabilityBitcoin">Transparente (Cualquiera)</td>
-                                <td class="py-6 px-4 text-center text-muted-foreground" data-i18n-key="verifiabilityFiat">Opaca (Solo Instituciones)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Fila 1: Suministro -->
+                <div class="group">
+                    <div class="flex items-center gap-3 mb-10 px-4">
+                        <div class="w-4 h-px bg-border group-hover:w-12 group-hover:bg-bitcoin-orange/40 transition-all duration-500"></div>
+                        <span class="editorial-label text-muted-foreground/60 group-hover:text-foreground transition-colors" data-i18n-key="featureSupply">Suministro Máximo</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="supplyBitcoin">21 Millones</p>
+                            <p class="text-sm text-muted-foreground italic">Escasez absoluta definida por código.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
+                            <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="supplyFiat">Ilimitado</p>
+                            <p class="text-sm text-muted-foreground italic">Expandible según necesidades institucionales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila 2: Emisión -->
+                <div class="group">
+                    <div class="flex items-center gap-3 mb-10 px-4">
+                        <div class="w-4 h-px bg-border group-hover:w-12 group-hover:bg-bitcoin-orange/40 transition-all duration-500"></div>
+                        <span class="editorial-label text-muted-foreground/60 group-hover:text-foreground transition-colors" data-i18n-key="featureIssuance">Política de Emisión</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="issuanceBitcoin">Algorítmica</p>
+                            <p class="text-sm text-muted-foreground italic">El Halving asegura una emisión decreciente.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
+                            <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="issuanceFiat">Discrecional</p>
+                            <p class="text-sm text-muted-foreground italic">Decidida por comités de bancos centrales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila 3: Control -->
+                <div class="group">
+                    <div class="flex items-center gap-3 mb-10 px-4">
+                        <div class="w-4 h-px bg-border group-hover:w-12 group-hover:bg-bitcoin-orange/40 transition-all duration-500"></div>
+                        <span class="editorial-label text-muted-foreground/60 group-hover:text-foreground transition-colors" data-i18n-key="featureControl">Quién tiene el control</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="controlBitcoin">Nadie</p>
+                            <p class="text-sm text-muted-foreground italic">Red global de nodos descentralizada.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
+                            <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="controlFiat">Gobiernos</p>
+                            <p class="text-sm text-muted-foreground italic">Bancos centrales e instituciones financieras.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila 4: Verificabilidad -->
+                <div class="group pb-20 border-b border-border">
+                    <div class="flex items-center gap-3 mb-10 px-4">
+                        <div class="w-4 h-px bg-border group-hover:w-12 group-hover:bg-bitcoin-orange/40 transition-all duration-500"></div>
+                        <span class="editorial-label text-muted-foreground/60 group-hover:text-foreground transition-colors" data-i18n-key="featureVerifiability">Verificabilidad</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="verifiabilityBitcoin">Total</p>
+                            <p class="text-sm text-muted-foreground italic">Cualquier persona con un nodo puede auditarla.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
+                            <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="verifiabilityFiat">Baja</p>
+                            <p class="text-sm text-muted-foreground italic">Sistemas opacos reservados a instituciones.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,7 +333,10 @@
         <footer class="mt-20 pt-16 pb-12 border-t border-border">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Protocol</h6>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="terminal" class="w-3 h-3 text-muted-foreground"></i>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Protocol</h6>
+                    </div>
                     <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
                     <div class="flex gap-6">
                         <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Source Code</a>
@@ -228,7 +344,10 @@
                     </div>
                 </div>
                 <div class="md:text-right">
-                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Author</h6>
+                    <div class="flex items-center md:justify-end gap-2 mb-4">
+                        <i data-lucide="user" class="w-3 h-3 text-muted-foreground"></i>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Author</h6>
+                    </div>
                     <p class="text-sm font-medium mb-4">
                         <a href="https://mendiak.github.io/portfolio/" target="_blank" class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Mikel Aramendia</a>
                     </p>

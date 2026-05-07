@@ -5,9 +5,9 @@
 @layer base {
   :root {
     --bitcoin-orange: #f7931a;
-    --background: 0 0% 100%;
+    --background: 30 20% 98%; /* Bone / Paper white */
     --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    --card: 30 20% 98%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
@@ -15,22 +15,22 @@
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
+    --muted: 240 4.8% 90%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
+    --border: 240 5.9% 80%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
-    --ui-border-strong: 240 5.9% 50%;
+    --radius: 0px; /* Editorial style: sharp corners */
+    --ui-border-strong: 240 5.9% 20%;
   }
 
   [data-bs-theme="dark"] {
     --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --foreground: 30 20% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -39,13 +39,13 @@
     --primary-foreground: 240 5.9% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
+    --muted: 240 3.7% 10%;
     --muted-foreground: 240 5% 64.9%;
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
+    --border: 240 3.7% 20%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
@@ -56,22 +56,38 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground antialiased font-serif;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
   }
 }
 
 /* Custom Component Styles */
 .glass-panel {
-  @apply bg-card border border-border rounded-lg p-6 shadow-sm transition-colors;
+  @apply bg-card border border-border p-8 shadow-none transition-colors;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Crimson Pro', serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.editorial-label {
+  @apply text-[11px] font-heading font-bold uppercase tracking-[0.3em] text-muted-foreground;
 }
 
 .glossary-term {
-  @apply underline decoration-bitcoin-orange underline-offset-4 cursor-help;
+  @apply border-b border-bitcoin-orange border-dotted cursor-help;
 }
 
 .tooltip {
-  @apply absolute z-[200] bg-popover text-popover-foreground text-xs p-3 rounded-md shadow-lg border border-border pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[11px] p-4 rounded-none shadow-none border border-foreground/20 pointer-events-none;
 }
 
 .tooltip-event {
@@ -79,37 +95,42 @@
 }
 
 .glossary-tooltip {
-  @apply absolute z-[200] bg-popover text-popover-foreground text-xs p-3 rounded-md shadow-lg border border-border max-w-xs pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[11px] p-4 rounded-none shadow-none border border-foreground/20 max-w-xs pointer-events-none;
 }
 
 
 /* Chart Overrides */
 .axis text {
-  @apply font-mono text-[10px] fill-muted-foreground;
+  @apply font-mono text-[9px] fill-muted-foreground uppercase tracking-tighter;
 }
 
 .axis path, .axis line {
-  @apply stroke-border;
+  @apply stroke-border/40;
+}
+
+.grid line {
+  @apply stroke-border/20;
 }
 
 .line {
-  @apply fill-none stroke-bitcoin-orange stroke-2;
+  @apply fill-none stroke-bitcoin-orange stroke-[1.5px];
 }
 
 .fictitious-line {
-  stroke-dasharray: 4, 4;
-  @apply opacity-50;
+  stroke-dasharray: 2, 2;
+  @apply opacity-30;
 }
 
 .market-area.bull {
   fill: #28a745;
-  fill-opacity: 0.15;
+  fill-opacity: 0.08;
 }
 
 .market-area.bear {
   fill: #dc3545;
-  fill-opacity: 0.15;
+  fill-opacity: 0.08;
 }
+
 
 .category-technology { fill: #5db0c6; }
 .category-market { fill: #8b5cf6; } /* Cambiado a violeta para diferenciar de Halving */
