@@ -1,5 +1,4 @@
-import * as bootstrap from 'bootstrap';
-import * as d3 from 'd3';
+import * as d3 from 'd3';import { createIcons, icons, Sun, Moon, Droplet, X, ExternalLink, ChevronRight, FileText, Rocket, Users, Landmark, AlertTriangle, Shield, TrendingUp, Cpu, Gift, Zap, DollarSign, BookOpen, Layers, Search, Info, Award } from 'lucide';
 import { state } from './state.js';
 import { filterMarkers, highlightMarker, focusOnDate } from './chart.js';
 import { injectGlossary } from './utils.js';
@@ -9,15 +8,49 @@ let eventModal, glossaryModal;
 let eventModalTitle, eventModalBody, eventModalLinks, glossaryModalBody;
 
 export function initUI() {
-    const eventModalEl = document.getElementById('eventModal');
-    eventModal = new bootstrap.Modal(eventModalEl);
+    createIcons({
+        icons: {
+            Sun,
+            Moon,
+            Droplet,
+            X,
+            ExternalLink,
+            ChevronRight
+        }
+    });
+
+    eventModal = document.getElementById('eventModal');
     eventModalTitle = document.getElementById('eventModalLabel');
     eventModalBody = document.getElementById('eventModalBody');
     eventModalLinks = document.getElementById('eventModalLinks');
 
-    const glossaryModalEl = document.getElementById('glossaryModal');
-    glossaryModal = new bootstrap.Modal(glossaryModalEl);
+    glossaryModal = document.getElementById('glossaryModal');
     glossaryModalBody = document.getElementById('glossaryModalBody');
+
+    // Close buttons logic
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const modal = e.target.closest('[id$="Modal"]');
+            if (modal) hideModal(modal);
+        });
+    });
+
+    // Close on backdrop click
+    [eventModal, glossaryModal].forEach(modal => {
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                // Cerramos si el usuario hace clic en el contenedor principal que cubre la pantalla
+                if (e.target === modal) {
+                    hideModal(modal);
+                }
+            });
+        }
+    });
+
+    // Auto-rotate "Did You Know"
+    setInterval(() => {
+        nextDidYouKnow(getTranslation());
+    }, 10000);
 
     document.getElementById('view-glossary-link').addEventListener('click', (e) => {
         e.preventDefault();
@@ -58,10 +91,24 @@ export function initUI() {
     });
 }
 
+function showModal(modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideModal(modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+function stripEmojis(text) {
+    return text.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+}
+
 export function showEventModal(d) {
     if (!eventModal) initUI();
     
-    eventModalTitle.textContent = d['title_' + state.lang];
+    eventModalTitle.textContent = stripEmojis(d['title_' + state.lang]);
 
     const glossary = getTranslation('glossary');
     const fullDescription = d['description_full_' + state.lang];
@@ -69,7 +116,7 @@ export function showEventModal(d) {
 
     const descriptionHTML = processedDescription
         .split('\n\n')
-        .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+        .map(p => `<p class="mb-4">${p.replace(/\n/g, '<br>')}</p>`)
         .join('');
     eventModalBody.innerHTML = descriptionHTML;
 
@@ -79,13 +126,15 @@ export function showEventModal(d) {
             const linkEl = document.createElement('a');
             linkEl.href = link.url;
             linkEl.textContent = link['text_' + state.lang];
-            linkEl.className = 'btn me-2';
+            linkEl.className = 'px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors inline-flex items-center gap-2';
             linkEl.target = '_blank';
             linkEl.rel = 'noopener noreferrer';
+            linkEl.innerHTML += '<i data-lucide="external-link" class="w-3 h-3"></i>';
             eventModalLinks.appendChild(linkEl);
         });
+        createIcons({ icons: { ExternalLink } });
     }
-    eventModal.show();
+    showModal(eventModal);
 }
 
 export function showGlossaryModal() {
@@ -94,31 +143,60 @@ export function showGlossaryModal() {
     const glossary = getTranslation('glossary');
     const terms = Object.keys(glossary).sort();
     
-    let html = '<div class="glossary-list">';
+    let html = '<div class="space-y-8">';
     terms.forEach(term => {
         html += `
-            <div class="glossary-item mb-4">
-                <h3 class="h6 text-warning text-uppercase mb-2" style="letter-spacing: 0.05em;">${term}</h3>
-                <p class="small text-muted mb-0" style="line-height: 1.5;">${glossary[term]}</p>
+            <div class="glossary-item">
+                <h3 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-bitcoin-orange mb-2">${term}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${glossary[term]}</p>
             </div>
         `;
     });
     html += '</div>';
     
     glossaryModalBody.innerHTML = html;
-    glossaryModal.show();
+    showModal(glossaryModal);
+}
+
+function getIconForTitle(title) {
+    if (title.includes('Whitepaper')) return 'file-text';
+    if (title.includes('Génesis') || title.includes('Rocket')) return 'rocket';
+    if (title.includes('transacción')) return 'users';
+    if (title.includes('USD')) return 'dollar-sign';
+    if (title.includes('exchange')) return 'landmark';
+    if (title.includes('Pizza')) return 'gift';
+    if (title.includes('Slashdot')) return 'search';
+    if (title.includes('bug')) return 'alert-triangle';
+    if (title.includes('Satoshi')) return 'user';
+    if (title.includes('Mt. Gox') || title.includes('hack')) return 'shield';
+    if (title.includes('halving') || title.includes('Halving')) return 'droplet';
+    if (title.includes('FinCEN') || title.includes('bancaria')) return 'landmark';
+    if (title.includes('Silk Road')) return 'lock';
+    if (title.includes('ATM')) return 'credit-card';
+    if (title.includes('1,000') || title.includes('ATH') || title.includes('100,000') || title.includes('80,000')) return 'trending-up';
+    if (title.includes('Ethereum')) return 'cpu';
+    if (title.includes('HODL')) return 'shield-check';
+    if (title.includes('Tesla')) return 'car';
+    if (title.includes('Coinbase')) return 'trending-up';
+    if (title.includes('China')) return 'power';
+    if (title.includes('El Salvador')) return 'map-pin';
+    if (title.includes('Taproot')) return 'layers';
+    if (title.includes('Terra')) return 'zap';
+    if (title.includes('Ordinals')) return 'book-open';
+    if (title.includes('Lightning')) return 'zap';
+    return 'info';
 }
 
 export function renderTimeline(eventsData, onEventClick) {
     const timelineContainer = d3.select("#events-timeline");
     timelineContainer.html('');
 
-    const timelineItems = timelineContainer.selectAll(".list-group-item")
+    const timelineItems = timelineContainer.selectAll(".timeline-item")
         .data(eventsData)
         .enter()
         .append("a")
         .attr("href", "#chart-container")
-        .attr("class", "list-group-item") // Removed list-group-item-action to use custom styles
+        .attr("class", "timeline-item flex items-center justify-between py-4 px-2 hover:bg-muted/50 transition-colors group cursor-pointer")
         .attr("data-category", d => d.category)
         .on("mouseover", function(event, d) {
             highlightMarker(d.date, true);
@@ -132,17 +210,23 @@ export function renderTimeline(eventsData, onEventClick) {
         });
 
     timelineItems.append("div")
-        .html(d => `<span class="filter-dot category-${d.category.toLowerCase()}"></span> <span class="timeline-title">${d['title_' + state.lang]}</span>`);
+        .attr("class", "flex items-center gap-3")
+        .html(d => {
+            const title = d['title_' + state.lang].replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
+            return `<i data-lucide="${getIconForTitle(d['title_es'])}" class="w-4 h-4 text-muted-foreground group-hover:text-bitcoin-orange"></i> <span class="filter-dot category-${d.category.toLowerCase()} w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"></span> <span class="timeline-title font-heading font-medium group-hover:text-bitcoin-orange transition-colors">${title}</span>`;
+        });
 
-    timelineItems.append("small").text(d => d3.timeFormat("%d %b %Y")(d.date));
+    timelineItems.append("small")
+        .attr("class", "text-xs text-muted-foreground font-mono")
+        .text(d => d3.timeFormat("%d %b %Y")(d.date));
+
+    createIcons({ icons });
 }
 
+
 export function updateTimelineLanguage() {
-    // Re-render titles in timeline without rebuilding DOM if possible, or just re-render is fine.
-    // Easier to re-render but we need the data.
-    // If we simply select elements we can update text.
-     d3.selectAll("#events-timeline .list-group-item").each(function(d) {
-        d3.select(this).select(".timeline-title strong").text(d['title_' + state.lang]);
+     d3.selectAll("#events-timeline .timeline-item").each(function(d) {
+        d3.select(this).select(".timeline-title").text(d['title_' + state.lang]);
      });
 }
 
@@ -155,23 +239,27 @@ export function setupFilters(categories, translations, onFilterChange) {
         .enter()
         .append("button")
         .attr("type", "button")
-        .attr("class", "btn btn-sm btn-outline-secondary d-flex align-items-center")
+        .attr("class", "px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors flex items-center gap-2")
         .attr("id", d => `filter-${d.id}`)
         .html(d => {
             if (d.id === 'all') {
                 return `<span data-i18n-key="${d.i18nKey}"></span>`;
             }
-            return `<span class="filter-dot category-${d.id.toLowerCase()}"></span> <span data-i18n-key="${d.i18nKey}"></span>`;
+            return `<span class="filter-dot category-${d.id.toLowerCase()} w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"></span> <span data-i18n-key="${d.i18nKey}"></span>`;
         })
         .on("click", (event, d) => {
             state.activeFilter = d.id;
-            filterContainer.selectAll("button").classed("active", btnD => btnD.id === d.id);
+            filterContainer.selectAll("button")
+                .attr("class", "px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors flex items-center gap-2");
+            
+            d3.select(`#filter-${d.id}`)
+                .attr("class", "px-3 py-1 text-sm font-medium border border-foreground bg-foreground text-background rounded-md flex items-center gap-2");
             
             // Filter Chart
             filterMarkers(d.id);
 
             // Filter Timeline
-             const timelineItems = d3.select("#events-timeline").selectAll(".list-group-item");
+             const timelineItems = d3.select("#events-timeline").selectAll(".timeline-item");
              timelineItems
                 .filter(item => !(d.id === 'all' || item.category === d.id))
                 .transition().duration(300).style("opacity", 0)
@@ -186,7 +274,8 @@ export function setupFilters(categories, translations, onFilterChange) {
         });
         
      // Set active
-     d3.select(`#filter-${state.activeFilter}`).classed('active', true);
+     d3.select(`#filter-${state.activeFilter}`)
+        .attr("class", "px-3 py-1 text-sm font-medium border border-foreground bg-foreground text-background rounded-md flex items-center gap-2");
 }
 
 // ... existing imports ...
@@ -251,7 +340,7 @@ export function renderMarketCycleLegend(translations) {
     bullLegendItem.className = 'd-flex align-items-center gap-2';
     bullLegendItem.innerHTML = `
         <svg width="25" height="10" style="flex-shrink: 0;"><rect x="0" y="0" width="25" height="10" fill="#28a745"></rect></svg>
-        <small class="text-muted" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</small>
+        <small class="text-foreground" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</small>
     `;
     legendEl.appendChild(bullLegendItem);
 
@@ -259,7 +348,7 @@ export function renderMarketCycleLegend(translations) {
     bearLegendItem.className = 'd-flex align-items-center gap-2';
     bearLegendItem.innerHTML = `
         <svg width="25" height="10" style="flex-shrink: 0;"><rect x="0" y="0" width="25" height="10" fill="#dc3545"></rect></svg>
-        <small class="text-muted" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</small>
+        <small class="text-foreground" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</small>
     `;
     legendEl.appendChild(bearLegendItem);
 }

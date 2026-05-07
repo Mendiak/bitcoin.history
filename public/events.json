@@ -2,10 +2,10 @@
   {
     "date": "2008-10-31",
     "category": "Technology",
-    "title_es": "📜 Whitepaper de Bitcoin",
+    "title_es": "Whitepaper de Bitcoin",
     "description_tooltip_es": "Satoshi Nakamoto publica el whitepaper: 'Bitcoin: A Peer-to-Peer Electronic Cash System'. ¡El documento que lo empezó todo!",
     "description_full_es": "Contexto histórico: El 31 de octubre de 2008, en medio de una crisis financiera global, una figura anónima bajo el seudónimo de Satoshi Nakamoto publicó un documento técnico en una lista de correo de criptografía. Titulado 'Bitcoin: A Peer-to-Peer Electronic Cash System', el texto proponía una forma de dinero digital que no dependía de bancos ni gobiernos.\n\nImportancia técnica/económica: Este documento resolvió por primera vez el problema del 'doble gasto' (evitar que alguien gaste el mismo dinero dos veces) sin necesidad de una autoridad central. Para lograrlo, sentó las bases de la Blockchain: un registro público, compartido e inmutable de todas las transacciones, mantenido por una red descentralizada de computadoras.\n\nLección aprendida: La confianza en las instituciones financieras puede sustituirse por matemáticas y criptografía para crear un sistema monetario abierto y transparente para todos.",
-    "title_en": "📜 Bitcoin Whitepaper",
+    "title_en": "Bitcoin Whitepaper",
     "description_tooltip_en": "Satoshi Nakamoto publishes the whitepaper: 'Bitcoin: A Peer-to-Peer Electronic Cash System.' The document that started it all!",
     "description_full_en": "On October 31, 2008, at the height of the global financial crisis, an anonymous figure under the pseudonym of Satoshi Nakamoto published a document titled 'Bitcoin: A Peer-to-Peer Electronic Cash System.' This nine-page whitepaper presented a solution to the double-spending problem without the need for a central authority, such as a bank or government. Instead, it proposed a 'peer-to-peer' network where transactions would be verified by a network of nodes and recorded in a public, immutable ledger, the 'blockchain.'\n\nThis document was not only a technical proposal but also an ideological statement. Born from discontent with the traditional banking system that had failed, Bitcoin was conceived as a decentralized and transparent alternative. The idea that money could be managed by code rather than human institutions resonated deeply with the 'cypherpunk' community and privacy advocates.\n\nAlthough the whitepaper went largely unnoticed outside of very specific circles, it laid the foundation for the beginning of a revolution. It was the conceptual origin of Bitcoin, the roadmap that would guide the first pioneers of cryptography and software in building the network that would eventually become a global phenomenon.",
     "links": [
@@ -19,10 +19,10 @@
   {
     "date": "2009-01-03",
     "category": "Technology",
-    "title_es": "🚀 Bloque Génesis",
+    "title_es": "Bloque Génesis",
     "description_tooltip_es": "Se mina el primer bloque de Bitcoin con un mensaje oculto sobre la crisis bancaria. ¡El origen de la red!",
     "description_full_es": "Contexto histórico: El 3 de enero de 2009, Satoshi Nakamoto activó la red al procesar el primer bloque de la cadena, conocido como el 'bloque génesis'. En él, incrustó un mensaje de texto con el titular del periódico The Times: 'Chancellor on brink of second bailout for banks' (El Canciller al borde del segundo rescate a los bancos).\n\nImportancia técnica/económica: Este evento marcó el inicio de la Minería de Bitcoin, el proceso mediante el cual los nodos de la red utilizan potencia de cómputo para asegurar la red y validar transacciones. El mensaje oculto dejó claro que Bitcoin nacía como una alternativa a la inflación y a la manipulación monetaria de los bancos centrales.\n\nLección aprendida: Bitcoin no es solo software; es una respuesta tecnológica y pacífica a las fallas estructurales del sistema financiero tradicional.",
-    "title_en": "🚀 Genesis Block",
+    "title_en": "Genesis Block",
     "description_tooltip_en": "The first Bitcoin block is mined with a hidden message about the banking crisis. The origin of the network!",
     "description_full_en": "On January 3, 2009, the Bitcoin network came to life with the creation of the genesis block, the first block of the chain. This block is a crucial milestone because it not only marked the official start of the network, but also contained an encrypted message from Satoshi Nakamoto. The embedded text, 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks,' was the headline of that day's 'The Times' newspaper.\n\nThis reference directly alluded to the 2008 financial crisis and the bank bailout policies implemented by governments. The message was a declaration of intent, a reminder that Bitcoin was created as a response to the instability and lack of trust in the traditional financial system. It showed that Bitcoin was not just a technological tool, but an ideological movement.\n\nFrom that moment on, every block added to the chain has tracked the complete history of transactions, creating a public, immutable, and decentralized record. The genesis block is the starting point of this record, a symbol of resistance and a testament to the original vision of its creator.",
     "links": [
@@ -36,10 +36,10 @@
   {
     "date": "2009-01-12",
     "category": "Technology",
-    "title_es": "👨\u200d💻 Primera transacción",
+    "title_es": "Primera transacción",
     "description_tooltip_es": "Satoshi envía 10 BTC a Hal Finney, pionero de la criptografía. ¡La primera transferencia de BTC de la historia!",
     "description_full_es": "Contexto histórico: Diez días después del lanzamiento, Satoshi Nakamoto realizó el primer envío de fondos a otra persona: el criptógrafo Hal Finney. Satoshi le envió 10 BTC para probar que el sistema funcionaba correctamente en una red real.\n\nImportancia técnica/económica: Esta transacción demostró que Bitcoin permitía transferencias de valor directas y P2P (entre pares) sin necesidad de que un banco procesara el pago. Hal Finney se convirtió en el primer 'nodo' externo, validando la naturaleza descentralizada de la red al ejecutar el software en su propia computadora.\n\nLección aprendida: Una tecnología solo cobra vida real cuando existe una comunidad dispuesta a utilizarla e interactuar con ella.",
-    "title_en": "👨\u200d💻 First Transaction",
+    "title_en": "First Transaction",
     "description_tooltip_en": "Satoshi sends 10 BTC to Hal Finney, a cryptography pioneer. The first BTC transfer in history!",
     "description_full_en": "On January 12, 2009, the first Bitcoin transaction outside the testing phase took place. The anonymous creator, Satoshi Nakamoto, sent 10 BTC to developer Hal Finney. Finney, a cryptographer and activist of the 'cypherpunk' movement, was one of the first to download the Bitcoin software and collaborate with Satoshi in its early days. This exchange proved that the Bitcoin network worked in practice, allowing for direct value transfers between two people without intermediaries.\n\nHal Finney is a legendary figure in Bitcoin history. He died in 2014, but his contributions were fundamental. In a blog post, Finney recalled how he 'mined the first blocks and was rewarded with 50 bitcoins' and how he received that first transaction from Satoshi. His early involvement earned him a place of honor in the history of cryptography and blockchain technology.\n\nThis transaction marked the starting point for Bitcoin's functionality as an electronic cash system. It proved that the concept of peer-to-peer digital money was viable, laying the groundwork for the network to grow and develop. It was a small step for Satoshi and Finney, but a giant leap for information technology and finance.",
     "links": [
@@ -53,10 +53,10 @@
   {
     "date": "2009-10-05",
     "category": "Market",
-    "title_es": "💱 Primer valor en USD",
+    "title_es": "Primer valor en USD",
     "description_tooltip_es": "Se establece el primer tipo de cambio: 1 USD = 1309.03 BTC. ¡Por menos de un dólar podías comprar un montón de Bitcoin!",
     "description_full_es": "Contexto histórico: El servicio New Liberty Standard estableció el primer tipo de cambio de Bitcoin basándose en el costo de la electricidad necesaria para producirlo. En aquel momento, por 1 dólar se obtenían 1.309 BTC.\n\nImportancia técnica/económica: Fue la primera vez que Bitcoin dejó de ser un simple software experimental para convertirse en un activo con precio de mercado. Este hito permitió cuantificar el valor del esfuerzo computacional (Prueba de Trabajo) en términos de dinero Fiat tradicional.\n\nLección aprendida: Todo activo financiero comienza con un valor simbólico antes de que la sociedad descubra su utilidad y escasez real.",
-    "title_en": "💱 First USD Value",
+    "title_en": "First USD Value",
     "description_tooltip_en": "The first exchange rate is established: 1 USD = 1309.03 BTC. For less than a dollar, you could buy a lot of Bitcoin!",
     "description_full_en": "On October 5, 2009, the New Liberty Standard platform established the first exchange rate for Bitcoin against the US dollar. This calculation was based on the cost of electricity needed to mine one bitcoin. The result was 1 USD for 1309.03 BTC, a value that is astonishing today but had little economic meaning at the time.\n\nThis milestone was the first attempt to assign a monetary value to Bitcoin beyond its utility as a software tool. It opened the door for people to begin seeing Bitcoin not only as a technological experiment but also as an asset with exchange potential. Although the value was minuscule, it was the first step in its transformation from an idea to a commodity.\n\nEstablishing this symbolic exchange rate was a crucial moment in Bitcoin's history, as it marked the transition from the 'hobby project' phase to the 'financial asset' phase. Although it was not yet a liquid market, this event laid the groundwork for the creation of exchanges and the subsequent development of the cryptocurrency trading ecosystem.",
     "links": [
@@ -70,10 +70,10 @@
   {
     "date": "2010-02-06",
     "category": "Adoption",
-    "title_es": "🛒 Primer exchange",
+    "title_es": "Primer exchange",
     "description_tooltip_es": "Se lanza BitcoinMarket.com, el primer exchange de Bitcoin. ¡Aquí es donde la gente empezó a comprar y vender BTC de verdad!",
     "description_full_es": "Contexto histórico: Se lanzó BitcoinMarket.com, el primer sitio web dedicado exclusivamente a la compra y venta de Bitcoin entre usuarios. Antes de esto, los intercambios se hacían de forma manual y arriesgada en foros o chats.\n\nImportancia técnica/económica: La aparición de mercados organizados (exchanges) facilitó enormemente la liquidez de Bitcoin, permitiendo que cualquier persona con internet pudiera adquirirlo sin necesidad de realizar Minería por su cuenta. Esto ayudó a que el precio empezara a formarse de manera más transparente.\n\nLección aprendida: La infraestructura comercial es fundamental para transformar una innovación técnica en una economía global vibrante.",
-    "title_en": "🛒 First Exchange",
+    "title_en": "First Exchange",
     "description_tooltip_en": "BitcoinMarket.com launches, the first Bitcoin exchange. This is where people started to buy and sell BTC for real!",
     "description_full_en": "On February 6, 2010, BitcoinMarket.com launched as the first cryptocurrency 'exchange.' This platform allowed users to buy and sell bitcoins using fiat money, which marked a before and after in Bitcoin's history. Before this, buying and selling BTC was done in a 'peer-to-peer' manner through forums, a slow and risky process.\n\nThe creation of a centralized exchange greatly facilitated Bitcoin's liquidity and accessibility for a wider audience. Although fees were high and trading volumes were minimal compared to today's standards, the platform provided a place where people could assign a real market value to the digital currency. This helped Bitcoin mature as a financial asset and attracted the first speculators and enthusiasts.\n\nBitcoinMarket.com was an experiment that, despite its limitations, demonstrated the potential of a cryptocurrency market. Its existence set a precedent for the proliferation of exchanges that would emerge in the following years, from Mt. Gox to Coinbase, forming the essential infrastructure of the crypto ecosystem we know today.",
     "links": [
@@ -87,10 +87,10 @@
   {
     "date": "2010-05-22",
     "category": "Adoption",
-    "title_es": "🍕 Bitcoin Pizza Day",
+    "title_es": "Bitcoin Pizza Day",
     "description_tooltip_es": "Laszlo Hanyecz paga 10,000 BTC por dos pizzas. Hoy valdrían millones 💸. ¡La pizza más cara de la historia!",
     "description_full_es": "Contexto histórico: El programador Laszlo Hanyecz realizó la primera compra documentada de un bien físico con Bitcoin: pagó 10,000 BTC a otro usuario para que le pidiera dos pizzas a domicilio.\n\nImportancia técnica/económica: Este evento demostró que Bitcoin servía como medio de cambio real en el mundo físico a través de una transacción P2P. Aunque hoy esa cantidad de Satoshis valdría una fortuna, en aquel momento fue un acto de fe necesario para validar la utilidad de la red.\n\nLección aprendida: El valor de una moneda no reside solo en su precio, sino en la voluntad de las personas de intercambiarla por bienes y servicios reales.",
-    "title_en": "🍕 Bitcoin Pizza Day",
+    "title_en": "Bitcoin Pizza Day",
     "description_tooltip_en": "Laszlo Hanyecz pays 10,000 BTC for two pizzas. Today they would be worth millions 💸. The most expensive pizza in history!",
     "description_full_en": "On May 22, 2010, programmer Laszlo Hanyecz made what is considered the first commercial transaction with Bitcoin in the real world. Hanyecz offered 10,000 BTC on a forum for someone to order him two Papa John's pizzas. A network enthusiast accepted the deal and sent him the pizzas, completing a transaction that would go down in history.\n\nAt the time, 10,000 BTC were worth about 41 dollars. Over time and with the exponential increase in Bitcoin's value, that transaction has become a legendary anecdote. At Bitcoin's all-time high prices, those two pizzas would have cost over 600 million dollars. This event, now known as 'Bitcoin Pizza Day,' is celebrated annually as a reminder of Bitcoin's humble origins and its journey from a technological curiosity to a global asset.\n\nAlthough Hanyecz might regret the amount of money he spent on those pizzas today, his action was fundamental. It proved that Bitcoin could be used as a real medium of exchange for goods and services, not just as a speculative asset. It was the proof of concept that the ecosystem needed to start building a future where decentralized digital transactions were a reality.",
     "links": [
@@ -104,10 +104,10 @@
   {
     "date": "2010-07-11",
     "category": "Adoption",
-    "title_es": "🧠 Bitcoin en Slashdot",
+    "title_es": "Bitcoin en Slashdot",
     "description_tooltip_es": "Bitcoin aparece en Slashdot, atrayendo a muchos geeks y mineros curiosos. ¡El efecto Slashdot llevó a Bitcoin al siguiente nivel!",
     "description_full_es": "Contexto histórico: Un artículo en el influyente portal de tecnología Slashdot presentó Bitcoin a una audiencia masiva de ingenieros y programadores por primera vez, provocando una oleada de nuevos usuarios.\n\nImportancia técnica/económica: El 'efecto Slashdot' multiplicó el número de nodos y mineros en la red, lo que aumentó drásticamente la seguridad de Bitcoin y dificultó cualquier intento de ataque. Esta expansión temprana fue vital para que el proyecto sobreviviera y madurara.\n\nLección aprendida: La divulgación técnica y la atención de comunidades expertas son el combustible que acelera el éxito de las tecnologías disruptivas.",
-    "title_en": "🧠 Bitcoin on Slashdot",
+    "title_en": "Bitcoin on Slashdot",
     "description_tooltip_en": "Bitcoin is featured on Slashdot, attracting many curious geeks and miners. The Slashdot effect took Bitcoin to the next level!",
     "description_full_en": "On July 11, 2010, Bitcoin was featured on the front page of Slashdot, a popular news and technology website known as 'the main news portal for geeks.' The article generated enormous interest among programmers, engineers, and technology enthusiasts. This event, often called the 'Slashdot effect,' attracted a wave of new users and, more importantly, new miners.\n\nThe sudden increase in the number of participants in the network strengthened Bitcoin's security and helped its decentralization. As more people downloaded the software and mined blocks, the network became more robust and resistant to potential attacks. This early adoption surge was crucial for the project's survival in its early years, as it showed that the concept of a decentralized digital currency could capture the imagination of a technical community.\n\nThe appearance on Slashdot was a key moment in Bitcoin's history. It served as a springboard that brought it out of the obscurity of cryptography forums and exposed it to a wider audience. It was the first step towards its recognition beyond a small circle of visionaries and helped sow the seeds of what would become a global movement.",
     "links": [
@@ -121,10 +121,10 @@
   {
     "date": "2010-08-15",
     "category": "Security",
-    "title_es": "⚠️ Primer bug crítico",
+    "title_es": "Primer bug crítico",
     "description_tooltip_es": "Se explotan 184 mil millones de BTC por un bug. Se corrige con un hard fork urgente. ¡Un susto que demostró la resiliencia de la red!",
     "description_full_es": "Contexto histórico: Un error en el código permitió que un usuario creara de la nada 184,000 millones de bitcoins. La comunidad detectó el fallo en pocas horas y actuó de inmediato.\n\nImportancia técnica/económica: Los desarrolladores lanzaron una actualización de emergencia que ignoró la transacción fraudulenta, realizando un 'hard fork' consensuado por la mayoría de los nodos. Este evento demostró que Bitcoin es resiliente y que su seguridad depende de la vigilancia colectiva de su comunidad descentralizada.\n\nLección aprendida: Ningún software es perfecto, pero la capacidad de una red para detectar y corregir errores sin una autoridad central es lo que genera confianza real.",
-    "title_en": "⚠️ First Critical Bug",
+    "title_en": "First Critical Bug",
     "description_tooltip_en": "184 billion BTC are exploited due to a bug. It's fixed with an urgent hard fork. A scare that demonstrated the network's resilience!",
     "description_full_en": "On August 15, 2010, a serious bug in the Bitcoin code allowed 184 billion BTC to be illegitimately created. The error, known as the 'value overflow bug,' was quickly discovered by a community developer who noticed the suspicious transaction. Without the developers' swift response, this could have destroyed trust in the network and rendered it unusable.\n\nThe Bitcoin community reacted decisively and efficiently. Developers worked together to create a patch, and the network underwent a 'hard fork' (a software update that is not compatible with the previous version). The blockchain split, and the community of miners and nodes decided to follow the new chain that ignored the fraudulent transaction. This process required unprecedented coordination in a decentralized network, demonstrating the community's ability to protect the system's integrity.\n\nAlthough it was a moment of great vulnerability, the event became a demonstration of Bitcoin's resilience. The network's ability to autonomously detect and correct a critical error without a central authority reinforced confidence in the system. It showed that the community could act as the guardian of the network, a fundamental principle of Bitcoin's philosophy.",
     "links": [
@@ -138,10 +138,10 @@
   {
     "date": "2011-02-09",
     "category": "Market",
-    "title_es": "💵 Paridad con el dólar",
+    "title_es": "Paridad con el dólar",
     "description_tooltip_es": "1 BTC alcanza el mismo valor que 1 USD por primera vez. ¡Un hito que hizo que muchos levantaran las cejas!",
     "description_full_es": "Contexto histórico: En febrero de 2011, por primera vez en la historia, el precio de 1 Bitcoin igualó el valor de 1 dólar estadounidense en los mercados de intercambio.\n\nImportancia técnica/económica: Este hito psicológico validó a Bitcoin como una alternativa monetaria capaz de competir con las divisas nacionales. Atrajo la atención de inversores fuera del ámbito técnico y demostró que el activo tenía una utilidad real percibida por el mercado global.\n\nLección aprendida: Los hitos simbólicos son cruciales para que una nueva forma de dinero gane la confianza masiva necesaria para su adopción.",
-    "title_en": "💵 Parity with the Dollar",
+    "title_en": "Parity with the Dollar",
     "description_tooltip_en": "1 BTC reaches the same value as 1 USD for the first time. A milestone that made many raise their eyebrows!",
     "description_full_en": "On February 9, 2011, Bitcoin reached a crucial psychological and symbolic milestone: its price equaled the value of one US dollar. On the Mt. Gox exchange, which at the time was the main trading platform, 1 BTC was traded for 1 USD. This event was a moment of great celebration for the early Bitcoin community, as it showed that the asset had real value potential beyond its utility as a niche technology.\n\nParity with the dollar attracted the attention of a wider audience. People began to see Bitcoin as a potential investment and not just a curiosity. Although the trading volume was still relatively low, the milestone served as a turning point. It was a sign that the market was beginning to mature and recognize the inherent value of digital gold.\n\nThis moment was not only a symbolic victory, but also paved the way for the future growth of the cryptocurrency. From this point on, Bitcoin's price would begin to experience boom and bust cycles, attracting a mix of investors, speculators, and enthusiasts who would forge the path to mass adoption.",
     "links": [
@@ -155,10 +155,10 @@
   {
     "date": "2011-04-23",
     "category": "Technology",
-    "title_es": "👤 Desaparición de Satoshi",
+    "title_es": "Desaparición de Satoshi",
     "description_tooltip_es": "Satoshi Nakamoto envía su último correo conocido diciendo que ha 'pasado a otras cosas'. ¡El misterio comienza!",
     "description_full_es": "Contexto histórico: Satoshi Nakamoto envió su último mensaje privado a los desarrolladores, indicando que se retiraba del proyecto para dedicarse a 'otras cosas' y dejando el código en manos de la comunidad.\n\nImportancia técnica/económica: Al desaparecer, Satoshi eliminó cualquier 'punto central de fallo'. Sin un líder que pudiera ser presionado o coaccionado por gobiernos, Bitcoin se consolidó como una red verdaderamente descentralizada que funciona solo en base a sus reglas matemáticas y al consenso de sus usuarios.\n\nLección aprendida: El creador de un sistema libre debe renunciar a su control personal para que la tecnología pueda pertenecer a toda la humanidad.",
-    "title_en": "👤 Satoshi's Disappearance",
+    "title_en": "Satoshi's Disappearance",
     "description_tooltip_en": "Satoshi Nakamoto sends his last known email stating he has 'moved on to other things.' The mystery begins!",
     "description_full_en": "On April 23, 2011, Satoshi Nakamoto sent his last known email to Bitcoin developers, specifically Mike Hearn. In the message, Satoshi wrote: 'I've moved on to other things. [Bitcoin] is in good hands with Gavin and the rest.' Since that moment, the creator of Bitcoin completely disappeared from public life, leaving behind a decentralized network and a fortune of approximately one million bitcoins that have never moved.\n\nThis disappearance is one of the greatest mysteries of the digital age. By withdrawing, Satoshi avoided becoming a single point of failure or an authority figure who could be pressured by governments or institutions. This consolidated the truly decentralized nature of Bitcoin: the project no longer depended on its creator, but on its code and the global community.\n\nThe fact that Satoshi has never revealed his identity nor spent his coins reinforces the system's integrity. Bitcoin was born as a gift to the world, and its creator ensured it remained so, allowing the technology to speak for itself.",
     "links": [
@@ -172,10 +172,10 @@
   {
     "date": "2011-06-13",
     "category": "Security",
-    "title_es": "🔓 Hackeo a Mt. Gox",
+    "title_es": "Hackeo a Mt. Gox",
     "description_tooltip_es": "Se hackea el exchange más popular, cayendo el precio de $17 a casi cero 😱. ¡Un trago amargo para la comunidad, pero una lección aprendida!",
     "description_full_es": "Contexto histórico: El exchange más importante del mundo en ese momento sufrió una brecha de seguridad que provocó el robo de fondos y una caída estrepitosa del precio de Bitcoin en su plataforma.\n\nImportancia técnica/económica: Este evento puso de relieve que, aunque la Blockchain de Bitcoin sea inexpugnable, los intermediarios centralizados son vulnerables. Nació con fuerza la filosofía de la 'autocustodia': los usuarios deben guardar su propia Clave Privada para ser los únicos dueños de su dinero.\n\nLección aprendida: Si no posees tus claves privadas, no posees realmente tus bitcoins (Not your keys, not your coins).",
-    "title_en": "🔓 Mt. Gox Hacked",
+    "title_en": "Mt. Gox Hacked",
     "description_tooltip_en": "The most popular exchange is hacked, with the price dropping from $17 to nearly zero 😱. A bitter pill for the community, but a lesson learned!",
     "description_full_en": "On June 13, 2011, the Mt. Gox exchange was the victim of a large-scale hack. The security breach allowed attackers to steal thousands of bitcoins and manipulate the platform's price. The price of Bitcoin, which was around 17 dollars at the time, plummeted to almost zero in an instant. The attack did not compromise the security of the Bitcoin network itself, but that of a centralized entity that managed users' funds.\n\nThis event was a hard blow for the community, which suffered significant financial losses. However, it also served as an invaluable lesson. It highlighted the inherent risk of trusting centralized platforms to hold funds and reinforced the need for users to take control of their own private keys. The famous saying 'Not your keys, not your coins' became popular after these types of incidents, fostering a culture of self-custody and security.\n\nThe Mt. Gox hack was the first of many security incidents that would plague the crypto industry in its early years. It served as a reminder that while the Bitcoin network is secure, third-party platforms that interact with it can be vulnerable. Although it was a bitter pill for many, it prompted the community to develop better security practices and build a more resilient industry.",
     "links": [
@@ -189,10 +189,10 @@
   {
     "date": "2012-11-28",
     "category": "Halving",
-    "title_es": "🪙 Primer halving",
+    "title_es": "Primer halving",
     "description_tooltip_es": "La recompensa por bloque pasa de 50 a 25 BTC, reduciendo la inflación del sistema. ¡La oferta se reduce, la escasez aumenta!",
     "description_full_es": "Contexto histórico: Se produjo la primera reducción programada en la emisión de nuevos bitcoins. La recompensa que reciben los mineros por cada bloque validado bajó de 50 BTC a 25 BTC.\n\nImportancia técnica/económica: Se activó por primera vez el mecanismo de Halving. Al reducirse la oferta de golpe, se produce un Supply Shock que, ante una demanda constante, impulsa el valor del activo. Esto garantiza que nunca habrá más de 21 millones de unidades.\n\nLección aprendida: La política monetaria de Bitcoin es predecible y de carácter Deflacionario, lo que lo convierte en un refugio superior frente a la inflación de las divisas tradicionales.",
-    "title_en": "🪙 First Halving",
+    "title_en": "First Halving",
     "description_tooltip_en": "The block reward drops from 50 to 25 BTC, reducing system inflation. Supply shrinks, scarcity increases!",
     "description_full_en": "On November 28, 2012, the first Bitcoin halving occurred. This event, programmed into the network's code, halves the reward that miners receive for validating a block. The reward dropped from 50 BTC to 25 BTC. The halving is a key deflationary mechanism, designed to control the supply of new bitcoins and maintain their scarcity.\n\nThe halving is an event that happens approximately every four years or every 210,000 blocks. Its purpose is to mimic the extraction of finite resources like gold. As the mining reward decreases, the supply of new bitcoins shrinks, which has historically been correlated with an increase in demand and, therefore, in price. This first halving was a crucial experiment to see if the market would react as expected.\n\nThe success of the first halving reinforced the community's faith in Bitcoin's economics. It showed that the system was working as designed by Satoshi Nakamoto. This event marked the beginning of a new market cycle and was the catalyst for the first major bull market that took Bitcoin to new all-time highs.",
     "links": [
@@ -206,10 +206,10 @@
   {
     "date": "2013-03-18",
     "category": "Regulation",
-    "title_es": "⚖️ Directriz FinCEN (EE.UU.)",
+    "title_es": "Directriz FinCEN (EE.UU.)",
     "description_tooltip_es": "FinCEN clarifica que los exchanges de cripto son 'transmisores de dinero'. ¡Comienza la regulación formal!",
     "description_full_es": "Contexto histórico: El regulador financiero de EE.UU. (FinCEN) emitió una guía oficial definiendo a los exchanges de criptomonedas como 'transmisores de dinero', obligándoles a cumplir leyes de transparencia.\n\nImportancia técnica/económica: Fue el primer reconocimiento oficial de Bitcoin por parte de una gran potencia. Esto obligó a las plataformas a implementar procesos de KYC (identificación de clientes) y AML (prevención de blanqueo), sacando a Bitcoin de la 'zona gris' legal y permitiendo la entrada de empresas legítimas.\n\nLección aprendida: La regulación es un paso inevitable cuando una tecnología disruptiva alcanza una importancia que las instituciones ya no pueden ignorar.",
-    "title_en": "⚖️ FinCEN Guidance (USA)",
+    "title_en": "FinCEN Guidance (USA)",
     "description_tooltip_en": "FinCEN clarifies that crypto exchanges are 'money transmitters.' Formal regulation begins!",
     "description_full_en": "On March 18, 2013, the US Financial Crimes Enforcement Network (FinCEN) issued a historic guidance defining how money transfer regulations applied to decentralized virtual currencies. It was the first official recognition of Bitcoin by a major US financial regulator, establishing that businesses exchanging Bitcoin for fiat currency must comply with Anti-Money Laundering (AML) laws.\n\nThis event marked the end of absolute regulatory anonymity for exchanges. While it initially caused concern, it was a necessary step for Bitcoin to be used by legitimate institutions. The FinCEN guidance laid the groundwork for regulatory compliance in the industry, forcing platforms like Coinbase or Kraken to implement Know Your Customer (KYC) processes, transforming Bitcoin into an asset within the global financial system.",
     "links": [
@@ -223,10 +223,10 @@
   {
     "date": "2013-03-28",
     "category": "Regulation",
-    "title_es": "🏦 Crisis bancaria en Chipre",
+    "title_es": "Crisis bancaria en Chipre",
     "description_tooltip_es": "La crisis bancaria en Chipre dispara el interés por Bitcoin como alternativa al sistema financiero tradicional. ¡La gente busca refugio!",
     "description_full_es": "Contexto histórico: Un rescate bancario en Chipre incluyó la confiscación parcial de los ahorros de los ciudadanos, lo que provocó que miles de personas perdieran la confianza en el dinero Fiat y buscaran alternativas.\n\nImportancia técnica/económica: Bitcoin se validó ante el mundo como un 'activo refugio' resistente a la confiscación gubernamental. Al ser una red descentralizada donde el usuario tiene su propia Clave Privada, nadie puede congelar o quitar los fondos sin el consentimiento del dueño.\n\nLección aprendida: Bitcoin brilla como alternativa cuando los ciudadanos descubren que el dinero en el banco no siempre está tan seguro como creen.",
-    "title_en": "🏦 Cyprus Banking Crisis",
+    "title_en": "Cyprus Banking Crisis",
     "description_tooltip_en": "The banking crisis in Cyprus sparks interest in Bitcoin as an alternative to the traditional financial system. People seek refuge!",
     "description_full_en": "In March 2013, the financial crisis in Cyprus reached its peak. To prevent bank failures, the Cypriot government and the European Central Bank imposed a 'haircut' and confiscated a portion of savers' bank deposits. This event caused a wave of panic and outrage, as it showed that money stored in the bank was not completely safe.\n\nThe crisis in Cyprus served as a powerful validation of the Bitcoin concept. Many citizens, who had lost faith in the banking system, began to look for an alternative. Bitcoin, a decentralized digital currency not subject to government confiscation, presented itself as a solution. The demand for Bitcoin increased, and its price skyrocketed on exchanges.\n\nThis incident was a turning point, as Bitcoin was no longer seen solely as a technological tool but became a potential 'safe haven' asset in times of financial instability. It demonstrated to the world that Bitcoin's value proposition was real and that its existence was more relevant than ever in a context of economic crisis and a loss of trust in traditional institutions.",
     "links": [
@@ -240,10 +240,10 @@
   {
     "date": "2013-10-02",
     "category": "Regulation",
-    "title_es": "👮\u200d♂️ Cierre de Silk Road",
+    "title_es": "Cierre de Silk Road",
     "description_tooltip_es": "El FBI cierra el mercado negro Silk Road. Ross Ulbricht es arrestado. ¡Un golpe a la Dark Web, pero no a Bitcoin en sí!",
     "description_full_es": "Contexto histórico: El FBI cerró Silk Road, el mercado negro más famoso de la Dark Web, y arrestó a su administrador. Se confiscaron miles de bitcoins vinculados a actividades ilícitas.\n\nImportancia técnica/económica: El cierre demostró que la Blockchain no es anónima sino seudónima: las transacciones dejan un rastro público que las autoridades pueden investigar. Ayudó a desvincular la imagen de Bitcoin del crimen para empezar a ver su potencial como tecnología financiera legítima.\n\nLección aprendida: La tecnología es neutral; lo que define su valor social es el uso que la comunidad decida darle de forma constructiva.",
-    "title_en": "👮\u200d♂️ Silk Road Shutdown",
+    "title_en": "Silk Road Shutdown",
     "description_tooltip_en": "The FBI shuts down the black market Silk Road. Ross Ulbricht is arrested. A blow to the Dark Web, but not to Bitcoin itself!",
     "description_full_en": "On October 2, 2013, the FBI shut down Silk Road, a black market on the Dark Web that used Bitcoin for illicit goods and services transactions. Its founder, Ross Ulbricht, known as 'Dread Pirate Roberts,' was arrested. This event was a major blow to Bitcoin's reputation, as it associated it with illegality in the public's mind.\n\nHowever, the shutdown of Silk Road had a dual effect. On one hand, it showed that Bitcoin is not completely anonymous. Authorities were able to trace users and, ultimately, identify Ulbricht through activity on the blockchain. This helped debunk the popular belief that Bitcoin was an untraceable tool for crime. On the other hand, the massive media coverage of the case exposed Bitcoin to millions of people who had never heard of it before.\n\nAlthough Bitcoin's price temporarily dropped after the news, the event was positive in the long run. It helped clean up the cryptocurrency's image, gradually disassociating it from the Dark Web and allowing its potential as legitimate technology to emerge. The Silk Road shutdown was a reminder that while technology is neutral, how it is used defines its public perception.",
     "links": [
@@ -257,10 +257,10 @@
   {
     "date": "2013-10-28",
     "category": "Adoption",
-    "title_es": "🏧 Primer cajero Bitcoin",
+    "title_es": "Primer cajero Bitcoin",
     "description_tooltip_es": "Se instala el primer cajero automático de Bitcoin en Vancouver. ¡El efectivo digital llega a la calle!",
     "description_full_es": "Contexto histórico: Se instaló en una cafetería de Vancouver el primer cajero físico del mundo donde los ciudadanos podían cambiar billetes de banco por Bitcoin de forma instantánea.\n\nImportancia técnica/económica: Este hito sacó a Bitcoin del mundo puramente virtual y lo llevó a la vida cotidiana. Facilitó enormemente el acceso a la red para personas sin conocimientos técnicos avanzados, demostrando que el efectivo digital podía interactuar de forma sencilla con el dinero físico.\n\nLección aprendida: La facilidad de uso y los puntos de acceso físico son pilares fundamentales para llevar cualquier tecnología a la adopción masiva.",
-    "title_en": "🏧 First Bitcoin ATM",
+    "title_en": "First Bitcoin ATM",
     "description_tooltip_en": "The world's first Bitcoin ATM is installed in Vancouver. Digital cash hits the streets!",
     "description_full_en": "On October 28, 2013, the company Robocoin installed the world's first Bitcoin ATM in a Vancouver coffee shop. This event marked a milestone in cryptocurrency accessibility, allowing anyone to physically and easily exchange cash for Bitcoin.\n\nThe appearance of physical ATMs helped demystify Bitcoin for the general public, taking it out of the purely digital world and into everyday life. It was tangible proof that Bitcoin was maturing as a real-use currency. Since then, thousands of ATMs have been deployed across the globe, facilitating access to the decentralized economy in airports, malls, and local shops.",
     "links": [
@@ -274,10 +274,10 @@
   {
     "date": "2013-11-29",
     "category": "Market",
-    "title_es": "🚀 BTC supera los $1,000",
+    "title_es": "BTC supera los $1,000",
     "description_tooltip_es": "Bitcoin supera los $1,000 impulsado por la demanda en China. ¡El dragón entra en escena!",
     "description_full_es": "Contexto histórico: Impulsado por una creciente ola de interés en China y una cobertura mediática mundial, el precio de Bitcoin superó por primera vez la barrera de los 1,000 dólares.\n\nImportancia técnica/económica: Alcanzar los tres ceros confirmó que Bitcoin podía atraer capitales masivos y que su valor no tenía un límite obvio. Este aumento de precio actuó como un potente mecanismo de marketing, atrayendo a nuevos desarrolladores e inversores a fortalecer la red.\n\nLección aprendida: El precio es el mecanismo que Bitcoin utiliza para captar la atención del mundo y financiar su propio desarrollo y seguridad.",
-    "title_en": "🚀 BTC Breaks $1,000",
+    "title_en": "BTC Breaks $1,000",
     "description_tooltip_en": "Bitcoin surpasses $1,000, driven by demand in China. The dragon enters the scene!",
     "description_full_en": "In late 2013, the price of Bitcoin experienced a meteoric rise, surpassing the $1,000 mark for the first time. This increase was largely driven by growing demand in China, where people were looking for an alternative to strict capital controls. Chinese exchanges saw a massive surge in volume, which catapulted the price to unprecedented levels.\n\nBreaking the $1,000 barrier was an important psychological milestone. It demonstrated that Bitcoin's value could be sustained and was not just a 'bubble' that would quickly fade. It attracted the attention of larger investors and mainstream media, creating a feedback loop of interest and adoption.\n\nThis 2013 bull run, although brief, put Bitcoin on the map as a risky financial asset with explosive growth potential. Although the price would drop dramatically in the following years, the $1,000 milestone showed that Bitcoin was a serious player on the global financial stage, capable of attracting capital from all over the world.",
     "links": [
@@ -291,10 +291,10 @@
   {
     "date": "2014-02-24",
     "category": "Security",
-    "title_es": "🧨 Quiebra de Mt. Gox",
+    "title_es": "Quiebra de Mt. Gox",
     "description_tooltip_es": "El exchange más grande del mundo se declara en bancarrota tras 'perder' 850,000 BTC. ¡El 'Monte Gox' implosionó, dejando a muchos con el corazón roto!",
     "description_full_es": "Contexto histórico: Tras años de mala gestión y hackeos ocultos, el exchange que procesaba el 70% de las transacciones mundiales colapsó definitivamente, revelando una pérdida masiva de bitcoins de sus clientes.\n\nImportancia técnica/económica: Fue un evento traumático que forzó a la industria a profesionalizarse y a los usuarios a entender el riesgo de confiar en intermediarios. La caída de Mt. Gox impulsó el desarrollo de carteras de autocustodia y exchanges más transparentes con pruebas de solvencia.\n\nLección aprendida: La descentralización de Bitcoin no protege al usuario de la negligencia o corrupción de las empresas centralizadas que guardan sus fondos.",
-    "title_en": "🧨 Mt. Gox Collapse",
+    "title_en": "Mt. Gox Collapse",
     "description_tooltip_en": "The world's largest exchange declares bankruptcy after 'losing' 850,000 BTC. Mt. Gox imploded, leaving many heartbroken!",
     "description_full_en": "On February 24, 2014, Mt. Gox, which at the time handled over 70% of Bitcoin's trading volume, declared bankruptcy. The reason was the 'loss' of 850,000 bitcoins, valued at hundreds of millions of dollars at the time. Although the exchange blamed a hack, the lack of transparency and poor management practices later revealed caused trust in centralized platforms to plummet.\n\nThe collapse of Mt. Gox was the most traumatic event in Bitcoin's early history. Thousands of users lost their funds, and the cryptocurrency's price crashed, beginning a long bear market known as 'crypto winter.' The debacle was a painful reminder that Bitcoin's decentralization did not protect users from the risks of centralized intermediaries. The famous slogan 'Not your keys, not your coins' became more relevant than ever.\n\nThe fall of Mt. Gox was a turning point. While the event caused significant damage to Bitcoin's reputation, it also prompted the community to seek safer and more decentralized solutions. New exchanges and projects that emerged afterward focused on transparency and security, learning from Mt. Gox's mistakes. In a way, the bankruptcy was a catalyst for the maturation and professionalization of the crypto ecosystem.",
     "links": [
@@ -308,10 +308,10 @@
   {
     "date": "2014-07-29",
     "category": "Technology",
-    "title_es": "🛡️ Primera cartera hardware",
+    "title_es": "Primera cartera hardware",
     "description_tooltip_es": "SatoshiLabs lanza Trezor, la primera cartera hardware. ¡La seguridad de grado bancario llega a tus manos!",
     "description_full_es": "Contexto histórico: Se lanzó al mercado Trezor, el primer dispositivo físico diseñado específicamente para guardar Bitcoin de forma segura, aislándolo de cualquier conexión a internet.\n\nImportancia técnica/económica: Las carteras hardware permiten que la Clave Privada nunca salga del dispositivo, protegiendo los fondos incluso si la computadora del usuario tiene virus. Esto democratizó la seguridad de alto nivel, permitiendo que cualquier persona pueda ser 'su propio banco' con total tranquilidad.\n\nLección aprendida: La soberanía financiera individual requiere herramientas tecnológicas que protejan la propiedad privada de las amenazas digitales.",
-    "title_en": "🛡️ First Hardware Wallet",
+    "title_en": "First Hardware Wallet",
     "description_tooltip_en": "SatoshiLabs launches Trezor, the first hardware wallet. Bank-grade security in the palm of your hand!",
     "description_full_en": "On July 29, 2014, SatoshiLabs released the Trezor Model One, the world's first Bitcoin hardware wallet. Until then, securely storing Bitcoin required advanced technical knowledge or the use of air-gapped computers. Trezor revolutionized the industry by ensuring that private keys never leave the physical device, protecting funds even on infected computers.\n\nThis launch defined the security standard for long-term Bitcoin holders. By separating transaction signing from the online environment, the risk of hacks and theft was drastically reduced. The philosophy of 'being your own bank' became much more accessible and secure for the average user, laying the foundation for the self-custody industry we know today.",
     "links": [
@@ -325,10 +325,10 @@
   {
     "date": "2015-07-30",
     "category": "Technology",
-    "title_es": "🌐 Nace Ethereum",
+    "title_es": "Nace Ethereum",
     "description_tooltip_es": "Lanzamiento de Ethereum: se abre una nueva era de contratos inteligentes. ¡El hermano menor (o rival) de Bitcoin llega al barrio!",
     "description_full_es": "Contexto histórico: El joven programador Vitalik Buterin lanzó Ethereum, una nueva red Blockchain capaz de ejecutar programas informáticos complejos (contratos inteligentes) sobre su libro de contabilidad.\n\nImportancia técnica/económica: Mientras Bitcoin se centraba en ser el 'oro digital', Ethereum expandió las fronteras de la tecnología para permitir aplicaciones descentralizadas de todo tipo. Su éxito estimuló la competencia y la innovación en todo el ecosistema, obligando a Bitcoin a mejorar también sus propias capacidades de programación.\n\nLección aprendida: La innovación tecnológica es un proceso colaborativo y competitivo que expande constantemente los límites de lo que creíamos posible.",
-    "title_en": "🌐 Ethereum is Born",
+    "title_en": "Ethereum is Born",
     "description_tooltip_en": "Launch of Ethereum: a new era of smart contracts opens up. Bitcoin's little brother (or rival) arrives in the neighborhood!",
     "description_full_en": "On July 30, 2015, the Ethereum network was launched. Created by programmer Vitalik Buterin, Ethereum introduced a revolutionary functionality: smart contracts. Unlike Bitcoin, which focused on being a digital cash system, Ethereum was designed as a platform to build decentralized applications (DApps) and execute code immutably. This opened the doors to a new era of blockchain technology.\n\nEthereum was not just a new cryptocurrency; it was a paradigm shift. The ability to program the blockchain to perform complex functions attracted a new generation of developers and entrepreneurs. It became the foundation for the decentralized finance (DeFi) movement and the rise of non-fungible tokens (NFTs), expanding the possibilities of what blockchain technology could achieve beyond money.\n\nAlthough Bitcoin and Ethereum are often seen as rivals, they actually complement each other. Bitcoin remains the store-of-value asset, while Ethereum has become the 'world computer' for innovation in the crypto space. The launch of Ethereum was a milestone that showed that the potential of blockchain technology was much broader than previously thought, and its success propelled the entire cryptocurrency ecosystem into a new phase of growth and development.",
     "links": [
@@ -342,10 +342,10 @@
   {
     "date": "2016-01-01",
     "category": "Adoption",
-    "title_es": "📈 El meme 'HODL' se consolida",
+    "title_es": "El meme 'HODL' se consolida",
     "description_tooltip_es": "El error tipográfico 'I AM HODLING' se convierte en el grito de guerra de los inversores de Bitcoin para no vender. ¡Hodl on, brothers!",
     "description_full_es": "Contexto histórico: Un error ortográfico en un foro (escribir 'HODL' en lugar de 'hold') durante una caída de precio se convirtió en la filosofía oficial de los inversores a largo plazo de Bitcoin.\n\nImportancia técnica/económica: 'HODL' representa la creencia en el valor fundamental de Bitcoin frente a su volatilidad temporal. Esta mentalidad ha creado una base sólida de usuarios que no venden ante las caídas, lo que reduce la oferta disponible en el mercado e impulsa el precio al alza a largo plazo.\n\nLección aprendida: En un mercado volátil, la paciencia y la convicción en los fundamentos son las herramientas más valiosas de un inversor inteligente.",
-    "title_en": "📈 'HODL' Meme Solidifies",
+    "title_en": "'HODL' Meme Solidifies",
     "description_tooltip_en": "The 'I AM HODLING' typo becomes the battle cry for Bitcoin investors not to sell. Hodl on, brothers!",
     "description_full_en": "The term 'HODL' (a typo of 'hold') solidified as an investment philosophy in the Bitcoin community. It originated in a Bitcoin forum in 2013, when a user who made a typing mistake encouraged others not to sell their bitcoins despite a price drop. The term went viral and became a battle cry.\n\nThe philosophy of 'HODL' is based on the belief that, despite market volatility, Bitcoin's long-term value will increase. 'HODLers' are those investors who hold their assets for the long term, ignoring price fluctuations and alarming news. In a market as volatile as cryptocurrencies, this strategy is often considered the most prudent.\n\nThe 'HODL' meme is an example of the unique and collaborative culture that has grown around Bitcoin. It is not just an investment strategy, but a community identity that has helped many investors get through long and harsh 'crypto winters.' It has become a symbol of faith in Bitcoin's transformative potential and the conviction that, despite the downturns, the future of the cryptocurrency is bright.",
     "links": [
@@ -359,10 +359,10 @@
   {
     "date": "2016-07-09",
     "category": "Halving",
-    "title_es": "⚒️ Segundo halving",
+    "title_es": "Segundo halving",
     "description_tooltip_es": "La recompensa baja a 12.5 BTC por bloque. ¡Otro paso hacia la escasez programada!",
     "description_full_es": "Contexto histórico: Se produjo la segunda reducción en la creación de nuevos bitcoins. La recompensa por bloque bajó de 25 BTC a 12.5 BTC, reforzando el calendario de emisión predecible de la red.\n\nImportancia técnica/económica: Este evento confirmó que la política monetaria de Bitcoin no depende de ningún gobierno, sino de un código inmutable. Al reducirse la oferta mientras la demanda mundial crecía, se sentaron las bases para el gran mercado alcista que llevaría a Bitcoin a nuevos máximos históricos en 2017.\n\nLección aprendida: La Escasez programada es lo que convierte a Bitcoin en un activo superior para preservar el valor frente a las divisas infinitas.",
-    "title_en": "⚒️ Second Halving",
+    "title_en": "Second Halving",
     "description_tooltip_en": "The reward drops to 12.5 BTC per block. Another step towards programmed scarcity!",
     "description_full_en": "On July 9, 2016, the second Bitcoin halving occurred. The reward for mining a block was reduced from 25 BTC to 12.5 BTC. This event, programmed into Bitcoin's code, was the second of the four main halvings and another step on the path towards the total supply of 21 million bitcoins.\n\nThe reduction in the supply of new bitcoins was a key factor in the bull market that began in 2016 and culminated in the 2017 peak. The halving creates an artificial scarcity that, if demand is maintained or increased, tends to push prices upward. The success of this second halving demonstrated the effectiveness of Bitcoin's economic model and reinforced the community's trust in the system's mechanics.\n\nThe second halving was a crucial milestone that consolidated Bitcoin as one of the most important cryptocurrencies in the world. It showed that Satoshi Nakamoto's design was robust and that the system could handle important events like a programmed reduction in supply. From this point on, halvings became highly anticipated events and were credited with the ability to predict market cycles.",
     "links": [
@@ -376,10 +376,10 @@
   {
     "date": "2016-08-03",
     "category": "Security",
-    "title_es": "🔓 Hackeo a Bitfinex",
+    "title_es": "Hackeo a Bitfinex",
     "description_tooltip_es": "Bitfinex sufre el robo de ~120,000 BTC. Uno de los mayores golpes de la historia que puso a prueba al mercado.",
     "description_full_es": "Contexto histórico: Uno de los exchanges más populares sufrió una brecha de seguridad masiva donde se robaron cerca de 120,000 BTC. Fue el segundo robo más grande de la historia hasta ese momento.\n\nImportancia técnica/económica: A diferencia de Mt. Gox, Bitfinex diseñó un plan de recuperación innovador emitiendo tokens de deuda para compensar a los usuarios. Este evento recordó de nuevo que los intermediarios centralizados son el eslabón más débil y reforzó la necesidad de usar carteras de autocustodia para proteger la Clave Privada.\n\nLección aprendida: El mercado y las empresas aprenden a ser más resilientes tras cada golpe, pero el principio de seguridad individual sigue siendo ineludible.",
-    "title_en": "🔓 Bitfinex Hack",
+    "title_en": "Bitfinex Hack",
     "description_tooltip_en": "Bitfinex suffers the theft of ~120,000 BTC. One of the largest hacks in history that tested the market.",
     "description_full_en": "In August 2016, the Bitfinex exchange announced a massive security breach where 119,756 BTC were stolen from user wallets. At the time, it was the second-largest hack after Mt. Gox, causing an immediate 20% drop in Bitcoin's price. The event reignited concerns about the security of centralized platforms.\n\nUnlike other cases, Bitfinex implemented an innovative recovery plan by issuing debt tokens to affected users, which were eventually fully reimbursed years later. This incident not only highlighted the importance of self-custody but also triggered one of the FBI's longest and most complex criminal investigations, eventually leading to the recovery of a significant portion of the stolen funds.",
     "links": [
@@ -393,10 +393,10 @@
   {
     "date": "2017-08-01",
     "category": "Technology",
-    "title_es": "🔀 Bitcoin Cash se bifurca",
+    "title_es": "Bitcoin Cash se bifurca",
     "description_tooltip_es": "Bitcoin se divide por desacuerdos sobre la escalabilidad. Nace Bitcoin Cash (BCH). ¡Una saga familiar con drama incluido!",
     "description_full_es": "Contexto histórico: Un desacuerdo en la comunidad sobre cómo escalar la red para procesar más transacciones llevó a una división (fork), creando una versión alternativa de Bitcoin llamada Bitcoin Cash.\n\nImportancia técnica/económica: Fue una batalla por la identidad de Bitcoin. La mayoría de los usuarios y desarrolladores eligieron mantener la Descentralización y la seguridad de la capa base sobre el aumento indiscriminado del tamaño de los bloques. Este evento demostró que en Bitcoin, las reglas las decide el consenso de la red.\n\nLección aprendida: En un sistema descentralizado, la comunidad tiene la libertad de elegir qué visión de futuro y qué reglas desea apoyar.",
-    "title_en": "🔀 Bitcoin Cash Forks",
+    "title_en": "Bitcoin Cash Forks",
     "description_tooltip_en": "Bitcoin splits over scalability disagreements. Bitcoin Cash (BCH) is born. A family saga with drama included!",
     "description_full_en": "On August 1, 2017, the Bitcoin network underwent a 'hard fork' that resulted in a new cryptocurrency: Bitcoin Cash (BCH). The split was the result of a long and heated debate in the community about how to scale the network to increase the number of transactions per second. A group of developers and miners advocated for increasing the block size, while another group, mostly Bitcoin Core developers, preferred second-layer solutions like Lightning Network.\n\nThe group that advocated for larger blocks decided to split and create its own blockchain, giving rise to Bitcoin Cash. This new cryptocurrency had an 8 MB block size, which allowed it to process more transactions than Bitcoin. The event was a moment of great tension in the community, which was divided between Bitcoin and Bitcoin Cash proponents.\n\nThe Bitcoin Cash fork was a historic event that demonstrated the ideological divisions in the Bitcoin community and the decentralized nature of the network, where there is no final authority to impose a decision. Although Bitcoin Cash never achieved the popularity of Bitcoin, the event served as a reminder that cryptocurrencies are open-source software projects that can fork and evolve in different ways.",
     "links": [
@@ -410,10 +410,10 @@
   {
     "date": "2017-08-23",
     "category": "Technology",
-    "title_es": "⚙️ Activación de SegWit",
+    "title_es": "Activación de SegWit",
     "description_tooltip_es": "Se activa SegWit en la red Bitcoin, mejorando la escalabilidad y corrigiendo la maleabilidad. ¡Un paso gigante hacia el futuro!",
     "description_full_es": "Contexto histórico: Se activó Segregated Witness (SegWit), una de las actualizaciones técnicas más importantes de la historia de Bitcoin, tras años de debate intenso en la comunidad.\n\nImportancia técnica/económica: SegWit separó las firmas de los datos de transacción, permitiendo incluir más pagos en cada bloque y corrigiendo errores antiguos. Fue la llave maestra que permitió el desarrollo de la Lightning Network para realizar pagos instantáneos y de bajo costo sobre la Blockchain principal.\n\nLección aprendida: Las mejoras tecnológicas graduales y seguras son la forma en que Bitcoin evoluciona sin poner en riesgo su integridad.",
-    "title_en": "⚙️ SegWit Activation",
+    "title_en": "SegWit Activation",
     "description_tooltip_en": "SegWit is activated on the Bitcoin network, improving scalability and fixing malleability. A giant step into the future!",
     "description_full_en": "On August 23, 2017, after years of community debate, Segregated Witness (SegWit) was officially activated on the Bitcoin network. This technical upgrade separated signature data from transaction data, allowing more transactions to fit into each block without increasing its nominal size. Additionally, it fixed the 'transaction malleability' issue, a critical step for developing second-layer solutions.\n\nSegWit not only reduced fees and improved network efficiency but was also the master key that enabled the birth of the Lightning Network. This upgrade proved that Bitcoin could evolve and improve its protocol through consensus, despite internal tensions. It was one of the most significant technical milestones ensuring Bitcoin could scale and function as a global payment network.",
     "links": [
@@ -427,10 +427,10 @@
   {
     "date": "2017-12-10",
     "category": "Market",
-    "title_es": "📈 Futuros de Bitcoin en Chicago",
+    "title_es": "Futuros de Bitcoin en Chicago",
     "description_tooltip_es": "CBOE y CME lanzan los primeros futuros de Bitcoin. ¡Wall Street abre sus puertas al oro digital!",
     "description_full_es": "Contexto histórico: Las bolsas de futuros más grandes del mundo (CBOE y CME) lanzaron por primera vez contratos regulados sobre el precio de Bitcoin, permitiendo la entrada de inversores profesionales de Wall Street.\n\nImportancia técnica/económica: Marcó el inicio de la 'financierización' de Bitcoin. Por primera vez, grandes fondos de inversión pudieron apostar por el precio de Bitcoin de forma regulada, validando al activo como una clase de inversión legítima comparable al oro o al petróleo.\n\nLección aprendida: Cuando el capital financiero tradicional entra en juego, la volatilidad aumenta, pero la madurez y la liquidez del mercado también avanzan.",
-    "title_en": "📈 Bitcoin Futures Launch",
+    "title_en": "Bitcoin Futures Launch",
     "description_tooltip_en": "CBOE and CME launch the first Bitcoin futures. Wall Street opens its doors to digital gold!",
     "description_full_en": "In December 2017, Chicago's major options and futures exchanges (CBOE and CME) launched Bitcoin futures contracts for the first time. This allowed institutional and professional investors to bet on Bitcoin's price within a regulated environment familiar to the traditional financial system. The announcement pushed Bitcoin's price toward its then-all-time high near $20,000.\n\nThis event marked the beginning of Bitcoin's 'financialization.' For the first time, large investment funds could gain exposure to the asset without needing to hold it directly, using standard financial tools. While some feared this would enable greater market manipulation, the launch of futures was a decisive step in legitimizing Bitcoin as a global asset class comparable to gold or oil.",
     "links": [
@@ -444,10 +444,10 @@
   {
     "date": "2017-12-17",
     "category": "Market",
-    "title_es": "📈 ATH de 2017",
+    "title_es": "ATH de 2017",
     "description_tooltip_es": "Bitcoin alcanza casi $20,000 por primera vez tras una subida meteórica. ¡Todos querían un trozo del pastel!",
     "description_full_es": "Contexto histórico: En un clima de optimismo mundial sin precedentes, el precio de Bitcoin rozó los 20,000 dólares, marcando un ATH (máximo histórico) que atrajo a millones de personas contagiadas por el FOMO (miedo a quedarse fuera).\n\nImportancia técnica/económica: Demostró la capacidad de Bitcoin para generar ciclos de atención masiva que, aunque dolorosas al estallar, dejan a la red con millones de nuevos usuarios y desarrolladores. Fue el primer gran ciclo que puso a las criptomonedas en el radar del público general.\n\nLección aprendida: El crecimiento de Bitcoin no es lineal; ocurre a través de ciclos explosivos de euforia y corrección que limpian y fortalecen el ecosistema.",
-    "title_en": "📈 2017 ATH",
+    "title_en": "2017 ATH",
     "description_tooltip_en": "Bitcoin reaches nearly $20,000 for the first time after a meteoric rise. Everyone wanted a piece of the pie!",
     "description_full_en": "On December 17, 2017, Bitcoin reached a new all-time high (ATH), approaching $20,000. This rally was driven by a mix of retail speculation, massive media coverage, and the growing adoption of cryptocurrencies. Everyday people, who had no idea what Bitcoin was until then, started buying it in droves, pushing the price to stratospheric levels.\n\nThe 2017 frenzy was a cultural phenomenon. People talked about Bitcoin at dinner parties, taxi drivers gave investment advice, and the media couldn't ignore the story. This 'rally' not only benefited Bitcoin but also boosted the entire 'altcoin' market, creating an unprecedented market capitalization boom.\n\nHowever, the 2017 peak was also the beginning of a brutal crash. What went up parabolically, fell with the same force. Despite this, the event served to put Bitcoin on the global map and to demonstrate its growth potential. Although many investors lost money in the crash, the 2017 boom left an indelible mark on the history of finance and blockchain technology development.",
     "links": [
@@ -461,10 +461,10 @@
   {
     "date": "2018-01-16",
     "category": "Market",
-    "title_es": "🧊 Criptoinvierno",
+    "title_es": "Criptoinvierno",
     "description_tooltip_es": "Empieza una caída prolongada en los precios. Bitcoin pierde más del 80% de su valor. ¡El invierno es crudo para los 'nuevos ricos'!",
     "description_full_es": "Contexto histórico: Tras el máximo de 2017, el mercado entró en un largo periodo de caída y estancamiento de precios que duró más de un año, conocido como 'criptoinvierno'.\n\nImportancia técnica/económica: Estos periodos de calma son vitales para la red: sin el ruido de la especulación, los desarrolladores se centraron en construir infraestructura real, como la Lightning Network. La red de Bitcoin demostró su resiliencia al seguir procesando bloques cada 10 minutos a pesar del pesimismo mediático.\n\nLección aprendida: El verdadero valor de una tecnología se construye durante los momentos de silencio y desinterés del mercado, no durante la euforia.",
-    "title_en": "🧊 Crypto Winter",
+    "title_en": "Crypto Winter",
     "description_tooltip_en": "A prolonged price drop begins. Bitcoin loses over 80% of its value. The winter is harsh for the 'new rich'!",
     "description_full_en": "After the 2017 all-time high, the cryptocurrency market entered a long and painful bear market known as 'crypto winter.' During this period, Bitcoin's price fell more than 80% from its peak, and the total crypto market capitalization shrank by hundreds of billions of dollars. The speculation that had driven prices in 2017 faded, and enthusiasm turned into skepticism.\n\nCrypto winter was a period of consolidation and cleansing. Many of the 'meme' projects and scams that had emerged during the 2017 boom disappeared. Cryptocurrency companies struggled to survive, and many retail investors left the market. However, for the true believers, it was a time of opportunity. Developers continued to build, and long-term investors took advantage of the opportunity to accumulate assets at low prices.\n\nThis period of price calm was crucial for the industry's maturation. It allowed developers to focus on the underlying technology without the distraction of speculation. It was during the crypto winter that important advances were made in areas like the Lightning Network and scalability solutions. The crypto winter was a 'fire test' that showed that the Bitcoin ecosystem could survive and thrive even in the most adverse conditions.",
     "links": [
@@ -478,10 +478,10 @@
   {
     "date": "2018-12-15",
     "category": "Market",
-    "title_es": "📉 Mínimo del mercado bajista",
+    "title_es": "Mínimo del mercado bajista",
     "description_tooltip_es": "Bitcoin toca fondo en $3,200 tras un año de caídas. ¡Los verdaderos creyentes compraron la caída!",
     "description_full_es": "Contexto histórico: El precio de Bitcoin tocó fondo cerca de los 3,200 dólares, acumulando una caída del 85% desde su máximo anterior. En la prensa, muchos volvieron a declarar a Bitcoin como 'muerto'.\n\nImportancia técnica/económica: Fue el momento de máxima capitulación donde los inversores especuladores se marcharon y los 'HODLers' más convencidos acumularon más activos. Estos suelos de mercado demuestran la base mínima de valor que la comunidad otorga a la red Bitcoin, independientemente de la volatilidad externa.\n\nLección aprendida: Bitcoin ha sido declarado muerto cientos de veces, pero su red nunca ha dejado de procesar bloques y transacciones de forma inmutable.",
-    "title_en": "📉 Bear Market Bottom",
+    "title_en": "Bear Market Bottom",
     "description_tooltip_en": "Bitcoin bottoms out at $3,200 after a year of declines. The true believers bought the dip!",
     "description_full_en": "On December 15, 2018, Bitcoin bottomed out in the long bear market that began after the 2017 peak. The cryptocurrency's price fell to $3,200, a loss of almost 85% of its value from its all-time high. This low marked the lowest point of the 'crypto winter' and was a moment of great despair for many investors. However, for Bitcoin's most ardent supporters, it was a unique opportunity.\n\nInvestors who believed in Bitcoin's long-term vision, often nicknamed 'HODLers,' saw this drop as a golden opportunity to buy at low prices. It was at this moment that the motto 'Buy the dip' became popular. The conviction that Bitcoin would rebound was maintained, even when the overall market sentiment was extremely negative. This low was the turning point that marked the beginning of the market's recovery.\n\nThe 2018 bottom is a reminder of Bitcoin's extreme volatility, but also of its ability to recover. Investors who remained calm and bought during this period were rewarded with the next major bull run. This event showed that Bitcoin is an asset for long-term investors and that patience is one of the most important virtues in the world of cryptocurrencies.",
     "links": [
@@ -495,10 +495,10 @@
   {
     "date": "2019-04-02",
     "category": "Adoption",
-    "title_es": "🐶 Dogecoin se dispara por Elon Musk",
+    "title_es": "Dogecoin se dispara por Elon Musk",
     "description_tooltip_es": "Elon Musk tuitea sobre Dogecoin, haciendo que su precio se dispare. ¡El 'Dogefather' entra en acción!",
     "description_full_es": "Contexto histórico: El CEO de Tesla comenzó a apoyar públicamente a Dogecoin, una moneda creada originalmente como una parodia de Bitcoin, provocando subidas de precio masivas e irracionales basadas en redes sociales.\n\nImportancia técnica/económica: Puso de relieve la diferencia entre proyectos con fundamentos tecnológicos sólidos y Escasez matemática, como Bitcoin, frente a activos que dependen únicamente del entusiasmo momentáneo y la atención mediática (memecoins).\n\nLección aprendida: Es fundamental aprender a distinguir entre la innovación financiera real y el ruido especulativo de corto plazo en internet.",
-    "title_en": "🐶 Dogecoin Surges Due to Elon Musk",
+    "title_en": "Dogecoin Surges Due to Elon Musk",
     "description_tooltip_en": "Elon Musk tweets about Dogecoin, causing its price to skyrocket. The 'Dogefather' takes action!",
     "description_full_en": "On April 2, 2019, billionaire and CEO of Tesla and SpaceX, Elon Musk, tweeted about Dogecoin, a cryptocurrency that was created as a joke. Musk asked if Dogecoin was his favorite cryptocurrency. This tweet, although seemingly innocuous, caused a significant increase in Dogecoin's price. It was the first time a public figure of this magnitude had such a direct influence on the cryptocurrency market.\n\nMusk's influence on Dogecoin would continue in the following years, with a series of tweets and public appearances that turned him into the 'Dogefather.' This phenomenon demonstrated the power of social media and influential personalities to move the market, especially in the case of smaller, less serious cryptocurrencies like Dogecoin. Dogecoin's popularity became a 'pop culture' phenomenon and attracted a new generation of retail investors to the crypto world.\n\nAlthough the impact of this event was more evident in the 'memecoin' ecosystem, it was also a reminder of the role that 'influencers' and media attention play in the crypto space. It showed that not only fundamental factors and technology are important, but also public sentiment and the attention that big names can generate. The Dogecoin phenomenon was an example of the gamification of investing that would be seen in the following years.",
     "links": [
@@ -512,10 +512,10 @@
   {
     "date": "2020-03-12",
     "category": "Market",
-    "title_es": "😷 COVID y caída brutal",
+    "title_es": "COVID y caída brutal",
     "description_tooltip_es": "El precio de BTC cae 50% en un solo día por el pánico financiero global. ¡El 'Jueves Negro' también llegó a las cripto!",
     "description_full_es": "Contexto histórico: El estallido mundial de la pandemia provocó un pánico total en todos los mercados financieros del planeta. Bitcoin sufrió su mayor caída diaria, perdiendo el 50% de su valor en pocas horas.\n\nImportancia técnica/económica: Fue una prueba de fuego definitiva. A pesar de la caída del precio por la necesidad masiva de liquidez, la red de Bitcoin no se detuvo ni un segundo. Su recuperación fue la más rápida de todos los activos financieros, demostrando sus sólidos fundamentos frente a la incertidumbre global.\n\nLección aprendida: La liquidez total de Bitcoin permite que se venda rápido durante el pánico, pero sus propiedades lo atraen de vuelta como el activo más resiliente del mundo.",
-    "title_en": "😷 COVID and Brutal Crash",
+    "title_en": "COVID and Brutal Crash",
     "description_tooltip_en": "The price of BTC drops 50% in a single day due to global financial panic. 'Black Thursday' also hit crypto!",
     "description_full_en": "On March 12, 2020, the global cryptocurrency market experienced a brutal crash. With the declaration of the COVID-19 pandemic and global financial panic, investors liquidated risky assets en masse. In a single day, Bitcoin's price dropped almost 50%, an event the community dubbed 'Crypto's Black Thursday.' Many thought this was the end of Bitcoin.\n\nHowever, Bitcoin's story in 2020 did not end there. As governments worldwide printed trillions of dollars to stimulate their economies, fear of inflation grew, and many investors began to see Bitcoin as a hedge against fiat currency devaluation. The narrative of Bitcoin as 'digital gold' was greatly strengthened.\n\nThe Black Thursday crash was a stress test for the Bitcoin ecosystem. It showed that while the cryptocurrency is sensitive to macroeconomic shocks, it is also incredibly resilient. The rapid recovery that followed the event laid the groundwork for the next bull market and consolidated Bitcoin's role as a reserve asset for investors seeking protection from global economic instability.",
     "links": [
@@ -529,10 +529,10 @@
   {
     "date": "2020-05-11",
     "category": "Halving",
-    "title_es": "⛏️ Tercer halving",
+    "title_es": "Tercer halving",
     "description_tooltip_es": "La recompensa se reduce a 6.25 BTC. Comienza un nuevo ciclo alcista. ¡La escasez programada sigue su curso!",
     "description_full_es": "Contexto histórico: En plena incertidumbre por la pandemia y la impresión masiva de dinero, Bitcoin redujo su emisión de nuevo, pasando de 12.5 a 6.25 BTC por cada bloque minado.\n\nImportancia técnica/económica: La coincidencia de la Escasez programada de Bitcoin con la expansión monetaria infinita de los bancos centrales resaltó a Bitcoin como el 'oro digital'. Este evento disparó el interés de las instituciones financieras, que empezaron a ver a Bitcoin como una protección necesaria contra la inflación.\n\nLección aprendida: Mientras el dinero de los gobiernos se vuelve abundante y pierde valor, Bitcoin se vuelve matemáticamente más escaso cada cuatro años.",
-    "title_en": "⛏️ Third Halving",
+    "title_en": "Third Halving",
     "description_tooltip_en": "The reward is reduced to 6.25 BTC. A new bull cycle begins. The programmed scarcity continues its course!",
     "description_full_en": "On May 11, 2020, the third Bitcoin halving occurred, reducing the block reward from 12.5 BTC to 6.25 BTC. This event was one of the most anticipated in Bitcoin's history, as its arrival coincided with the market's recovery after the 'Black Thursday' of COVID-19 and the narrative of Bitcoin as a hedge against inflation.\n\nThe reduction in the supply of new bitcoins was a catalyst for the bull market that would culminate in 2021. Bitcoin's programmed scarcity, along with increased demand from institutional investors who saw Bitcoin as a store-of-value asset, pushed the price to unprecedented levels. The third halving proved that Bitcoin's economic model was still working perfectly, just as Satoshi Nakamoto had designed it.\n\nThis event marked the beginning of a new era for Bitcoin. The narrative of 'digital gold' became stronger than ever, attracting large companies and investment fund managers. The third halving was not just a technical event but an economic milestone that solidified Bitcoin's role as a serious investment asset on the global financial stage.",
     "links": [
@@ -546,10 +546,10 @@
   {
     "date": "2020-08-11",
     "category": "Adoption",
-    "title_es": "🏢 MicroStrategy adopta Bitcoin",
+    "title_es": "MicroStrategy adopta Bitcoin",
     "description_tooltip_es": "MicroStrategy compra $250M en BTC como reserva de tesorería. ¡El inicio de la adopción corporativa masiva!",
     "description_full_es": "Contexto histórico: La empresa pública MicroStrategy anunció que cambiaba sus reservas de dólares por Bitcoin, viendo en él un activo superior para proteger el capital de su compañía a largo plazo.\n\nImportancia técnica/económica: Fue el inicio de la 'adopción corporativa'. Si una empresa cotizada podía poner su capital en Bitcoin, otras podían hacerlo también. Michael Saylor se convirtió en un gran divulgador, explicando cómo Bitcoin es una solución tecnológica para el problema de la devaluación monetaria empresarial.\n\nLección aprendida: Bitcoin ha dejado de ser un activo de individuos para convertirse en la reserva de tesorería de las empresas del futuro.",
-    "title_en": "🏢 MicroStrategy Adopts Bitcoin",
+    "title_en": "MicroStrategy Adopts Bitcoin",
     "description_tooltip_en": "MicroStrategy buys $250M in BTC as a treasury reserve. The start of mass corporate adoption!",
     "description_full_en": "On August 11, 2020, software company MicroStrategy, led by Michael Saylor, announced the purchase of 21,454 BTC for approximately $250 million. It was the first publicly traded company to adopt Bitcoin as its primary treasury reserve asset, arguing that cash was devaluing and Bitcoin was the best 'digital gold' to protect capital over the long term.\n\nThis move broke a corporate taboo. If a public company could put its capital into Bitcoin, others could too. Saylor's decision inspired companies like Tesla and Block to follow suit, transforming the Bitcoin narrative from a speculative asset to a legitimate store of value for institutions. MicroStrategy has since become the world's largest corporate holder of Bitcoin, symbolizing institutional confidence in the network.",
     "links": [
@@ -563,10 +563,10 @@
   {
     "date": "2020-10-21",
     "category": "Adoption",
-    "title_es": "💳 PayPal abre las puertas",
+    "title_es": "PayPal abre las puertas",
     "description_tooltip_es": "PayPal permite comprar, vender y mantener Bitcoin. ¡Millones de usuarios ahora tienen acceso directo!",
     "description_full_es": "Contexto histórico: El gigante de los pagos PayPal anunció que permitiría a sus millones de usuarios en EE.UU. comprar, mantener y vender Bitcoin directamente desde su aplicación habitual.\n\nImportancia técnica/económica: Fue un salto gigantesco en la accesibilidad. Al integrar Bitcoin en una herramienta de uso diario, se eliminó la barrera técnica de aprender a usar exchanges complejos, permitiendo que el ciudadano medio pudiera adquirirlo con un solo clic.\n\nLección aprendida: La adopción masiva depende de que las herramientas financieras tradicionales integren las nuevas tecnologías de forma invisible y sencilla.",
-    "title_en": "💳 PayPal Opens the Doors",
+    "title_en": "PayPal Opens the Doors",
     "description_tooltip_en": "PayPal allows users to buy, sell, and hold Bitcoin. Millions of users now have direct access!",
     "description_full_en": "On October 21, 2020, payments giant PayPal announced it would allow US users to buy, hold, and sell Bitcoin directly from their accounts. It also announced plans to enable cryptocurrency payments at millions of merchants in its network. The news triggered an immediate price surge and was seen as a massive validation from the traditional payments industry.\n\nPayPal's entry represented a giant leap in usability. For the first time, millions could acquire Bitcoin with just a few clicks, without needing to learn complex exchanges. This event removed entry barriers for the average user and accelerated Bitcoin's integration into the global financial system, setting the stage for the 2021 bull market.",
     "links": [
@@ -580,10 +580,10 @@
   {
     "date": "2020-12-16",
     "category": "Market",
-    "title_es": "🚨 Rompe los $20K",
+    "title_es": "Rompe los $20K",
     "description_tooltip_es": "BTC supera el máximo de 2017, marcando el inicio del rally de 2021. ¡La fiebre vuelve a subir!",
     "description_full_es": "Contexto histórico: Bitcoin superó su antiguo récord de 2017 de 20,000 dólares, entrando en una nueva fase de 'descubrimiento de precios' impulsada por el optimismo institucional.\n\nImportancia técnica/económica: Este hito confirmó que Bitcoin no era una 'moda pasajera' y que cada ciclo tiene el potencial de superar al anterior. La rotura de este nivel psicológico activó una oleada de inversión masiva de fondos que antes miraban con escepticismo a la red.\n\nLección aprendida: Los récords pasados son solo estaciones de paso en el largo camino de Bitcoin hacia su consolidación como activo global.",
-    "title_en": "🚨 Breaks $20K",
+    "title_en": "Breaks $20K",
     "description_tooltip_en": "BTC surpasses the 2017 high, marking the start of the 2021 rally. The fever rises again!",
     "description_full_en": "On December 16, 2020, Bitcoin surpassed the all-time high of $20,000 it had reached in 2017. This event was a huge psychological milestone for the community, as it showed that Bitcoin's price could not only recover from a long bear market but also exceed its previous peaks. Breaking this level was a sign that the 2021 bull market was in full swing.\n\nThe 2021 rally was different from that of 2017. While retail speculation was still a factor, the price increase was largely driven by institutional adoption. Companies like MicroStrategy and Square (now Block) began investing large sums of money in Bitcoin, which showed traditional investors that Bitcoin was a legitimate asset class.\n\nBreaking the $20,000 barrier marked the beginning of a new phase in Bitcoin's history, one where the asset began to be perceived by Wall Street and investment fund managers. The entry of large capital and institutional trust changed the narrative, moving from a technological curiosity to a serious investment. This event was a harbinger of the great growth that would be seen in the following months.",
     "links": [
@@ -597,10 +597,10 @@
   {
     "date": "2021-02-08",
     "category": "Adoption",
-    "title_es": "🚗 Tesla compra BTC",
+    "title_es": "Tesla compra BTC",
     "description_tooltip_es": "Tesla invierte $1.5B en Bitcoin y anuncia que lo aceptará como pago. ¡Elon Musk haciendo de las suyas otra vez!",
     "description_full_es": "Contexto histórico: Tesla, la empresa líder en vehículos eléctricos, anunció una inversión de 1,500 millones de dólares en Bitcoin, enviando una señal potente a todo el sector tecnológico mundial.\n\nImportancia técnica/económica: Fue el momento en que Bitcoin entró definitivamente en la cultura popular como un activo moderno y necesario para las empresas innovadoras. El respaldo de una figura como Elon Musk aceleró la percepción de Bitcoin como el 'dinero de la era digital'.\n\nLección aprendida: El apoyo de líderes tecnológicos mundiales es un catalizador fundamental para que la sociedad acepte nuevas formas de valor.",
-    "title_en": "🚗 Tesla Buys BTC",
+    "title_en": "Tesla Buys BTC",
     "description_tooltip_en": "Tesla invests $1.5B in Bitcoin and announces it will accept it as payment. Elon Musk at it again!",
     "description_full_en": "On February 8, 2021, Tesla, the electric vehicle company led by Elon Musk, made an announcement that shook the financial world: it had invested $1.5 billion in Bitcoin. Additionally, the company announced that it would accept Bitcoin as a payment method for its products. This move was an unprecedented vote of confidence from one of the world's most influential companies and was a catalyst for a massive increase in Bitcoin's price.\n\nTesla's investment and the support of its CEO, Elon Musk, legitimized Bitcoin to millions of people and companies. The announcement that a company as important as Tesla considered Bitcoin a store-of-value asset and a valid means of payment was a sign that the cryptocurrency was moving towards mass adoption. The news pushed Bitcoin's price to new all-time highs and encouraged other companies to consider investing in cryptocurrencies.\n\nAlthough Tesla later reversed its decision to accept Bitcoin as payment (citing environmental concerns), the initial investment was a historic milestone. It marked the beginning of the 'institutional fever' for Bitcoin, with mmore and more companies and hedge funds exploring the possibility of adding the cryptocurrency to their balance sheets. The Tesla event was a harbinger of the paradigm shift that was taking place in the world of finance.",
     "links": [
@@ -614,10 +614,10 @@
   {
     "date": "2021-04-14",
     "category": "Adoption",
-    "title_es": "📊 Coinbase en NASDAQ",
+    "title_es": "Coinbase en NASDAQ",
     "description_tooltip_es": "Coinbase se convierte en la primera gran empresa cripto en cotizar en bolsa. ¡Un puente entre Wall Street y el criptoespacio!",
     "description_full_es": "Contexto histórico: El principal exchange de EE.UU. empezó a cotizar en el mercado de valores NASDAQ, permitiendo a cualquier inversor tradicional comprar acciones de una empresa puramente cripto.\n\nImportancia técnica/económica: Representó la mayoría de edad del sector. Las empresas que operan con Bitcoin pasaron a ser tratadas con el mismo rigor, transparencia y auditoría que las grandes tecnológicas de Silicon Valley, legitimando toda la industria ante los ojos del capital tradicional.\n\nLección aprendida: La integración de Bitcoin en las instituciones financieras convencionales es un proceso irreversible de madurez y profesionalización.",
-    "title_en": "📊 Coinbase on NASDAQ",
+    "title_en": "Coinbase on NASDAQ",
     "description_tooltip_en": "Coinbase becomes the first major crypto company to go public. A bridge between Wall Street and the crypto space!",
     "description_full_en": "On April 14, 2021, Coinbase, the largest cryptocurrency exchange in the United States, went public on the NASDAQ stock market with the ticker symbol 'COIN'. This IPO was a historic event, as it marked the first time a major cryptocurrency company was listed on the stock exchange. It was a symbolic bridge between the world of traditional Wall Street finance and the new crypto ecosystem.\n\nCoinbase's listing was a moment of validation for the entire industry. It showed that cryptocurrency companies could be legitimate and profitable businesses. The valuation of Coinbase at the time of the IPO, over $85 billion, was a sign of the enormous growth potential that traditional investors saw in the sector. This event attracted the attention of a wider audience and helped to further legitimize cryptocurrencies.\n\nCoinbase's listing was a crucial milestone that showed the industry's maturation. It demonstrated that cryptocurrencies had moved from a geeky niche to a legitimate financial sector with the potential to generate billions of dollars in revenue. This event was a reminder that blockchain technology and cryptocurrencies were not just a passing fad, but a force that was redefining the future of finance.",
     "links": [
@@ -631,10 +631,10 @@
   {
     "date": "2021-05-21",
     "category": "Regulation",
-    "title_es": "🇨🇳 China prohíbe la minería",
+    "title_es": "China prohíbe la minería",
     "description_tooltip_es": "China decreta el cierre de granjas de minería de Bitcoin. ¡El gran éxodo de mineros hacia Occidente!",
     "description_full_es": "Contexto histórico: El país que concentraba la mayoría de la potencia de Minería mundial expulsó a los mineros de su territorio, obligándoles a apagar sus equipos y buscar nuevos destinos.\n\nImportancia técnica/económica: Fue la prueba de resistencia definitiva. A pesar de la caída temporal del Hashrate (potencia de procesamiento), la red no se detuvo y pronto se volvió mucho más segura y robusta al estar geográficamente más repartida.\n\nLección aprendida: Ningún gobierno del mundo tiene el poder de detener la red Bitcoin; solo puede obligar a que la actividad se mude a lugares más libres.",
-    "title_en": "🇨🇳 China Bans Mining",
+    "title_en": "China Bans Mining",
     "description_tooltip_en": "China orders the shutdown of Bitcoin mining farms. The great miner exodus to the West!",
     "description_full_en": "In May 2021, the Chinese government tightened its stance on Bitcoin, explicitly banning mining and cryptocurrency transactions. At the time, China accounted for over 60% of the network's processing power (hashrate). The announcement caused a sharp price drop and the largest historical decline in hashrate, as thousands of miners powered down and sought new locations.\n\nDespite the initial panic, this event proved extremely positive for Bitcoin's decentralization. The 'Great Exodus' drove miners to countries with cleaner energy and more stable regulations, such as the US, Canada, and Kazakhstan. The Bitcoin network demonstrated its resilience by fully recovering within months, effectively eliminating the fear that a single nation could control or stop the protocol.",
     "links": [
@@ -648,10 +648,10 @@
   {
     "date": "2021-06-09",
     "category": "Adoption",
-    "title_es": "🇸🇻 Bitcoin legal en El Salvador",
+    "title_es": "Bitcoin legal en El Salvador",
     "description_tooltip_es": "El Salvador se convierte en el primer país en aceptar Bitcoin como moneda oficial. ¡Un experimento audaz a nivel nacional!",
     "description_full_es": "Contexto histórico: El Salvador hizo historia al convertirse en el primer país soberano en adoptar Bitcoin como moneda de curso legal, permitiendo que se pueda utilizar para pagar cualquier bien, servicio o impuesto.\n\nImportancia técnica/económica: Es un experimento de libertad financiera a nivel nacional. Bitcoin permite bancarizar a quienes el sistema tradicional ha dejado fuera y ofrece al país una vía de independencia monetaria frente a la inflación de las divisas extranjeras.\n\nLección aprendida: Bitcoin es una herramienta de progreso que puede ofrecer nuevas oportunidades económicas a naciones enteras que buscan innovar y ser soberanas.",
-    "title_en": "🇸🇻 Bitcoin Legal in El Salvador",
+    "title_en": "Bitcoin Legal in El Salvador",
     "description_tooltip_en": "El Salvador becomes the first country to accept Bitcoin as official currency. A bold national experiment!",
     "description_full_en": "On June 9, 2021, El Salvador made history by becoming the first country in the world to adopt Bitcoin as legal tender. The decision, driven by President Nayib Bukele, was made with the goal of boosting financial inclusion, as a large part of the Salvadoran population does not have access to banking services. The law required all businesses to accept Bitcoin as a payment method and allowed citizens to use the cryptocurrency to pay taxes and debts.\n\nThis bold experiment was met with a mix of enthusiasm and skepticism. Bitcoin advocates celebrated it as a monumental step towards mass adoption. They argued that using Bitcoin in a sovereign country would demonstrate its potential as money, not just as an investment asset. However, critics warned about Bitcoin's volatility, the risk to the country's finances, and the lack of infrastructure for its mass use. The adoption of Bitcoin in El Salvador was an important symbolic milestone. It put Bitcoin at the center of the global political and economic conversation and showed that the cryptocurrency could be more than a speculative asset. Although the experiment has had its challenges, it set a precedent for national Bitcoin adoption and opened a global debate about the future of money.",
     "links": [
@@ -665,10 +665,10 @@
   {
     "date": "2021-11-10",
     "category": "Market",
-    "title_es": "🎉 Máximo histórico (ATH)",
+    "title_es": "Máximo histórico (ATH)",
     "description_tooltip_es": "BTC alcanza los $68,789.63, su máximo histórico hasta hoy. ¡La cumbre de la montaña, por ahora!",
     "description_full_es": "Contexto histórico: En la cima de un ciclo de euforia y adopción global, Bitcoin alcanzó un precio cercano a los 69,000 dólares, siendo el activo con mejor rendimiento de la última década.\n\nImportancia técnica/económica: Marcó el techo de una etapa donde Bitcoin demostró su madurez como activo de reserva de valor. Cada nuevo máximo histórico confirma que la red sigue creciendo y que la Escasez de sus 21 millones de unidades es cada vez más valorada por el mercado global.\n\nLección aprendida: Los mercados siempre alcanzan puntos de exceso antes de corregir, pero cada nueva cima es un testimonio irrefutable del crecimiento y adopción de la red.",
-    "title_en": "🎉 All-Time High (ATH)",
+    "title_en": "All-Time High (ATH)",
     "description_tooltip_en": "BTC reaches $68,789.63, its all-time high to date. The summit of the mountain, for now!",
     "description_full_en": "On November 10, 2021, Bitcoin reached its all-time high (ATH) of $68,789.63. This peak was the culmination of a long bull market that began in 2020 after the third halving and the COVID-19 crash. The surge was driven by a combination of factors, including institutional adoption, the entry of large capital, and a general feeling of euphoria in the market. At this point, Bitcoin was an omnipresent conversation in the media and in everyday life.\n\nThis ATH marked a turning point. Although the price fell shortly after and the market entered a long bear market, the 2021 peak demonstrated Bitcoin's enormous growth potential. The value Bitcoin reached at that time exceeded the expectations of many and consolidated it as one of the most important and fastest-growing financial assets in the world.\n\nThe 2021 all-time high is a reminder that, despite volatility, Bitcoin has exponential growth potential. Although the market has cooled since then, the 2021 milestone serves as a beacon for long-term investors, proving that Bitcoin's journey from a technological experiment to a global financial asset is a reality. The 2021 ATH is the summit of the mountain, but not the last, as the halving and adoption cycle continues.",
     "links": [
@@ -682,10 +682,10 @@
   {
     "date": "2021-11-14",
     "category": "Technology",
-    "title_es": "🌳 Activación de Taproot",
+    "title_es": "Activación de Taproot",
     "description_tooltip_es": "Se activa Taproot, la mayor mejora de Bitcoin en años. ¡Mejor privacidad y contratos inteligentes más eficientes!",
     "description_full_es": "Contexto histórico: Se activó con éxito Taproot, la mayor mejora técnica de Bitcoin en años, gracias al consenso casi unánime de mineros y desarrolladores de todo el mundo.\n\nImportancia técnica/económica: Taproot mejoró la privacidad al hacer que transacciones complejas parezcan simples en la Blockchain. También redujo los costos de transacción y abrió la puerta a contratos inteligentes más sofisticados, demostrando que Bitcoin puede seguir evolucionando sin perder su esencia de dinero sólido y seguro.\n\nLección aprendida: La innovación en Bitcoin es deliberadamente cuidadosa porque la prioridad absoluta siempre es la seguridad y la estabilidad del protocolo.",
-    "title_en": "🌳 Taproot Activation",
+    "title_en": "Taproot Activation",
     "description_tooltip_en": "Taproot is activated, Bitcoin's biggest upgrade in years. Better privacy and more efficient smart contracts!",
     "description_full_en": "On November 14, 2021, the Bitcoin network successfully activated Taproot at block 709,632. It was the most significant upgrade since SegWit in 2017. Taproot introduced Schnorr signatures, which allow complex transactions (like multi-signature or Lightning channels) to appear as simple transactions on the blockchain, drastically improving privacy and reducing space requirements.\n\nThis upgrade not only made transactions cheaper and more private but also expanded Bitcoin's capabilities for executing more sophisticated smart contracts. Taproot was the result of near-total consensus among developers and miners, showcasing the maturity of Bitcoin's governance process. It laid the groundwork for future innovations like Ordinals and greater programmability on the world's most secure network.",
     "links": [
@@ -699,10 +699,10 @@
   {
     "date": "2022-05-12",
     "category": "Security",
-    "title_es": "🌪\ufe0f Colapso de Terra/Luna",
+    "title_es": "Colapso de Terra/Luna",
     "description_tooltip_es": "Una de las mayores stablecoins colapsa. Arrastra a BTC y a todo el mercado a la baja. ¡Un terremoto en el ecosistema cripto!",
     "description_full_es": "Contexto histórico: Un ambicioso proyecto que prometía una moneda estable (stablecoin) falló estrepitosamente, causando un efecto dominó que borró miles de millones de dólares del mercado cripto en pocos días.\n\nImportancia técnica/económica: Este desastre resaltó la diferencia fundamental entre Bitcoin, un activo robusto y descentralizado, y otros proyectos experimentales y frágiles. El mercado aprendió a valorar de nuevo la seguridad y la simplicidad frente a promesas de rentabilidad irreales.\n\nLección aprendida: No todo lo que utiliza tecnología Blockchain es seguro; la robustez probada de Bitcoin es su mayor ventaja frente a cualquier otro activo digital.",
-    "title_en": "🌪\ufe0f Terra/Luna Collapse",
+    "title_en": "Terra/Luna Collapse",
     "description_tooltip_en": "One of the biggest stablecoins collapses. It drags BTC and the entire market down. An earthquake in the crypto ecosystem!",
     "description_full_en": "In May 2022, the Terra ecosystem, which included the algorithmic 'stablecoin' TerraUSD (UST) and its token LUNA, collapsed in one of the biggest financial disasters in the crypto space. The collapse occurred when UST's value lost its peg to the dollar, triggering a 'death spiral' that caused the value of LUNA and UST to fall to zero in a matter of days. This event caused tens of billions of dollars in losses.\n\nThe Terra collapse had a contagion effect throughout the crypto market. Panic seized investors, and many assets, including Bitcoin, fell dramatically. This event was a reminder of the inherent risks in the crypto space and the importance of stability and transparency. The fall of Terra sparked a wave of skepticism about the future of algorithmic 'stablecoins' and led to a tightening of regulatory scrutiny worldwide.\n\nThe Terra collapse was a dark moment in the history of cryptocurrencies, but it also served as an important lesson. It highlighted the fundamental difference between Bitcoin, with its programmed scarcity and robust protocol, and newer, more experimental projects. The event reinforced the narrative of Bitcoin as a decentralized and resilient asset, while the rest of the cryptocurrency ecosystem had to deal with the consequences of a lack of trust.",
     "links": [
@@ -716,10 +716,10 @@
   {
     "date": "2022-11-11",
     "category": "Security",
-    "title_es": "💥 Quiebra de FTX",
+    "title_es": "Quiebra de FTX",
     "description_tooltip_es": "FTX, uno de los exchanges más grandes, colapsa por fraude. Millones pierden fondos. ¡Otro escándalo que sacudió la confianza!",
     "description_full_es": "Contexto histórico: Uno de los exchanges más populares y respetados del mundo colapsó tras revelarse un fraude masivo interno, dejando a millones de personas sin acceso a sus ahorros.\n\nImportancia técnica/económica: Fue una lección durísima sobre los peligros de confiar en intermediarios centralizados y la importancia de la ética en las finanzas. La caída de FTX reforzó el lema 'Not your keys, not your coins' y provocó un regreso masivo de los usuarios a la autocustodia segura de su Clave Privada.\n\nLección aprendida: La descentralización es la cura para la corrupción humana; Bitcoin funciona porque no depende de la honestidad de ningún administrador o CEO.",
-    "title_en": "💥 FTX Bankruptcy",
+    "title_en": "FTX Bankruptcy",
     "description_tooltip_en": "FTX, one of the largest exchanges, collapses due to fraud. Millions lose funds. Another scandal that shook trust!",
     "description_full_en": "On November 11, 2022, the cryptocurrency exchange FTX filed for bankruptcy after serious liquidity problems and alleged massive fraud were revealed. The collapse of FTX, which at the time was one of the largest and most respected exchanges in the world, caused a shock throughout the crypto market. Millions of users lost their funds, and the industry's reputation was severely damaged. The founder, Sam Bankman-Fried, was arrested and charged with fraud.\n\nThe fall of FTX was a painful reminder of the inherent risks of centralized exchanges. Despite its size and public image, the company turned out to be a black box of corruption and mismanagement. The event reinforced the slogan 'Not your keys, not your coins' and led to a new wave of self-custody and greater scrutiny of centralized platforms. It also prompted a wake-up call to regulators around the world, who began working on creating a stricter regulatory framework for the sector.\n\nThe FTX collapse was a crucial moment in the history of cryptocurrencies. Although it caused significant short-term damage, it was also a catalyst for the industry's maturation. It showed that for the ecosystem to grow sustainably, a greater degree of transparency and accountability is necessary. The fall of FTX was a reminder that while the technology is decentralized, the entities that operate on it are not, and that vigilance is essential to protect users.",
     "links": [
@@ -733,10 +733,10 @@
   {
     "date": "2023-03-10",
     "category": "Market",
-    "title_es": "🏦 Crisis bancaria USA",
+    "title_es": "Crisis bancaria USA",
     "description_tooltip_es": "Bitcoin sube tras la quiebra de bancos tradicionales como SVB y Signature Bank. ¡Bitcoin como refugio seguro, una vez más!",
     "description_full_es": "Contexto histórico: La caída repentina de varios bancos regionales en EE.UU. provocó que los ahorradores temieran por la seguridad de sus depósitos, provocando un repunte masivo en el precio de Bitcoin.\n\nImportancia técnica/económica: Este evento reforzó el papel de Bitcoin como un activo 'seguro' contra los fallos del sistema bancario tradicional. Mientras los bancos cerraban y necesitaban rescates, la red de Bitcoin siguió funcionando 24/7 de forma ininterrumpida, permitiendo a sus dueños tener control total sobre su riqueza.\n\nLección aprendida: Bitcoin es el bote salvavidas financiero que permite a los individuos estar protegidos cuando el sistema bancario convencional muestra sus fragilidades.",
-    "title_en": "🏦 USA Banking Crisis",
+    "title_en": "USA Banking Crisis",
     "description_tooltip_en": "Bitcoin rises after the collapse of traditional banks like SVB and Signature Bank. Bitcoin as a safe haven, once again!",
     "description_full_en": "In March 2023, the U.S. banking system was shaken by the failure of several banks, including Silicon Valley Bank (SVB) and Signature Bank. The crisis was triggered when customers, in a mass panic, withdrew their deposits, causing a bank run. The failure of these banks, despite being regulated and insured, was a reminder of the fragility of the traditional financial system. In this context of uncertainty, Bitcoin experienced a significant rebound.\n\nBitcoin's price soared, reinforcing the narrative that the cryptocurrency could function as a 'safe haven' asset in times of financial instability. People, who had lost faith in traditional banks, looked for an alternative. Bitcoin, with its decentralized, immutable, and censorship-resistant nature, presented itself as a viable solution. This event was a validation of the concept of Bitcoin as a hedge against a lack of trust in financial institutions.\n\nThe 2023 banking crisis was a turning point. It showed that Bitcoin's value is not only in its growth potential but also in its role as an alternative asset to the traditional financial system. The event helped solidify the narrative of Bitcoin as a tool for financial freedom and a store-of-value asset in the 21st century. The banking crisis was a reminder of why Satoshi Nakamoto created Bitcoin in the first place.",
     "links": [
@@ -750,10 +750,10 @@
   {
     "date": "2023-04-20",
     "category": "Regulation",
-    "title_es": "🇪🇺 Europa aprueba MiCA",
+    "title_es": "Europa aprueba MiCA",
     "description_tooltip_es": "La UE aprueba el primer marco regulatorio integral para criptoactivos. ¡Reglas claras para el mercado europeo!",
     "description_full_es": "Contexto histórico: La Unión Europea aprobó MiCA, el primer conjunto de leyes completas del mundo destinadas a regular el sector de las criptomonedas de forma coordinada en 27 países.\n\nImportancia técnica/económica: Representó un cambio de paradigma: de la incertidumbre total a un conjunto de reglas claras para empresas e inversores. Este marco legal ayuda a que Bitcoin sea adoptado por instituciones financieras tradicionales que necesitan seguridad jurídica para ofrecer servicios a sus clientes.\n\nLección aprendida: Reglas claras y justas atraen a grandes jugadores y permiten que la tecnología se integre de forma estable y profesional en la sociedad moderna.",
-    "title_en": "🇪🇺 Europe Approves MiCA",
+    "title_en": "Europe Approves MiCA",
     "description_tooltip_en": "The EU approves the first comprehensive regulatory framework for crypto-assets. Clear rules for the European market!",
     "description_full_en": "On April 20, 2023, the European Parliament approved the MiCA (Markets in Crypto-Assets) regulation, becoming the first major jurisdiction in the world to establish a complete legal framework for cryptocurrencies. The law seeks to protect investors, prevent fraud, and provide legal certainty for companies operating with digital assets across the 27 Union countries.\n\nMiCA represented a paradigm shift: from total uncertainty to a set of clear rules. While imposing strict requirements on stablecoin issuers and service providers, it also legitimizes the industry in the eyes of the traditional banking sector. This framework has served as inspiration for other global regulators and positions Europe as an innovation hub seeking to balance user protection with technological development.",
     "links": [
@@ -767,10 +767,10 @@
   {
     "date": "2023-10-01",
     "category": "Adoption",
-    "title_es": "🟢 BlackRock pide ETF",
+    "title_es": "BlackRock pide ETF",
     "description_tooltip_es": "BlackRock y otras gestoras presentan solicitudes para ETF de Bitcoin. Comienza nuevo optimismo. ¡Los grandes jugadores se suman!",
     "description_full_es": "Contexto histórico: La mayor gestora de inversiones del mundo, BlackRock, solicitó oficialmente permiso para crear un fondo (ETF) que permita a cualquier inversor comprar Bitcoin fácilmente en la bolsa tradicional.\n\nImportancia técnica/económica: Fue la señal definitiva de que el mundo financiero tradicional ha aceptado a Bitcoin como un activo de inversión de primer nivel. El interés de gigantes como BlackRock valida la tesis de Bitcoin como 'oro digital' institucional y abre el grifo para la entrada de billones de dólares en el ecosistema.\n\nLección aprendida: El reconocimiento de los gigantes de las finanzas es la validación final del éxito de Bitcoin como una nueva y necesaria reserva de valor global.",
-    "title_en": "🟢 BlackRock Files for ETF",
+    "title_en": "BlackRock Files for ETF",
     "description_tooltip_en": "BlackRock and other asset managers file for Bitcoin ETFs. New optimism begins. The big players are joining!",
     "description_full_en": "In October 2023, the Bitcoin market was revitalized by the news that BlackRock, the world's largest asset manager, had filed an application for a spot Bitcoin ETF (exchange-traded fund). This application was joined by other renowned asset managers like Fidelity and WisdomTree. The filing of these ETFs was a catalyst for a new cycle of optimism and anticipation in the market.\n\nThe entry of financial giants like BlackRock was a historic milestone, as it demonstrated that institutional interest in Bitcoin was stronger than ever. A spot Bitcoin ETF would allow traditional investors, such as pension funds and financial advisors, to access Bitcoin safely and easily, without having to buy and custody it directly. This would open the doors to a new wave of capital in the ecosystem, with the potential to dramatically increase the price.\n\nBlackRock's filing was a turning point that changed the market narrative. It shifted from a market driven by news from the SEC (U.S. Securities and Exchange Commission) about regulation to a market driven by anticipation of an ETF approval. This event was a reminder that, as Bitcoin matures, the big players in the traditional financial world are ready to join the game.",
     "links": [
@@ -784,10 +784,10 @@
   {
     "date": "2024-01-10",
     "category": "Market",
-    "title_es": "✅ Aprobación de los ETFs",
+    "title_es": "Aprobación de los ETFs",
     "description_tooltip_es": "La SEC de EE. UU. aprueba los primeros ETFs de Bitcoin al contado. ¡El momento que cambió el mercado para siempre!",
     "description_full_es": "Contexto histórico: Tras una década de rechazos legales, la SEC (regulador de EE.UU.) finalmente permitió la venta de fondos de Bitcoin al contado, permitiendo que cualquiera pueda invertir en él desde su cuenta bancaria habitual.\n\nImportancia técnica/económica: Es el hito de adopción institucional más importante. Al permitir que billones de dólares de fondos de pensiones entren al mercado a través de un ETF, Bitcoin se ha consolidado definitivamente como un activo financiero global y regulado.\n\nLección aprendida: La persistencia de una tecnología superior acaba derribando todas las barreras regulatorias y financieras con el paso del tiempo.",
-    "title_en": "✅ ETF Approval",
+    "title_en": "ETF Approval",
     "description_tooltip_en": "The US SEC approves the first spot Bitcoin ETFs. The moment that changed the market forever!",
     "description_full_en": "On January 10, 2024, after a decade of rejections and a historic legal battle, the SEC finally approved 11 spot Bitcoin ETF applications. Financial giants like BlackRock and Fidelity could finally offer Bitcoin to their clients in the same way they offer stocks or gold. This event marked Bitcoin's definitive entry into financial 'Main Street.'\n\nThe approval of the ETFs removed the biggest barrier for institutional investors and pension funds, allowing for a massive influx of regulated capital. In their first months, these funds became the most successful ETF launch in history, accumulating billions of dollars. Bitcoin moved from a peripheral asset to a standard component of modern investment portfolios, solidifying its status as institutional 'digital gold.'",
     "links": [
@@ -801,10 +801,10 @@
   {
     "date": "2024-04-20",
     "category": "Halving",
-    "title_es": "🔻 Cuarto halving",
+    "title_es": "Cuarto halving",
     "description_tooltip_es": "La recompensa por bloque se reduce a 3.125 BTC. Se reduce la oferta diaria de nuevos bitcoins. ¡El evento más esperado por los 'Bitcoin maximalistas'!",
     "description_full_es": "Contexto histórico: Se produjo la cuarta reducción programada en la emisión de Bitcoin. La recompensa para los mineros bajó a 3.125 BTC por bloque, haciendo que Bitcoin sea más escaso que el oro por primera vez en su historia.\n\nImportancia técnica/económica: Este evento consolidó a Bitcoin como el activo con la tasa de inflación más baja del mundo. El Halving genera un Supply Shock al reducir la oferta diaria a la mitad, lo que garantiza que el valor no se diluya por decisiones políticas o impresión de dinero.\n\nLección aprendida: Un sistema monetario basado en reglas inmutables es superior a cualquier sistema basado en la discrecionalidad humana.",
-    "title_en": "🔻 Fourth Halving",
+    "title_en": "Fourth Halving",
     "description_tooltip_en": "The block reward is reduced to 3.125 BTC. The daily supply of new bitcoins is cut. The most anticipated event by 'Bitcoin maximalists'!",
     "description_full_en": "On April 20, 2024, the Bitcoin network experienced its fourth halving. The reward that miners receive for validating a block was reduced from 6.25 BTC to 3.125 BTC. This event, which occurs approximately every four years, is one of the most important in the Bitcoin ecosystem, as it has a direct impact on the supply and scarcity of the cryptocurrency. The reduction in the supply of new bitcoins is a key deflationary mechanism, designed to preserve Bitcoin's value in the long term.\n\nThe fourth halving was highly anticipated, as it coincided with the beginning of the era of spot Bitcoin ETFs. The combination of a reduced supply and growing demand from institutional investors laid the groundwork for the next bull market. Bitcoin advocates, often called 'maximalists', celebrated the event as a milestone that demonstrates the soundness of Satoshi Nakamoto's original design and the inevitability of Bitcoin as a store-of-value asset.\n\nThe fourth halving was a reminder that Bitcoin's code is immutable and its monetary policy is predictable. While central banks around the world continue with money-printing policies, Bitcoin's programmed scarcity makes it a unique and valuable asset. The 2024 halving was a milestone that marked the beginning of a new phase in the history of Bitcoin, one where its value will be driven by the combination of scarcity and mass adoption.",
     "links": [
@@ -818,10 +818,10 @@
   {
     "date": "2024-11-15",
     "category": "Market",
-    "title_es": "🚀 Bitcoin supera los $80,000",
+    "title_es": "Bitcoin supera los $80,000",
     "description_tooltip_es": "Tras un periodo de consolidación post-halving, Bitcoin rompe la barrera de los $80,000.",
     "description_full_es": "Contexto histórico: Tras unos meses de estabilidad después del cuarto halving, Bitcoin rompió por primera vez la barrera de los 80,000 dólares impulsado por la fuerte demanda institucional de los ETFs.\n\nImportancia técnica/económica: Este movimiento demostró que el efecto de la escasez post-halving sigue siendo un motor potente. Al combinarse la entrada de capital de los ETF con el Supply Shock (reducción de oferta), el valor del activo tiende a subir de forma parabólica.\n\nLección aprendida: La combinación de una oferta fija y una adopción masiva imparable es la receta para el crecimiento exponencial de Bitcoin en la economía global.",
-    "title_en": "🚀 Bitcoin Breaks $80,000",
+    "title_en": "Bitcoin Breaks $80,000",
     "description_tooltip_en": "After a post-halving consolidation period, Bitcoin breaks the $80,000 barrier.",
     "description_full_en": "In November 2024, Bitcoin experienced a strong rally that pushed it past $80,000 for the first time. This move was driven by a combination of factors, including greater regulatory clarity following key political events in the US and a massive influx of institutional capital through spot ETFs. The market began to seriously value the post-halving 'supply shock' effect, marking the beginning of the most parabolic phase of the cycle.",
     "links": []
@@ -829,10 +829,10 @@
   {
     "date": "2025-01-01",
     "category": "Technology",
-    "title_es": "🌍 1 millón de nodos ligeros",
+    "title_es": "1 millón de nodos ligeros",
     "description_tooltip_es": "Se estima que existen más de un millón de nodos móviles o ligeros operando en todo el mundo. ¡Bitcoin se vuelve más descentralizado y accesible!",
     "description_full_es": "Contexto histórico: Se alcanzó el hito técnico de un millón de nodos ligeros activos, permitiendo que millones de personas verifiquen sus transacciones desde sus propios teléfonos móviles mediante tecnología SPV (verificación simple de pagos).\n\nImportancia técnica/económica: Este aumento masivo fortalece la Descentralización de la red. Al permitir que cualquier individuo pueda validar las reglas de Bitcoin de forma sencilla, se reduce el poder de los intermediarios y se aumenta la soberanía financiera de los ciudadanos de todo el mundo.\n\nLección aprendida: La verdadera libertad financiera se alcanza cuando cada persona tiene las herramientas para ser su propio banco de forma sencilla y segura.",
-    "title_en": "🌍 1 Million Light Nodes",
+    "title_en": "1 Million Light Nodes",
     "description_tooltip_en": "It is estimated that there are over one million mobile or light nodes operating worldwide. Bitcoin becomes more decentralized and accessible!",
     "description_full_en": "In a significant milestone for network decentralization, the number of Bitcoin light nodes, also known as 'SPV clients,' is estimated to have surpassed one million worldwide. Unlike full nodes that download the entire 'blockchain,' light nodes allow users to verify the validity of transactions without needing to store the entire history. This functionality is crucial for mobile devices and wallet applications, making Bitcoin more accessible to the global population.\n\nThe growth of light nodes is a key metric of Bitcoin's mass adoption. As more people run these nodes on their phones and computers, the network becomes more decentralized and censorship-resistant. Each node is an independent validation point that helps maintain the network's integrity, making it more secure and robust. This increase in the number of nodes is an indication that Bitcoin is becoming a truly global and distributed network.\n\nThe one million light nodes milestone is a reminder of Satoshi Nakamoto's original vision of a 'peer-to-peer electronic cash system.' It shows that the Bitcoin network is evolving to be more user-friendly and accessible, without compromising its principles of security and decentralization. This growth is a harbinger of a future where Bitcoin will be used by billions of people worldwide, each contributing to the network's security from their own device.",
     "links": [
@@ -846,10 +846,10 @@
   {
     "date": "2025-02-15",
     "category": "Market",
-    "title_es": "💯 Bitcoin alcanza las seis cifras ($100,000)",
+    "title_es": "Bitcoin alcanza las seis cifras ($100,000)",
     "description_tooltip_es": "Bitcoin alcanza el hito psicológico de los $100,000 por moneda.",
     "description_full_es": "Contexto histórico: En un momento histórico para las finanzas mundiales, una sola unidad de Bitcoin pasó a valer más de 100.000 dólares, captando la atención mediática de todo el planeta.\n\nImportancia técnica/económica: Romper la barrera de las seis cifras validó a Bitcoin como el activo más exitoso del siglo XXI. Lo que hace años parecía un sueño imposible de los primeros adoptantes se convirtió en una realidad tangible, consolidando su estatus como 'oro digital' y reserva de valor suprema.\n\nLección aprendida: El tiempo y la adopción masiva acaban dando la razón a quienes entienden el valor de la tecnología y la escasez absoluta antes que el resto del mundo.",
-    "title_en": "💯 Bitcoin Reaches Six Figures ($100,000)",
+    "title_en": "Bitcoin Reaches Six Figures ($100,000)",
     "description_tooltip_en": "Bitcoin reaches the psychological milestone of $100,000 per coin.",
     "description_full_en": "A historic moment for global finance: Bitcoin reached the price of $100,000. What was once considered an impossible dream by early adopters became a reality, solidifying Bitcoin as a world-class store-of-value asset. This milestone attracted unprecedented media attention and a new wave of global retail adoption.",
     "links": []
@@ -857,10 +857,10 @@
   {
     "date": "2025-05-01",
     "category": "Technology",
-    "title_es": "🖼️ Auge de los Ordinals y NFTs en Bitcoin",
+    "title_es": "Auge de los Ordinals y NFTs en Bitcoin",
     "description_tooltip_es": "Se popularizan aún más los Ordinals y los NFTs en la blockchain de Bitcoin, demostrando nuevas funcionalidades para la red. ¡Bitcoin no es solo dinero, es arte digital!",
     "description_full_es": "Contexto histórico: Se popularizó el uso de la red Bitcoin para inscribir arte digital y datos inmutables directamente en la Blockchain, dando lugar a los NFT (Tokens No Fungibles) nativos de Bitcoin y creando un nuevo mercado cultural.\n\nImportancia técnica/económica: Este movimiento demostró que la red más segura del mundo también puede servir como una base de datos inmutable para la preservación de la cultura. Aunque generó debate, aumentó los ingresos de los mineros y atrajo a una nueva generación de artistas a construir sobre Bitcoin.\n\nLección aprendida: La red Bitcoin es un lienzo en blanco donde la humanidad puede inscribir cualquier cosa que considere valiosa para la posteridad de forma eterna.",
-    "title_en": "🖼️ Rise of Ordinals and NFTs on Bitcoin",
+    "title_en": "Rise of Ordinals and NFTs on Bitcoin",
     "description_tooltip_en": "Ordinals and NFTs on the Bitcoin blockchain become even more popular, demonstrating new functionalities for the network. Bitcoin is not just money, it's digital art!",
     "description_full_en": "In 2025, the phenomenon of Ordinals and NFTs (non-fungible tokens) on the Bitcoin blockchain experiences a massive boom. Ordinals, a protocol that allows 'inscribing' digital data like images, videos, and text directly onto satoshis (the smallest unit of Bitcoin), have become a popular way to create and collect digital art. This movement, which began in 2023, has shown that the Bitcoin blockchain can be used for more than just financial transactions.\n\nThe rise of Ordinals has sparked a debate in the Bitcoin community. Some see it as a way to breathe new life into the network and attract a new generation of artists and collectors. Others, however, are concerned about the increase in the blockchain's size and transaction costs. Despite the controversy, the movement has demonstrated the network's versatility and Bitcoin's ability to adapt to new functionalities.\n\nThe growth of Ordinals is an important milestone that shows how Bitcoin technology is evolving. It proves that Bitcoin is not just 'digital gold' but a platform for innovation. The rise of NFTs on Bitcoin has opened the door to a new wave of development and creativity on the network, and it is a reminder that the Bitcoin ecosystem is a place of constant innovation and experimention.",
     "links": [
@@ -874,10 +874,10 @@
   {
     "date": "2025-07-20",
     "category": "Technology",
-    "title_es": "⚡️ Lightning Network alcanza 5.000 BTC de capacidad",
+    "title_es": "Lightning Network alcanza 5.000 BTC de capacidad",
     "description_tooltip_es": "La capacidad de la Lightning Network, la capa de pagos rápidos de Bitcoin, supera los 5.000 BTC. ¡Pagos instantáneos y baratos son cada vez más una realidad!",
     "description_full_es": "Contexto histórico: La Lightning Network, la solución de pagos rápidos construida sobre Bitcoin, superó una capacidad de 5,000 BTC, permitiendo realizar transacciones instantáneas a coste casi cero a nivel global.\n\nImportancia técnica/económica: Es la solución de Capa 2 definitiva al problema de la escala. Permite que Bitcoin sea usado para pagos diarios sin congestionar la Blockchain principal, manteniendo la seguridad total del sistema y permitiendo microtransacciones instantáneas.\n\nLección aprendida: Bitcoin es capaz de evolucionar por capas para servir a toda la humanidad sin sacrificar sus principios fundamentales de seguridad y descentralización.",
-    "title_en": "⚡️ Lightning Network Reaches 5,000 BTC Capacity",
+    "title_en": "Lightning Network Reaches 5,000 BTC Capacity",
     "description_tooltip_en": "The capacity of the Lightning Network, Bitcoin's fast payments layer, exceeds 5,000 BTC. Instant and cheap payments are becoming more and more a reality!",
     "description_full_en": "In a major milestone for Bitcoin scalability, the total capacity of the Lightning Network surpasses 10,000 BTC. The Lightning Network is a 'layer 2' built on Bitcoin that enables instant and low-cost payments. This increase in capacity means that more bitcoins are being locked in the Lightning Network, allowing more users to make fast and secure transactions without having to wait for confirmation on the main chain.\n\nThe growth of the Lightning Network is a crucial development for the mass adoption of Bitcoin as a means of payment. As the main Bitcoin network becomes congested and transaction costs increase, the Lightning Network offers a scalable solution that allows users to make microtransactions efficiently. This growth is an indication that the network is becoming more mature and robust, and that more and more businesses and users are using it for their daily payments.\n\nThe 5,000 BTC milestone is a reminder of Satoshi Nakamoto's vision of an 'electronic cash system.' It shows that the Bitcoin community is actively working on solving scalability problems and that the future of instant payments with Bitcoin is becoming more and more a reality. The growth of the Lightning Network is a key milestone that shows that Bitcoin is evolving to be not only a store-of-value asset but also a currency for daily use.",
     "links": [
@@ -891,10 +891,10 @@
   {
     "date": "2025-10-06",
     "category": "Market",
-    "title_es": "🏔\ufe0f Nuevo Máximo Histórico de Ciclo: $124,728",
+    "title_es": "Nuevo Máximo Histórico de Ciclo: $124,728",
     "description_tooltip_es": "Bitcoin alcanza su punto más alto en este ciclo antes de una gran corrección.",
     "description_full_es": "Contexto histórico: En el punto álgido de la adopción institucional global, Bitcoin alcanzó un precio de 124,728 dólares, marcando el techo psicológico del ciclo post-halving de 2024.\n\nImportancia técnica/económica: Representa el éxito de la tesis de Bitcoin como el activo financiero más deseado del mundo. Este nivel de precio atrajo el capital necesario para construir la infraestructura tecnológica que permitirá a Bitcoin integrarse profundamente en la economía real de las personas.\n\nLección aprendida: Los mercados se mueven en ondas de euforia, y cada nueva cima alcanzada atrae los recursos necesarios para construir el futuro del dinero.",
-    "title_en": "🏔\ufe0f New Cycle All-Time High: $124,728",
+    "title_en": "New Cycle All-Time High: $124,728",
     "description_tooltip_en": "Bitcoin reaches its highest point in this cycle before a major correction.",
     "description_full_en": "Bitcoin reached its all-time high of $124,728 in October 2025. At this point, market euphoria was at its peak, with projections pointing even higher. However, this level marked the local ceiling of the 2024 post-halving cycle, followed by a distribution phase and a subsequent healthy market correction.",
     "links": []
@@ -902,10 +902,10 @@
   {
     "date": "2026-03-01",
     "category": "Market",
-    "title_es": "🔄 Estabilización y Nueva Fase de Acumulación",
+    "title_es": "Estabilización y Nueva Fase de Acumulación",
     "description_tooltip_es": "Tras caer hasta los $66,000, Bitcoin encuentra soporte y comienza a lateralizar.",
     "description_full_es": "Contexto histórico: Tras la euforia de los máximos, el mercado entró en una fase de calma y estabilidad, permitiendo que el precio se asentara mientras la tecnología y la utilidad real volvían a ser el foco principal.\n\nImportancia técnica/económica: Estas fases de consolidación son fundamentales para limpiar el mercado de especulación excesiva y permitir que las instituciones acumulen activos de forma estable. Es el periodo donde se construye la base sólida para el siguiente salto tecnológico de la red.\n\nLección aprendida: La estabilidad es el signo de una tecnología que ha madurado y está lista para ser integrada profundamente en la vida cotidiana de toda la sociedad.",
-    "title_en": "🔄 Stabilization and New Accumulation Phase",
+    "title_en": "Stabilization and New Accumulation Phase",
     "description_tooltip_en": "After dropping to $66,000, Bitcoin finds support and begins to move sideways.",
     "description_full_en": "Following the correction from the $124k highs, Bitcoin found a solid floor around $66,000 in February 2026. Starting in March, the market entered a phase of consolidation and institutional accumulation, with reduced volatility and a renewed focus on the development of layer 2 infrastructure and the real utility of the network.",
     "links": []

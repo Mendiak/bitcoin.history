@@ -12,12 +12,10 @@ const halvingData = [
 ];
 
 let currentEraIndex = 4; // Empezamos en 2024
-let particleInterval;
 
 export function initHalvingInfographic() {
     renderSelectors();
     updateEraInfo();
-    initParticles();
     renderEmissionChart();
 }
 
@@ -26,10 +24,16 @@ function renderSelectors() {
     if (!container) return;
 
     container.innerHTML = '';
+    container.className = 'flex flex-wrap gap-2 justify-center mb-6';
+
     halvingData.forEach((d, index) => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = `btn btn-outline-secondary ${index === currentEraIndex ? 'active' : ''}`;
+        btn.className = `era-btn px-4 py-2 text-sm font-medium border rounded-md transition-all ${
+            index === currentEraIndex 
+            ? 'bg-[var(--bitcoin-orange)] text-white border-[var(--bitcoin-orange)] shadow-lg' 
+            : 'bg-transparent border-border hover:bg-secondary text-foreground'
+        }`;
         btn.textContent = d.year;
         btn.onclick = () => {
             currentEraIndex = index;
@@ -41,11 +45,16 @@ function renderSelectors() {
 
 function updateUI() {
     // Actualizar botones
-    const buttons = document.querySelectorAll('#halving-selector .btn');
-    buttons.forEach((btn, i) => btn.classList.toggle('active', i === currentEraIndex));
+    const buttons = document.querySelectorAll('.era-btn');
+    buttons.forEach((btn, i) => {
+        if (i === currentEraIndex) {
+            btn.className = 'era-btn px-4 py-2 text-sm font-medium border rounded-md transition-all bg-[var(--bitcoin-orange)] text-white border-[var(--bitcoin-orange)] shadow-lg';
+        } else {
+            btn.className = 'era-btn px-4 py-2 text-sm font-medium border rounded-md transition-all bg-transparent border-border hover:bg-secondary text-foreground';
+        }
+    });
 
     updateEraInfo();
-    updateParticles();
 }
 
 function updateEraInfo() {
@@ -53,6 +62,12 @@ function updateEraInfo() {
     document.getElementById('current-reward').textContent = `${data.reward} BTC`;
     document.getElementById('current-inflation').textContent = data.inflation;
     document.getElementById('total-supply').textContent = `${data.supply} BTC`;
+    
+    // Actualizar indicador visual estático
+    const emissionRateEl = document.getElementById('current-emission-rate');
+    if (emissionRateEl) {
+        emissionRateEl.textContent = data.reward;
+    }
     
     // Inyectar la historia de la era
     const storyText = document.getElementById('era-story-text');
@@ -71,55 +86,11 @@ function updateEraInfo() {
     }
 }
 
-function initParticles() {
-    const container = document.getElementById('particles-container');
-    if (!container) return;
-
-    updateParticles();
-}
-
-function updateParticles() {
-    if (particleInterval) clearInterval(particleInterval);
-
-    const data = halvingData[currentEraIndex];
-    // Ajustar frecuencia según la recompensa (50 BTC = muy rápido, 1.56 = muy lento)
-    const frequency = 2000 / (data.reward + 1); // ms entre partículas
-
-    particleInterval = setInterval(() => {
-        createParticle();
-    }, frequency);
-}
-
-function createParticle() {
-    const container = document.getElementById('particles-container');
-    if (!container) return;
-
-    const particle = document.createElement('div');
-    particle.className = 'bitcoin-particle';
-    particle.innerHTML = '<i class="bi bi-currency-bitcoin"></i>';
-    
-    const startX = (Math.random() - 0.5) * 40; // Aleatoriedad horizontal
-    particle.style.left = `calc(50% + ${startX}px)`;
-    particle.style.top = '20px';
-    
-    container.appendChild(particle);
-
-    // Animación y eliminación
-    setTimeout(() => {
-        particle.style.transform = 'translateY(250px)';
-        particle.style.opacity = '0';
-    }, 10);
-
-    setTimeout(() => {
-        particle.remove();
-    }, 2000);
-}
-
 function renderEmissionChart() {
     const container = d3.select("#emission-chart");
     const width = container.node().getBoundingClientRect().width;
     const height = 250;
-    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 10, right: 20, bottom: 40, left: 60 }; // Reduced top margin
 
     container.html(''); // Limpiar
 
@@ -132,23 +103,16 @@ function renderEmissionChart() {
         .range([margin.left, width - margin.right]);
 
     const y = d3.scaleLinear()
-        .domain([0, 21000000])
+        .domain([0, 22000000]) // Tightened domain to fit data better
         .range([height - margin.bottom, margin.top]);
 
     // Línea de Suministro Total (Teórica)
     const supplyPoints = [];
     let currentSupply = 0;
-    let reward = 50;
     const blocksPerYear = 52560; // 6 blocks/hour * 24 hours * 365 days
     
     for (let year = 2009; year <= 2040; year++) {
         supplyPoints.push({ year, supply: currentSupply });
-        
-        // Cada 4 años (aprox), el reward se divide
-        if ((year - 2009) > 0 && (year - 2009) % 4 === 0) {
-            // Simplificación: el halving ocurre al inicio del 5º año, 9º, etc.
-            // En realidad es cada 210,000 bloques
-        }
         
         // Calcular reward actual basado en el año
         const halvingCount = Math.floor((year - 2009) / 4);
@@ -172,12 +136,12 @@ function renderEmissionChart() {
     svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")))
-        .attr("class", "text-muted small");
+        .attr("class", "emission-chart-axis");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).ticks(5).tickFormat(d => d / 1000000 + "M"))
-        .attr("class", "text-muted small");
+        .attr("class", "emission-chart-axis");
 
     // Interactive Tooltip Elements
     const focus = svg.append("g")
@@ -198,7 +162,14 @@ function renderEmissionChart() {
         .attr("stroke-width", 2);
 
     const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
+        .attr("class", "halving-tooltip")
+        .style("position", "absolute")
+        .style("pointer-events", "none")
+        .style("background", "var(--popover)")
+        .style("border", "1px solid var(--border)")
+        .style("padding", "8px")
+        .style("border-radius", "4px")
+        .style("box-shadow", "0 4px 6px -1px rgba(0, 0, 0, 0.1)")
         .style("opacity", 0);
 
     const bisectYear = d3.bisector(d => d.year).left;
@@ -227,8 +198,11 @@ function renderEmissionChart() {
             focus.select("circle").attr("cy", y(d.supply));
 
             tooltip.html(`
-                <strong>${getTranslation('chartTooltipYear')} ${d.year}</strong><br/>
-                ${getTranslation('chartTooltipSupply')} ${d.supply.toLocaleString()} BTC
+                <div class="p-2 bg-popover border border-border rounded shadow-lg text-xs">
+                    <strong class="block mb-1 text-bitcoin-orange">${d.year}</strong>
+                    <span class="text-muted-foreground">${getTranslation('chartTooltipSupply')}:</span>
+                    <strong class="text-foreground">${Math.floor(d.supply).toLocaleString()} BTC</strong>
+                </div>
             `)
                 .style("left", (event.pageX + 15) + "px")
                 .style("top", (event.pageY - 28) + "px");

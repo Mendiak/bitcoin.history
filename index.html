@@ -55,33 +55,33 @@
 </head>
 
 <body>
-    <div class="container my-5 position-relative">
-        <div id="top-right-controls">
-            <div class="btn-group">
-                <button class="btn" id="lang-es" aria-label="Cambiar idioma a Español">ES</button>
-                <button class="btn" id="lang-en" aria-label="Change language to English">EN</button>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+        <div id="top-right-controls" class="absolute top-8 right-8 flex gap-2 z-50">
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button class="px-3 py-1 text-sm font-medium border border-border rounded-l-md hover:bg-muted transition-colors" id="lang-es" aria-label="Cambiar idioma a Español">ES</button>
+                <button class="px-3 py-1 text-sm font-medium border-t border-b border-r border-border rounded-r-md hover:bg-muted transition-colors" id="lang-en" aria-label="Change language to English">EN</button>
             </div>
-            <button id="theme-toggle" class="btn" data-i18n-title="theme" aria-label="Cambiar tema visual">
-                <i class="bi bi-sun-fill"></i>
+            <button id="theme-toggle" class="p-2 border border-border rounded-md hover:bg-muted transition-colors" data-i18n-title="theme" aria-label="Cambiar tema visual">
+                <i data-lucide="sun" class="w-4 h-4"></i>
             </button>
         </div>
 
-        <h1 class="text-center">
+        <h1 class="text-center text-4xl sm:text-5xl font-heading font-bold tracking-tight mb-2">
             <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
         </h1>
-        <p class="text-center text-muted fs-6 mb-5" data-i18n-key="pageSubtitle" style="letter-spacing: 0.1em; text-transform: none; font-family: var(--ui-font-heading); font-weight: 400;">
+        <p class="text-center text-muted-foreground text-sm uppercase tracking-[0.2em] font-heading mb-12" data-i18n-key="pageSubtitle">
             Una historia de precio, poder y resiliencia.
         </p>
 
         <!-- Page Description -->
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 col-lg-7 text-center">
-                <p class="text-muted" data-i18n-key="pageDescription" style="font-size: var(--step-0); line-height: 1.7; font-weight: 400;">
+        <div class="flex justify-center mb-16">
+            <div class="max-w-2xl text-center">
+                <p class="text-muted-foreground text-lg leading-relaxed" data-i18n-key="pageDescription">
                     Este gráfico interactivo recorre la evolución histórica de Bitcoin, relacionando las fluctuaciones de su precio con los hitos fundamentales de su tecnología y adopción.
                 </p>
-                <div class="mt-3">
-                    <a href="halving.html" class="btn btn-outline-warning btn-sm px-4 py-2 rounded-pill" style="letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">
-                        <i class="bi bi-water me-2"></i>
+                <div class="mt-6">
+                    <a href="halving.html" class="inline-flex items-center gap-2 px-6 py-2 bg-bitcoin-orange/10 text-bitcoin-orange border border-bitcoin-orange/20 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-bitcoin-orange/20 transition-colors">
+                        <i data-lucide="droplet" class="w-4 h-4"></i>
                         <span data-i18n-key="learnAboutHalving">Entiende el Ciclo del Halving</span>
                     </a>
                 </div>
@@ -89,124 +89,134 @@
         </div>
 
         <!-- Stats Dashboard -->
-        <div id="stats-dashboard" class="mb-4"></div>
+        <div id="stats-dashboard" class="mb-8"></div>
 
         <!-- Educational: Did You Know -->
-        <div id="did-you-know" class="glass-panel p-3 d-flex flex-column flex-md-row align-items-center mb-4 gap-3" style="display: none; border-left: 2px solid var(--bitcoin-orange);">
-            <div class="d-flex align-items-center gap-3 flex-grow-1">
-                <div id="did-you-know-content" style="cursor: pointer;">
-                    <strong id="did-you-know-title" class="text-muted small uppercase" style="display: block; letter-spacing: 0.05em;"></strong>
-                    <span id="did-you-know-text"></span>
+        <div id="did-you-know" class="bg-card border border-border border-l-bitcoin-orange border-l-2 rounded-lg p-4 flex flex-col md:flex-row items-center mb-8 gap-4 hidden">
+            <div class="flex items-center gap-4 flex-grow">
+                <div id="did-you-know-content" class="cursor-pointer">
+                    <strong id="did-you-know-title" class="text-muted-foreground text-xs uppercase tracking-wider block mb-1"></strong>
+                    <span id="did-you-know-text" class="text-sm"></span>
                 </div>
             </div>
-            <button id="next-did-you-know" class="btn btn-sm text-nowrap">
+            <button id="next-did-you-know" class="px-3 py-1 text-xs font-medium border border-border rounded-md hover:bg-muted transition-colors whitespace-nowrap">
                 <span data-i18n-key="didYouKnowNext"></span>
             </button>
         </div>
 
-        <div class="d-flex flex-wrap justify-content-center align-items-center mb-4 gap-3">
+
+        <div class="flex flex-wrap justify-center items-center mb-8 gap-4">
             <!-- Filtros -->
-            <div id="event-filters" class="d-flex flex-wrap justify-content-center gap-2" role="group"
+            <div id="event-filters" class="flex flex-wrap justify-center gap-2" role="group"
                 aria-label="Filtros de eventos">
             </div>
 
-            <div class="vr d-none d-md-block text-muted opacity-10"></div>
+            <div class="hidden md:block w-px h-6 bg-border mx-2"></div>
 
             <!-- Controles del Gráfico -->
-            <div class="d-flex gap-2">
-                <button id="scale-toggle" class="btn btn-sm" data-i18n-title="scale">
+            <div class="flex gap-2">
+                <button id="scale-toggle" class="px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-title="scale">
                     Escala Logarítmica
                 </button>
-                <button id="reset-zoom" class="btn btn-sm" style="display: none;"
+                <button id="reset-zoom" class="px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" style="display: none;"
                     data-i18n-key="resetZoom" data-i18n-title="resetZoom">
                     Restablecer Zoom
                 </button>
             </div>
         </div>
-        <div id="chart-container" class="glass-panel">
-            <div id="loading-spinner" class="text-center py-5">
-                <div class="spinner-border text-muted mb-3" style="width: 1.5rem; height: 1.5rem; border-width: 0.15em;" role="status">
-                    <span class="visually-hidden">Loading...</span>
+        <div id="chart-container" class="glass-panel min-h-[500px] mb-8">
+            <div id="loading-spinner" class="text-center py-20">
+                <div class="inline-block w-6 h-6 border-2 border-muted border-t-foreground rounded-full animate-spin mb-4" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
-                <p id="loading-phrase" class="mt-2 small text-muted italic" style="font-family: var(--ui-font-heading); letter-spacing: 0.05em;"></p>
+                <p id="loading-phrase" class="mt-2 text-sm text-muted-foreground italic font-heading tracking-wider"></p>
             </div>
         </div>
 
         <!-- Leyenda para la línea de datos ficticios -->
-        <div id="chart-legend" class="d-flex justify-content-center align-items-center gap-4 mt-3"
+        <div id="chart-legend" class="flex justify-center items-center gap-8 mt-6"
             style="display: none;">
-            <div class="fictitious-data-legend-item d-flex align-items-center gap-2">
-                <svg width="20" height="2" style="flex-shrink: 0;">
+            <div class="fictitious-data-legend-item flex items-center gap-2">
+                <svg width="20" height="2" class="shrink-0">
                     <line x1="0" y1="1" x2="20" y2="1" class="line fictitious-line" style="stroke-width: 1px;"></line>
                 </svg>
-                <small class="text-muted" data-i18n-key="fictitiousDataLegend" style="font-size: 0.7rem;"></small>
+                <small class="text-xs text-muted-foreground" data-i18n-key="fictitiousDataLegend"></small>
             </div>
         </div>
 
         <!-- Cronología de Eventos -->
-        <div class="mt-5">
-            <h3 class="mb-4" data-i18n-key="timelineTitle" style="font-size: var(--step-1);"></h3>
-            <div id="events-timeline" class="list-group">
+        <div class="mt-20">
+            <h3 class="text-2xl font-heading font-bold mb-6 text-center" data-i18n-key="timelineTitle"></h3>
+            <div class="max-w-2xl mx-auto">
+                <div id="events-timeline" class="divide-y divide-border">
+                </div>
             </div>
         </div>
 
         <!-- Footer: Clean & Typographic -->
-        <footer class="mt-5 pt-5 pb-5">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h6 class="footer-label mb-2">Protocol</h6>
-                    <p class="small text-muted mb-1" data-i18n-key="dataSource"></p>
-                    <p class="small mb-0 d-flex gap-3">
-                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="cyber-link">Source Code</a>
-                        <a href="#" id="view-glossary-link" class="cyber-link" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
-                    </p>
+        <footer class="mt-20 pt-16 pb-12 border-t border-border">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Protocol</h6>
+                    <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
+                    <div class="flex gap-6">
+                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Source Code</a>
+                        <a href="#" id="view-glossary-link" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <h6 class="footer-label mb-2">Author</h6>
-                    <p class="small mb-1">
-                        <a href="https://mendiak.github.io/portfolio/" target="_blank" class="cyber-link">Mikel Aramendia</a>
+                <div class="md:text-right">
+                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Author</h6>
+                    <p class="text-sm font-medium mb-4">
+                        <a href="https://mendiak.github.io/portfolio/" target="_blank" class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Mikel Aramendia</a>
                     </p>
-                    <div id="footer-quote" class="small text-muted italic mt-3" style="max-width: 300px; margin-left: auto;"></div>
+                    <div id="footer-quote" class="text-sm text-muted-foreground italic max-w-xs md:ml-auto"></div>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Modal de Bootstrap para los eventos -->
-    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="eventModalLabel">Título del Evento</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="eventModalBody">
-                    <!-- La descripción completa se inyectará aquí -->
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <div id="eventModalLinks">
-                        <!-- Los enlaces se inyectarán aquí -->
+    <!-- Modal de Evento (Custom Tailwind) -->
+    <div id="eventModal" class="fixed inset-0 z-[100] hidden">
+        <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+                    <div class="px-6 py-4 border-b border-border flex justify-between items-center">
+                        <h2 id="eventModalLabel" class="text-xl font-heading font-bold">Título del Evento</h2>
+                        <button type="button" data-modal-close class="text-muted-foreground hover:text-foreground transition-colors">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        data-i18n-key="modalClose">Cerrar</button>
+                    <div id="eventModalBody" class="px-6 py-6 text-muted-foreground leading-relaxed max-h-[60vh] overflow-y-auto">
+                        <!-- Contenido -->
+                    </div>
+                    <div class="px-6 py-4 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div id="eventModalLinks" class="flex flex-wrap gap-2"></div>
+                        <button type="button" data-modal-close class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-key="modalClose">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para el Glosario Completo -->
-    <div class="modal fade" id="glossaryModal" tabindex="-1" aria-labelledby="glossaryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="glossaryModalLabel" data-i18n-key="glossaryTitle">Glosario de Conceptos</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="glossaryModalBody">
-                    <!-- Los términos del glosario se inyectarán aquí -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n-key="modalClose">Cerrar</button>
+    <!-- Modal de Glosario (Custom Tailwind) -->
+    <div id="glossaryModal" class="fixed inset-0 z-[100] hidden">
+        <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
+                    <div class="px-6 py-4 border-b border-border flex justify-between items-center">
+                        <h2 class="text-xl font-heading font-bold" data-i18n-key="glossaryTitle">Glosario de Conceptos</h2>
+                        <button type="button" data-modal-close class="text-muted-foreground hover:text-foreground transition-colors">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div id="glossaryModalBody" class="px-6 py-6 max-h-[70vh] overflow-y-auto">
+                        <!-- Contenido -->
+                    </div>
+                    <div class="px-6 py-4 border-t border-border flex justify-end">
+                        <button type="button" data-modal-close class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-key="modalClose">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>

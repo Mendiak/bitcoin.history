@@ -1,9 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './style.css';
+import { createIcons, Sun, Moon, Droplet, X, ExternalLink, ChevronRight } from 'lucide';
+import './index.css';
 
 import * as d3 from 'd3';
-import * as bootstrap from 'bootstrap';
 
 import { state } from './modules/state.js';
 import { loadData, fetchLivePrice } from './modules/data.js';
@@ -14,6 +12,9 @@ import { initUI, showEventModal, renderTimeline, setupFilters, renderMarketCycle
 import { calculateStats, renderStats } from './modules/stats.js';
 
 document.addEventListener('DOMContentLoaded', function() {
+    createIcons({
+        icons: { Sun, Moon, Droplet, X, ExternalLink, ChevronRight }
+    });
     
     // UI Elements
     const chartContainer = document.getElementById('chart-container');
@@ -39,10 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Init Theme
     initTheme();
     const updateThemeButtonIcon = (theme) => {
-        if (theme === 'dark') {
-            themeToggleButton.innerHTML = '<i class="bi bi-sun-fill"></i>';
-        } else {
-            themeToggleButton.innerHTML = '<i class="bi bi-moon-stars-fill"></i>';
+        const iconName = theme === 'dark' ? 'sun' : 'moon';
+        themeToggleButton.innerHTML = `<i data-lucide="${iconName}" class="w-4 h-4"></i>`;
+        // Re-run icon rendering to apply the change
+        if (typeof createIcons !== 'undefined') {
+            createIcons({ icons: { Sun, Moon } });
         }
     };
     updateThemeButtonIcon(document.documentElement.getAttribute('data-bs-theme'));

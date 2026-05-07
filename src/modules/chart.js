@@ -179,6 +179,8 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .enter().append("circle")
         .attr("class", d => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`)
         .attr("r", d => d.category === 'Halving' ? 8 : 6)
+        .attr("stroke", "white") // Añadir borde para mejorar visibilidad
+        .attr("stroke-width", 1.5)
         .attr("clip-path", "url(#clip)")
         .style("cursor", "pointer")
         .attr("tabindex", 0)
@@ -324,9 +326,9 @@ function mousemove(event) {
         const itemText = `${quantity} ${currentTranslations.items[selectedItem.id]}`;
 
         purchasingInfo = `<div class="mt-2 pt-2 border-top small">
-            <span class="text-muted" style="text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.05em;">${currentTranslations.purchasingPower}</span><br/>
-            <span class="text-bitcoin" style="color: var(--bitcoin-orange); font-weight: 600;">
-                <i class="bi bi-cart-fill"></i> ${currentTranslations.canBuy} ${itemText}
+            <span class="text-muted-foreground uppercase text-[0.65rem] tracking-wider">${currentTranslations.purchasingPower}</span><br/>
+            <span class="text-foreground font-semibold flex items-center gap-1">
+                <i class="bi bi-cart-fill text-bitcoin-orange"></i> ${currentTranslations.canBuy} ${itemText}
             </span>
         </div>`;
     }

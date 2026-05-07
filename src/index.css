@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bitcoin-orange: #f7931a;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --ui-border-strong: 240 5.9% 50%;
+  }
+
+  [data-bs-theme="dark"] {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Component Styles */
+.glass-panel {
+  @apply bg-card border border-border rounded-lg p-6 shadow-sm transition-colors;
+}
+
+.glossary-term {
+  @apply underline decoration-bitcoin-orange underline-offset-4 cursor-help;
+}
+
+.tooltip {
+  @apply absolute z-[200] bg-popover text-popover-foreground text-xs p-3 rounded-md shadow-lg border border-border pointer-events-none;
+}
+
+.tooltip-event {
+  @apply max-w-xs;
+}
+
+.glossary-tooltip {
+  @apply absolute z-[200] bg-popover text-popover-foreground text-xs p-3 rounded-md shadow-lg border border-border max-w-xs pointer-events-none;
+}
+
+
+/* Chart Overrides */
+.axis text {
+  @apply font-mono text-[10px] fill-muted-foreground;
+}
+
+.axis path, .axis line {
+  @apply stroke-border;
+}
+
+.line {
+  @apply fill-none stroke-bitcoin-orange stroke-2;
+}
+
+.fictitious-line {
+  stroke-dasharray: 4, 4;
+  @apply opacity-50;
+}
+
+.market-area.bull {
+  fill: #28a745;
+  fill-opacity: 0.15;
+}
+
+.market-area.bear {
+  fill: #dc3545;
+  fill-opacity: 0.15;
+}
+
+.category-technology { fill: #5db0c6; }
+.category-market { fill: #8b5cf6; } /* Cambiado a violeta para diferenciar de Halving */
+.category-adoption { fill: #7fb069; }
+.category-regulation { fill: #d66874; }
+.category-security { fill: #5e81ac; }
+.category-halving { fill: #f7931a; } 
+
+/* Para los puntos en la línea de tiempo (HTML) */
+.filter-dot.category-technology { background-color: #5db0c6; }
+.filter-dot.category-market { background-color: #8b5cf6; } /* Cambiado a violeta */
+.filter-dot.category-adoption { background-color: #7fb069; }
+.filter-dot.category-regulation { background-color: #d66874; }
+.filter-dot.category-security { background-color: #5e81ac; }
+.filter-dot.category-halving { background-color: #f7931a; }
+
+.emission-chart-axis {
+  @apply text-foreground font-mono text-[10px];
+}
+.emission-chart-axis path, .emission-chart-axis line {
+  @apply stroke-foreground;
+}
+
+
