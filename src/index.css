@@ -4,28 +4,50 @@
 
 @layer base {
   :root {
+    /* 1. Neutral Palette (Warm Grays) */
+    --gray-0:   #0f0e0e; /* Near Black Warm */
+    --gray-10:  #1c1a1a; /* Essential Text */
+    --gray-40:  #4a4545; /* Paragraphs */
+    --gray-60:  #6b6565; /* Muted Text */
+    --gray-80:  #9e9797; /* Dimmed Text */
+    --gray-90:  #d6cfcf; /* Strong Borders */
+    --gray-94:  #ede8e8; /* Silent Borders */
+    --gray-97:  #fcfafa; /* Surface Alt */
+    --gray-99:  #fffdfd; /* Main Background */
+    --gray-100: #ffffff; /* Surface */
+
+    /* 2. Modular Typographic Scale (Major Third - 1.250) */
+    --step--2: 0.64rem;
+    --step--1: 0.8rem;
+    --step-0:  1rem;    /* Base (16px) */
+    --step-1:  1.25rem;
+    --step-2:  1.563rem;
+    --step-3:  1.953rem;
+    --step-4:  2.441rem;
+    --step-5:  3.052rem;
+    --step-6:  3.815rem;
+
+    /* 3. Spacing Scale */
+    --space-base: 0.5rem;
+    --space-1: calc(var(--space-base) * 1);
+    --space-2: calc(var(--space-base) * 2);
+    --space-4: calc(var(--space-base) * 4);
+    --space-8: calc(var(--space-base) * 8);
+
+    /* 4. Semantic Aliases */
     --bitcoin-orange: #f7931a;
-    --background: 30 20% 98%; /* Bone / Paper white */
+    --background: 30 20% 98%; 
     --foreground: 240 10% 3.9%;
     --card: 30 20% 98%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --border: 240 5.9% 80%;
     --muted: 240 4.8% 90%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 80%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0px; /* Editorial style: sharp corners */
-    --ui-border-strong: 240 5.9% 20%;
+    --radius: 0px;
+
+    /* Editorial specific */
+    --ui-border-silent: 240 5.9% 94%;
+    --ui-border-strong: 240 5.9% 90%;
   }
 
   [data-bs-theme="dark"] {
@@ -33,21 +55,11 @@
     --foreground: 30 20% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --border: 240 3.7% 20%;
     --muted: 240 3.7% 10%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 20%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --ui-border-silent: 240 3.7% 10%;
+    --ui-border-strong: 240 3.7% 30%;
   }
 }
 
@@ -63,7 +75,12 @@
 
 /* Custom Component Styles */
 .glass-panel {
-  @apply bg-card border border-border p-8 shadow-none transition-colors;
+  @apply bg-card border border-border p-8 shadow-none transition-colors relative;
+}
+
+.glass-panel::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border/40 to-transparent;
 }
 
 .font-heading {
@@ -79,15 +96,27 @@
 }
 
 .editorial-label {
-  @apply text-[11px] font-heading font-bold uppercase tracking-[0.3em] text-muted-foreground;
+  @apply text-[10px] font-heading font-bold uppercase tracking-[0.4em] text-muted-foreground/80;
+}
+
+.editorial-dropcap::first-letter {
+  @apply float-left text-6xl font-bold mr-3 mt-1 leading-[0.8] text-bitcoin-orange font-heading;
+}
+
+.editorial-pullquote {
+  @apply text-3xl sm:text-4xl font-serif italic leading-[1.1] border-l-4 border-bitcoin-orange/20 pl-8 my-12;
+}
+
+.editorial-sidebar {
+  @apply border-l border-border/40 pl-8 py-4 bg-muted/5;
 }
 
 .glossary-term {
-  @apply border-b border-bitcoin-orange border-dotted cursor-help;
+  @apply border-b border-bitcoin-orange/40 border-dotted cursor-help hover:border-bitcoin-orange transition-colors;
 }
 
 .tooltip {
-  @apply absolute z-[200] bg-background text-foreground text-[11px] p-4 rounded-none shadow-none border border-foreground/20 pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border pointer-events-none;
 }
 
 .tooltip-event {
@@ -95,13 +124,23 @@
 }
 
 .glossary-tooltip {
-  @apply absolute z-[200] bg-background text-foreground text-[11px] p-4 rounded-none shadow-none border border-foreground/20 max-w-xs pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border max-w-xs pointer-events-none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-editorial-fade {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 
 /* Chart Overrides */
 .axis text {
-  @apply font-mono text-[9px] fill-muted-foreground uppercase tracking-tighter;
+  @apply font-mono text-[11px] fill-muted-foreground uppercase tracking-tighter;
 }
 
 .axis path, .axis line {

@@ -55,50 +55,49 @@
 </head>
 
 <body class="selection:bg-bitcoin-orange/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative border-x border-border/40 min-h-screen">
-        <header class="mb-20 flex flex-col items-center">
-            <div id="top-right-controls" class="w-full flex flex-wrap items-center justify-center sm:justify-end gap-4 z-50 mb-12">
-                <div class="editorial-label mr-4 border-r border-border pr-4 hidden sm:flex">
-                    Edition 2026 / v2.0
+    <div class="max-w-6xl mx-auto px-6 sm:px-12 lg:px-16 py-12 relative border-x border-border/20 min-h-screen selection:bg-bitcoin-orange/20">
+        <header class="mb-32">
+            <div id="top-right-controls" class="w-full flex items-baseline justify-between gap-4 z-50 mb-20 pb-4 border-b border-border/20">
+                <div class="editorial-label">
+                    Archive / Vol. 2.0
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="inline-flex rounded-sm" role="group">
-                        <button class="px-2 py-1 text-[10px] font-mono border border-border rounded-l-sm hover:bg-muted transition-colors" id="lang-es" aria-label="Cambiar idioma a Español">ES</button>
-                        <button class="px-2 py-1 text-[10px] font-mono border-t border-b border-r border-border rounded-r-sm hover:bg-muted transition-colors" id="lang-en" aria-label="Change language to English">EN</button>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2" role="group">
+                        <button class="text-[10px] font-mono tracking-tighter opacity-40 hover:opacity-100 transition-opacity" id="lang-es">ES</button>
+                        <span class="text-[10px] font-mono opacity-20">/</span>
+                        <button class="text-[10px] font-mono tracking-tighter opacity-40 hover:opacity-100 transition-opacity" id="lang-en">EN</button>
                     </div>
-                    <button id="theme-toggle" class="p-1.5 border border-border rounded-sm hover:bg-muted transition-colors" data-i18n-title="theme" aria-label="Cambiar tema visual">
+                    <button id="theme-toggle" class="opacity-40 hover:opacity-100 transition-opacity" data-i18n-title="theme">
                         <i data-lucide="sun" class="w-3.5 h-3.5"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="flex flex-col items-center w-full">
-                <div class="w-full flex items-center gap-4 mb-8">
-                    <div class="h-px bg-border grow"></div>
-                    <span class="editorial-label whitespace-nowrap">Vires in Numeris</span>
-                    <div class="h-px bg-border grow"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="editorial-label text-bitcoin-orange">Protocol History</span>
+                        <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
+                    </div>
+                    <h1 class="text-6xl sm:text-8xl font-heading font-bold tracking-tighter leading-[0.85] mb-8 animate-editorial-fade">
+                        <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
+                    </h1>
                 </div>
-                
-                <h1 class="text-center text-5xl sm:text-7xl font-heading font-bold tracking-tighter mb-6 leading-[0.9]">
-                    <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
-                </h1>
-                
-                <p class="text-center editorial-label mb-12" data-i18n-key="pageSubtitle">
-                    Una historia de precio, poder y resiliencia.
-                </p>
-
-                <!-- Page Description -->
-                <div class="max-w-2xl text-center">
-                    <p class="text-foreground font-serif italic text-xl sm:text-2xl leading-relaxed" data-i18n-key="pageDescription">
+                <div class="lg:col-span-4 lg:pb-2">
+                    <p class="editorial-label mb-4 opacity-60" data-i18n-key="pageSubtitle">
+                        Una historia de precio, poder y resiliencia.
+                    </p>
+                    <p class="font-serif italic text-xl sm:text-2xl leading-tight text-muted-foreground" data-i18n-key="pageDescription">
                         Este gráfico interactivo recorre la evolución histórica de Bitcoin, relacionando las fluctuaciones de su precio con los hitos fundamentales de su tecnología y adopción.
                     </p>
-                    <div class="mt-8 flex justify-center gap-4">
-                        <a href="halving.html" class="inline-flex items-center gap-2 px-5 py-1.5 bg-foreground text-background rounded-full text-[10px] font-mono uppercase tracking-wider hover:bg-bitcoin-orange hover:text-white transition-colors">
-                            <i data-lucide="droplet" class="w-3 h-3"></i>
-                            <span data-i18n-key="learnAboutHalving">Entiende el Ciclo del Halving</span>
-                        </a>
-                    </div>
                 </div>
+            </div>
+
+            <div class="mt-16 flex items-center justify-end py-6 border-y border-border/20">
+                <a href="halving.html" class="group inline-flex items-center gap-3 px-6 py-2 bg-foreground text-background hover:bg-bitcoin-orange transition-all duration-500">
+                    <span class="text-[10px] font-mono uppercase tracking-[0.2em]" data-i18n-key="learnAboutHalving">Halving Cycle</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </header>
 
@@ -106,35 +105,41 @@
         <div id="stats-dashboard" class="mb-12"></div>
 
         <!-- Educational: Did You Know -->
-        <div id="did-you-know" class="bg-card border border-border border-l-bitcoin-orange border-l-2 rounded-lg p-4 flex flex-col md:flex-row items-center mb-8 gap-4 hidden">
-            <div class="flex items-center gap-4 flex-grow">
-                <div id="did-you-know-content" class="cursor-pointer">
-                    <strong id="did-you-know-title" class="text-muted-foreground text-xs uppercase tracking-wider block mb-1"></strong>
-                    <span id="did-you-know-text" class="text-sm"></span>
+        <div id="did-you-know" class="mb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-start hidden">
+            <div class="md:col-span-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-px bg-bitcoin-orange"></div>
+                    <span id="did-you-know-title" class="editorial-label text-bitcoin-orange"></span>
                 </div>
             </div>
-            <button id="next-did-you-know" class="px-3 py-1 text-xs font-medium border border-border rounded-md hover:bg-muted transition-colors whitespace-nowrap">
-                <span data-i18n-key="didYouKnowNext"></span>
-            </button>
+            <div class="md:col-span-7">
+                <div id="did-you-know-content" class="cursor-pointer group">
+                    <span id="did-you-know-text" class="text-2xl font-serif italic leading-snug group-hover:text-bitcoin-orange transition-colors"></span>
+                </div>
+            </div>
+            <div class="md:col-span-2 flex justify-end">
+                <button id="next-did-you-know" class="editorial-label opacity-40 hover:opacity-100 hover:text-bitcoin-orange transition-all flex items-center gap-2">
+                    <span data-i18n-key="didYouKnowNext">Next</span>
+                    <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                </button>
+            </div>
         </div>
 
 
-        <div class="flex flex-wrap justify-center items-center mb-8 gap-4">
-            <!-- Filtros -->
-            <div id="event-filters" class="flex flex-wrap justify-center gap-2" role="group"
+        <div class="flex flex-wrap justify-between items-end mb-12 gap-8 border-b border-border/10 pb-8">
+            <div id="event-filters" class="flex flex-wrap gap-2" role="group"
                 aria-label="Filtros de eventos">
             </div>
 
-            <div class="hidden md:block w-px h-6 bg-border mx-2"></div>
-
-            <!-- Controles del Gráfico -->
-            <div class="flex gap-2">
-                <button id="scale-toggle" class="px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-title="scale">
-                    Escala Logarítmica
+            <div class="flex gap-4">
+                <button id="scale-toggle" class="editorial-label opacity-40 hover:opacity-100 transition-all border border-border/40 px-4 py-2 hover:border-bitcoin-orange flex items-center gap-2" data-i18n-title="scale">
+                    <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                    <span>Log Scale</span>
                 </button>
-                <button id="reset-zoom" class="px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" style="display: none;"
+                <button id="reset-zoom" class="editorial-label opacity-40 hover:opacity-100 transition-all border border-border/40 px-4 py-2 hover:border-bitcoin-orange flex items-center gap-2" style="display: none;"
                     data-i18n-key="resetZoom" data-i18n-title="resetZoom">
-                    Restablecer Zoom
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                    <span>Reset</span>
                 </button>
             </div>
         </div>
@@ -154,7 +159,7 @@
                 <svg width="20" height="2" class="shrink-0">
                     <line x1="0" y1="1" x2="20" y2="1" class="line fictitious-line" style="stroke-width: 1px;"></line>
                 </svg>
-                <small class="text-xs text-muted-foreground" data-i18n-key="fictitiousDataLegend"></small>
+                <small class="text-sm text-muted-foreground" data-i18n-key="fictitiousDataLegend"></small>
             </div>
         </div>
 
@@ -171,7 +176,10 @@
         <footer class="mt-20 pt-16 pb-12 border-t border-border">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Protocol</h6>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="terminal" class="w-3 h-3 text-muted-foreground"></i>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Protocol</h6>
+                    </div>
                     <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
                     <div class="flex gap-6">
                         <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Source Code</a>
@@ -179,7 +187,10 @@
                     </div>
                 </div>
                 <div class="md:text-right">
-                    <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Author</h6>
+                    <div class="flex items-center md:justify-end gap-2 mb-4">
+                        <i data-lucide="user" class="w-3 h-3 text-muted-foreground"></i>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Author</h6>
+                    </div>
                     <p class="text-sm font-medium mb-4">
                         <a href="https://mendiak.github.io/portfolio/" target="_blank" class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Mikel Aramendia</a>
                     </p>

@@ -31,21 +31,31 @@ export function renderStats(stats, containerId) {
     if (!container) return;
 
     container.innerHTML = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="stat-card">
-                <h6 class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="statATH">${getTranslation('statATH')}</h6>
-                <p class="text-2xl font-mono font-medium">${d3.format("$,.2f")(stats.ath)}</p>
-            </div>
-            <div class="stat-card">
-                <h6 class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="statDaysGenesis">${getTranslation('statDaysGenesis')}</h6>
-                <p class="text-2xl font-mono font-medium">${d3.format(",")(stats.daysSinceGenesis)}</p>
-            </div>
-            <div class="stat-card">
-                <h6 class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="statCurrentPrice">${getTranslation('statCurrentPrice')}</h6>
-                <div class="flex items-baseline gap-2">
-                    <p class="text-2xl font-mono font-medium">${d3.format("$,.2f")(stats.currentPrice)}</p>
-                    ${stats.isLive ? '<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse" title="Live Data"></span>' : ''}
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 py-12 border-b border-border/20">
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-2.5 h-2.5 text-bitcoin-orange opacity-40"></i>
+                    <span class="editorial-label text-[10px] opacity-40">${getTranslation('statATH')}</span>
                 </div>
+                <span class="text-xs uppercase tracking-widest font-heading font-medium">All Time High</span>
+                <p class="text-4xl font-mono font-bold tracking-tighter text-bitcoin-orange mt-2">${d3.format("$,.0f")(stats.ath)}</p>
+            </div>
+            <div class="flex flex-col gap-2 border-l border-border/10 pl-12">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 opacity-40"></i>
+                    <span class="editorial-label text-[10px] opacity-40">${getTranslation('statDaysGenesis')}</span>
+                </div>
+                <span class="text-xs uppercase tracking-widest font-heading font-medium">Network Age</span>
+                <p class="text-4xl font-mono font-bold tracking-tighter mt-2">${d3.format(",")(stats.daysSinceGenesis)} <span class="text-xs font-heading uppercase tracking-widest opacity-60 ml-2">Days</span></p>
+            </div>
+            <div class="flex flex-col gap-2 border-l border-border/10 pl-12">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="dollar-sign" class="w-2.5 h-2.5 opacity-40"></i>
+                    <span class="editorial-label text-[10px] opacity-40">${getTranslation('statCurrentPrice')}</span>
+                    ${stats.isLive ? '<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>' : ''}
+                </div>
+                <span class="text-xs uppercase tracking-widest font-heading font-medium">Current Exchange</span>
+                <p class="text-4xl font-mono font-bold tracking-tighter mt-2">${d3.format("$,.2f")(stats.currentPrice)}</p>
             </div>
         </div>
     `;

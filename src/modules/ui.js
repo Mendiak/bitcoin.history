@@ -196,7 +196,7 @@ export function renderTimeline(eventsData, onEventClick) {
         .enter()
         .append("a")
         .attr("href", "#chart-container")
-        .attr("class", "timeline-item flex items-center justify-between py-4 px-2 hover:bg-muted/50 transition-colors group cursor-pointer")
+        .attr("class", "timeline-item flex items-center justify-between py-6 border-b border-border/10 hover:bg-muted/5 px-4 -mx-4 transition-all duration-300 group cursor-pointer")
         .attr("data-category", d => d.category)
         .on("mouseover", function(event, d) {
             highlightMarker(d.date, true);
@@ -210,10 +210,19 @@ export function renderTimeline(eventsData, onEventClick) {
         });
 
     timelineItems.append("div")
-        .attr("class", "flex items-center gap-3")
+        .attr("class", "flex items-center gap-6")
         .html(d => {
             const title = d['title_' + state.lang].replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
-            return `<i data-lucide="${getIconForTitle(d['title_es'])}" class="w-4 h-4 text-muted-foreground group-hover:text-bitcoin-orange"></i> <span class="filter-dot category-${d.category.toLowerCase()} w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"></span> <span class="timeline-title font-heading font-medium group-hover:text-bitcoin-orange transition-colors">${title}</span>`;
+            const icon = getIconForTitle(d['title_es']);
+            return `
+                <div class="w-8 h-8 flex items-center justify-center bg-muted/10 opacity-40 group-hover:opacity-100 group-hover:bg-bitcoin-orange/10 transition-all">
+                    <i data-lucide="${icon}" class="w-4 h-4 text-foreground group-hover:text-bitcoin-orange"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="editorial-label text-[10px] opacity-40">${d.category}</span>
+                    <span class="timeline-title text-lg font-heading font-bold tracking-tight group-hover:text-bitcoin-orange transition-colors">${title}</span>
+                </div>
+            `;
         });
 
     timelineItems.append("small")
@@ -239,21 +248,21 @@ export function setupFilters(categories, translations, onFilterChange) {
         .enter()
         .append("button")
         .attr("type", "button")
-        .attr("class", "px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors flex items-center gap-2")
+        .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-40 hover:opacity-100 border-b-2 border-transparent transition-all")
         .attr("id", d => `filter-${d.id}`)
-        .html(d => {
-            if (d.id === 'all') {
-                return `<span data-i18n-key="${d.i18nKey}"></span>`;
-            }
-            return `<span class="filter-dot category-${d.id.toLowerCase()} w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"></span> <span data-i18n-key="${d.i18nKey}"></span>`;
-        })
+        .html(d => `
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full ${d.id === 'all' ? 'bg-foreground/40' : 'filter-dot category-' + d.id.toLowerCase()}"></span>
+                <span data-i18n-key="${d.i18nKey}"></span>
+            </div>
+        `)
         .on("click", (event, d) => {
             state.activeFilter = d.id;
             filterContainer.selectAll("button")
-                .attr("class", "px-3 py-1 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors flex items-center gap-2");
+                .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-40 hover:opacity-100 border-b-2 border-transparent transition-all");
             
             d3.select(`#filter-${d.id}`)
-                .attr("class", "px-3 py-1 text-sm font-medium border border-foreground bg-foreground text-background rounded-md flex items-center gap-2");
+                .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-100 border-b-2 border-bitcoin-orange transition-all");
             
             // Filter Chart
             filterMarkers(d.id);
@@ -337,18 +346,18 @@ export function renderMarketCycleLegend(translations) {
     childrenToRemove.forEach(child => legendEl.removeChild(child));
 
     const bullLegendItem = document.createElement('div');
-    bullLegendItem.className = 'd-flex align-items-center gap-2';
+    bullLegendItem.className = 'flex items-center gap-2';
     bullLegendItem.innerHTML = `
-        <svg width="25" height="10" style="flex-shrink: 0;"><rect x="0" y="0" width="25" height="10" fill="#28a745"></rect></svg>
-        <small class="text-foreground" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</small>
+        <div class="w-4 h-4 bg-[#28a745]/10 border border-[#28a745]/20"></div>
+        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-60" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</span>
     `;
     legendEl.appendChild(bullLegendItem);
 
     const bearLegendItem = document.createElement('div');
-    bearLegendItem.className = 'd-flex align-items-center gap-2';
+    bearLegendItem.className = 'flex items-center gap-2';
     bearLegendItem.innerHTML = `
-        <svg width="25" height="10" style="flex-shrink: 0;"><rect x="0" y="0" width="25" height="10" fill="#dc3545"></rect></svg>
-        <small class="text-foreground" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</small>
+        <div class="w-4 h-4 bg-[#dc3545]/10 border border-[#dc3545]/20"></div>
+        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-60" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</span>
     `;
     legendEl.appendChild(bearLegendItem);
 }

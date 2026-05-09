@@ -254,7 +254,7 @@ function setupMarkerInteractions() {
 
             tooltip.classed("tooltip-event", true)
                 .style("opacity", 1)
-                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}${extraContent}`)
+                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small class="text-[11px] opacity-70">${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}${extraContent}`)
                 .style("left", (event.pageX + 15) + "px")
                 .style("top", (event.pageY - 28) + "px");
         })
@@ -324,14 +324,17 @@ function mousemove(event) {
         }
 
         const quantity = Math.floor(price / selectedItem.price);
-        const itemText = `${quantity} ${currentTranslations.items[selectedItem.id]}`;
+        const itemLabel = currentTranslations.items?.[selectedItem.id] || "";
+        const itemText = itemLabel ? `${quantity} ${itemLabel}` : "";
 
-        purchasingInfo = `<div class="mt-2 pt-2 border-top small">
-            <span class="text-muted-foreground uppercase text-[0.65rem] tracking-wider">${currentTranslations.purchasingPower}</span><br/>
-            <span class="text-foreground font-semibold flex items-center gap-1">
-                <i class="bi bi-cart-fill text-bitcoin-orange"></i> ${currentTranslations.canBuy} ${itemText}
-            </span>
-        </div>`;
+        if (itemText) {
+            purchasingInfo = `<div class="mt-2 pt-2 border-top small">
+                <span class="text-muted-foreground uppercase text-[11px] tracking-wider">${currentTranslations.purchasingPower}</span><br/>
+                <span class="text-foreground font-semibold flex items-center gap-1">
+                    <i class="bi bi-cart-fill text-bitcoin-orange"></i> ${currentTranslations.canBuy} ${itemText}
+                </span>
+            </div>`;
+        }
     }
 
     tooltip.html(
