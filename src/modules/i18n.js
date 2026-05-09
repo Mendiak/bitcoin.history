@@ -7,9 +7,11 @@ export const setTranslations = (data) => {
     translations = data;
     // Inject stats translations if missing
     ['es', 'en'].forEach(lang => {
-        if (!translations[lang].statATH) translations[lang].statATH = lang === 'es' ? 'Máximo Histórico (ATH)' : 'All Time High (ATH)';
-        if (!translations[lang].statCurrentPrice) translations[lang].statCurrentPrice = lang === 'es' ? 'Precio Reciente' : 'Latest Price';
-        if (!translations[lang].statDaysGenesis) translations[lang].statDaysGenesis = lang === 'es' ? 'Días desde Genesis' : 'Days since Genesis';
+        if (translations[lang]) {
+            if (!translations[lang].statATH) translations[lang].statATH = lang === 'es' ? 'Máximo Histórico (ATH)' : 'All Time High (ATH)';
+            if (!translations[lang].statCurrentPrice) translations[lang].statCurrentPrice = lang === 'es' ? 'Precio Reciente' : 'Latest Price';
+            if (!translations[lang].statDaysGenesis) translations[lang].statDaysGenesis = lang === 'es' ? 'Días desde Genesis' : 'Days since Genesis';
+        }
     });
 };
 

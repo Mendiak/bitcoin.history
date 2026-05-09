@@ -2,7 +2,7 @@ import * as d3 from 'd3';import { createIcons, icons, Sun, Moon, Droplet, X, Ext
 import { state } from './state.js';
 import { filterMarkers, highlightMarker, focusOnDate } from './chart.js';
 import { injectGlossary } from './utils.js';
-import { getTranslation } from './i18n.js';
+import { getTranslation, translations } from './i18n.js';
 
 let eventModal, glossaryModal;
 let eventModalTitle, eventModalBody, eventModalLinks, glossaryModalBody;
@@ -49,7 +49,7 @@ export function initUI() {
 
     // Auto-rotate "Did You Know"
     setInterval(() => {
-        nextDidYouKnow(getTranslation());
+        nextDidYouKnow(translations);
     }, 10000);
 
     document.getElementById('view-glossary-link').addEventListener('click', (e) => {
