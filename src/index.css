@@ -99,6 +99,27 @@
   @apply text-[10px] font-heading font-bold uppercase tracking-[0.4em] text-muted-foreground/80;
 }
 
+/* Jerarquía Tipográfica Editorial */
+.text-editorial-lede {
+  @apply text-2xl sm:text-3xl leading-[1.4];
+}
+
+.text-editorial-section {
+  @apply text-3xl sm:text-4xl leading-[1.1];
+}
+
+.text-editorial-primary {
+  @apply text-xl sm:text-2xl font-bold leading-tight text-foreground;
+}
+
+.text-editorial-secondary {
+  @apply text-base sm:text-lg font-medium leading-relaxed text-foreground/90;
+}
+
+.text-editorial-tertiary {
+  @apply text-sm font-mono uppercase tracking-[0.1em] text-muted-foreground;
+}
+
 .editorial-dropcap::first-letter {
   @apply float-left text-6xl font-bold mr-3 mt-1 leading-[0.8] text-bitcoin-orange font-heading;
 }
@@ -185,6 +206,49 @@
 .filter-dot.category-regulation { background-color: #d66874; }
 .filter-dot.category-security { background-color: #5e81ac; }
 .filter-dot.category-halving { background-color: #f7931a; }
+
+/* Iconografía por Categoría */
+.category-icon {
+  @apply w-5 h-5 flex-shrink-0 transition-opacity duration-300;
+}
+
+.icon-technology {
+  @apply text-sky-400;
+}
+
+.icon-adoption {
+  @apply text-green-400;
+}
+
+.icon-market {
+  @apply text-purple-400;
+}
+
+.icon-regulation {
+  @apply text-rose-400;
+}
+
+.icon-security {
+  @apply text-blue-400;
+}
+
+.icon-halving {
+  @apply text-bitcoin-orange;
+}
+
+/* Timeline Item mejorado */
+.timeline-item-marker {
+  @apply flex items-center gap-3 flex-1;
+}
+
+.timeline-item-marker::before {
+  content: '';
+  @apply w-2 h-2 rounded-full bg-border/40 flex-shrink-0 transition-colors;
+}
+
+.timeline-item:hover .timeline-item-marker::before {
+  @apply bg-bitcoin-orange;
+}
 
 .emission-chart-axis {
   @apply text-foreground font-mono text-[10px];

@@ -191,12 +191,32 @@ export function renderTimeline(eventsData, onEventClick) {
     const timelineContainer = d3.select("#events-timeline");
     timelineContainer.html('');
 
+    // Mapeo de iconos por categoría
+    const categoryIcons = {
+        'Technology': 'cpu',
+        'Adoption': 'users',
+        'Market': 'trending-up',
+        'Regulation': 'landmark',
+        'Security': 'shield',
+        'Halving': 'droplet'
+    };
+
+    // Mapeo de clases de color por categoría
+    const categoryClasses = {
+        'Technology': 'icon-technology',
+        'Adoption': 'icon-adoption',
+        'Market': 'icon-market',
+        'Regulation': 'icon-regulation',
+        'Security': 'icon-security',
+        'Halving': 'icon-halving'
+    };
+
     const timelineItems = timelineContainer.selectAll(".timeline-item")
         .data(eventsData)
         .enter()
         .append("a")
         .attr("href", "#chart-container")
-        .attr("class", "timeline-item flex items-center justify-between py-6 border-b border-border/10 hover:bg-muted/5 px-4 -mx-4 transition-all duration-300 group cursor-pointer")
+        .attr("class", "timeline-item flex items-center justify-between py-8 px-6 -mx-6 border-b border-border/10 hover:bg-muted/5 transition-colors duration-300 group cursor-pointer")
         .attr("data-category", d => d.category)
         .on("mouseover", function(event, d) {
             highlightMarker(d.date, true);
@@ -209,24 +229,28 @@ export function renderTimeline(eventsData, onEventClick) {
             if (onEventClick) onEventClick(d);
         });
 
+    // Marcador + Contenido
     timelineItems.append("div")
-        .attr("class", "flex items-center gap-6")
+        .attr("class", "timeline-item-marker")
         .html(d => {
             const title = d['title_' + state.lang].replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
-            const icon = getIconForTitle(d['title_es']);
+            const icon = categoryIcons[d.category] || 'info';
+            const iconClass = categoryClasses[d.category] || 'text-muted-foreground';
+            
             return `
-                <div class="w-8 h-8 flex items-center justify-center bg-muted/10 opacity-40 group-hover:opacity-100 group-hover:bg-bitcoin-orange/10 transition-all">
-                    <i data-lucide="${icon}" class="w-4 h-4 text-foreground group-hover:text-bitcoin-orange"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="editorial-label text-[10px] opacity-40">${d.category}</span>
-                    <span class="timeline-title text-lg font-heading font-bold tracking-tight group-hover:text-bitcoin-orange transition-colors">${title}</span>
+                <div class="flex items-center gap-4 flex-1">
+                    <i data-lucide="${icon}" class="category-icon ${iconClass}\"></i>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-editorial-tertiary opacity-60\">${d.category}</span>
+                        <span class="text-editorial-primary group-hover:text-bitcoin-orange transition-colors\">${title}</span>
+                    </div>
                 </div>
             `;
         });
 
+    // Fecha
     timelineItems.append("small")
-        .attr("class", "text-xs text-muted-foreground font-mono")
+        .attr("class", "text-editorial-tertiary flex-shrink-0 ml-8 opacity-60 group-hover:opacity-100 transition-opacity")
         .text(d => d3.timeFormat("%d %b %Y")(d.date));
 
     createIcons({ icons });
@@ -243,26 +267,39 @@ export function setupFilters(categories, translations, onFilterChange) {
     const filterContainer = d3.select("#event-filters");
     filterContainer.html(''); // Clear
 
+    // Mapeo de colores por categoría
+    const categoryColors = {
+        'Technology': '#5db0c6',
+        'Adoption': '#7fb069',
+        'Market': '#8b5cf6',
+        'Regulation': '#d66874',
+        'Security': '#5e81ac',
+        'Halving': '#f7931a',
+        'all': '#6b6565'
+    };
+
     filterContainer.selectAll("button")
         .data(categories)
         .enter()
         .append("button")
         .attr("type", "button")
-        .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-40 hover:opacity-100 border-b-2 border-transparent transition-all")
+        .attr("class", "px-3 py-1 text-[9px] font-mono uppercase tracking-[0.15em] opacity-40 hover:opacity-100 border border-border/30 hover:border-bitcoin-orange/50 transition-all flex items-center gap-2 flex-shrink-0")
         .attr("id", d => `filter-${d.id}`)
-        .html(d => `
-            <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full ${d.id === 'all' ? 'bg-foreground/40' : 'filter-dot category-' + d.id.toLowerCase()}"></span>
-                <span data-i18n-key="${d.i18nKey}"></span>
-            </div>
-        `)
+        .html(d => {
+            const color = categoryColors[d.id] || categoryColors['all'];
+            const label = d.i18nKey ? `<span data-i18n-key="${d.i18nKey}"></span>` : d.id;
+            return `
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color: ${color}"></span>
+                ${label}
+            `;
+        })
         .on("click", (event, d) => {
             state.activeFilter = d.id;
             filterContainer.selectAll("button")
-                .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-40 hover:opacity-100 border-b-2 border-transparent transition-all");
+                .attr("class", "px-3 py-1 text-[9px] font-mono uppercase tracking-[0.15em] opacity-40 hover:opacity-100 border border-border/30 hover:border-bitcoin-orange/50 transition-all flex items-center gap-2 flex-shrink-0");
             
             d3.select(`#filter-${d.id}`)
-                .attr("class", "px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] opacity-100 border-b-2 border-bitcoin-orange transition-all");
+                .attr("class", "px-3 py-1 text-[9px] font-mono uppercase tracking-[0.15em] opacity-100 border border-bitcoin-orange bg-bitcoin-orange/5 transition-all flex items-center gap-2 flex-shrink-0");
             
             // Filter Chart
             filterMarkers(d.id);
@@ -284,7 +321,7 @@ export function setupFilters(categories, translations, onFilterChange) {
         
      // Set active
      d3.select(`#filter-${state.activeFilter}`)
-        .attr("class", "px-3 py-1 text-sm font-medium border border-foreground bg-foreground text-background rounded-md flex items-center gap-2");
+        .attr("class", "px-3 py-1 text-[9px] font-mono uppercase tracking-[0.15em] opacity-100 border border-bitcoin-orange bg-bitcoin-orange/5 transition-all flex items-center gap-2 flex-shrink-0");
 }
 
 // ... existing imports ...
