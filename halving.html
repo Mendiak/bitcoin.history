@@ -228,7 +228,7 @@
                     
                     <div class="flex items-start gap-6 p-8 bg-muted/20 border border-border">
                         <i data-lucide="lightbulb" class="w-6 h-6 text-bitcoin-orange mt-1 shrink-0"></i>
-                        <p class="text-lg text-muted-foreground leading-relaxed italic">
+                        <p class="text-lg text-muted-foreground leading-relaxed italic" data-i18n-key="educationalInsightNote">
                             Este diseño algorítmico replica la extracción de metales preciosos: al principio es fácil y abundante, pero con el tiempo requiere más esfuerzo y produce menos cantidad, hasta que el flujo cesa por completo.
                         </p>
                     </div>
@@ -243,15 +243,15 @@
                     
                     <div class="space-y-10">
                         <div class="group">
-                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors">Choque de Oferta</h4>
+                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors" data-i18n-key="supplyShockTitle">Choque de Oferta</h4>
                             <p class="text-sm text-muted-foreground leading-relaxed italic" data-i18n-key="economicImplicationsText">
                                 La oferta limitada genera un "choque de oferta" periódico. Al ser predecible, Bitcoin elimina el riesgo de devaluación por impresión excesiva.
                             </p>
                         </div>
                         
                         <div class="group">
-                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors">Activo de Reserva</h4>
-                            <p class="text-sm text-muted-foreground leading-relaxed italic">
+                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3 group-hover:text-foreground transition-colors" data-i18n-key="reserveAssetTitle">Activo de Reserva</h4>
+                            <p class="text-sm text-muted-foreground leading-relaxed italic" data-i18n-key="reserveAssetDescription">
                                 Se consolida como un refugio contra la inflación y un activo de valor a largo plazo, atrayendo capital institucional que busca escapar de la expansión monetaria.
                             </p>
                         </div>
@@ -292,11 +292,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
                         <div class="flex flex-col gap-2">
                             <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="supplyBitcoin">21 Millones</p>
-                            <p class="text-sm text-muted-foreground italic">Escasez absoluta definida por código.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonSupplyBtcDesc">Escasez absoluta definida por código.</p>
                         </div>
                         <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
                             <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="supplyFiat">Ilimitado</p>
-                            <p class="text-sm text-muted-foreground italic">Expandible según necesidades institucionales.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonSupplyFiatDesc">Expandible según necesidades institucionales.</p>
                         </div>
                     </div>
                 </div>
@@ -311,11 +311,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
                         <div class="flex flex-col gap-2">
                             <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="issuanceBitcoin">Algorítmica</p>
-                            <p class="text-sm text-muted-foreground italic">El Halving asegura una emisión decreciente.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonIssuanceBtcDesc">El Halving asegura una emisión decreciente.</p>
                         </div>
                         <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
                             <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="issuanceFiat">Discrecional</p>
-                            <p class="text-sm text-muted-foreground italic">Decidida por comités de bancos centrales.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonIssuanceFiatDesc">Decidida por comités de bancos centrales.</p>
                         </div>
                     </div>
                 </div>
@@ -330,11 +330,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
                         <div class="flex flex-col gap-2">
                             <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="controlBitcoin">Nadie</p>
-                            <p class="text-sm text-muted-foreground italic">Red global de nodos descentralizada.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonControlBtcDesc">Red global de nodos descentralizada.</p>
                         </div>
                         <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
                             <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="controlFiat">Gobiernos</p>
-                            <p class="text-sm text-muted-foreground italic">Bancos centrales e instituciones financieras.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonControlFiatDesc">Bancos centrales e instituciones financieras.</p>
                         </div>
                     </div>
                 </div>
@@ -349,11 +349,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
                         <div class="flex flex-col gap-2">
                             <p class="text-4xl font-mono font-bold text-bitcoin-orange leading-none tracking-tighter" data-i18n-key="verifiabilityBitcoin">Total</p>
-                            <p class="text-sm text-muted-foreground italic">Cualquier persona con un nodo puede auditarla.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonVerifiabilityBtcDesc">Cualquier persona con un nodo puede auditarla.</p>
                         </div>
                         <div class="flex flex-col gap-2 md:border-l md:border-border md:pl-20">
                             <p class="text-4xl font-serif italic text-foreground leading-none" data-i18n-key="verifiabilityFiat">Baja</p>
-                            <p class="text-sm text-muted-foreground italic">Sistemas opacos reservados a instituciones.</p>
+                            <p class="text-sm text-muted-foreground italic" data-i18n-key="comparisonVerifiabilityFiatDesc">Sistemas opacos reservados a instituciones.</p>
                         </div>
                     </div>
                 </div>
@@ -366,18 +366,18 @@
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <i data-lucide="terminal" class="w-3 h-3 text-muted-foreground"></i>
-                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Protocol</h6>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="footerProtocol">Protocol</h6>
                     </div>
                     <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
                     <div class="flex gap-6">
-                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Source Code</a>
+                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="footerSourceCode">Source Code</a>
                         <a href="#" id="view-glossary-link" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
                     </div>
                 </div>
                 <div class="md:text-right">
                     <div class="flex items-center md:justify-end gap-2 mb-4">
                         <i data-lucide="user" class="w-3 h-3 text-muted-foreground"></i>
-                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground">Author</h6>
+                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="footerAuthor">Author</h6>
                     </div>
                     <p class="text-sm font-medium mb-4">
                         <a href="https://mendiak.github.io/portfolio/" target="_blank" class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Mikel Aramendia</a>

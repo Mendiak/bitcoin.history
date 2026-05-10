@@ -231,18 +231,29 @@ export function renderTimeline(eventsData, onEventClick) {
 
     // Marcador + Contenido
     timelineItems.append("div")
-        .attr("class", "timeline-item-marker")
+        .attr("class", "timeline-item-marker flex-1")
         .html(d => {
             const title = d['title_' + state.lang].replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
             const icon = categoryIcons[d.category] || 'info';
             const iconClass = categoryClasses[d.category] || 'text-muted-foreground';
             
+            // Map category to i18n key
+            const categoryKeys = {
+                'Technology': 'filterTech',
+                'Adoption': 'filterAdoption',
+                'Market': 'filterMarket',
+                'Regulation': 'filterRegulation',
+                'Security': 'filterSecurity',
+                'Halving': 'filterHalving'
+            };
+            const categoryLabel = getTranslation(categoryKeys[d.category]) || d.category;
+
             return `
-                <div class="flex items-center gap-4 flex-1">
+                <div class="flex items-center gap-4">
                     <i data-lucide="${icon}" class="category-icon ${iconClass}\"></i>
                     <div class="flex flex-col gap-1.5">
-                        <span class="text-editorial-tertiary opacity-60\">${d.category}</span>
-                        <span class="text-editorial-primary group-hover:text-bitcoin-orange transition-colors\">${title}</span>
+                        <span class="text-editorial-tertiary opacity-60 timeline-category\">${categoryLabel}</span>
+                        <span class="text-editorial-primary group-hover:text-bitcoin-orange transition-colors timeline-title\">${title}</span>
                     </div>
                 </div>
             `;
@@ -250,17 +261,32 @@ export function renderTimeline(eventsData, onEventClick) {
 
     // Fecha
     timelineItems.append("small")
-        .attr("class", "text-editorial-tertiary flex-shrink-0 ml-8 opacity-60 group-hover:opacity-100 transition-opacity")
-        .text(d => d3.timeFormat("%d %b %Y")(d.date));
+        .attr("class", "text-editorial-tertiary flex-shrink-0 ml-8 opacity-60 group-hover:opacity-100 transition-opacity timeline-date")
+        .text(d => d3.timeFormat(state.lang === 'es' ? "%d %b %Y" : "%b %d, %Y")(d.date));
 
     createIcons({ icons });
 }
 
 
 export function updateTimelineLanguage() {
-     d3.selectAll("#events-timeline .timeline-item").each(function(d) {
-        d3.select(this).select(".timeline-title").text(d['title_' + state.lang]);
-     });
+    const categoryKeys = {
+        'Technology': 'filterTech',
+        'Adoption': 'filterAdoption',
+        'Market': 'filterMarket',
+        'Regulation': 'filterRegulation',
+        'Security': 'filterSecurity',
+        'Halving': 'filterHalving'
+    };
+
+    d3.selectAll("#events-timeline .timeline-item").each(function(d) {
+        const item = d3.select(this);
+        const title = d['title_' + state.lang].replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
+        const categoryLabel = getTranslation(categoryKeys[d.category]) || d.category;
+        
+        item.select(".timeline-title").text(title);
+        item.select(".timeline-category").text(categoryLabel);
+        item.select(".timeline-date").text(d3.timeFormat(state.lang === 'es' ? "%d %b %Y" : "%b %d, %Y")(d.date));
+    });
 }
 
 export function setupFilters(categories, translations, onFilterChange) {
