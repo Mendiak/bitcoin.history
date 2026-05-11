@@ -179,14 +179,13 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .enter().append("circle")
         .attr("class", d => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`)
         .attr("r", d => d.category === 'Halving' ? 7 : 5)
-        .attr("stroke", "#fdfdfc") // Paper stroke
-        .attr("stroke-width", 1)
-        .attr("clip-path", "url(#clip)")
         .style("cursor", "pointer")
-        .style("transition", "transform 0.1s ease")
+        .style("pointer-events", "all")
         .attr("tabindex", 0)
         .attr("role", "button")
         .on("click", (event, d) => {
+            event.preventDefault();
+            event.stopPropagation();
             if (onEventClickCallback) onEventClickCallback(d);
         });
 
@@ -501,7 +500,7 @@ export function updateChart(transitionDuration = 750) {
     contextLine.transition(t).attr("d", line2);
     
     const bisectDate = d3.bisector(d => d.date).left;
-    eventMarkers.transition(t).attr("cy", d => {
+    eventMarkers.attr("cy", d => {
             const i = bisectDate(data, d.date, 1);
             const d0 = data[i - 1], d1 = data[i];
             const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
@@ -509,7 +508,7 @@ export function updateChart(transitionDuration = 750) {
         })
         .attr("aria-label", d => d['title_' + state.lang]); 
 
-    milestoneMarkers.transition(t).attr("y", d => {
+    milestoneMarkers.attr("y", d => {
         const i = bisectDate(data, d.date, 1);
         const d0 = data[i - 1], d1 = data[i];
         const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
