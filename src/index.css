@@ -192,6 +192,48 @@
   fill-opacity: 0.08;
 }
 
+.hover-line {
+  stroke: rgb(var(--foreground));
+  stroke-width: 1px;
+  stroke-dasharray: 3 3;
+  opacity: 0.78;
+}
+
+.hover-dot {
+  fill: rgb(var(--foreground));
+  stroke: #000000;
+  stroke-width: 1px;
+  opacity: 0.95;
+}
+
+.live-dot-pulse {
+  fill: rgba(247, 147, 26, 0.35);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.live-dot-core {
+  fill: #f7931a;
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+}
+
+.event-marker {
+  fill: #ffffff;
+  opacity: 0.88;
+  transition: transform 150ms ease, opacity 150ms ease, r 150ms ease;
+}
+
+.event-marker:hover,
+.event-marker.highlighted {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50% { transform: scale(1.8); opacity: 0.15; }
+}
+
 
 .category-technology { fill: #5db0c6; }
 .category-market { fill: #8b5cf6; } /* Cambiado a violeta para diferenciar de Halving */

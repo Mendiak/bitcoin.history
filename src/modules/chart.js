@@ -470,8 +470,10 @@ function redrawFocus(withTransition = true) {
     // Position Live Dot
     const lastPoint = realVisibleData[realVisibleData.length - 1];
     if (lastPoint && lastPoint.date >= startDate && lastPoint.date <= endDate) {
+        const xPos = x(lastPoint.date);
+        const yPos = y(lastPoint.price);
         liveDotGroup.style("display", "block")
-            .attr("transform", `translate(${x(lastPoint.date)},${y(lastPoint.price)})`);
+            .attr("transform", `translate(${xPos},${yPos})`);
     } else {
         liveDotGroup.style("display", "none");
     }
@@ -517,7 +519,9 @@ export function updateChart(transitionDuration = 750) {
     // Update Live Dot Position
     const lastPoint = data[data.length - 1];
     if (lastPoint && !lastPoint.isFictitious) {
-        liveDotGroup.transition(t).attr("transform", `translate(${x(lastPoint.date)},${y(lastPoint.price)})`);
+        const xPos = x(lastPoint.date);
+        const yPos = y(lastPoint.price);
+        liveDotGroup.transition(t).attr("transform", `translate(${xPos},${yPos})`);
     }
 }
 
