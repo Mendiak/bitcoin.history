@@ -4,7 +4,7 @@ import { state } from './modules/state.js';
 import { setTranslations, setLanguage } from './modules/i18n.js';
 import { initHalvingInfographic } from './modules/halving.js';
 import { initUI, renderEducationalContent } from './modules/ui.js';
-import { createIcons, Sun, Moon } from 'lucide';
+import { createIcons, Sun, Moon, ArrowLeft } from 'lucide';
 
 async function init() {
     initTheme();
@@ -33,7 +33,7 @@ async function init() {
         const themeToggleButton = document.getElementById('theme-toggle');
         const updateThemeButtonIcon = (theme) => {
             themeToggleButton.innerHTML = theme === 'dark' ? '<i data-lucide="sun" class="w-4 h-4"></i>' : '<i data-lucide="moon" class="w-4 h-4"></i>';
-            createIcons({ icons: { Sun, Moon } });
+            createIcons({ icons: { Sun, Moon, ArrowLeft } });
         };
         
         themeToggleButton.addEventListener('click', () => {

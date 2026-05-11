@@ -33,9 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(() => {
-            // Fallback sencillo si falla la carga
-            if (loadingPhrase) loadingPhrase.textContent = "Satoshi is mining...";
+            if (loadingPhrase) {
+                loadingPhrase.textContent = state.lang === 'es' ? 'Cargando datos...' : 'Loading data...';
+            }
         });
+
+    if (themeToggleButton) {
+        themeToggleButton.setAttribute('title', 'Cambiar Tema');
+        themeToggleButton.setAttribute('aria-label', 'Cambiar Tema');
+    }
 
     // Init Theme
     initTheme();

@@ -178,7 +178,8 @@
 
 .fictitious-line {
   stroke-dasharray: 2, 2;
-  @apply opacity-30;
+  stroke-width: 2px;
+  @apply opacity-70;
 }
 
 .market-area.bull {

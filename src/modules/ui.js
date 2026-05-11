@@ -412,7 +412,7 @@ export function renderMarketCycleLegend(translations) {
     bullLegendItem.className = 'flex items-center gap-2';
     bullLegendItem.innerHTML = `
         <div class="w-4 h-4 bg-[#28a745]/10 border border-[#28a745]/20"></div>
-        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-60" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</span>
+        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-80" data-i18n-key="legendBullMarket">${translations[state.lang].legendBullMarket}</span>
     `;
     legendEl.appendChild(bullLegendItem);
 
@@ -420,7 +420,7 @@ export function renderMarketCycleLegend(translations) {
     bearLegendItem.className = 'flex items-center gap-2';
     bearLegendItem.innerHTML = `
         <div class="w-4 h-4 bg-[#dc3545]/10 border border-[#dc3545]/20"></div>
-        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-60" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</span>
+        <span class="editorial-label text-[11px] !tracking-widest !normal-case opacity-80" data-i18n-key="legendBearMarket">${translations[state.lang].legendBearMarket}</span>
     `;
     legendEl.appendChild(bearLegendItem);
 }
