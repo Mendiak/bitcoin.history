@@ -10,6 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide": "https://unpkg.com/lucide@1.14.0/dist/esm/lucide.js",
+        "d3": "https://cdn.jsdelivr.net/npm/d3@7.8.5/+esm"
+      }
+    }
+    </script>
 </head>
 
 <body class="selection:bg-bitcoin-orange/30">
@@ -369,9 +377,12 @@
                         <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="footerProtocol">Protocol</h6>
                     </div>
                     <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
-                    <div class="flex gap-6">
+                    <div class="flex gap-6 mb-8">
                         <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" rel="noopener noreferrer" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="footerSourceCode">Source Code</a>
                         <a href="#" id="view-glossary-link" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
+                    </div>
+                    <div class="mt-8">
+                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Mendiak" data-color="#FFDD00" data-emoji=""  data-font="Arial" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
                     </div>
                 </div>
                 <div class="md:text-right">

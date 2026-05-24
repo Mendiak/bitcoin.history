@@ -137,7 +137,7 @@
 }
 
 .tooltip {
-  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border pointer-events-none opacity-0;
 }
 
 .tooltip-event {
@@ -145,7 +145,7 @@
 }
 
 .glossary-tooltip {
-  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border max-w-xs pointer-events-none;
+  @apply absolute z-[200] bg-background text-foreground text-[13px] p-4 rounded-none shadow-xl border border-border max-w-xs pointer-events-none opacity-0;
 }
 
 /* Animations */

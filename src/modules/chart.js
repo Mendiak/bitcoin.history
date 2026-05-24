@@ -108,7 +108,9 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         .attr("id", "clip")
         .append("rect").attr("width", width).attr("height", height);
 
-    tooltip = d3.select("body").append("div").attr("class", "tooltip");
+    tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
         
     focus = svg.append("g").attr("class", "focus")
         .attr("transform", `translate(${margin.left},${margin.top})`);
