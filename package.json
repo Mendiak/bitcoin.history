@@ -1,50 +1,51 @@
 {
-  "name": "bitcoin.history",
-  "version": "1.0.0",
-  "description": "Interactive, bilingual archive of Bitcoin's price history and the events that shaped it, with daily data updates.",
-  "main": "main.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint .",
-    "update:prices": "node scripts/update-prices.mjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mendiak/bitcoin.history.git"
-  },
-  "keywords": [
-    "bitcoin",
-    "bitcoin-history",
-    "bitcoin-price",
-    "d3",
-    "data-visualization",
-    "halving",
-    "dataviz",
-    "vite",
-    "tailwindcss"
-  ],
-  "author": "Mikel Aramendia <https://mendiak.github.io/portfolio/>",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/Mendiak/bitcoin.history/issues"
-  },
-  "homepage": "https://github.com/Mendiak/bitcoin.history#readme",
-  "dependencies": {
-    "csv-parser": "^3.2.0",
-    "d3": "^7.8.5",
-    "lucide": "^1.14.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.5.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.2",
-    "postcss": "^8.5.14",
-    "prettier": "^3.1.1",
-    "tailwindcss": "^3.4.19",
-    "vite": "^5.0.0"
-  }
+    "name": "bitcoin.history",
+    "version": "1.0.0",
+    "description": "Interactive, bilingual archive of Bitcoin's price history and the events that shaped it, with daily data updates.",
+    "main": "main.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint .",
+        "update:prices": "node scripts/update-prices.mjs",
+        "indexnow": "node scripts/indexnow.mjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mendiak/bitcoin.history.git"
+    },
+    "keywords": [
+        "bitcoin",
+        "bitcoin-history",
+        "bitcoin-price",
+        "d3",
+        "data-visualization",
+        "halving",
+        "dataviz",
+        "vite",
+        "tailwindcss"
+    ],
+    "author": "Mikel Aramendia <https://mendiak.github.io/portfolio/>",
+    "license": "ISC",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/Mendiak/bitcoin.history/issues"
+    },
+    "homepage": "https://github.com/Mendiak/bitcoin.history#readme",
+    "dependencies": {
+        "csv-parser": "^3.2.0",
+        "d3": "^7.8.5",
+        "lucide": "^1.14.0"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.5.0",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.2",
+        "postcss": "^8.5.14",
+        "prettier": "^3.1.1",
+        "tailwindcss": "^3.4.19",
+        "vite": "^5.0.0"
+    }
 }
