@@ -1,0 +1,41 @@
+name: Update Bitcoin price data
+
+on:
+  schedule:
+    # Todos los días a las 03:17 UTC
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update daily prices
+        run: node scripts/update-prices.mjs
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- public/bitcoin-price-history.json public/sitemap.xml; then
+            echo "Sin cambios en la serie de precios."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/bitcoin-price-history.json public/sitemap.xml
+          git commit -m "chore(data): actualizar precios diarios de BTC"
+          git push

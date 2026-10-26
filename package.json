@@ -1,20 +1,31 @@
 {
   "name": "bitcoin.history",
   "version": "1.0.0",
-  "description": "",
+  "description": "Interactive, bilingual archive of Bitcoin's price history and the events that shaped it, with daily data updates.",
   "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "update:prices": "node scripts/update-prices.mjs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mendiak/bitcoin.history.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "bitcoin",
+    "bitcoin-history",
+    "bitcoin-price",
+    "d3",
+    "data-visualization",
+    "halving",
+    "dataviz",
+    "vite",
+    "tailwindcss"
+  ],
+  "author": "Mikel Aramendia <https://mendiak.github.io/portfolio/>",
   "license": "ISC",
   "type": "module",
   "bugs": {

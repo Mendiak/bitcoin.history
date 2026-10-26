@@ -1,301 +1,486 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- SEO: Título dinámico, se establece en main.js -->
+        <title>Precio e historia de Bitcoin: gráfico y cronología desde 2008</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO: Título dinámico, se establece en main.js -->
-    <title>El Épico Viaje de Bitcoin</title>
+        <!-- SEO: Meta Descripción (contenido dinámico) -->
+        <meta
+            name="description"
+            id="meta-description"
+            content="Gráfico interactivo del precio de Bitcoin desde 2010: halvings, ciclos de mercado y 56 eventos históricos con fuentes. Datos actualizados a diario."
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+        <meta name="author" content="Mikel Aramendia" />
+        <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#fbfaf9" media="(prefers-color-scheme: light)" />
 
-    <!-- SEO: Meta Descripción (contenido dinámico) -->
-    <meta name="description" id="meta-description"
-        content="Explora la historia del precio de Bitcoin con un gráfico interactivo. Descubre los eventos clave, desde el whitepaper de Satoshi hasta los halvings y la adopción institucional.">
+        <!-- SEO: URL Canónica -->
+        <link rel="canonical" href="https://bitcoin-history.vercel.app/" />
+        <link rel="preconnect" href="https://api.coinbase.com" />
 
-    <!-- SEO: URL Canónica -->
-    <link rel="canonical" href="https://bitcoin-history.vercel.app/" />
+        <!-- SEO: Open Graph / Facebook / LinkedIn -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Bitcoin History" />
+        <meta property="og:locale" id="og-locale" content="es_ES" />
+        <meta property="og:locale:alternate" id="og-locale-alt" content="en_US" />
+        <meta property="og:url" id="og-url" content="https://bitcoin-history.vercel.app/" />
+        <meta
+            property="og:title"
+            id="og-title"
+            content="Precio e historia de Bitcoin: gráfico y cronología desde 2008"
+        />
+        <meta
+            property="og:description"
+            id="og-description"
+            content="Gráfico interactivo del precio de Bitcoin desde 2010: halvings, ciclos de mercado y 56 eventos históricos con fuentes."
+        />
+        <meta property="og:image" content="https://bitcoin-history.vercel.app/assets/images/screenshot.png" />
+        <meta property="og:image:alt" content="Gráfico del precio de Bitcoin y su cronología de eventos" />
 
-    <!-- SEO: Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" id="og-url" content="https://bitcoin-history.vercel.app/">
-    <meta property="og:title" id="og-title" content="El Épico Viaje de Bitcoin">
-    <meta property="og:description" id="og-description"
-        content="Explora la historia del precio de Bitcoin con un gráfico interactivo. Descubre los eventos clave.">
-    <meta property="og:image" content="https://bitcoin-history.vercel.app/assets/images/screenshot.png">
+        <!-- SEO: Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" id="twitter-url" content="https://bitcoin-history.vercel.app/" />
+        <meta
+            name="twitter:title"
+            id="twitter-title"
+            content="Precio e historia de Bitcoin: gráfico y cronología desde 2008"
+        />
+        <meta
+            name="twitter:description"
+            id="twitter-description"
+            content="Gráfico interactivo del precio de Bitcoin desde 2010: halvings, ciclos de mercado y 56 eventos históricos con fuentes."
+        />
+        <meta name="twitter:image" content="https://bitcoin-history.vercel.app/assets/images/screenshot.png" />
 
-    <!-- SEO: Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" id="twitter-url" content="https://bitcoin-history.vercel.app/">
-    <meta name="twitter:title" id="twitter-title" content="El Épico Viaje de Bitcoin">
-    <meta name="twitter:description" id="twitter-description"
-        content="Explora la historia del precio de Bitcoin con un gráfico interactivo. Descubre los eventos clave.">
-    <meta name="twitter:image" content="https://bitcoin-history.vercel.app/assets/images/screenshot.png">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet">
+        <!-- SEO: Datos Estructurados (contenido dinámico) -->
+        <script id="structured-data" type="application/ld+json"></script>
 
-    <!-- SEO: Datos Estructurados (contenido dinámico) -->
-    <script id="structured-data" type="application/ld+json"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT8LDGJ0T6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-    <script type="importmap">
-    {
-      "imports": {
-        "lucide": "https://unpkg.com/lucide@1.14.0/dist/esm/lucide.js",
-        "d3": "https://cdn.jsdelivr.net/npm/d3@7.8.5/+esm"
-      }
-    }
-    </script>
+            gtag('config', 'G-TT8LDGJ0T6');
+        </script>
+    </head>
 
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT8LDGJ0T6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-TT8LDGJ0T6');
-    </script>
-</head>
-
-<body class="selection:bg-bitcoin-orange/30">
-    <div class="max-w-6xl mx-auto px-6 sm:px-12 lg:px-16 py-12 relative border-x border-border/20 min-h-screen selection:bg-bitcoin-orange/20">
-        <header class="mb-32">
-            <div id="top-right-controls" class="w-full flex items-baseline justify-between gap-4 z-50 mb-20 pb-4 border-b border-border/20">
-                <div class="editorial-label" data-i18n-key="editorialVolumeIndex">
-                    Archivo Bitcoin / Vol. 2.0
-                </div>
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-2" role="group">
-                        <button class="text-[10px] font-mono tracking-tighter opacity-40 hover:opacity-100 transition-opacity" id="lang-es">ES</button>
-                        <span class="text-[10px] font-mono opacity-20">/</span>
-                        <button class="text-[10px] font-mono tracking-tighter opacity-40 hover:opacity-100 transition-opacity" id="lang-en">EN</button>
-                    </div>
-                    <button id="theme-toggle" class="opacity-40 hover:opacity-100 transition-opacity" data-i18n-title="theme" title="Cambiar Tema" aria-label="Cambiar Tema">
-                        <i data-lucide="sun" class="w-3.5 h-3.5"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-12">
-                <div class="lg:col-span-8">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span class="editorial-label text-bitcoin-orange" data-i18n-key="protocolHistory">Protocol History</span>
-                        <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
-                    </div>
-                    <h1 class="text-6xl sm:text-8xl font-heading font-bold tracking-tighter leading-[0.85] mb-12 animate-editorial-fade">
-                        <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
-                    </h1>
-                </div>
-                <div class="lg:col-span-4 lg:pb-2">
-                    <p class="editorial-label mb-4 opacity-60" data-i18n-key="pageSubtitle">
-                        Una historia de precio, poder y resiliencia.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Lede: Párrafo introductorio destacado -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 pb-12 border-b border-border/20">
-                <div class="lg:col-span-8">
-                    <p class="text-editorial-lede font-serif italic leading-relaxed text-foreground" data-i18n-key="pageDescription">
-                        Este gráfico interactivo recorre la evolución histórica de Bitcoin, relacionando las fluctuaciones de su precio con los hitos fundamentales de su tecnología y adopción.
-                    </p>
-                </div>
-                <div class="lg:col-span-4">
-                    <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                        <p>• <span data-i18n-key="featurePriceImpact">Descubre cómo eventos históricos impactaron el precio</span></p>
-                        <p>• <span data-i18n-key="featureMarketCycles">Entiende los ciclos de mercado y tecnología</span></p>
-                        <p>• <span data-i18n-key="featureInnovationTimeline">Explora la línea de tiempo de innovación</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-20 flex items-center justify-between py-8 border-t border-border/20">
-                <div>
-                    <h2 class="text-2xl font-heading font-bold mb-2" data-i18n-key="halvingTeaserTitle">Profundiza en el Halving</h2>
-                    <p class="text-muted-foreground text-sm" data-i18n-key="halvingTeaserDescription">Entiende el mecanismo de escasez de Bitcoin</p>
-                </div>
-                <a href="halving.html" class="group inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background hover:bg-bitcoin-orange transition-all duration-500 flex-shrink-0">
-                    <span class="text-[10px] font-mono uppercase tracking-[0.2em]" data-i18n-key="learnAboutHalving">Halving Cycle</span>
-                    <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </header>
-
-        <!-- Stats Dashboard -->
-        <div id="stats-dashboard" class="mb-12"></div>
-
-        <!-- Educational: Did You Know -->
-        <div id="did-you-know" class="mb-20 hidden">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                <div class="md:col-span-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-px bg-bitcoin-orange"></div>
-                        <span id="did-you-know-title" class="editorial-label text-bitcoin-orange"></span>
-                    </div>
-                </div>
-                <div class="md:col-span-7">
-                    <div id="did-you-know-content" class="cursor-pointer group">
-                        <span id="did-you-know-text" class="text-2xl font-serif italic leading-snug group-hover:text-bitcoin-orange transition-colors"></span>
-                    </div>
-                </div>
-                <div class="md:col-span-2 flex justify-end">
-                    <button id="next-did-you-know" class="editorial-label opacity-40 hover:opacity-100 hover:text-bitcoin-orange transition-all flex items-center gap-2">
-                        <span data-i18n-key="didYouKnowNext">Next</span>
-                        <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="flex flex-wrap justify-between items-end mb-12 gap-8 border-b border-border/10 pb-8">
-            <div id="event-filters" class="flex flex-wrap gap-2" role="group"
-                aria-label="Filtros de eventos">
-            </div>
-
-            <div class="flex gap-4">
-                <button id="scale-toggle" class="editorial-label opacity-40 hover:opacity-100 transition-all border border-border/40 px-4 py-2 hover:border-bitcoin-orange flex items-center gap-2" data-i18n-title="scale">
-                    <i data-lucide="maximize-2" class="w-3 h-3"></i>
-                    <span>Log Scale</span>
-                </button>
-                <button id="reset-zoom" class="editorial-label opacity-40 hover:opacity-100 transition-all border border-border/40 px-4 py-2 hover:border-bitcoin-orange flex items-center gap-2" style="display: none;"
-                    data-i18n-key="resetZoom" data-i18n-title="resetZoom">
-                    <i data-lucide="refresh-cw" class="w-3 h-3"></i>
-                    <span>Reset</span>
-                </button>
-            </div>
-        </div>
-        <div id="chart-container" class="glass-panel min-h-[500px] mb-8">
-            <div id="loading-spinner" class="text-center py-20">
-                <div class="inline-block w-6 h-6 border-2 border-muted border-t-foreground rounded-full animate-spin mb-4" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <p id="loading-phrase" class="mt-2 text-sm text-muted-foreground italic font-heading tracking-wider"></p>
-            </div>
-        </div>
-
-        <!-- Leyenda para la línea de datos ficticios -->
-        <div id="chart-legend" class="flex justify-center items-center gap-8 mt-6"
-            style="display: none;">
-            <div class="fictitious-data-legend-item flex items-center gap-2">
-                <svg width="20" height="2" class="shrink-0">
-                    <line x1="0" y1="1" x2="20" y2="1" class="line fictitious-line" style="stroke-width: 1px;"></line>
-                </svg>
-                <small class="text-sm text-muted-foreground" data-i18n-key="fictitiousDataLegend"></small>
-            </div>
-        </div>
-
-        <div id="chart-info" class="mt-6 mb-10 bg-card border border-border rounded-3xl p-5 text-sm text-muted-foreground leading-relaxed">
-            <div class="flex items-center gap-3 mb-3">
-                <span class="editorial-label text-bitcoin-orange" data-i18n-key="chartExplanationTitle"></span>
-            </div>
-            <p data-i18n-key="chartExplanation"></p>
-        </div>
-
-        <!-- Section 01: Timeline de Eventos -->
-        <section class="mt-32 pt-20 border-t border-border/20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
-                <div class="hidden lg:block lg:col-span-2">
-                    <h2 class="text-7xl font-heading font-bold text-muted-foreground/20">01</h2>
-                </div>
-                <div class="lg:col-span-10">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="editorial-label text-bitcoin-orange" data-i18n-key="timelineLabel">Timeline</span>
-                        <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
-                    </div>
-                    <h3 class="text-editorial-section font-heading font-bold" data-i18n-key="timelineTitle">Cronología de Eventos</h3>
-                </div>
-            </div>
-            <div class="lg:col-span-10 lg:ml-auto">
-                <div id="events-timeline" class="divide-y divide-border/30">
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer: Clean & Typographic -->
-        <footer class="mt-20 pt-16 pb-12 border-t border-border">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <i data-lucide="terminal" class="w-3 h-3 text-muted-foreground"></i>
-                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="footerProtocol">Protocol</h6>
-                    </div>
-                    <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
-                    <div class="flex gap-6 mb-8">
-                        <a href="https://github.com/Mendiak/bitcoin.history" target="_blank" rel="noopener noreferrer" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Source Code</a>
-                        <a href="#" id="view-glossary-link" class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange" data-i18n-key="viewGlossary">Ver Glosario Completo</a>
-                    </div>
-                    <div class="mt-8">
-                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Mendiak" data-color="#FFDD00" data-emoji=""  data-font="Arial" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-                    </div>
-                </div>
-                <div class="md:text-right">
-                    <div class="flex items-center md:justify-end gap-2 mb-4">
-                        <i data-lucide="user" class="w-3 h-3 text-muted-foreground"></i>
-                        <h6 class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground" data-i18n-key="footerAuthor">Author</h6>
-                    </div>
-                    <p class="text-sm font-medium mb-4">
-                        <a href="https://mendiak.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange">Mikel Aramendia</a>
-                    </p>
-                    <div id="footer-quote" class="text-sm text-muted-foreground italic max-w-xs md:ml-auto"></div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Modal de Evento (Custom Tailwind) -->
-    <div id="eventModal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-labelledby="eventModalLabel">
-        <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-                    <div class="px-6 py-4 border-b border-border flex justify-between items-center">
-                        <h2 id="eventModalLabel" class="text-xl font-heading font-bold">Título del Evento</h2>
-                        <button type="button" data-modal-close class="text-muted-foreground hover:text-foreground transition-colors">
-                            <i data-lucide="x" class="w-5 h-5"></i>
+    <body class="selection:bg-bitcoin-orange/30">
+        <div
+            class="max-w-6xl mx-auto px-6 sm:px-12 lg:px-16 py-12 relative border-x border-border/20 min-h-screen selection:bg-bitcoin-orange/20"
+        >
+            <header class="mb-8">
+                <div
+                    id="top-right-controls"
+                    class="w-full flex items-center justify-end gap-4 z-50 mb-8 pb-3 border-b border-border/20"
+                >
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-2" role="group">
+                            <button
+                                class="text-[10px] font-mono tracking-tighter text-muted-foreground hover:text-foreground transition-colors"
+                                id="lang-es"
+                            >
+                                ES
+                            </button>
+                            <span class="text-[10px] font-mono opacity-40" aria-hidden="true">/</span>
+                            <button
+                                class="text-[10px] font-mono tracking-tighter text-muted-foreground hover:text-foreground transition-colors"
+                                id="lang-en"
+                            >
+                                EN
+                            </button>
+                        </div>
+                        <button
+                            id="theme-toggle"
+                            class="text-muted-foreground hover:text-foreground transition-colors"
+                            data-i18n-title="theme"
+                            title="Cambiar Tema"
+                            aria-label="Cambiar Tema"
+                        >
+                            <i data-lucide="sun" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
-                    <div id="eventModalBody" class="px-6 py-6 text-muted-foreground leading-relaxed max-h-[60vh] overflow-y-auto">
-                        <!-- Contenido -->
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-end">
+                    <div class="lg:col-span-8">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="editorial-label text-bitcoin-orange" data-i18n-key="protocolHistory"
+                                >Protocol History</span
+                            >
+                            <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
+                        </div>
+                        <h1
+                            class="text-4xl sm:text-6xl font-heading font-bold tracking-tighter leading-[0.9] animate-editorial-fade"
+                        >
+                            <span data-i18n-key="pageTitle">El Épico Viaje de Bitcoin</span>
+                        </h1>
                     </div>
-                    <div class="px-6 py-4 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-                        <div id="eventModalLinks" class="flex flex-wrap gap-2"></div>
-                        <button type="button" data-modal-close class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-key="modalClose">Cerrar</button>
+                    <div class="lg:col-span-4 lg:pb-1">
+                        <p class="editorial-label" data-i18n-key="pageSubtitle">
+                            Una historia de precio, poder y resiliencia.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <!-- Gráfico: pieza central -->
+                <section aria-label="Bitcoin price chart">
+                    <div
+                        class="flex flex-wrap justify-between items-end mb-6 gap-4 sm:gap-6 border-b border-border/10 pb-4"
+                    >
+                        <div
+                            id="event-filters"
+                            class="flex flex-nowrap overflow-x-auto no-scrollbar -mx-1 px-1 gap-2 sm:flex-wrap sm:overflow-visible sm:mx-0 sm:px-0"
+                            role="group"
+                            aria-label="Filtros de eventos"
+                        ></div>
+
+                        <div class="flex gap-4">
+                            <button
+                                id="scale-toggle"
+                                class="hidden sm:flex editorial-label text-muted-foreground hover:text-foreground transition-colors border border-border/40 px-4 py-2 hover:border-bitcoin-orange items-center gap-2"
+                                data-i18n-title="scale"
+                            >
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Log Scale</span>
+                            </button>
+                            <button
+                                id="reset-zoom"
+                                class="editorial-label text-muted-foreground hover:text-foreground transition-colors border border-border/40 px-4 py-2 hover:border-bitcoin-orange flex items-center gap-2"
+                                style="display: none"
+                                data-i18n-key="resetZoom"
+                                data-i18n-title="resetZoom"
+                            >
+                                <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                                <span>Reset</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="chart-container" class="glass-panel min-h-[420px] scroll-mt-6">
+                        <div id="loading-spinner" class="text-center py-20">
+                            <div
+                                class="inline-block w-6 h-6 border-2 border-muted border-t-foreground rounded-full animate-spin mb-4"
+                                role="status"
+                            >
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <p
+                                id="loading-phrase"
+                                class="mt-2 text-sm text-muted-foreground italic font-heading tracking-wider"
+                            ></p>
+                        </div>
+                    </div>
+
+                    <!-- Leyenda -->
+                    <div
+                        id="chart-legend"
+                        class="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 mt-5"
+                        style="display: none"
+                    >
+                        <div class="fictitious-data-legend-item flex items-center gap-2">
+                            <svg width="20" height="2" class="shrink-0">
+                                <line
+                                    x1="0"
+                                    y1="1"
+                                    x2="20"
+                                    y2="1"
+                                    class="line fictitious-line"
+                                    style="stroke-width: 1px"
+                                ></line>
+                            </svg>
+                            <small class="text-sm text-muted-foreground" data-i18n-key="fictitiousDataLegend"></small>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mt-4">
+                        <p
+                            id="data-cutoff"
+                            class="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground"
+                        ></p>
+                        <p
+                            class="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground"
+                            data-i18n-key="chartHint"
+                        ></p>
+                    </div>
+                </section>
+
+                <!-- Stats Dashboard -->
+                <div id="stats-dashboard" class="mt-12"></div>
+
+                <!-- Section: Timeline de Eventos -->
+                <section class="mt-32 pt-16 border-t border-border/20">
+                    <div class="mb-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="editorial-label text-bitcoin-orange" data-i18n-key="timelineLabel"
+                                >Timeline</span
+                            >
+                            <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                            <div class="lg:col-span-7">
+                                <h2 class="text-editorial-section font-heading font-bold" data-i18n-key="timelineTitle">
+                                    Cronología de Eventos
+                                </h2>
+                            </div>
+                            <div class="lg:col-span-5">
+                                <p
+                                    class="text-sm text-muted-foreground leading-relaxed"
+                                    data-i18n-key="timelineIntro"
+                                ></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="events-timeline"></div>
+                </section>
+
+                <!-- Curiosidades: cierre tipográfico antes del CTA -->
+                <aside id="did-you-know" class="mt-16 hidden" aria-label="Did you know">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-border/20 pt-8">
+                        <div class="md:col-span-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-px bg-bitcoin-orange"></div>
+                                <span id="did-you-know-title" class="editorial-label text-bitcoin-orange"></span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div id="did-you-know-content" class="cursor-pointer group">
+                                <span
+                                    id="did-you-know-text"
+                                    class="text-2xl font-serif italic leading-snug group-hover:text-bitcoin-orange transition-colors"
+                                ></span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 flex justify-end">
+                            <button
+                                id="next-did-you-know"
+                                class="editorial-label text-muted-foreground hover:text-bitcoin-orange transition-colors flex items-center gap-2"
+                            >
+                                <span data-i18n-key="didYouKnowNext">Next</span>
+                                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Cierre: enlace a la página del Halving -->
+                <div
+                    class="mt-20 pt-12 pb-12 border-t border-border/20 flex flex-col sm:flex-row sm:items-end justify-between gap-8"
+                >
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="editorial-label text-bitcoin-orange" data-i18n-key="halvingTeaserLabel"
+                                >Halving</span
+                            >
+                            <div class="h-[1px] bg-bitcoin-orange/20 grow"></div>
+                        </div>
+                        <h2
+                            class="text-editorial-section font-heading font-bold mb-3"
+                            data-i18n-key="halvingTeaserTitle"
+                        >
+                            Profundiza en el Halving
+                        </h2>
+                        <p class="text-muted-foreground text-sm max-w-md" data-i18n-key="halvingTeaserDescription">
+                            Entiende el mecanismo de escasez de Bitcoin
+                        </p>
+                    </div>
+                    <a
+                        href="halving.html"
+                        class="group inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background hover:bg-bitcoin-orange transition-all duration-500 flex-shrink-0"
+                    >
+                        <span class="text-[10px] font-mono uppercase tracking-[0.2em]" data-i18n-key="learnAboutHalving"
+                            >Halving Cycle</span
+                        >
+                        <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </main>
+
+            <!-- Footer: Clean & Typographic -->
+            <footer class="mt-0 pt-16 pb-12 border-t border-border">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="terminal" class="w-3 h-3 text-muted-foreground"></i>
+                            <h2
+                                class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground"
+                                data-i18n-key="footerProtocol"
+                            >
+                                Protocol
+                            </h2>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-2" data-i18n-key="dataSource"></p>
+                        <div class="flex gap-6 mb-8">
+                            <a
+                                href="https://github.com/Mendiak/bitcoin.history"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange"
+                                >Source Code</a
+                            >
+                            <a
+                                href="#"
+                                id="view-glossary-link"
+                                class="text-sm font-medium hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange"
+                                data-i18n-key="viewGlossary"
+                                >Ver Glosario Completo</a
+                            >
+                        </div>
+                        <div class="mt-8">
+                            <script
+                                type="text/javascript"
+                                src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                                data-name="bmc-button"
+                                data-slug="Mendiak"
+                                data-color="#FFDD00"
+                                data-emoji=""
+                                data-font="Arial"
+                                data-text="Buy me a coffee"
+                                data-outline-color="#000000"
+                                data-font-color="#000000"
+                                data-coffee-color="#ffffff"
+                            ></script>
+                        </div>
+                    </div>
+                    <div class="md:text-right">
+                        <div class="flex items-center md:justify-end gap-2 mb-4">
+                            <i data-lucide="user" class="w-3 h-3 text-muted-foreground"></i>
+                            <h2
+                                class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-muted-foreground"
+                                data-i18n-key="footerAuthor"
+                            >
+                                Author
+                            </h2>
+                        </div>
+                        <p class="text-sm font-medium mb-4">
+                            <a
+                                href="https://mendiak.github.io/portfolio/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="hover:text-bitcoin-orange transition-colors underline underline-offset-4 decoration-border hover:decoration-bitcoin-orange"
+                                >Mikel Aramendia</a
+                            >
+                        </p>
+                        <div id="footer-quote" class="text-sm text-muted-foreground italic max-w-xs md:ml-auto"></div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Modal de Evento (Custom Tailwind) -->
+        <div
+            id="eventModal"
+            class="fixed inset-0 z-[100] hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="eventModalLabel"
+        >
+            <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
+            <div class="fixed inset-0 z-10 overflow-y-auto">
+                <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                    <div
+                        class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl"
+                    >
+                        <div class="px-6 py-4 border-b border-border flex justify-between items-center">
+                            <h2 id="eventModalLabel" class="text-xl font-heading font-bold">Título del Evento</h2>
+                            <button
+                                type="button"
+                                data-modal-close
+                                class="text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                        <div
+                            id="eventModalBody"
+                            class="px-6 py-6 text-muted-foreground leading-relaxed max-h-[60vh] overflow-y-auto"
+                        >
+                            <!-- Contenido -->
+                        </div>
+                        <div
+                            class="px-6 py-4 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4"
+                        >
+                            <div id="eventModalLinks" class="flex flex-wrap gap-2"></div>
+                            <button
+                                type="button"
+                                data-modal-close
+                                class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors"
+                                data-i18n-key="modalClose"
+                            >
+                                Cerrar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal de Glosario (Custom Tailwind) -->
-    <div id="glossaryModal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-labelledby="glossaryModalLabel">
-        <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
-                    <div class="px-6 py-4 border-b border-border flex justify-between items-center">
-                        <h2 id="glossaryModalLabel" class="text-xl font-heading font-bold" data-i18n-key="glossaryTitle">Glosario de Conceptos</h2>
-                        <button type="button" data-modal-close class="text-muted-foreground hover:text-foreground transition-colors">
-                            <i data-lucide="x" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                    <div id="glossaryModalBody" class="px-6 py-6 max-h-[70vh] overflow-y-auto">
-                        <!-- Contenido -->
-                    </div>
-                    <div class="px-6 py-4 border-t border-border flex justify-end">
-                        <button type="button" data-modal-close class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors" data-i18n-key="modalClose">Cerrar</button>
+        <!-- Modal de Glosario (Custom Tailwind) -->
+        <div
+            id="glossaryModal"
+            class="fixed inset-0 z-[100] hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="glossaryModalLabel"
+        >
+            <div class="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity"></div>
+            <div class="fixed inset-0 z-10 overflow-y-auto">
+                <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                    <div
+                        class="relative transform overflow-hidden rounded-lg bg-card border border-border text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl"
+                    >
+                        <div class="px-6 py-4 border-b border-border flex justify-between items-center">
+                            <h2
+                                id="glossaryModalLabel"
+                                class="text-xl font-heading font-bold"
+                                data-i18n-key="glossaryTitle"
+                            >
+                                Glosario de Conceptos
+                            </h2>
+                            <button
+                                type="button"
+                                data-modal-close
+                                class="text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                        <div id="glossaryModalBody" class="px-6 py-6 max-h-[70vh] overflow-y-auto">
+                            <!-- Contenido -->
+                        </div>
+                        <div class="px-6 py-4 border-t border-border flex justify-end">
+                            <button
+                                type="button"
+                                data-modal-close
+                                class="px-4 py-2 text-sm font-medium border border-border rounded-md hover:bg-muted transition-colors"
+                                data-i18n-key="modalClose"
+                            >
+                                Cerrar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script type="module" src="/src/main.js"></script>
-</body>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>

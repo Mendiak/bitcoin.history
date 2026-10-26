@@ -15,7 +15,7 @@ let fullHeight = 500;
 let svg, focus, context;
 let x, x2, y, y2, xAxis, xAxis2;
 let line, line2, brush;
-let focusLineReal, focusLineFictitious, contextLine;
+let contextLine;
 let marketAreasGroup, marketAreas;
 let hoverLine, hoverDot, tooltip;
 let eventMarkers, milestoneMarkers;
@@ -42,7 +42,7 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
     if (isMobile) {
         fullWidth = 400;
         fullHeight = 500;
-        margin = { top: 10, right: 10, bottom: 90, left: 45 }; 
+        margin = { top: 10, right: 12, bottom: 90, left: 62 };
     } else {
         fullWidth = 960;
         fullHeight = 500;
@@ -54,38 +54,38 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
 
     // Ajustar posición del gráfico de contexto (brush)
     const contextHeight = 30;
-    const contextBottomMargin = isMobile ? 30 : 50; 
-    
-    margin2 = { 
-        top: fullHeight - contextBottomMargin - contextHeight, 
-        right: margin.right, 
-        bottom: contextBottomMargin, 
-        left: margin.left 
+    const contextBottomMargin = isMobile ? 30 : 50;
+
+    margin2 = {
+        top: fullHeight - contextBottomMargin - contextHeight,
+        right: margin.right,
+        bottom: contextBottomMargin,
+        left: margin.left,
     };
     height2 = fullHeight - margin2.top - margin2.bottom;
-    
+
     // Procesar datos
-    data = _priceData.prices.map(d => ({
+    data = _priceData.prices.map((d) => ({
         date: new Date(d[0]),
-        price: d[1]
+        price: d[1],
     }));
 
     eventsData = _eventsData;
-    eventsData.forEach(e => {
+    eventsData.forEach((e) => {
         if (typeof e.date === 'string') {
-            e.date = d3.timeParse("%Y-%m-%d")(e.date);
+            e.date = d3.utcParse('%Y-%m-%d')(e.date);
         }
     });
 
-    marketCyclesData.forEach(d => {
+    marketCyclesData.forEach((d) => {
         if (typeof d.startDate === 'string') {
-            d.startDate = d3.timeParse("%Y-%m-%d")(d.startDate);
-            d.endDate = d3.timeParse("%Y-%m-%d")(d.endDate);
+            d.startDate = d3.utcParse('%Y-%m-%d')(d.startDate);
+            d.endDate = d3.utcParse('%Y-%m-%d')(d.endDate);
         }
     });
 
     // Lógica Datos Ficticios
-    const earliestEventDate = d3.min(eventsData, e => e.date);
+    const earliestEventDate = d3.min(eventsData, (e) => e.date);
     const firstPriceDate = data[0].date;
 
     if (earliestEventDate < firstPriceDate) {
@@ -93,33 +93,29 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
         const fictitiousCorner = { date: firstPriceDate, price: 0.01, isFictitious: true };
         const fictitiousEnd = { date: firstPriceDate, price: data[0].price, isFictitious: true };
         data.unshift(fictitiousStart, fictitiousCorner, fictitiousEnd);
-        
+
         const legendEl = document.getElementById('chart-legend');
         if (legendEl) legendEl.style.display = 'flex';
     }
 
     // --- SVG ---
     d3.select(containerId).html(''); // Limpiar contenedor
-    svg = d3.select(containerId).append("svg")
-        .attr("preserveAspectRatio", "xMidYMid meet")
-        .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`);
+    svg = d3
+        .select(containerId)
+        .append('svg')
+        .attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('viewBox', `0 0 ${fullWidth} ${fullHeight}`);
 
-    svg.append("defs").append("clipPath")
-        .attr("id", "clip")
-        .append("rect").attr("width", width).attr("height", height);
+    svg.append('defs').append('clipPath').attr('id', 'clip').append('rect').attr('width', width).attr('height', height);
 
-    tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-        
-    focus = svg.append("g").attr("class", "focus")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+    tooltip = d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0);
 
-    context = svg.append("g").attr("class", "context")
-        .attr("transform", `translate(${margin2.left},${margin2.top})`);
+    focus = svg.append('g').attr('class', 'focus').attr('transform', `translate(${margin.left},${margin.top})`);
+
+    context = svg.append('g').attr('class', 'context').attr('transform', `translate(${margin2.left},${margin2.top})`);
 
     // --- ESCALAS ---
-    const [minDate, maxDate] = d3.extent(data, d => d.date);
+    const [minDate, maxDate] = d3.extent(data, (d) => d.date);
     const timeRange = maxDate.getTime() - minDate.getTime();
     const paddingTime = timeRange * 0.02;
     const paddedDomain = [new Date(minDate.getTime() - paddingTime), new Date(maxDate.getTime() + paddingTime)];
@@ -131,85 +127,105 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
     xAxis2 = d3.axisBottom(x2);
 
     // --- ELEMENTOS ---
-    line = d3.line().x(d => x(d.date));
-    line2 = d3.line().x(d => x2(d.date));
-    brush = d3.brushX().extent([[0, 0], [width, height2]]).on("brush end", brushed);
+    line = d3.line().x((d) => x(d.date));
+    line2 = d3.line().x((d) => x2(d.date));
+    brush = d3
+        .brushX()
+        .extent([
+            [0, 0],
+            [width, height2],
+        ])
+        .on('brush end', brushed);
 
-    focus.append("g").attr("class", "axis axis--x").attr("transform", `translate(0,${height})`).call(xAxis);
-    focus.append("g").attr("class", "axis axis--y");
+    focus.append('g').attr('class', 'axis axis--x').attr('transform', `translate(0,${height})`).call(xAxis);
+    focus.append('g').attr('class', 'axis axis--y');
 
-    marketAreasGroup = focus.insert("g", ".line").attr("class", "market-areas").attr("clip-path", "url(#clip)");
-    focusLineReal = focus.append("path").attr("class", "line real-line").attr("clip-path", "url(#clip)");
-    focusLineFictitious = focus.append("path").attr("class", "line fictitious-line").attr("clip-path", "url(#clip)");
+    marketAreasGroup = focus.insert('g', '.line').attr('class', 'market-areas').attr('clip-path', 'url(#clip)');
+    focus.append('path').attr('class', 'line real-line').attr('clip-path', 'url(#clip)');
+    focus.append('path').attr('class', 'line fictitious-line').attr('clip-path', 'url(#clip)');
 
-    contextLine = context.append("path").datum(data).attr("class", "line");
-    context.append("g").attr("class", "axis axis--x").attr("transform", `translate(0,${height2})`).call(xAxis2);
-    const brushGroup = context.append("g").attr("class", "brush").call(brush);
+    contextLine = context.append('path').datum(data).attr('class', 'line');
+    context.append('g').attr('class', 'axis axis--x').attr('transform', `translate(0,${height2})`).call(xAxis2);
+    context.append('g').attr('class', 'brush').call(brush);
 
-    marketAreas = marketAreasGroup.selectAll(".market-area")
+    marketAreas = marketAreasGroup
+        .selectAll('.market-area')
         .data(marketCyclesData)
-        .enter().append("rect")
-        .attr("class", d => `market-area ${d.type}`)
-        .attr("y", 0)
-        .attr("height", height);
+        .enter()
+        .append('rect')
+        .attr('class', (d) => `market-area ${d.type}`)
+        .attr('y', 0)
+        .attr('height', height);
 
     // --- TOOLTIP INTERACTIVO ---
-    hoverLine = focus.append("line").attr("class", "hover-line").attr("y1", 0).attr("y2", height).style("opacity", 0);
-    hoverDot = focus.append("circle").attr("class", "hover-dot").attr("r", 4).style("opacity", 0);
-    
-    focus.append("rect")
-        .attr("class", "overlay")
-        .attr("width", width)
-        .attr("height", height)
-        .style("fill", "none")
-        .style("pointer-events", "all")
-        .on("mouseover", () => {
-            tooltip.style("opacity", 1);
-            hoverLine.style("opacity", 1);
-            hoverDot.style("opacity", 1);
+    hoverLine = focus.append('line').attr('class', 'hover-line').attr('y1', 0).attr('y2', height).style('opacity', 0);
+    hoverDot = focus.append('circle').attr('class', 'hover-dot').attr('r', 4).style('opacity', 0);
+
+    focus
+        .append('rect')
+        .attr('class', 'overlay')
+        .attr('width', width)
+        .attr('height', height)
+        .style('fill', 'none')
+        .style('pointer-events', 'all')
+        .on('mouseover', () => {
+            tooltip.style('opacity', 1);
+            hoverLine.style('opacity', 1);
+            hoverDot.style('opacity', 1);
         })
-        .on("mouseout", () => {
-            tooltip.style("opacity", 0);
-            hoverLine.style("opacity", 0);
-            hoverDot.style("opacity", 0);
+        .on('mouseout', () => {
+            tooltip.style('opacity', 0);
+            hoverLine.style('opacity', 0);
+            hoverDot.style('opacity', 0);
         })
-        .on("mousemove", mousemove);
+        .on('mousemove', mousemove);
 
     // --- MARCADORES DE EVENTOS ---
-    eventMarkers = focus.selectAll(".event-marker")
+    eventMarkers = focus
+        .selectAll('.event-marker')
         .data(eventsData)
-        .enter().append("circle")
-        .attr("class", d => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`)
-        .attr("r", d => d.category === 'Halving' ? 7 : 5)
-        .style("cursor", "pointer")
-        .style("pointer-events", "all")
-        .attr("tabindex", 0)
-        .attr("role", "button")
-        .on("click", (event, d) => {
+        .enter()
+        .append('circle')
+        .attr(
+            'class',
+            (d) => `event-marker category-${d.category.toLowerCase()} ${d.category === 'Halving' ? 'milestone' : ''}`
+        )
+        .attr('r', (d) => (d.category === 'Halving' ? 7 : 5))
+        .style('cursor', 'pointer')
+        .style('pointer-events', 'all')
+        .attr('tabindex', 0)
+        .attr('role', 'button')
+        .on('click', (event, d) => {
             event.preventDefault();
             event.stopPropagation();
             if (onEventClickCallback) onEventClickCallback(d);
         });
 
     // Marcadores descriptivos (Emojis para hitos)
-    milestoneMarkers = focus.selectAll(".milestone-icon")
-        .data(eventsData.filter(d => d.category === 'Halving' || d.title_es.includes('Génesis') || d.title_es.includes('Whitepaper')))
-        .enter().append("text")
-        .attr("class", "milestone-icon")
-        .attr("text-anchor", "middle")
-        .attr("dy", "-1.2em")
-        .attr("font-size", "14px")
-        .attr("clip-path", "url(#clip)")
-        .style("pointer-events", "none")
-        .text(d => {
+    milestoneMarkers = focus
+        .selectAll('.milestone-icon')
+        .data(
+            eventsData.filter(
+                (d) => d.category === 'Halving' || d.title_es.includes('Génesis') || d.title_es.includes('Whitepaper')
+            )
+        )
+        .enter()
+        .append('text')
+        .attr('class', 'milestone-icon')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '-1.2em')
+        .attr('font-size', '14px')
+        .attr('clip-path', 'url(#clip)')
+        .style('pointer-events', 'none')
+        .text((d) => {
             const emojiMatch = d.title_es.match(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/u);
             return emojiMatch ? emojiMatch[0] : '';
         });
 
     // --- LIVE DOT ---
-    liveDotGroup = focus.append("g").attr("class", "live-dot-container").attr("clip-path", "url(#clip)");
-    liveDotGroup.append("circle").attr("class", "live-dot-pulse").attr("r", 6);
-    liveDotGroup.append("circle").attr("class", "live-dot-core").attr("r", 4);
+    liveDotGroup = focus.append('g').attr('class', 'live-dot-container').attr('clip-path', 'url(#clip)');
+    liveDotGroup.append('circle').attr('class', 'live-dot-pulse').attr('r', 6);
+    liveDotGroup.append('circle').attr('class', 'live-dot-core').attr('r', 4);
 
     setupMarkerInteractions();
 
@@ -219,52 +235,59 @@ export function initChart(containerId, _priceData, _eventsData, _marketCyclesDat
 }
 
 function updateYScales() {
-    const maxPrice = d3.max(data, d => d.price);
+    const maxPrice = d3.max(data, (d) => d.price);
     if (state.scale === 'log') {
         y = d3.scaleLog().range([height, 0]).domain([0.008, maxPrice]);
         y2 = d3.scaleLog().range([height2, 0]).domain(y.domain());
     } else {
-        y = d3.scaleLinear().range([height, 0]).domain([-maxPrice * 0.03, maxPrice]).nice();
+        y = d3
+            .scaleLinear()
+            .range([height, 0])
+            .domain([-maxPrice * 0.03, maxPrice])
+            .nice();
         y2 = d3.scaleLinear().range([height2, 0]).domain(y.domain());
     }
 
-    line.y(d => y(d.price));
-    line2.y(d => y2(d.price));
+    line.y((d) => y(d.price));
+    line2.y((d) => y2(d.price));
 }
 
 function setupMarkerInteractions() {
     eventMarkers
-        .on("mouseover", function(event, d) {
+        .on('mouseover', function (event, d) {
             d3.select(this).classed('highlighted', true);
-            hoverLine.style("opacity", 0);
-            hoverDot.style("opacity", 0);
+            hoverLine.style('opacity', 0);
+            hoverDot.style('opacity', 0);
 
-            let extraContent = "";
+            let extraContent = '';
             if (d.category === 'Halving') {
-                let reward = "";
+                let reward = '';
                 const year = d.date.getFullYear();
-                if (year === 2012) reward = "50 BTC ➔ 25 BTC";
-                else if (year === 2016) reward = "25 BTC ➔ 12.5 BTC";
-                else if (year === 2020) reward = "12.5 BTC ➔ 6.25 BTC";
-                else if (year >= 2024) reward = "6.25 BTC ➔ 3.125 BTC";
-                
+                if (year === 2012) reward = '50 BTC ➔ 25 BTC';
+                else if (year === 2016) reward = '25 BTC ➔ 12.5 BTC';
+                else if (year === 2020) reward = '12.5 BTC ➔ 6.25 BTC';
+                else if (year >= 2024) reward = '6.25 BTC ➔ 3.125 BTC';
+
                 if (reward) {
                     extraContent = `<div class="mt-2 pt-2 border-top small text-muted">${reward}</div>`;
                 }
             }
 
-            tooltip.classed("tooltip-event", true)
-                .style("opacity", 1)
-                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small class="text-[11px] opacity-70">${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}${extraContent}`)
-                .style("left", (event.pageX + 15) + "px")
-                .style("top", (event.pageY - 28) + "px");
+            tooltip
+                .classed('tooltip-event', true)
+                .style('opacity', 1)
+                .html(
+                    `<strong>${d['title_' + state.lang]}</strong><br/><small class="text-[11px] opacity-70">${d3.utcFormat('%d %b %Y')(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}${extraContent}`
+                )
+                .style('left', event.pageX + 15 + 'px')
+                .style('top', event.pageY - 28 + 'px');
         })
-        .on("mouseout", function() {
+        .on('mouseout', function () {
             d3.select(this).classed('highlighted', false);
-            tooltip.style("opacity", 0).classed("tooltip-event", false);
+            tooltip.style('opacity', 0).classed('tooltip-event', false);
         })
-        .on("keydown", (event, d) => {
-            if (event.key === "Enter" || event.key === " ") {
+        .on('keydown', (event, d) => {
+            if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
                 if (onEventClickCallback) onEventClickCallback(d);
             }
@@ -272,46 +295,47 @@ function setupMarkerInteractions() {
 }
 
 function mousemove(event) {
-    const bisectDate = d3.bisector(d => d.date).left;
-    const [mx, my] = d3.pointer(event);
+    const bisectDate = d3.bisector((d) => d.date).left;
+    const [mx] = d3.pointer(event);
     const x0 = x.invert(mx);
     const i = bisectDate(visibleData, x0, 1);
     const d0 = visibleData[i - 1];
     const d1 = visibleData[i];
-    const d = (d1 && (x0 - d0.date > d1.date - x0)) ? d1 : d0;
+    const d = d1 && x0 - d0.date > d1.date - x0 ? d1 : d0;
     if (!d) return;
 
-    hoverDot.attr("cx", x(d.date)).attr("cy", y(d.price || 0)); 
-    hoverLine.attr("x1", x(d.date)).attr("x2", x(d.date));
+    hoverDot.attr('cx', x(d.date)).attr('cy', y(d.price || 0));
+    hoverLine.attr('x1', x(d.date)).attr('x2', x(d.date));
 
     // Find current market cycle
-    const cycle = marketCyclesData.find(c => d.date >= c.startDate && d.date <= c.endDate);
-    let cycleInfo = "";
+    const cycle = marketCyclesData.find((c) => d.date >= c.startDate && d.date <= c.endDate);
+    let cycleInfo = '';
     if (cycle) {
         const cycleName = cycle.label;
         const cycleColor = cycle.type === 'bull' ? '#28a745' : '#dc3545';
-        cycleInfo = `<div class="mt-2 pt-2 border-top small" style="color: ${cycleColor}">
-            <i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> ${cycleName}
+        cycleInfo = `<div class="mt-2 flex items-center gap-2 border-t border-border/40 pt-2 text-[12px]">
+            <span class="inline-block h-1.5 w-1.5 rounded-full" style="background-color: ${cycleColor}"></span>
+            <span style="color: ${cycleColor}">${cycleName}</span>
         </div>`;
     }
 
     // Purchasing Power Calculation
     const price = d.price || 0.01;
     const currentTranslations = translations[state.lang];
-    let purchasingInfo = "";
+    let purchasingInfo = '';
 
     if (price > 0 && currentTranslations) {
         // Items configuration
         const itemsList = [
-            { id: "bread", price: 1 },
-            { id: "netflix", price: 15 },
-            { id: "pizza", price: 20 },
-            { id: "playstation", price: 500 },
-            { id: "macbook", price: 2000 },
-            { id: "rolex", price: 10000 },
-            { id: "car", price: 40000 },
-            { id: "gold", price: 75000 },
-            { id: "house", price: 400000 }
+            { id: 'bread', price: 1 },
+            { id: 'netflix', price: 15 },
+            { id: 'pizza', price: 20 },
+            { id: 'playstation', price: 500 },
+            { id: 'macbook', price: 2000 },
+            { id: 'rolex', price: 10000 },
+            { id: 'car', price: 40000 },
+            { id: 'gold', price: 75000 },
+            { id: 'house', price: 400000 },
         ];
 
         // Find the most appropriate item tier
@@ -325,26 +349,26 @@ function mousemove(event) {
         }
 
         const quantity = Math.floor(price / selectedItem.price);
-        const itemLabel = currentTranslations.items?.[selectedItem.id] || "";
-        const itemText = itemLabel ? `${quantity} ${itemLabel}` : "";
+        const itemLabel = currentTranslations.items?.[selectedItem.id] || '';
+        const itemText = itemLabel ? `${quantity} ${itemLabel}` : '';
 
         if (itemText) {
-            purchasingInfo = `<div class="mt-2 pt-2 border-top small">
+            purchasingInfo = `<div class="mt-2 border-t border-border/40 pt-2 text-[12px]">
                 <span class="text-muted-foreground uppercase text-[11px] tracking-wider">${currentTranslations.purchasingPower}</span><br/>
-                <span class="text-foreground font-semibold flex items-center gap-1">
-                    <i class="bi bi-cart-fill text-bitcoin-orange"></i> ${currentTranslations.canBuy} ${itemText}
-                </span>
+                <span class="text-foreground font-semibold">${currentTranslations.canBuy} ${itemText}</span>
             </div>`;
         }
     }
 
-    tooltip.html(
-        `${d3.timeFormat("%d %b %Y")(d.date)}<br/>` +
-        `<strong class="tooltip-price">${d3.format("$,.2f")(d.price)}</strong>` +
-        cycleInfo +
-        purchasingInfo
-    ).style("left", (event.pageX + 15) + "px")
-     .style("top", (event.pageY - 28) + "px");
+    tooltip
+        .html(
+            `${d3.utcFormat('%d %b %Y')(d.date)}<br/>` +
+                `<strong class="tooltip-price">${d3.format('$,.2f')(d.price)}</strong>` +
+                cycleInfo +
+                purchasingInfo
+        )
+        .style('left', event.pageX + 15 + 'px')
+        .style('top', event.pageY - 28 + 'px');
 }
 
 function brushed(event) {
@@ -354,12 +378,12 @@ function brushed(event) {
 }
 
 export function resetZoom() {
-    d3.select(".brush").call(brush.move, null);
+    d3.select('.brush').call(brush.move, null);
 }
 
 export function showFactOnChart(dateStr) {
     if (!dateStr) return;
-    const date = d3.timeParse("%Y-%m-%d")(dateStr);
+    const date = d3.utcParse('%Y-%m-%d')(dateStr);
     if (!date) return;
 
     if (factHighlightTimeout) {
@@ -369,7 +393,7 @@ export function showFactOnChart(dateStr) {
     // 1. Asegurar visibilidad sin cambiar el nivel de zoom (solo desplazar si es necesario)
     const [currentStart, currentEnd] = x.domain();
     const duration = currentEnd.getTime() - currentStart.getTime();
-    
+
     if (date < currentStart || date > currentEnd) {
         const halfDuration = duration / 2;
         let newStart = new Date(date.getTime() - halfDuration);
@@ -385,43 +409,52 @@ export function showFactOnChart(dateStr) {
             newStart = new Date(maxD.getTime() - duration);
         }
 
-        d3.select(".brush").transition().duration(800).call(brush.move, [x2(newStart), x2(newEnd)]);
+        d3.select('.brush')
+            .transition()
+            .duration(800)
+            .call(brush.move, [x2(newStart), x2(newEnd)]);
     }
 
     // 2. Resaltar el marcador (animación de pulso y escala)
-    const marker = eventMarkers.filter(d => d.date.getTime() === date.getTime());
-    
+    const marker = eventMarkers.filter((d) => d.date.getTime() === date.getTime());
+
     if (!marker.empty()) {
         eventMarkers.classed('highlighted pulsing', false);
         marker.classed('highlighted pulsing', true);
 
         // 3. Mostrar el Tooltip y la línea de forma programada
         const d = marker.datum();
-        const bisectDate = d3.bisector(d => d.date).left;
+        const bisectDate = d3.bisector((d) => d.date).left;
         const i = bisectDate(data, d.date, 1);
-        const priceData = data[i-1]; 
+        const priceData = data[i - 1];
 
         if (priceData) {
-            hoverDot.attr("cx", x(d.date)).attr("cy", y(priceData.price || 0)).style("opacity", 1);
-            hoverLine.attr("x1", x(d.date)).attr("x2", x(d.date)).style("opacity", 1);
-            
+            hoverDot
+                .attr('cx', x(d.date))
+                .attr('cy', y(priceData.price || 0))
+                .style('opacity', 1);
+            hoverLine.attr('x1', x(d.date)).attr('x2', x(d.date)).style('opacity', 1);
+
             const svgNode = svg.node();
             const rect = svgNode.getBoundingClientRect();
             const screenX = rect.left + window.scrollX + margin.left + x(d.date);
             const screenY = rect.top + window.scrollY + margin.top + y(priceData.price || 0);
 
-            tooltip.style("opacity", 1)
-                .classed("tooltip-event", true)
-                .html(`<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.timeFormat("%d %b %Y")(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}`)
-                .style("left", (screenX + 15) + "px")
-                .style("top", (screenY - 28) + "px");
+            tooltip
+                .style('opacity', 1)
+                .classed('tooltip-event', true)
+                .html(
+                    `<strong>${d['title_' + state.lang]}</strong><br/><small>${d3.utcFormat('%d %b %Y')(d.date)}</small><hr/>${d['description_tooltip_' + state.lang]}`
+                )
+                .style('left', screenX + 15 + 'px')
+                .style('top', screenY - 28 + 'px');
 
             factHighlightTimeout = setTimeout(() => {
                 marker.classed('highlighted pulsing', false);
-                if (tooltip.classed("tooltip-event")) {
-                   tooltip.style("opacity", 0).classed("tooltip-event", false);
-                   hoverDot.style("opacity", 0);
-                   hoverLine.style("opacity", 0);
+                if (tooltip.classed('tooltip-event')) {
+                    tooltip.style('opacity', 0).classed('tooltip-event', false);
+                    hoverDot.style('opacity', 0);
+                    hoverLine.style('opacity', 0);
                 }
                 factHighlightTimeout = null;
             }, 5000);
@@ -435,36 +468,40 @@ export function focusOnDate(dateStr) {
 
 function redrawFocus(withTransition = true) {
     const t = withTransition ? focus.transition().duration(750) : focus;
-    t.select(".axis--x").call(xAxis);
+    t.select('.axis--x').call(xAxis);
 
     const [startDate, endDate] = x.domain();
-    const bisectDate = d3.bisector(d => d.date).left;
+    const bisectDate = d3.bisector((d) => d.date).left;
     let startIndex = bisectDate(data, startDate) - 1;
     let endIndex = bisectDate(data, endDate) + 1;
     if (startIndex < 0) startIndex = 0;
     visibleData = data.slice(startIndex, endIndex);
 
-    const realVisibleData = visibleData.filter(d => !d.isFictitious);
-    const fictitiousVisibleData = visibleData.filter(d => d.isFictitious);
+    const realVisibleData = visibleData.filter((d) => !d.isFictitious);
+    const fictitiousVisibleData = visibleData.filter((d) => d.isFictitious);
 
-    focus.select(".real-line").datum(realVisibleData).attr("d", line);
-    focus.select(".fictitious-line").datum(fictitiousVisibleData).attr("d", line);
-    
-    focus.selectAll(".event-marker")
-        .attr("cx", d => x(d.date))
-        .attr("cy", d => {
+    focus.select('.real-line').datum(realVisibleData).attr('d', line);
+    focus.select('.fictitious-line').datum(fictitiousVisibleData).attr('d', line);
+
+    focus
+        .selectAll('.event-marker')
+        .attr('cx', (d) => x(d.date))
+        .attr('cy', (d) => {
             const i = bisectDate(data, d.date, 1);
-            const d0 = data[i - 1], d1 = data[i];
-            const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+            const d0 = data[i - 1],
+                d1 = data[i];
+            const closest = d1 && d.date - d0.date > d1.date - d.date ? d1 : d0;
             return closest ? y(closest.price) : height;
         });
 
-    focus.selectAll(".milestone-icon")
-        .attr("x", d => x(d.date))
-        .attr("y", d => {
+    focus
+        .selectAll('.milestone-icon')
+        .attr('x', (d) => x(d.date))
+        .attr('y', (d) => {
             const i = bisectDate(data, d.date, 1);
-            const d0 = data[i - 1], d1 = data[i];
-            const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+            const d0 = data[i - 1],
+                d1 = data[i];
+            const closest = d1 && d.date - d0.date > d1.date - d.date ? d1 : d0;
             return closest ? y(closest.price) : height;
         });
 
@@ -473,47 +510,66 @@ function redrawFocus(withTransition = true) {
     if (lastPoint && lastPoint.date >= startDate && lastPoint.date <= endDate) {
         const xPos = x(lastPoint.date);
         const yPos = y(lastPoint.price);
-        liveDotGroup.style("display", "block")
-            .attr("transform", `translate(${xPos},${yPos})`);
+        liveDotGroup.style('display', 'block').attr('transform', `translate(${xPos},${yPos})`);
     } else {
-        liveDotGroup.style("display", "none");
+        liveDotGroup.style('display', 'none');
     }
 
-    marketAreas
-        .attr("x", d => x(d.startDate))
-        .attr("width", d => Math.max(0, x(d.endDate) - x(d.startDate)));
+    marketAreas.attr('x', (d) => x(d.startDate)).attr('width', (d) => Math.max(0, x(d.endDate) - x(d.startDate)));
 
-    d3.select("#reset-zoom").style("display", d3.brushSelection(d3.select(".brush").node()) ? "inline-block" : "none");
+    d3.select('#reset-zoom').style('display', d3.brushSelection(d3.select('.brush').node()) ? 'inline-block' : 'none');
 }
+
+// En escala logarítmica los ticks pueden ser < $1: no deben redondearse a $0
+const formatLogPrice = (value) => (value >= 1 ? d3.format('$,.0f')(value) : d3.format('$,.3~f')(value));
 
 export function updateChart(transitionDuration = 750) {
     updateYScales(); // Update scales
 
     const t = svg.transition().duration(transitionDuration);
 
+    // Descripción accesible del gráfico (el SVG no aporta texto por sí solo)
+    svg.attr('role', 'img').attr(
+        'aria-label',
+        state.lang === 'es'
+            ? `Precio de Bitcoin en dólares entre 2010 y 2026, en escala ${state.scale === 'log' ? 'logarítmica' : 'lineal'}. Los puntos marcan eventos históricos.`
+            : `Bitcoin price in US dollars between 2010 and 2026, on a ${state.scale === 'log' ? 'logarithmic' : 'linear'} scale. Dots mark historical events.`
+    );
+
     if (state.scale === 'log') {
-        d3.select(".axis--y").transition(t).call(d3.axisLeft(y).ticks(10, d3.format("$,.0f")));
+        // Ticks deterministas por orden de magnitud (evita las 60+ subdivisiones de d3)
+        const logTicks = [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000];
+        d3.select('.axis--y').transition(t).call(d3.axisLeft(y).tickValues(logTicks).tickFormat(formatLogPrice));
     } else {
-        d3.select(".axis--y").transition(t).call(d3.axisLeft(y).tickFormat(d3.format("$,.2s")));
+        d3.select('.axis--y')
+            .transition(t)
+            .call(d3.axisLeft(y).tickFormat(d3.format('$,.2s')));
     }
 
-    focus.select(".real-line").transition(t).attr("d", line);
-    focus.select(".fictitious-line").transition(t).attr("d", line);
-    contextLine.transition(t).attr("d", line2);
-    
-    const bisectDate = d3.bisector(d => d.date).left;
-    eventMarkers.attr("cy", d => {
+    // Los nombres de mes dependen del locale activo: refrescamos ambos ejes X
+    focus.select('.axis--x').call(xAxis);
+    context.select('.axis--x').call(xAxis2);
+
+    focus.select('.real-line').transition(t).attr('d', line);
+    focus.select('.fictitious-line').transition(t).attr('d', line);
+    contextLine.transition(t).attr('d', line2);
+
+    const bisectDate = d3.bisector((d) => d.date).left;
+    eventMarkers
+        .attr('cy', (d) => {
             const i = bisectDate(data, d.date, 1);
-            const d0 = data[i - 1], d1 = data[i];
-            const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+            const d0 = data[i - 1],
+                d1 = data[i];
+            const closest = d1 && d.date - d0.date > d1.date - d.date ? d1 : d0;
             return closest ? y(closest.price) : height;
         })
-        .attr("aria-label", d => d['title_' + state.lang]); 
+        .attr('aria-label', (d) => d['title_' + state.lang]);
 
-    milestoneMarkers.attr("y", d => {
+    milestoneMarkers.attr('y', (d) => {
         const i = bisectDate(data, d.date, 1);
-        const d0 = data[i - 1], d1 = data[i];
-        const closest = (d1 && (d.date - d0.date > d1.date - d.date)) ? d1 : d0;                    
+        const d0 = data[i - 1],
+            d1 = data[i];
+        const closest = d1 && d.date - d0.date > d1.date - d.date ? d1 : d0;
         return closest ? y(closest.price) : height;
     });
 
@@ -522,23 +578,25 @@ export function updateChart(transitionDuration = 750) {
     if (lastPoint && !lastPoint.isFictitious) {
         const xPos = x(lastPoint.date);
         const yPos = y(lastPoint.price);
-        liveDotGroup.transition(t).attr("transform", `translate(${xPos},${yPos})`);
+        liveDotGroup.transition(t).attr('transform', `translate(${xPos},${yPos})`);
     }
 }
 
 export function filterMarkers(category) {
-   const duration = 400;
-   eventMarkers.transition().duration(duration)
-       .attr("r", d => (category === 'all' || d.category === category) ? (d.category === 'Halving' ? 8 : 6) : 0)
-       .style("opacity", d => (category === 'all' || d.category === category) ? 1 : 0)
-       .style("pointer-events", d => (category === 'all' || d.category === category) ? "all" : "none");
+    const duration = 400;
+    eventMarkers
+        .transition()
+        .duration(duration)
+        .attr('r', (d) => (category === 'all' || d.category === category ? (d.category === 'Halving' ? 8 : 6) : 0))
+        .style('opacity', (d) => (category === 'all' || d.category === category ? 1 : 0))
+        .style('pointer-events', (d) => (category === 'all' || d.category === category ? 'all' : 'none'));
 
-   milestoneMarkers.transition().duration(duration)
-       .style("opacity", d => (category === 'all' || d.category === category) ? 1 : 0);
+    milestoneMarkers
+        .transition()
+        .duration(duration)
+        .style('opacity', (d) => (category === 'all' || d.category === category ? 1 : 0));
 }
 
 export function highlightMarker(date, highlight) {
-    eventMarkers
-        .filter(markerData => markerData.date.getTime() === date.getTime())
-        .classed('highlighted', highlight);
+    eventMarkers.filter((markerData) => markerData.date.getTime() === date.getTime()).classed('highlighted', highlight);
 }

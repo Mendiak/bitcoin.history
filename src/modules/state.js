@@ -1,6 +1,6 @@
 export const state = {
-    scale: 'linear', // 'log' o 'linear'
+    scale: 'log', // 'log' o 'linear'
     lang: 'es', // 'es' o 'en'
     activeFilter: 'all', // Filtro de eventos activo
-    currentFactIndex: 0
+    currentFactIndex: 0,
 };

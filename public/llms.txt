@@ -1,0 +1,18 @@
+# Bitcoin History
+
+Interactive archive of Bitcoin's price history (2010–present) mapped against the key technological, regulatory and market events that shaped the network.
+
+## Pages
+
+- `/` — Interactive price chart with event timeline, category filters and per-event price impact.
+- `/halving.html` — Explainer of the halving mechanism and Bitcoin's emission curve.
+
+## Data
+
+- Price series: daily BTC/USD from 2010-07-17 to 2026-10-26, sourced from Kaggle, Bitcoinity and Coinbase (daily cron update).
+- Event dataset: 56 documented milestones with category, date and bilingual descriptions, each with sources.
+
+## Notes
+
+- Prices are nominal USD, not inflation-adjusted.
+- Event impact figures show price change at +30, +90 and +365 days; correlation is not causation.
